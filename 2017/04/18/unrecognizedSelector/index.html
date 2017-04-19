@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/index.html">
 <meta property="og:site_name" content="stack.blog">
 <meta property="og:description" content="当调用该对象上某个方法,而该对象上没有实现这个方法的时候，可以通过“消息转发”进行解决; 对象查找selector时，先查找cachelist，如果没有则查找methodlist，如果还没有就查找父类的methodlist; 都没有查找到时会三次机会可以处理这次selector访问12345id dynamicMethod(id self, SEL _cmd)&amp;#123;    NSLog(@&amp;">
-<meta property="og:updated_time" content="2017-04-19T07:04:58.000Z">
+<meta property="og:updated_time" content="2017-04-19T07:15:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="unrecognizedSelector">
 <meta name="twitter:description" content="当调用该对象上某个方法,而该对象上没有实现这个方法的时候，可以通过“消息转发”进行解决; 对象查找selector时，先查找cachelist，如果没有则查找methodlist，如果还没有就查找父类的methodlist; 都没有查找到时会三次机会可以处理这次selector访问12345id dynamicMethod(id self, SEL _cmd)&amp;#123;    NSLog(@&amp;">
@@ -53,9 +53,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/songMW/stack.github.io"></form>
@@ -71,7 +71,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/消息转发机制/">消息转发机制</a>
+    <a class="article-category-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a>
   </div>
 
   </div>
@@ -116,7 +116,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cj1omvksy0007pxorjg8wsni7" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cj1onmw0m000as2orzfonc4s3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -127,18 +127,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/04/12/hexo+github+域名绑定操作步骤/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
+    <a href="/2017/04/17/Runtime/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          使用Hexo写博客操作步骤
+          Runtime
         
       </div>
     </a>
   
   
     <a href="/2017/04/19/Swift-TheBasic/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">TheBasic</div>
     </a>
   
@@ -153,9 +153,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Catégories</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/消息转发机制/">消息转发机制</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a></li></ul>
     </div>
   </div>
 
@@ -163,7 +163,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
     </div>
@@ -173,9 +173,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Installation/" style="font-size: 10px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Swift/" style="font-size: 20px;">Swift</a>
+      <a href="/tags/Installation/" style="font-size: 10px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 20px;">Objective-C</a> <a href="/tags/Swift/" style="font-size: 20px;">Swift</a>
     </div>
   </div>
 
@@ -192,16 +192,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
             <a href="/2017/04/20/Swift-BasicOperators/">Swift.BasicOperators</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/19/Objective-C/">Objective-C</a>
           </li>
         
           <li>
@@ -213,7 +209,11 @@
           </li>
         
           <li>
-            <a href="/2017/04/12/hexo+github+域名绑定操作步骤/">使用Hexo写博客操作步骤</a>
+            <a href="/2017/04/17/Runtime/">Runtime</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/11/hello-world/">Hello World</a>
           </li>
         
       </ul>
@@ -229,7 +229,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 stack<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

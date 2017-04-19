@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Runtime | stack.blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基本概念Objective-C是一门动态语言,它将很多静态语言在编译和链接时做的事放到运行时处理,意味着OC不仅需要编译器,还需要一个运行时系统来执行编译代码.Runtime版本:modern和legacy,我们现在用的就是modern版.Runtime基本是用C和汇编写的,对于C语言，函数的调用在编译的时候会决定调用哪个函数，编译完成之后直接顺序执行.OC的函数调用成为消息发送。属于动态调用过程">
+<meta name="keywords" content="Objective-C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Runtime">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/04/17/Runtime/index.html">
+<meta property="og:site_name" content="stack.blog">
+<meta property="og:description" content="基本概念Objective-C是一门动态语言,它将很多静态语言在编译和链接时做的事放到运行时处理,意味着OC不仅需要编译器,还需要一个运行时系统来执行编译代码.Runtime版本:modern和legacy,我们现在用的就是modern版.Runtime基本是用C和汇编写的,对于C语言，函数的调用在编译的时候会决定调用哪个函数，编译完成之后直接顺序执行.OC的函数调用成为消息发送。属于动态调用过程">
+<meta property="og:updated_time" content="2017-04-19T07:26:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Runtime">
+<meta name="twitter:description" content="基本概念Objective-C是一门动态语言,它将很多静态语言在编译和链接时做的事放到运行时处理,意味着OC不仅需要编译器,还需要一个运行时系统来执行编译代码.Runtime版本:modern和legacy,我们现在用的就是modern版.Runtime基本是用C和汇编写的,对于C语言，函数的调用在编译的时候会决定调用哪个函数，编译完成之后直接顺序执行.OC的函数调用成为消息发送。属于动态调用过程">
+  
+    <link rel="alternate" href="/atom.xml" title="stack.blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">stack.blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/songMW/stack.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="[layout]-Runtime" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/17/Runtime/" class="article-date">
+  <time datetime="2017-04-17T07:19:33.000Z" itemprop="datePublished">2017-04-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Runtime/">Runtime</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Runtime
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>Objective-C是一门动态语言,它将很多静态语言在编译和链接时做的事放到运行时处理,意味着OC不仅需要编译器,还需要一个运行时系统来执行编译代码.<br>Runtime版本:modern和legacy,我们现在用的就是modern版.<br>Runtime基本是用C和汇编写的,对于C语言，函数的调用在编译的时候会决定调用哪个函数，编译完成之后直接顺序执行.<br>OC的函数调用成为消息发送。属于动态调用过程。在编译的时候并不能决定真正调用哪个函数（事实证明，在编 译阶段，OC可以调用任何函数，即使这个函数并未实现，只要申明过就不会报错。而C语言在编译阶段就会报错)只有在真正运行的时候才会根据函数的名称找 到对应的函数来调用.</p>
+<h2 id="二-OC-的方法调用"><a href="#二-OC-的方法调用" class="headerlink" title="二.OC 的方法调用"></a>二.OC 的方法调用</h2><p>objc_msgSend(self.xxx,@selector(xxx));</p>
+<h2 id="三-实例"><a href="#三-实例" class="headerlink" title="三.实例"></a>三.实例</h2><p>所有类的信息都可以在动态加载中获取,readonly 属性也可以修改</p>
+<ol>
+<li><p>修改变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">unsigned int count = 0;  </div><div class="line">Ivar *ivar = class_copyIvarList([self.person class], &amp;count);  </div><div class="line">for (int i = 0; i &lt; count; i++) &#123;  </div><div class="line">    Ivar var = ivar[i];  </div><div class="line">    const char *varName = ivar_getName(var);  </div><div class="line">    NSString *name = [NSString stringWithUTF8String:varName];  </div><div class="line">    NSLog(@&quot;------%@&quot;,name);  </div><div class="line">    if ([name isEqualToString:@&quot;_name&quot;]) &#123;  </div><div class="line">        object_setIvar(self.person, var, @&quot;李四&quot;);  </div><div class="line">        break;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">NSLog(@&quot;person name class : %@&quot;,self.person.name);   `</div></pre></td></tr></table></figure>
+</li>
+<li><p>交换方法<br>交换的方法如果没有实现的话, 不会有任何效果;<br>传入ClassA而方法确传入其他类的方法也不会有任何效果;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Method m1 = class_getInstanceMethod([self.person class], @selector(firstMethod));  </div><div class="line">Method m2 = class_getInstanceMethod([self.person class], @selector(secondMethod));  </div><div class="line">method_exchangeImplementations(m1, m2);</div></pre></td></tr></table></figure>
+</li>
+<li><p>动态添加方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//(IMP)guessAnswer 意思是guessAnswer的地址指针;  </div><div class="line">//&quot;v@:&quot; 意思是，v代表无返回值void，如果是i则代表int；@代表 id sel; : 代表 SEL _cmd;  </div><div class="line">//“v@:@@” 意思是，两个参数的没有返回值。  </div><div class="line">class_addMethod([self.person class], @selector(test), (IMP)testMethod, &quot;v@:&quot;);  </div><div class="line">if ([self.person respondsToSelector:@selector(test)]) &#123;  </div><div class="line">    [self.person performSelector:@selector(test)];  </div><div class="line">&#125; else &#123;  </div><div class="line">    NSLog(@&quot;Sorry,I don&apos;t know&quot;);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加属性,Category 中也可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSString *chineseName = @&quot;every one&quot;;  </div><div class="line">objc_setAssociatedObject(self, &amp;aName, chineseName, OBJC_ASSOCIATION_COPY_NONATOMIC);  </div><div class="line">NSString *associated = objc_getAssociatedObject(self, &amp;aName);  </div><div class="line">self.textLabel.text = associated;</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取其他类中的方法(针对于静态库)可以获取到方法名,参数个数,返回值类型,参数名暂时未获取到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">- (void)scanStaticLibraryMethod  </div><div class="line">&#123;  </div><div class="line">    unsigned int count = 0;  </div><div class="line">    Method *methods = class_copyMethodList([self.library class], &amp;count);  </div><div class="line">    for (int i = 0; i &lt; count; i++) &#123;  </div><div class="line">        //方法名  </div><div class="line">        NSString *methodName = [NSString stringWithCString: sel_getName(method_getName(methods[i]))encoding: NSASCIIStringEncoding];  </div><div class="line">        Method aMethod = methods[i];  </div><div class="line">        //返回值类型  </div><div class="line">        char *returnType = method_copyReturnType(aMethod);  </div><div class="line">        NSString *type = [NSString stringWithUTF8String:returnType];  </div><div class="line">        //返回参数和返回值类型  </div><div class="line">        const char *methodParameter = method_getTypeEncoding(aMethod);  </div><div class="line">        NSString *methodParameterName = [NSString stringWithUTF8String:methodParameter];  </div><div class="line">        //参数个数  </div><div class="line">        unsigned paramCount = method_getNumberOfArguments(aMethod);  </div><div class="line">        //每个参数类型  </div><div class="line">        for (int i = 0; i &lt; paramCount; i++) &#123;  </div><div class="line">        char *paramType = method_copyArgumentType(aMethod, i);  </div><div class="line">        NSLog(@&quot;当前方法名为:%@,此方法共有%d个参数,当前是第%d个参数,参数类型为:%@,返回值类型为:%@, 参数和返回值类型:%@&quot;,methodName, paramCount, i, [NSString stringWithUTF8String:paramType], type, methodParameterName);  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>当前方法名为:modifyAddress:,此方法共有3个参数,当前是第0个参数,参数类型为:@,返回值类型为:v, 参数和返回值类型:v24@0:8@16<br>当前方法名为:modifyAddress:,此方法共有3个参数,当前是第1个参数,参数类型为::,返回值类型为:v, 参数和返回值类型:v24@0:8@16<br>当前方法名为:modifyAddress:,此方法共有3个参数,当前是第2个参数,参数类型为:@,返回值类型为:v, 参数和返回值类型:v24@0:8@16  </p>
+<h2 id="如何理解-v24-0-8-16"><a href="#如何理解-v24-0-8-16" class="headerlink" title="如何理解 v24@0:8@16?**"></a>如何理解 v24@0:8@16?**</h2><p>OC的对象指针占位8个字节<br>v 表示返回值类型 void; B 表示返回值类型为 bool….<br>24表示整个方法参数占位的总长度<br>@0表示在 offset 为0的地方有个 object-c 的对象,在 object-c method 里首个对象是 self 自身<br>:8在 offset 为8的地方有一个 SEL<br>@16表示在 offset 为16的地方有一个 object-c 对象<br>@表示就是 object-c 对象,数字是内存位置,内存对齐原则</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/17/Runtime/" data-id="cj1onmw040000s2orj0zv2l16" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/11/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/18/unrecognizedSelector/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">unrecognizedSelector</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Installation/" style="font-size: 10px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 20px;">Objective-C</a> <a href="/tags/Swift/" style="font-size: 20px;">Swift</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/20/Swift-BasicOperators/">Swift.BasicOperators</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/19/Swift-TheBasic/">TheBasic</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/18/unrecognizedSelector/">unrecognizedSelector</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/17/Runtime/">Runtime</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/11/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 stack<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
