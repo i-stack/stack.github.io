@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/songMW/stack.github.io"></form>
@@ -91,11 +91,47 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/20/Swift-BasicOperators/" data-id="cj1olbj6g0001idorch29n96o" class="article-share-link">Delen</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/20/Swift-BasicOperators/" data-id="cj1omvksm0001pxorvkzwoic9" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
 
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="[layout]-Objective-C" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/19/Objective-C/" class="article-date">
+  <time datetime="2017-04-19T06:34:58.000Z" itemprop="datePublished">2017-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/19/Objective-C/">Objective-C</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/19/Objective-C/" data-id="cj1omvksh0000pxorum20mdwu" class="article-share-link">Partager</a>
+      
+      
     </footer>
   </div>
   
@@ -173,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/19/Swift-TheBasic/" data-id="cj1olbj6c0000idore1xcfh1p" class="article-share-link">Delen</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/19/Swift-TheBasic/" data-id="cj1omvksu0005pxor3yofsmzh" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
@@ -185,7 +221,71 @@
 
 
   
-    <article id="[default_layout]-hexo+github+域名绑定操作步骤" class="article article-type-[default_layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-unrecognizedSelector" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/18/unrecognizedSelector/" class="article-date">
+  <time datetime="2017-04-18T06:37:39.000Z" itemprop="datePublished">2017-04-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/消息转发机制/">消息转发机制</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/18/unrecognizedSelector/">unrecognizedSelector</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>当调用该对象上某个方法,而该对象上没有实现这个方法的时候，可以通过“消息转发”进行解决;</li>
+<li>对象查找selector时，先查找cachelist，如果没有则查找methodlist，如果还没有就查找父类的methodlist;</li>
+<li>都没有查找到时会三次机会可以处理这次selector访问<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">id dynamicMethod(id self, SEL _cmd)</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;%s:动态添加的方法&quot;,__FUNCTION__);</div><div class="line">    return @&quot;1&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p>如果实现<code>+ (BOOL)resolveInstanceMethod:(SEL)sel</code>这个方法后直接执行<code>id dynamicMethod</code>; </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">+ (BOOL)resolveInstanceMethod:(SEL)sel</div><div class="line">&#123;</div><div class="line">    class_addMethod(self.class, sel, (IMP)dynamicMethod, &quot;@@:&quot;);</div><div class="line">    return [super resolveInstanceMethod:sel];;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果没有实现这个方法则会调用<code>- (id)forwardingTargetForSelector:(SEL)aSelector</code>这个方法;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (id)forwardingTargetForSelector:(SEL)aSelector </div><div class="line">&#123;</div><div class="line">    id result = [super forwardingTargetForSelector:aSelector];</div><div class="line">    return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>只要这个方法返回的不是nil和self，整个消息发送的过程就会被重启，当然发送的对象会变成你返回的那个对象;如果没有实现这个方法则会有第三次拯救的方式:</p>
+<ul>
+<li><p>第三次拯救方式: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector</div><div class="line">&#123;</div><div class="line">    id result = [super methodSignatureForSelector:aSelector];</div><div class="line">    return result;</div><div class="line">&#125; </div><div class="line">- (void)forwardInvocation:(NSInvocation *)anInvocation</div><div class="line">&#123;</div><div class="line">    anInvocation.selector = (SEL)dynamicMethod;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果都没有执行就会抛出异常.</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cj1omvksy0007pxorjg8wsni7" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="[page_layout]-hexo+github+域名绑定操作步骤" class="article article-type-[page_layout]" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/04/12/hexo+github+域名绑定操作步骤/" class="article-date">
   <time datetime="2017-04-12T02:57:26.000Z" itemprop="datePublished">2017-04-12</time>
@@ -270,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/hexo+github+域名绑定操作步骤/" data-id="cj1olbj6p0005idorr4qag0em" class="article-share-link">Delen</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/hexo+github+域名绑定操作步骤/" data-id="cj1omvksx0006pxormtpmca4z" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -317,7 +417,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cj1olbj6n0004idori4o3f3f2" class="article-share-link">Delen</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cj1omvksp0002pxorfxp6tc0b" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -334,9 +434,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Catégories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/消息转发机制/">消息转发机制</a></li></ul>
     </div>
   </div>
 
@@ -344,9 +444,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
     </div>
   </div>
 
@@ -354,16 +454,16 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Installation/" style="font-size: 10px;">Installation</a> <a href="/tags/Swift/" style="font-size: 20px;">Swift</a>
+      <a href="/tags/Installation/" style="font-size: 10px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Swift/" style="font-size: 20px;">Swift</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
     </div>
@@ -373,7 +473,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -382,15 +482,19 @@
           </li>
         
           <li>
+            <a href="/2017/04/19/Objective-C/">Objective-C</a>
+          </li>
+        
+          <li>
             <a href="/2017/04/19/Swift-TheBasic/">TheBasic</a>
           </li>
         
           <li>
-            <a href="/2017/04/12/hexo+github+域名绑定操作步骤/">使用Hexo写博客操作步骤</a>
+            <a href="/2017/04/18/unrecognizedSelector/">unrecognizedSelector</a>
           </li>
         
           <li>
-            <a href="/2017/04/11/hello-world/">Hello World</a>
+            <a href="/2017/04/12/hexo+github+域名绑定操作步骤/">使用Hexo写博客操作步骤</a>
           </li>
         
       </ul>
@@ -406,7 +510,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 stack<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
