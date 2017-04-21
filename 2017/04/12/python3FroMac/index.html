@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>python3FroMac | stack.blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安装教程其他就不写了, 因为是按着步骤走, 没有出现错误. 下面是搬运过来的, 方便以后找, 原文如下:The latest version of Mac OS X, Sierra, comes with Python 2.7 out of the box.You do not need to install or configure anything else to use Python 2.">
+<meta name="keywords" content="Installation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python3FroMac">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/index.html">
+<meta property="og:site_name" content="stack.blog">
+<meta property="og:description" content="安装教程其他就不写了, 因为是按着步骤走, 没有出现错误. 下面是搬运过来的, 方便以后找, 原文如下:The latest version of Mac OS X, Sierra, comes with Python 2.7 out of the box.You do not need to install or configure anything else to use Python 2.">
+<meta property="og:updated_time" content="2017-04-21T10:56:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python3FroMac">
+<meta name="twitter:description" content="安装教程其他就不写了, 因为是按着步骤走, 没有出现错误. 下面是搬运过来的, 方便以后找, 原文如下:The latest version of Mac OS X, Sierra, comes with Python 2.7 out of the box.You do not need to install or configure anything else to use Python 2.">
+  
+    <link rel="alternate" href="/atom.xml" title="stack.blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">stack.blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/songMW/stack.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="[layout]-python3FroMac" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/12/python3FroMac/" class="article-date">
+  <time datetime="2017-04-12T10:50:28.000Z" itemprop="datePublished">2017-04-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python3FroMac/">python3FroMac</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python3FroMac
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://python-guide-pt-br.readthedocs.io/en/latest/starting/install3/osx/" target="_blank" rel="external">安装教程</a><br>其他就不写了, 因为是按着步骤走, 没有出现错误.</p>
+<h2 id="下面是搬运过来的-方便以后找-原文如下"><a href="#下面是搬运过来的-方便以后找-原文如下" class="headerlink" title="下面是搬运过来的, 方便以后找, 原文如下:"></a>下面是搬运过来的, 方便以后找, 原文如下:</h2><p>The latest version of Mac OS X, Sierra, comes with Python 2.7 out of the box.<br>You do not need to install or configure anything else to use Python 2. These instructions document the installation of Python 3.<br>The version of Python that ships with OS X is great for learning, but it’s not good for development. The version shipped with OS X may be out of date from the official current Python release, which is considered the stable production version.</p>
+<p>Doing it Right<br>Let’s install a real version of Python.</p>
+<p>Before installing Python, you’ll need to install GCC. GCC can be obtained by downloading XCode, the smaller Command Line Tools (must have an Apple account) or the even smaller OSX-GCC-Installer package.</p>
+<p>Note<br><code>If you already have XCode installed, do not install OSX-GCC-Installer. In combination, the software can cause issues that are difficult to diagnose.</code></p>
+<p>Note<br><code>If you perform a fresh install of XCode, you will also need to add the commandline tools by running xcode-select --install on the terminal.
+While OS X comes with a large number of UNIX utilities, those familiar with Linux systems will notice one key component missing: a package manager. Homebrew fills this void.</code></p>
+<p>To install Homebrew, open Terminal or your favorite OSX terminal emulator and run<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure></p>
+<p>The script will explain what changes it will make and prompt you before the installation begins. Once you’ve installed Homebrew, insert the Homebrew directory at the top of your PATH environment variable. You can do this by adding the following line at the bottom of your <code>~/.profile</code> file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=/usr/local/bin:/usr/local/sbin:$PATH</div></pre></td></tr></table></figure>
+<p>Now, we can install Python 3:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install python3</div></pre></td></tr></table></figure>
+<p>This will take a minute or two.</p>
+<p>Pip<br>Homebrew installs pip3 for you.</p>
+<p>pip3 is the alias for the Python 3 version of pip on systems with both the Homebrew’d Python 2 and 3 installed.</p>
+<p>Working with Python 3<br>At this point, you have the system Python 2.7 available, potentially the Homebrew version of Python 2 installed, and the Homebrew version of Python 3 as well.</p>
+<p>$ python<br>will launch the Python 2 interpreter.</p>
+<p>$ python3<br>will launch the Python 3 interpreter.</p>
+<p>pip3 and pip will both be available. If the Homebrew version of Python 2 is not installed, they will be the same. If the Homebrew version of Python 2 is installed then pip will point to Python 2 and pip3 will point to Python 3.</p>
+<p>Virtual Environments<br>A Virtual Environment (commonly referred to as a ‘virtualenv’) is a tool to keep the dependencies required by different projects in separate places, by creating virtual Python environments for them. It solves the “Project X depends on version 1.x but, Project Y needs 4.x” dilemma, and keeps your global site-packages directory clean and manageable.</p>
+<p>For example, you can work on a project which requires Django 1.10 while also maintaining a project which requires Django 1.8.</p>
+<p>To start using this and see more information: Virtual Environments docs.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/" data-id="cj1rq1dsk000c6rord82h8nfx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/11/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/17/Runtime/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Runtime</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C-Class-dump/">Objective-C Class-dump</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python3FroMac/">python3FroMac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Installation/" style="font-size: 20px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/21/代码安全/">App代码安全</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/21/Class-dump/">Objective-C Class-dump</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/20/Swift-BasicOperators/">Swift.BasicOperators</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/19/Swift-TheBasic/">TheBasic</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/18/unrecognizedSelector/">unrecognizedSelector</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 stack<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
