@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/songMW/stack.github.io"></form>
@@ -60,6 +60,66 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="[layout]-iOS设备崩溃日志" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/25/iOS设备崩溃日志/" class="article-date">
+  <time datetime="2017-04-25T10:19:52.000Z" itemprop="datePublished">2017-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS设备崩溃日志/">iOS设备崩溃日志</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/25/iOS设备崩溃日志/">iOS设备崩溃日志</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://developer.apple.com/library/content/qa/qa1747/_index.html" target="_blank" rel="external">苹果崩溃日志文档</a></p>
+<h2 id="崩溃日志的实例"><a href="#崩溃日志的实例" class="headerlink" title="崩溃日志的实例"></a>崩溃日志的实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">// 1: 进程信息</div><div class="line">Incident Identifier: 30E46451-53FD-4965-896A-457FC11AD05F</div><div class="line">CrashReporter Key:   5a56599d836c4f867f6eec76afee451bf9ae5f31</div><div class="line">Hardware Model:	  iPhone4,1</div><div class="line">Process:		 Rage Masters [4155]</div><div class="line">Path:			/var/mobile/Applications/A5635B22-F5EF-4CEB-94B6-FE158D885014/Rage Masters.app/Rage Masters</div><div class="line">Identifier:	  Rage Masters</div><div class="line">Version:		 ??? (???)</div><div class="line">Code Type:	   ARM (Native)</div><div class="line">Parent Process:  launchd [1]</div><div class="line">// 2: 基本信息</div><div class="line">Date/Time:	   2012-10-17 21:39:06.967 -0400</div><div class="line">OS Version:	  iOS 6.0 (10A403)</div><div class="line">Report Version:  104</div><div class="line">// 3: 异常</div><div class="line">Exception Type:  00000020</div><div class="line">Exception Codes: 0x000000008badf00d</div><div class="line">Highlighted Thread:  0</div><div class="line">// 4: 线程回溯</div><div class="line">Thread 0 name:  Dispatch queue: com.apple.main-thread</div><div class="line">Thread 0:</div><div class="line">0   libsystem_kernel.dylib			0x327f2eb4 mach_msg_trap + 20</div><div class="line">1   libsystem_kernel.dylib			0x327f3048 mach_msg + 36</div><div class="line">2   CoreFoundation					0x36bd4040 __CFRunLoopServiceMachPort + 124</div><div class="line">3   CoreFoundation					0x36bd2d9e __CFRunLoopRun + 878</div><div class="line">4   CoreFoundation					0x36b45eb8 CFRunLoopRunSpecific + 352</div><div class="line">5   CoreFoundation					0x36b45d44 CFRunLoopRunInMode + 100</div><div class="line">6   CFNetwork					 	0x32ac343e CFURLConnectionSendSynchronousRequest + 330</div><div class="line">7   Foundation						0x346e69ba +[NSURLConnection sendSynchronousRequest:returningResponse:error:] + 242</div><div class="line">8   Rage Masters				  	0x000d4046 0xd2000 + 8262</div><div class="line">Thread 1:</div><div class="line">0   libsystem_kernel.dylib			0x32803d98 __workq_kernreturn + 8</div><div class="line">1   libsystem_c.dylib			 	0x3a987cf6 _pthread_workq_return + 14</div><div class="line">2   libsystem_c.dylib			 	0x3a987a12 _pthread_wqthread + 362</div><div class="line">3   libsystem_c.dylib			 	0x3a9878a0 start_wqthread + 4</div><div class="line">// 5: 线程状态</div><div class="line">Thread 0 crashed with ARM Thread State (32-bit):</div><div class="line">r0: 0x00000000	r1: 0x00000000	  r2: 0x00000001	  r3: 0x39529fc8</div><div class="line">r4: 0xffffffff	r5: 0x2fd7d301	  r6: 0x2fd7d300	  r7: 0x2fd7d9d0</div><div class="line">r8: 0x2fd7d330	r9: 0x3adbf8a8	 r10: 0x2fd7d308	 r11: 0x00000032</div><div class="line">ip: 0x00000025	sp: 0x2fd7d2ec	  lr: 0x001bdb25	  pc: 0x30301838</div><div class="line">cpsr: 0x00000010</div><div class="line">// 6: 二进制映像</div><div class="line">Binary Images:</div><div class="line">0xd2000 -	0xd7fff +Rage Masters armv7   /var/mobile/Applications/A5635B22-F5EF-4CEB-94B6-FE158D885014/Rage Masters.app/Rage Masters</div><div class="line">0x2fe41000 - 0x2fe61fff  dyld armv7   /usr/lib/dyld</div><div class="line">0x327f2000 - 0x32808fff  libsystem_kernel.dylib armv7   /usr/lib/system/libsystem_kernel.dylib</div><div class="line">0x328a8000 - 0x328bdfff  libresolv.9.dylib armv7   /usr/lib/libresolv.9.dylib</div><div class="line">0x32a70000 - 0x32b35fff  CFNetwork armv7   /System/Library/Frameworks/CFNetwork.framework/CFNetwork</div><div class="line">0x32b7a000 - 0x32cc3fff  libicucore.A.dylib armv7   /usr/lib/libicucore.A.dylib</div><div class="line">0x32cc4000 - 0x32cc5fff  CoreSurface armv7   /System/Library/PrivateFrameworks/CoreSurface.framework/CoreSurface</div><div class="line">0x32f65000 - 0x32f8afff  OpenCL armv7   /System/Library/PrivateFrameworks/OpenCL.framework/OpenCL</div></pre></td></tr></table></figure>
+<h2 id="1-进程信息"><a href="#1-进程信息" class="headerlink" title="1. 进程信息"></a>1. 进程信息</h2><pre><code>* Incident Identifier 是崩溃报告的唯一标识符。
+* CrashReporter Key  是与设备标识相对应的唯一键值。虽然它不是真正的设备标识符，但也是一个非常有用的情报:如果你看到100个崩溃日志的CrashReporter Key值都是相同的，或者只有少数几个不同的CrashReport值，说明这不是一个普遍的问题，只发生在一个或少数几个设备上。
+* Hardware Model  标识设备类型。 如果很多崩溃日志都是来自相同的设备类型，说明应用只在某特定类型的设备上有问题。上面的日志里，崩溃日志产生的设备是iPhone 4s。
+* Process  是应用名称。中括号里面的数字是闪退时应用的进程ID。
+</code></pre><h2 id="2-基本信息"><a href="#2-基本信息" class="headerlink" title="2. 基本信息"></a>2. 基本信息</h2><p>这部分给出了一些基本信息，包括闪退发生的日期和时间，设备的iOS版本。如果有很多崩溃日志都来自iOS 6.0，说明问题只发生在iOS 6.0上。 </p>
+<h2 id="3-异常"><a href="#3-异常" class="headerlink" title="3. 异常"></a>3. 异常</h2><p>在这部分，你可以看到闪退发生时抛出的异常类型。还能看到异常编码和抛出异常的线程。根据崩溃报告类型的不同，在这部分你还能看到一些另外的信息。 </p>
+<h2 id="4-线程回溯"><a href="#4-线程回溯" class="headerlink" title="4. 线程回溯"></a>4. 线程回溯</h2><p>这部分提供应用中所有线程的回溯日志。 回溯是闪退发生时所有活动帧清单。它包含闪退发生时调用函数的清单。看下面这行日志:<br><code>2    XYZLib    0x34648e88    0x83000 + 8740</code><br><code>它包括四列:</code><br><code>1. 帧编号—— 此处是2。</code><br><code>2. 二进制库的名称 ——此处是 XYZLib.</code><br><code>3. 调用方法的地址 ——此处是 0x34648e88.</code><br><code>4. 第四列分为两个子列，一个基本地址和一个偏移量。此处是0×83000 + 8740, 第一个数字指向文件，第二个数字指向文件中的代码行。</code></p>
+<h2 id="5-线程状态"><a href="#5-线程状态" class="headerlink" title="5. 线程状态"></a>5. 线程状态</h2><p>这部分是闪退时寄存器中的值。一般不需要这部分的信息，因为回溯部分的信息已经足够让你找出问题所在。 </p>
+<h2 id="6-二进制映像"><a href="#6-二进制映像" class="headerlink" title="6. 二进制映像"></a>6. 二进制映像</h2><p>这部分列出了闪退时已经加载的二进制文件。</p>
+<h2 id="低内存闪退"><a href="#低内存闪退" class="headerlink" title="低内存闪退"></a>低内存闪退</h2><p>被iOS因释放内存页终止的进程名称后面你会看到 jettisoned  字样。如果看到它出现在你的应用名称后面，说明你的应用因使用太多内存而被终止了。<br>低内存崩溃日志看起来像这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">Incident Identifier: 30E46451-53FD-4965-896A-457FC11AD05F</div><div class="line">CrashReporter Key:   5a56599d836c4f867f6eec76afee451bf9ae5f31</div><div class="line">OS Version:          iPhone OS 3.1.3 (7E18)</div><div class="line">Date/Time:           2012-10-17 21:39:06.967 -0400</div><div class="line">Free pages:        96</div><div class="line">Wired pages:       10558</div><div class="line">Purgeable pages:   0</div><div class="line">Largest process:   Rage Masters</div><div class="line">Processes</div><div class="line">Name                 UUID                    Count resident pages</div><div class="line">Rage Masters     9320 (jettisoned) (active)</div><div class="line">mediaserverd      255</div><div class="line">dataaccessd      505</div><div class="line">syslogd       71</div><div class="line">apsd      171</div><div class="line">securityd      243</div><div class="line">notifyd     2027</div><div class="line">CommCenter      189</div><div class="line">SpringBoard     2158 (active)</div><div class="line">accessoryd       91</div><div class="line">configd      371</div><div class="line">fairplayd       93</div><div class="line">mDNSResponder      292</div><div class="line">lockdownd     1204</div><div class="line">launchd       72</div></pre></td></tr></table></figure></p>
+<h2 id="异常编码"><a href="#异常编码" class="headerlink" title="异常编码"></a>异常编码</h2><ul>
+<li>0x8badf00d : 读做 “ate bad food”! (把数字换成字母，是不是很像 :p)该编码表示应用是因为发生watchdog超时而被iOS终止的。  通常是应用花费太多时间而无法启动、终止或响应用系统事件。</li>
+<li>0xbad22222 : 该编码表示 VoIP 应用因为过于频繁重启而被终止。</li>
+<li>0xdead10cc : 读做 “dead lock”!该代码表明应用因为在后台运行时占用系统资源，如通讯录数据库不释放而被终止 。</li>
+<li>0xdeadfa11 : 读做 “dead fall”! 该代码表示应用是被用户强制退出的。根据苹果文档, 强制退出发生在用户长按开关按钮直到出现 “滑动来关机”, 然后长按 Home按钮。强制退出将产生 包含0xdeadfa11 异常编码的崩溃日志, 因为大多数是强制退出是因为应用阻塞了界面。</li>
+</ul>
+<h3 id="从下向上读回溯日志。最底下的帧是最先调用的-依此类推。"><a href="#从下向上读回溯日志。最底下的帧是最先调用的-依此类推。" class="headerlink" title="从下向上读回溯日志。最底下的帧是最先调用的, 依此类推。"></a>从下向上读回溯日志。最底下的帧是最先调用的, 依此类推。</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/25/iOS设备崩溃日志/" data-id="cj1xf2twl000cn6orj2o0x0oi" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="[layout]-代码安全" class="article article-type-[layout]" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -87,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/代码安全/" data-id="cj1rq3kht000ihqor15d7v1t9" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/代码安全/" data-id="cj1xf2txb000tn6orqzncrtfn" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -149,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/Class-dump/" data-id="cj1rq3kec0000hqor2n1iqj9s" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/Class-dump/" data-id="cj1xf2tw60001n6orxg487myw" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -191,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/20/Swift-BasicOperators/" data-id="cj1rq3kfq0004hqorixiqtv9i" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/20/Swift-BasicOperators/" data-id="cj1xf2twb0004n6orck6l40gh" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
@@ -273,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/19/Swift-TheBasic/" data-id="cj1rq3kfv0005hqor835a478i" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/19/Swift-TheBasic/" data-id="cj1xf2twc0005n6orzy9w1dk8" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
@@ -337,7 +397,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cj1rq3khn000ghqorl0f92v30" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cj1xf2txf000vn6orpl786fci" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -401,7 +461,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/17/Runtime/" data-id="cj1rq3kep0001hqor3ps1nchs" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/17/Runtime/" data-id="cj1xf2tw10000n6or57savcza" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -465,7 +525,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/" data-id="cj1rq3kha000chqorbvxrcj9l" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/" data-id="cj1xf2txd000un6ordqy8f26i" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -512,7 +572,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cj1rq3kgc0006hqor87rpl4cm" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cj1xf2twf0006n6orlrm0neyw" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -607,7 +667,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/01/hexo+github+域名绑定操作步骤/" data-id="cj1rq3kgz000ahqoruv5kboga" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/01/hexo+github+域名绑定操作步骤/" data-id="cj1xf2twj000an6orp7wtrnri" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -626,9 +686,9 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Catégories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C-Class-dump/">Objective-C Class-dump</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python3FroMac/">python3FroMac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C-Class-dump/">Objective-C Class-dump</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS设备崩溃日志/">iOS设备崩溃日志</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python3FroMac/">python3FroMac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a></li></ul>
     </div>
   </div>
 
@@ -636,7 +696,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
     </div>
@@ -646,9 +706,9 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Installation/" style="font-size: 20px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a>
+      <a href="/tags/Installation/" style="font-size: 20px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 20px;">Objective-C</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a>
     </div>
   </div>
 
@@ -665,9 +725,13 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/04/25/iOS设备崩溃日志/">iOS设备崩溃日志</a>
+          </li>
         
           <li>
             <a href="/2017/04/21/代码安全/">App代码安全</a>
@@ -685,10 +749,6 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
             <a href="/2017/04/19/Swift-TheBasic/">TheBasic</a>
           </li>
         
-          <li>
-            <a href="/2017/04/18/unrecognizedSelector/">unrecognizedSelector</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -702,7 +762,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 stack<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
