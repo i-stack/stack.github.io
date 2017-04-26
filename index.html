@@ -105,11 +105,16 @@
 <li>0xdead10cc : 读做 “dead lock”!该代码表明应用因为在后台运行时占用系统资源，如通讯录数据库不释放而被终止 。</li>
 <li>0xdeadfa11 : 读做 “dead fall”! 该代码表示应用是被用户强制退出的。根据苹果文档, 强制退出发生在用户长按开关按钮直到出现 “滑动来关机”, 然后长按 Home按钮。强制退出将产生 包含0xdeadfa11 异常编码的崩溃日志, 因为大多数是强制退出是因为应用阻塞了界面。</li>
 </ul>
-<h3 id="从下向上读回溯日志。最底下的帧是最先调用的-依此类推。"><a href="#从下向上读回溯日志。最底下的帧是最先调用的-依此类推。" class="headerlink" title="从下向上读回溯日志。最底下的帧是最先调用的, 依此类推。"></a>从下向上读回溯日志。最底下的帧是最先调用的, 依此类推。</h3>
+<h3 id="从下向上读回溯日志。最底下的帧是最先调用的-依此类推。"><a href="#从下向上读回溯日志。最底下的帧是最先调用的-依此类推。" class="headerlink" title="从下向上读回溯日志。最底下的帧是最先调用的, 依此类推。"></a>从下向上读回溯日志。最底下的帧是最先调用的, 依此类推。</h3><h2 id="DEBUG模式下Crash搜集"><a href="#DEBUG模式下Crash搜集" class="headerlink" title="DEBUG模式下Crash搜集"></a>DEBUG模式下Crash搜集</h2><h3 id="1-SIGABRT（EXC-CRASH"><a href="#1-SIGABRT（EXC-CRASH" class="headerlink" title="1. SIGABRT（EXC_CRASH)"></a>1. SIGABRT（EXC_CRASH)</h3><pre><code>* 对象多次释放
+* 
+</code></pre><h3 id="2-EXC-BAD-ACCESS（SIGBUS-或-SIGSEGV）"><a href="#2-EXC-BAD-ACCESS（SIGBUS-或-SIGSEGV）" class="headerlink" title="2. EXC_BAD_ACCESS（SIGBUS 或 SIGSEGV）"></a>2. EXC_BAD_ACCESS（SIGBUS 或 SIGSEGV）</h3><p>通常是内存问题导致的, 这种情况通常很难定位, 因为有些会直接停在 main() 函数, Xcode 的 Debug 面板没有任何直接的错误信息, 开启异常断点只能得到部分错误信息, 想要的却没有; 有时可能需要多点几次, 才能得到错误信息; </p>
+<pre><code>* NSUnknownKeyException 通常能够告诉我们错误的类型
+</code></pre><h3 id="3-异常断点"><a href="#3-异常断点" class="headerlink" title="3. 异常断点"></a>3. 异常断点</h3><pre><code>* objc_excption_rethrow 和 设置僵尸变量
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/25/iOS设备崩溃日志/" data-id="cj1xf2twl000cn6orj2o0x0oi" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/25/iOS设备崩溃日志/" data-id="cj1ybqk38000r9dorjqfm4o3k" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -147,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/代码安全/" data-id="cj1xf2txb000tn6orqzncrtfn" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/代码安全/" data-id="cj1ybqk2f000c9dor5fj78j25" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -209,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/Class-dump/" data-id="cj1xf2tw60001n6orxg487myw" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/Class-dump/" data-id="cj1ybqk1u00009doro9qaawfa" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -251,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/20/Swift-BasicOperators/" data-id="cj1xf2twb0004n6orck6l40gh" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/20/Swift-BasicOperators/" data-id="cj1ybqk2500059dor6hawrl32" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
@@ -333,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/19/Swift-TheBasic/" data-id="cj1xf2twc0005n6orzy9w1dk8" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/19/Swift-TheBasic/" data-id="cj1ybqk1y00019dornd6qbpdu" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
@@ -397,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cj1xf2txf000vn6orpl786fci" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cj1ybqk3e000u9dornlx7a1xa" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -461,7 +466,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/17/Runtime/" data-id="cj1xf2tw10000n6or57savcza" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/17/Runtime/" data-id="cj1ybqk2400049dorz5481q65" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -525,7 +530,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/" data-id="cj1xf2txd000un6ordqy8f26i" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/" data-id="cj1ybqk32000q9dorjnfcljvn" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -572,7 +577,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cj1xf2twf0006n6orlrm0neyw" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cj1ybqk2900069doru3oa4ioh" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -667,7 +672,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/01/hexo+github+域名绑定操作步骤/" data-id="cj1xf2twj000an6orp7wtrnri" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/01/hexo+github+域名绑定操作步骤/" data-id="cj1ybqk2d000a9dor3jh7orh1" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
