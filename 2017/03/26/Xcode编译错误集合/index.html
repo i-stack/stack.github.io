@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Xcode编译错误集合 | stack.blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. dyld: Library not loaded123dyld: Library not loaded: @rpath/AdHubSDK.framework/AdHubSDKReferenced from: /Users/song/Library/Developer/CoreSimulator/Devices/8BF0C742-9FE8-4465-ABF5-51BD18323CF0/data">
+<meta name="keywords" content="Objective-C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xcode编译错误集合">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/03/26/Xcode编译错误集合/index.html">
+<meta property="og:site_name" content="stack.blog">
+<meta property="og:description" content="1. dyld: Library not loaded123dyld: Library not loaded: @rpath/AdHubSDK.framework/AdHubSDKReferenced from: /Users/song/Library/Developer/CoreSimulator/Devices/8BF0C742-9FE8-4465-ABF5-51BD18323CF0/data">
+<meta property="og:updated_time" content="2017-05-03T08:28:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Xcode编译错误集合">
+<meta name="twitter:description" content="1. dyld: Library not loaded123dyld: Library not loaded: @rpath/AdHubSDK.framework/AdHubSDKReferenced from: /Users/song/Library/Developer/CoreSimulator/Devices/8BF0C742-9FE8-4465-ABF5-51BD18323CF0/data">
+  
+    <link rel="alternate" href="/atom.xml" title="stack.blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">stack.blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/songMW/stack.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="[layout]-Xcode编译错误集合" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/26/Xcode编译错误集合/" class="article-date">
+  <time datetime="2017-03-26T01:48:52.000Z" itemprop="datePublished">2017-03-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS常见错误收集/">iOS常见错误收集</a>►<a class="article-category-link" href="/categories/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Xcode编译错误集合
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-dyld-Library-not-loaded"><a href="#1-dyld-Library-not-loaded" class="headerlink" title="1. dyld: Library not loaded"></a>1. dyld: Library not loaded</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dyld: Library not loaded: @rpath/AdHubSDK.framework/AdHubSDK</div><div class="line">Referenced from: /Users/song/Library/Developer/CoreSimulator/Devices/8BF0C742-9FE8-4465-ABF5-51BD18323CF0/data/Containers/Bundle/Application/C863B41F-19D1-410D-83E2-9C547E942F68/TestDemo.app/TestDemo</div><div class="line">Reason: image not found</div></pre></td></tr></table></figure>
+<h3 id="一般是在引入第三方框架时出现的错误-解决方法-General-–-gt-Embedded-Binaries-添加第三方库或者在Build-Phases-中添加一个New-Copy-File-Phases-选择Destination后将第三方库添加进来"><a href="#一般是在引入第三方框架时出现的错误-解决方法-General-–-gt-Embedded-Binaries-添加第三方库或者在Build-Phases-中添加一个New-Copy-File-Phases-选择Destination后将第三方库添加进来" class="headerlink" title="一般是在引入第三方框架时出现的错误,解决方法: General –&gt; Embedded Binaries 添加第三方库或者在Build Phases 中添加一个New Copy File Phases 选择Destination后将第三方库添加进来."></a><font color="#FF0000">一般是在引入第三方框架时出现的错误,解决方法: General –&gt; Embedded Binaries 添加第三方库或者在Build Phases 中添加一个New Copy File Phases 选择Destination后将第三方库添加进来.</font></h3><h2 id="2-Class-PLBuildVersion-is-implemented-in-both"><a href="#2-Class-PLBuildVersion-is-implemented-in-both" class="headerlink" title="2. Class PLBuildVersion is implemented in both"></a>2. Class PLBuildVersion is implemented in both</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class PLBuildVersion is implemented in both</div></pre></td></tr></table></figure>
+<h3 id="暂时未找到解决方法"><a href="#暂时未找到解决方法" class="headerlink" title="暂时未找到解决方法"></a><font color="#FF0000">暂时未找到解决方法</font></h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/03/26/Xcode编译错误集合/" data-id="cj28qzn7g0006wjortjcfod2z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/01/hexo+github+域名绑定操作步骤/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用Hexo写博客操作步骤</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorier</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Class-dump/">Class-dump</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python3FroMac/">python3FroMac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentence/">Sentence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Installation/" style="font-size: 16.67px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 20px;">Objective-C</a> <a href="/tags/Sentence/" style="font-size: 10px;">Sentence</a> <a href="/tags/Swift/" style="font-size: 13.33px;">Swift</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Arkiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Siste innlegg</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/03/GracefulSentence/">GracefulSentence</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/26/arm指令集/">arm指令集错误收集</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/25/崩溃日志/">崩溃日志</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/21/Class-dump/">Objective-C Class-dump</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/20/Swift-BasicOperators/">Swift.BasicOperators</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 stack<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
