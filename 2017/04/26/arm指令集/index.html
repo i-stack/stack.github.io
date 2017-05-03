@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>unrecognizedSelector | stack.blog</title>
+  <title>arm指令集错误收集 | stack.blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="当调用该对象上某个方法,而该对象上没有实现这个方法的时候，可以通过“消息转发”进行解决; 对象查找selector时，先查找cachelist，如果没有则查找methodlist，如果还没有就查找父类的methodlist; 都没有查找到时会三次机会可以处理这次selector访问12345id dynamicMethod(id self, SEL _cmd)&amp;#123;    NSLog(@&amp;">
+  <meta name="description" content="iOS的指令集有 armv6、armv7、armv7s、arm64 Arm是向下兼容的  armv6  iPhone iPhone2 iPhone3G iPod Touch(1, 2)   armv7  iPhone4 iPhone4S iPod (3G, 4G, 5G) iPad(1, 2 , 3 , Mini)   armv7s iPhone5 iPhone5C iPad 4   arm64">
 <meta name="keywords" content="Objective-C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="unrecognizedSelector">
-<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/index.html">
+<meta property="og:title" content="arm指令集错误收集">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/04/26/arm指令集/index.html">
 <meta property="og:site_name" content="stack.blog">
-<meta property="og:description" content="当调用该对象上某个方法,而该对象上没有实现这个方法的时候，可以通过“消息转发”进行解决; 对象查找selector时，先查找cachelist，如果没有则查找methodlist，如果还没有就查找父类的methodlist; 都没有查找到时会三次机会可以处理这次selector访问12345id dynamicMethod(id self, SEL _cmd)&amp;#123;    NSLog(@&amp;">
-<meta property="og:updated_time" content="2017-04-19T07:15:17.000Z">
+<meta property="og:description" content="iOS的指令集有 armv6、armv7、armv7s、arm64 Arm是向下兼容的  armv6  iPhone iPhone2 iPhone3G iPod Touch(1, 2)   armv7  iPhone4 iPhone4S iPod (3G, 4G, 5G) iPad(1, 2 , 3 , Mini)   armv7s iPhone5 iPhone5C iPad 4   arm64">
+<meta property="og:updated_time" content="2017-05-03T08:28:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="unrecognizedSelector">
-<meta name="twitter:description" content="当调用该对象上某个方法,而该对象上没有实现这个方法的时候，可以通过“消息转发”进行解决; 对象查找selector时，先查找cachelist，如果没有则查找methodlist，如果还没有就查找父类的methodlist; 都没有查找到时会三次机会可以处理这次selector访问12345id dynamicMethod(id self, SEL _cmd)&amp;#123;    NSLog(@&amp;">
+<meta name="twitter:title" content="arm指令集错误收集">
+<meta name="twitter:description" content="iOS的指令集有 armv6、armv7、armv7s、arm64 Arm是向下兼容的  armv6  iPhone iPhone2 iPhone3G iPod Touch(1, 2)   armv7  iPhone4 iPhone4S iPod (3G, 4G, 5G) iPad(1, 2 , 3 , Mini)   armv7s iPhone5 iPhone5C iPad 4   arm64">
   
     <link rel="alternate" href="/atom.xml" title="stack.blog" type="application/atom+xml">
   
@@ -64,14 +64,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="[layout]-unrecognizedSelector" class="article article-type-[layout]" itemscope itemprop="blogPost">
+        <section id="main"><article id="[layout]-arm指令集" class="article article-type-[layout]" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/18/unrecognizedSelector/" class="article-date">
-  <time datetime="2017-04-18T06:37:39.000Z" itemprop="datePublished">2017-04-18</time>
+    <a href="/2017/04/26/arm指令集/" class="article-date">
+  <time datetime="2017-04-26T08:48:52.000Z" itemprop="datePublished">2017-04-26</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a>
+    <a class="article-category-link" href="/categories/iOS常见错误收集/">iOS常见错误收集</a>►<a class="article-category-link" href="/categories/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a>
   </div>
 
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      unrecognizedSelector
+      arm指令集错误收集
     </h1>
   
 
@@ -90,33 +90,47 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>当调用该对象上某个方法,而该对象上没有实现这个方法的时候，可以通过“消息转发”进行解决;</li>
-<li>对象查找selector时，先查找cachelist，如果没有则查找methodlist，如果还没有就查找父类的methodlist;</li>
-<li>都没有查找到时会三次机会可以处理这次selector访问<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">id dynamicMethod(id self, SEL _cmd)</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;%s:动态添加的方法&quot;,__FUNCTION__);</div><div class="line">    return @&quot;1&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>iOS的指令集有 <code>armv6、armv7、armv7s、arm64</code> Arm是向下兼容的</p>
+<ol>
+<li>armv6 <ul>
+<li>iPhone</li>
+<li>iPhone2</li>
+<li>iPhone3G</li>
+<li>iPod Touch(1, 2)</li>
+</ul>
 </li>
+<li>armv7 <ul>
+<li>iPhone4</li>
+<li>iPhone4S</li>
+<li>iPod (3G, 4G, 5G)</li>
+<li>iPad(1, 2 , 3 , Mini)</li>
+</ul>
+</li>
+<li>armv7s<ul>
+<li>iPhone5</li>
+<li>iPhone5C</li>
+<li>iPad 4</li>
+</ul>
+</li>
+<li>arm64 <ul>
+<li>iPhone5S以后</li>
+<li>iPad Air(2), Retina iPad Mini(2,3)</li>
+</ul>
+</li>
+<li>Architecture: 指你想支持的指令集</li>
+<li>Valid architectures: 指即将编译的指令集</li>
+<li>Build Active Architecture Only: 是否只编译当前适用的指令集;<br> 如果要app在各个机器都能够最高效率的运行, 需要将Build Active Architecture Only改为 NO, Valid architectures选择对应的指令集: armv7 armv7s arm64; 但是编译后包得体积会增加, Release时必须设置为NO;<br> Valid architectures 为 armv7 时包的体积最小(不能编译armv6), Build Active Architectures 任意;<br> 如果这个参数设为 YES, 那么如果你用iPhone 6调试, 最终生成的一个支持arm64指令集的Binary;使用iPhone4编译, 最终生成一个支持armv7指令集的Binary, 意思是只会编译对应指令的包;<br> 如果这个参数设置为 NO, 编译器会整合指令集, 包会变大, 可以设配不同的设备;<br> 所以一般在DEBUG模式下设为YES, RELEASE设为NO;<br> 模拟器并不运行arm代码, 软件会被编译成x86可以运行的指令. 所以生成静态库时都是会先生成两个.a, 一个是i386的用于在模拟器运行, 另一个是在真实设备上运行的, 然后再用命令将两个.a合并成一个.</li>
 </ol>
-<ul>
-<li><p>如果实现<code>+ (BOOL)resolveInstanceMethod:(SEL)sel</code>这个方法后直接执行<code>id dynamicMethod</code>; </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">+ (BOOL)resolveInstanceMethod:(SEL)sel</div><div class="line">&#123;</div><div class="line">    class_addMethod(self.class, sel, (IMP)dynamicMethod, &quot;@@:&quot;);</div><div class="line">    return [super resolveInstanceMethod:sel];;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>如果没有实现这个方法则会调用<code>- (id)forwardingTargetForSelector:(SEL)aSelector</code>这个方法;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (id)forwardingTargetForSelector:(SEL)aSelector </div><div class="line">&#123;</div><div class="line">    id result = [super forwardingTargetForSelector:aSelector];</div><div class="line">    return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>只要这个方法返回的不是nil和self，整个消息发送的过程就会被重启，当然发送的对象会变成你返回的那个对象;如果没有实现这个方法则会有第三次拯救的方式:</p>
-<ul>
-<li><p>第三次拯救方式: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector</div><div class="line">&#123;</div><div class="line">    id result = [super methodSignatureForSelector:aSelector];</div><div class="line">    return result;</div><div class="line">&#125; </div><div class="line">- (void)forwardInvocation:(NSInvocation *)anInvocation</div><div class="line">&#123;</div><div class="line">    anInvocation.selector = (SEL)dynamicMethod;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>如果都没有执行就会抛出异常.</p>
-</li>
-</ul>
-
+<h2 id="1-error-No-architectures-to-compile-for-ONLY-ACTIVE-ARCH-YES-active-arch-x86-64-VALID-ARCHS-i386"><a href="#1-error-No-architectures-to-compile-for-ONLY-ACTIVE-ARCH-YES-active-arch-x86-64-VALID-ARCHS-i386" class="headerlink" title="1. error: No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=x86_64, VALID_ARCHS=i386)"></a>1. error: No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=x86_64, VALID_ARCHS=i386)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 在Project target里“Architectures”设置为“Standard （armv7,armv7s）”</div><div class="line">2. 修改在Project target里“Build Settings”的“Valid Architectures”添加 “i386” 和 “armv7”(Xcode4.6 以上版本不再支持armv6，请去掉);</div><div class="line">3. 设置 ”Build Active Architecture Only” 为 “NO”。</div></pre></td></tr></table></figure>
+<h2 id="2-Undefined-symbols-for-architecture-arm64"><a href="#2-Undefined-symbols-for-architecture-arm64" class="headerlink" title="2. Undefined symbols for architecture arm64"></a>2. Undefined symbols for architecture arm64</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Undefined symbols for architecture arm64:</div><div class="line">&quot;_OBJC_CLASS_$_XXX&quot;, referenced from: someFile</div><div class="line">ld: symbol(s) not found for architecture arm64</div></pre></td></tr></table></figure>
+<h3 id="reason-工程内某些地方不支持arm64指令集"><a href="#reason-工程内某些地方不支持arm64指令集" class="headerlink" title="reason: 工程内某些地方不支持arm64指令集 "></a><font color="#FF0000">reason: 工程内某些地方不支持arm64指令集 </font></h3><h3 id="resolve"><a href="#resolve" class="headerlink" title=" resolve: "></a><font color="#FF0000"> resolve: </font></h3><pre><code>1. 设置 Architectures armv7 armv7s, Build Active Architecture Only NO; Valid Architectures armv6 armv7 armv7s arm64;
+2. 如果设置 Architectures, Valid Architectures 设置正确还是不行的话, 在 Other Linker Flags 中添加$(inherited);
+3. 前面2步设置完还是不行的话试试:将 /User/yourname/Library/Developer/XCode/DerivedData 清空.
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cj28q1r30000smqorsujf3fx1" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/26/arm指令集/" data-id="cj28q1r280005mqorww3ij8bc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -127,19 +141,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/04/17/Runtime/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/04/25/崩溃日志/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Runtime
+          崩溃日志
         
       </div>
     </a>
   
   
-    <a href="/2017/04/19/Swift-TheBasic/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/05/03/GracefulSentence/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">TheBasic</div>
+      <div class="article-nav-title">GracefulSentence</div>
     </a>
   
 </nav>

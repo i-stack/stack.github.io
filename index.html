@@ -61,14 +61,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="[layout]-iOS设备崩溃日志" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-GracefulSentence" class="article article-type-[layout]" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/25/iOS设备崩溃日志/" class="article-date">
-  <time datetime="2017-04-25T10:19:52.000Z" itemprop="datePublished">2017-04-25</time>
+    <a href="/2017/05/03/GracefulSentence/" class="article-date">
+  <time datetime="2017-05-03T01:27:04.000Z" itemprop="datePublished">2017-05-03</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS设备崩溃日志/">iOS设备崩溃日志</a>
+    <a class="article-category-link" href="/categories/GracefulSentence/">GracefulSentence</a>
   </div>
 
   </div>
@@ -79,7 +79,128 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/25/iOS设备崩溃日志/">iOS设备崩溃日志</a>
+      <a class="article-title" href="/2017/05/03/GracefulSentence/">GracefulSentence</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>Withstand the test of time! 经得起时间的考验</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/05/03/GracefulSentence/" data-id="cj28q1r1v0000mqor6dy45yja" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sentence/">Sentence</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="[layout]-arm指令集" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/26/arm指令集/" class="article-date">
+  <time datetime="2017-04-26T08:48:52.000Z" itemprop="datePublished">2017-04-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS常见错误收集/">iOS常见错误收集</a>►<a class="article-category-link" href="/categories/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/26/arm指令集/">arm指令集错误收集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>iOS的指令集有 <code>armv6、armv7、armv7s、arm64</code> Arm是向下兼容的</p>
+<ol>
+<li>armv6 <ul>
+<li>iPhone</li>
+<li>iPhone2</li>
+<li>iPhone3G</li>
+<li>iPod Touch(1, 2)</li>
+</ul>
+</li>
+<li>armv7 <ul>
+<li>iPhone4</li>
+<li>iPhone4S</li>
+<li>iPod (3G, 4G, 5G)</li>
+<li>iPad(1, 2 , 3 , Mini)</li>
+</ul>
+</li>
+<li>armv7s<ul>
+<li>iPhone5</li>
+<li>iPhone5C</li>
+<li>iPad 4</li>
+</ul>
+</li>
+<li>arm64 <ul>
+<li>iPhone5S以后</li>
+<li>iPad Air(2), Retina iPad Mini(2,3)</li>
+</ul>
+</li>
+<li>Architecture: 指你想支持的指令集</li>
+<li>Valid architectures: 指即将编译的指令集</li>
+<li>Build Active Architecture Only: 是否只编译当前适用的指令集;<br> 如果要app在各个机器都能够最高效率的运行, 需要将Build Active Architecture Only改为 NO, Valid architectures选择对应的指令集: armv7 armv7s arm64; 但是编译后包得体积会增加, Release时必须设置为NO;<br> Valid architectures 为 armv7 时包的体积最小(不能编译armv6), Build Active Architectures 任意;<br> 如果这个参数设为 YES, 那么如果你用iPhone 6调试, 最终生成的一个支持arm64指令集的Binary;使用iPhone4编译, 最终生成一个支持armv7指令集的Binary, 意思是只会编译对应指令的包;<br> 如果这个参数设置为 NO, 编译器会整合指令集, 包会变大, 可以设配不同的设备;<br> 所以一般在DEBUG模式下设为YES, RELEASE设为NO;<br> 模拟器并不运行arm代码, 软件会被编译成x86可以运行的指令. 所以生成静态库时都是会先生成两个.a, 一个是i386的用于在模拟器运行, 另一个是在真实设备上运行的, 然后再用命令将两个.a合并成一个.</li>
+</ol>
+<h2 id="1-error-No-architectures-to-compile-for-ONLY-ACTIVE-ARCH-YES-active-arch-x86-64-VALID-ARCHS-i386"><a href="#1-error-No-architectures-to-compile-for-ONLY-ACTIVE-ARCH-YES-active-arch-x86-64-VALID-ARCHS-i386" class="headerlink" title="1. error: No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=x86_64, VALID_ARCHS=i386)"></a>1. error: No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=x86_64, VALID_ARCHS=i386)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 在Project target里“Architectures”设置为“Standard （armv7,armv7s）”</div><div class="line">2. 修改在Project target里“Build Settings”的“Valid Architectures”添加 “i386” 和 “armv7”(Xcode4.6 以上版本不再支持armv6，请去掉);</div><div class="line">3. 设置 ”Build Active Architecture Only” 为 “NO”。</div></pre></td></tr></table></figure>
+<h2 id="2-Undefined-symbols-for-architecture-arm64"><a href="#2-Undefined-symbols-for-architecture-arm64" class="headerlink" title="2. Undefined symbols for architecture arm64"></a>2. Undefined symbols for architecture arm64</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Undefined symbols for architecture arm64:</div><div class="line">&quot;_OBJC_CLASS_$_XXX&quot;, referenced from: someFile</div><div class="line">ld: symbol(s) not found for architecture arm64</div></pre></td></tr></table></figure>
+<h3 id="reason-工程内某些地方不支持arm64指令集"><a href="#reason-工程内某些地方不支持arm64指令集" class="headerlink" title="reason: 工程内某些地方不支持arm64指令集 "></a><font color="#FF0000">reason: 工程内某些地方不支持arm64指令集 </font></h3><h3 id="resolve"><a href="#resolve" class="headerlink" title=" resolve: "></a><font color="#FF0000"> resolve: </font></h3><pre><code>1. 设置 Architectures armv7 armv7s, Build Active Architecture Only NO; Valid Architectures armv6 armv7 armv7s arm64;
+2. 如果设置 Architectures, Valid Architectures 设置正确还是不行的话, 在 Other Linker Flags 中添加$(inherited);
+3. 前面2步设置完还是不行的话试试:将 /User/yourname/Library/Developer/XCode/DerivedData 清空.
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/26/arm指令集/" data-id="cj28q1r280005mqorww3ij8bc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="[layout]-崩溃日志" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/25/崩溃日志/" class="article-date">
+  <time datetime="2017-04-25T10:19:52.000Z" itemprop="datePublished">2017-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS常见错误收集/">iOS常见错误收集</a>►<a class="article-category-link" href="/categories/iOS常见错误收集/崩溃日志/">崩溃日志</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/25/崩溃日志/">崩溃日志</a>
     </h1>
   
 
@@ -106,7 +227,6 @@
 <li>0xdeadfa11 : 读做 “dead fall”! 该代码表示应用是被用户强制退出的。根据苹果文档, 强制退出发生在用户长按开关按钮直到出现 “滑动来关机”, 然后长按 Home按钮。强制退出将产生 包含0xdeadfa11 异常编码的崩溃日志, 因为大多数是强制退出是因为应用阻塞了界面。</li>
 </ul>
 <h3 id="从下向上读回溯日志。最底下的帧是最先调用的-依此类推。"><a href="#从下向上读回溯日志。最底下的帧是最先调用的-依此类推。" class="headerlink" title="从下向上读回溯日志。最底下的帧是最先调用的, 依此类推。"></a>从下向上读回溯日志。最底下的帧是最先调用的, 依此类推。</h3><h2 id="DEBUG模式下Crash搜集"><a href="#DEBUG模式下Crash搜集" class="headerlink" title="DEBUG模式下Crash搜集"></a>DEBUG模式下Crash搜集</h2><h3 id="1-SIGABRT（EXC-CRASH"><a href="#1-SIGABRT（EXC-CRASH" class="headerlink" title="1. SIGABRT（EXC_CRASH)"></a>1. SIGABRT（EXC_CRASH)</h3><pre><code>* 对象多次释放
-* 
 </code></pre><h3 id="2-EXC-BAD-ACCESS（SIGBUS-或-SIGSEGV）"><a href="#2-EXC-BAD-ACCESS（SIGBUS-或-SIGSEGV）" class="headerlink" title="2. EXC_BAD_ACCESS（SIGBUS 或 SIGSEGV）"></a>2. EXC_BAD_ACCESS（SIGBUS 或 SIGSEGV）</h3><p>通常是内存问题导致的, 这种情况通常很难定位, 因为有些会直接停在 main() 函数, Xcode 的 Debug 面板没有任何直接的错误信息, 开启异常断点只能得到部分错误信息, 想要的却没有; 有时可能需要多点几次, 才能得到错误信息; </p>
 <pre><code>* NSUnknownKeyException 通常能够告诉我们错误的类型
 </code></pre><h3 id="3-异常断点"><a href="#3-异常断点" class="headerlink" title="3. 异常断点"></a>3. 异常断点</h3><pre><code>* objc_excption_rethrow 和 设置僵尸变量
@@ -114,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/25/iOS设备崩溃日志/" data-id="cj1yc7qnh000aenorwaj3enco" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/25/崩溃日志/" data-id="cj28q1r2v000omqoruuuuf3b8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -178,7 +298,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/Class-dump/" data-id="cj1yc7qmy0000enor0w89nr88" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/Class-dump/" data-id="cj28q1r200001mqor9bmunv91" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -220,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/20/Swift-BasicOperators/" data-id="cj1yc7qn90004enor114aam0g" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/20/Swift-BasicOperators/" data-id="cj28q1r2f000amqorpa1xjz0w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
@@ -302,7 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/19/Swift-TheBasic/" data-id="cj1yc7qnb0005enornztl8713" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/19/Swift-TheBasic/" data-id="cj28q1r2n000fmqorvxzbmgsf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
@@ -366,7 +486,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cj1yc7qnq000jenor0kvaq58e" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cj28q1r30000smqorsujf3fx1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -430,7 +550,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/17/Runtime/" data-id="cj1yc7qn30001enor3bq0hr13" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/17/Runtime/" data-id="cj28q1r2c0006mqor22in8c27" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -494,7 +614,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/" data-id="cj1yc7qno000henor9t2jbbie" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/" data-id="cj28q1r2t000mmqorzuizy413" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -545,104 +665,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cj1yc7qne0006enor111uqjk8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="[page_layout]-hexo+github+域名绑定操作步骤" class="article article-type-[page_layout]" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/01/hexo+github+域名绑定操作步骤/" class="article-date">
-  <time datetime="2017-04-01T02:57:26.000Z" itemprop="datePublished">2017-04-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hexo-github/">Hexo+github</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/01/hexo+github+域名绑定操作步骤/">使用Hexo写博客操作步骤</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>点击进入 <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js官网</a> 下载安装包, Mac也可以使用Homebrew直接构建环境;<br>这里使用的是直接从官网下载安装, 有兴趣的童鞋可以试着尝试使用Homebrew;</p>
-<ul>
-<li>打开终端使用node –version 查看是否安装成功</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IDFA:~ stack$ node --version</div><div class="line">v6.10.2</div><div class="line">IDFA:~ stack$</div></pre></td></tr></table></figure>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>点击进入 <a href="https://git-scm.com/downloads" target="_blank" rel="external">Git官网</a> 配置git环境, 网上教程很多</p>
-<ul>
-<li>同样使用 git –version 查看是否安装成功</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IDFA:~ stack$ git --version</div><div class="line">git version 2.11.0 (Apple Git-81)</div><div class="line">IDFA:~ stack$</div></pre></td></tr></table></figure>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>点击进入 <a href="https://hexo.io/" target="_blank" rel="external">Hexo官网</a>, 由于已经安装Node, 可以在终端直接使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
-<ul>
-<li>同样使用 hexo –version 查看是否安装成功</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">IDFA:~ stack$ hexo --version</div><div class="line">hexo-cli: 1.0.2</div><div class="line">os: Darwin 16.5.0 darwin x64</div><div class="line">http_parser: 2.7.0</div><div class="line">node: 6.10.2</div><div class="line">v8: 5.1.281.98</div><div class="line">uv: 1.9.1</div><div class="line">zlib: 1.2.11</div><div class="line">ares: 1.10.1-DEV</div><div class="line">icu: 58.2</div><div class="line">modules: 48</div><div class="line">openssl: 1.0.2k</div><div class="line">IDFA:~ stack$</div></pre></td></tr></table></figure>
-<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><h3 id="新建github项目"><a href="#新建github项目" class="headerlink" title="新建github项目"></a>新建github项目</h3><ol>
-<li>项目命名为youname.github.io即可(youname自定义)</li>
-<li>clone项目到本地 —&gt; 别名blog</li>
-</ol>
-<h3 id="hexo创建博客环境"><a href="#hexo创建博客环境" class="headerlink" title="hexo创建博客环境"></a>hexo创建博客环境</h3><ol>
-<li>终端cd到blog文件夹下</li>
-<li>初始化</li>
-<li>install <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>创建完成之后, 文件是这样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure></p>
-<p><strong> 开始配置 </strong></p>
-<ul>
-<li>_config.yml <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="external">网页配置文件</a> 可以配置更多的设置 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># URL</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: https://github.com/songMW/stack.github.io</div><div class="line"># root: </div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure>
-<h4 id="注-若CSS样式不起作用-可以注释掉root"><a href="#注-若CSS样式不起作用-可以注释掉root" class="headerlink" title="注: 若CSS样式不起作用, 可以注释掉root:"></a>注: 若CSS样式不起作用, 可以注释掉root:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">type: git</div><div class="line">repo: https://github.com/songMW/stack.github.io.git</div><div class="line">branch: master</div></pre></td></tr></table></figure>
-<p>配置完成之后 hexo server 测试一下效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">IDFA:stack.github.io stack$ hexo server --config _config.yml</div><div class="line">INFO  Start processing</div><div class="line">INFO  Hexo is running at http://localhost:4000/stack.github.io/. Press Ctrl+C to stop.</div><div class="line">^CINFO  Have a nice day</div></pre></td></tr></table></figure>
-<p>打开本地网页就是终端上得地址即可看到效果</p>
-<p>##到这里Hexo就配置好了,下面就是如何用Hexo写博客了<br>当打开地址时会有自动生成的Hello World博客, 可以参考.</p>
-<h3 id="创建一个新页面-博客内容-帖子-无所谓了随便叫"><a href="#创建一个新页面-博客内容-帖子-无所谓了随便叫" class="headerlink" title="创建一个新页面/博客内容/帖子/无所谓了随便叫"></a>创建一个新页面/博客内容/帖子/无所谓了随便叫</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li>layout 默认是 post, 在 _config.yml 中默认的 layout 是 defalut_layout</li>
-<li><code>&lt;title&gt;</code> 是标题名, 注意:不要带&lt;&gt;, 否则会语法报错 -bash: syntax error near unexpected token newline</li>
-</ul>
-<p>这里是 <a href="http://www.tuicool.com/articles/I36zYr" target="_blank" rel="external">hexo命令及Markdown语法</a> 可以参考!</p>
-<h3 id="页面写完之后-需要生成一个静态网页"><a href="#页面写完之后-需要生成一个静态网页" class="headerlink" title="页面写完之后 需要生成一个静态网页"></a>页面写完之后 需要生成一个静态网页</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<ul>
-<li><p>使用 –watch 命令可以查看改变的内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate --watch</div></pre></td></tr></table></figure>
-</li>
-<li><p>最后一步就是部署到 Github 上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate --deploy</div><div class="line">$ hexo deploy --generate</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>上面两个命令是一样的<br>接下来是输入Github的用户名和密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INFO  Deploy done: git</div></pre></td></tr></table></figure></p>
-<p>说明部署完成</p>
-<p>##就先写到这, 第一次记录, 还会遇到很多问题, 到时在补充!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/01/hexo+github+域名绑定操作步骤/" data-id="cj1yc7qnk000denorfylx9iet" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cj28q1r2h000cmqor8klv4v00" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -655,6 +678,10 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
 
   
 
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -663,7 +690,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Class-dump/">Class-dump</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS设备崩溃日志/">iOS设备崩溃日志</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python3FroMac/">python3FroMac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Class-dump/">Class-dump</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/python3FroMac/">python3FroMac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a></li></ul>
     </div>
   </div>
 
@@ -673,7 +700,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentence/">Sentence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
     </div>
   </div>
 
@@ -683,7 +710,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Installation/" style="font-size: 20px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 15px;">Objective-C</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a>
+      <a href="/tags/Installation/" style="font-size: 16.67px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 20px;">Objective-C</a> <a href="/tags/Sentence/" style="font-size: 10px;">Sentence</a> <a href="/tags/Swift/" style="font-size: 13.33px;">Swift</a>
     </div>
   </div>
 
@@ -692,7 +719,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
   </div>
 
@@ -705,7 +732,15 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       <ul>
         
           <li>
-            <a href="/2017/04/25/iOS设备崩溃日志/">iOS设备崩溃日志</a>
+            <a href="/2017/05/03/GracefulSentence/">GracefulSentence</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/26/arm指令集/">arm指令集错误收集</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/25/崩溃日志/">崩溃日志</a>
           </li>
         
           <li>
@@ -714,14 +749,6 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
         
           <li>
             <a href="/2017/04/20/Swift-BasicOperators/">Swift.BasicOperators</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/19/Swift-TheBasic/">TheBasic</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/18/unrecognizedSelector/">unrecognizedSelector</a>
           </li>
         
       </ul>
