@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Catégorie: python3FroMac | stack.blog</title>
+  <title>Clang | stack.blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="stack.blog">
-<meta property="og:url" content="https://github.com/songMW/stack.github.io/categories/python3FroMac/index.html">
+  <meta name="description" content="Clang是什么？Clang是一个C、C++、OC语言的轻量级编译器. Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的错误：1234main.m:9:9: fatal error: &amp;apos;UIKit/UIKit.h&amp;apos; file not found#import &amp;lt;UIKit/UIKit.h&amp;gt;^1 error gen">
+<meta name="keywords" content="Installation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clang">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/05/15/Clang/index.html">
 <meta property="og:site_name" content="stack.blog">
+<meta property="og:description" content="Clang是什么？Clang是一个C、C++、OC语言的轻量级编译器. Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的错误：1234main.m:9:9: fatal error: &amp;apos;UIKit/UIKit.h&amp;apos; file not found#import &amp;lt;UIKit/UIKit.h&amp;gt;^1 error gen">
+<meta property="og:updated_time" content="2017-05-15T08:03:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stack.blog">
+<meta name="twitter:title" content="Clang">
+<meta name="twitter:description" content="Clang是什么？Clang是一个C、C++、OC语言的轻量级编译器. Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的错误：1234main.m:9:9: fatal error: &amp;apos;UIKit/UIKit.h&amp;apos; file not found#import &amp;lt;UIKit/UIKit.h&amp;gt;^1 error gen">
   
   
     <link rel="icon" href="/favicon.png">
@@ -55,39 +60,64 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-[layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/12/python3FroMac/" class="archive-article-date">
-  <time datetime="2017-04-12T10:50:28.000Z" itemprop="datePublished">Apr 12</time>
+        <section id="main"><article id="[layout]-Clang" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/15/Clang/" class="article-date">
+  <time datetime="2017-05-15T07:47:07.000Z" itemprop="datePublished">2017-05-15</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/反编译/">反编译</a>►<a class="article-category-link" href="/categories/反编译/Clang/">Clang</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/12/python3FroMac/">python3ForMac</a>
+    <h1 class="article-title" itemprop="name">
+      Clang
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Clang是什么？"><a href="#Clang是什么？" class="headerlink" title="Clang是什么？"></a>Clang是什么？</h2><p><code>Clang是一个C、C++、OC语言的轻量级编译器.</code></p>
+<h2 id="Clang的用途-重写OC源码转为C"><a href="#Clang的用途-重写OC源码转为C" class="headerlink" title="Clang的用途 重写OC源码转为C++"></a>Clang的用途 重写OC源码转为C++</h2><p><code>clang -rewrite-objc xxx.m</code> 遇到如下的错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">main.m:9:9: fatal error: &apos;UIKit/UIKit.h&apos; file not found</div><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line">^</div><div class="line">1 error generated.</div></pre></td></tr></table></figure></p>
+<p>解决方法如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clang -x objective-c -rewrite-objc -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk xxx.m</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/05/15/Clang/" data-id="cj2pufzdu0000vlorcv2vwqzf" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/04/load/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          load
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         

@@ -57,6 +57,70 @@
       <div class="outer">
         <section id="main">
   
+    <article id="[layout]-python3FroMac" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/12/python3FroMac/" class="article-date">
+  <time datetime="2017-04-12T10:50:28.000Z" itemprop="datePublished">2017-04-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python3FroMac/">python3FroMac</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/12/python3FroMac/">python3ForMac</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://python-guide-pt-br.readthedocs.io/en/latest/starting/install3/osx/" target="_blank" rel="external">安装教程</a><br>其他就不写了, 因为是按着步骤走, 没有出现错误.</p>
+<h2 id="下面是搬运过来的-方便以后找-原文如下"><a href="#下面是搬运过来的-方便以后找-原文如下" class="headerlink" title="下面是搬运过来的, 方便以后找, 原文如下:"></a>下面是搬运过来的, 方便以后找, 原文如下:</h2><p>The latest version of Mac OS X, Sierra, comes with Python 2.7 out of the box.<br>You do not need to install or configure anything else to use Python 2. These instructions document the installation of Python 3.<br>The version of Python that ships with OS X is great for learning, but it’s not good for development. The version shipped with OS X may be out of date from the official current Python release, which is considered the stable production version.</p>
+<p>Doing it Right<br>Let’s install a real version of Python.</p>
+<p>Before installing Python, you’ll need to install GCC. GCC can be obtained by downloading XCode, the smaller Command Line Tools (must have an Apple account) or the even smaller OSX-GCC-Installer package.</p>
+<p>Note<br><code>If you already have XCode installed, do not install OSX-GCC-Installer. In combination, the software can cause issues that are difficult to diagnose.</code></p>
+<p>Note<br><code>If you perform a fresh install of XCode, you will also need to add the commandline tools by running xcode-select --install on the terminal.
+While OS X comes with a large number of UNIX utilities, those familiar with Linux systems will notice one key component missing: a package manager. Homebrew fills this void.</code></p>
+<p>To install Homebrew, open Terminal or your favorite OSX terminal emulator and run<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure></p>
+<p>The script will explain what changes it will make and prompt you before the installation begins. Once you’ve installed Homebrew, insert the Homebrew directory at the top of your PATH environment variable. You can do this by adding the following line at the bottom of your <code>~/.profile</code> file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=/usr/local/bin:/usr/local/sbin:$PATH</div></pre></td></tr></table></figure>
+<p>Now, we can install Python 3:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install python3</div></pre></td></tr></table></figure>
+<p>This will take a minute or two.</p>
+<p>Pip<br>Homebrew installs pip3 for you.</p>
+<p>pip3 is the alias for the Python 3 version of pip on systems with both the Homebrew’d Python 2 and 3 installed.</p>
+<p>Working with Python 3<br>At this point, you have the system Python 2.7 available, potentially the Homebrew version of Python 2 installed, and the Homebrew version of Python 3 as well.</p>
+<p>$ python<br>will launch the Python 2 interpreter.</p>
+<p>$ python3<br>will launch the Python 3 interpreter.</p>
+<p>pip3 and pip will both be available. If the Homebrew version of Python 2 is not installed, they will be the same. If the Homebrew version of Python 2 is installed then pip will point to Python 2 and pip3 will point to Python 3.</p>
+<p>Virtual Environments<br>A Virtual Environment (commonly referred to as a ‘virtualenv’) is a tool to keep the dependencies required by different projects in separate places, by creating virtual Python environments for them. It solves the “Project X depends on version 1.x but, Project Y needs 4.x” dilemma, and keeps your global site-packages directory clean and manageable.</p>
+<p>For example, you can work on a project which requires Django 1.10 while also maintaining a project which requires Django 1.8.</p>
+<p>To start using this and see more information: Virtual Environments docs.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/" data-id="cj2pufzfe000qvlorm9qczijf" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/04/11/hello-world/" class="article-date">
@@ -96,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cj2ikjzyr0014qmoran4dybgs" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cj2pufzf0000gvlorf4cvco2v" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -193,7 +257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/01/hexo+github+域名绑定操作步骤/" data-id="cj2ikjzyo0013qmor5mne5pwm" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/01/hexo+github+域名绑定操作步骤/" data-id="cj2pufzf4000kvloru7pe8uup" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -240,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/03/26/Xcode编译错误集合/" data-id="cj2ikjzxr000aqmor6sos1o57" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/03/26/Xcode编译错误集合/" data-id="cj2pufzen000avlor4v6py99c" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -265,7 +329,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Catégories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Class-dump/">Class-dump</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/load/">load</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python3FroMac/">python3FroMac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/load/">load</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python3FroMac/">python3FroMac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/反编译/">反编译</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/反编译/Clang/">Clang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/反编译/Class-dump/">Class-dump</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -307,6 +371,10 @@
       <ul>
         
           <li>
+            <a href="/2017/05/15/Clang/">Clang</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/04/load/">load</a>
           </li>
         
@@ -320,10 +388,6 @@
         
           <li>
             <a href="/2017/04/25/崩溃日志/">崩溃日志</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/21/Class-dump/">Objective-C Class-dump</a>
           </li>
         
       </ul>

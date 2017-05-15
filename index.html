@@ -57,6 +57,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="[layout]-Clang" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/15/Clang/" class="article-date">
+  <time datetime="2017-05-15T07:47:07.000Z" itemprop="datePublished">2017-05-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/反编译/">反编译</a>►<a class="article-category-link" href="/categories/反编译/Clang/">Clang</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/15/Clang/">Clang</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Clang是什么？"><a href="#Clang是什么？" class="headerlink" title="Clang是什么？"></a>Clang是什么？</h2><p><code>Clang是一个C、C++、OC语言的轻量级编译器.</code></p>
+<h2 id="Clang的用途-重写OC源码转为C"><a href="#Clang的用途-重写OC源码转为C" class="headerlink" title="Clang的用途 重写OC源码转为C++"></a>Clang的用途 重写OC源码转为C++</h2><p><code>clang -rewrite-objc xxx.m</code> 遇到如下的错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">main.m:9:9: fatal error: &apos;UIKit/UIKit.h&apos; file not found</div><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line">^</div><div class="line">1 error generated.</div></pre></td></tr></table></figure></p>
+<p>解决方法如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clang -x objective-c -rewrite-objc -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk xxx.m</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/05/15/Clang/" data-id="cj2pufzdu0000vlorcv2vwqzf" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="[layout]-load" class="article article-type-[layout]" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/04/load/" class="article-date">
@@ -108,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/05/04/load/" data-id="cj2ikjzyw0017qmorg7mmy0jx" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/05/04/load/" data-id="cj2pufzf8000mvlor09r7frjj" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -151,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/05/03/GracefulSentence/" data-id="cj2ikjzxa0001qmor15a8ic9n" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/05/03/GracefulSentence/" data-id="cj2pufze20001vlorbsffsjin" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sentence/">Sentence</a></li></ul>
@@ -229,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/26/arm指令集/" data-id="cj2ikjzxu000cqmor3wit3zbh" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/26/arm指令集/" data-id="cj2pufzex000evlor01pn081m" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -293,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/25/崩溃日志/" data-id="cj2ikjzza001eqmorw25wub9n" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/25/崩溃日志/" data-id="cj2pufzfk000xvlorzgzwbpod" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -312,7 +357,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Class-dump/">Class-dump</a>
+    <a class="article-category-link" href="/categories/反编译/">反编译</a>►<a class="article-category-link" href="/categories/反编译/Class-dump/">Class-dump</a>
   </div>
 
   </div>
@@ -357,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/Class-dump/" data-id="cj2ikjzx40000qmorwsx0zvfq" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/Class-dump/" data-id="cj2pufzeb0004vlor50ch2hzz" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -399,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/20/Swift-BasicOperators/" data-id="cj2ikjzxi0004qmorsyexw5xv" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/20/Swift-BasicOperators/" data-id="cj2pufzej0006vlorp74rzw8k" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
@@ -481,7 +526,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/19/Swift-TheBasic/" data-id="cj2ikjzxm0006qmor0ek0770n" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/19/Swift-TheBasic/" data-id="cj2pufzeq000bvlorwv3fl0tg" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
@@ -522,30 +567,31 @@
         <ol>
 <li>当调用该对象上某个方法,而该对象上没有实现这个方法的时候，可以通过“消息转发”进行解决;</li>
 <li>对象查找selector时，先查找cachelist，如果没有则查找methodlist，如果还没有就查找父类的methodlist;</li>
-<li>都没有查找到时会三次机会可以处理这次selector访问<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">id dynamicMethod(id self, SEL _cmd)</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;%s:动态添加的方法&quot;,__FUNCTION__);</div><div class="line">    return @&quot;1&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<li>都没有查找到时会三次机会可以处理这次selector访问</li>
 </ol>
-<ul>
-<li><p>如果实现<code>+ (BOOL)resolveInstanceMethod:(SEL)sel</code>这个方法后直接执行<code>id dynamicMethod</code>; </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">+ (BOOL)resolveInstanceMethod:(SEL)sel</div><div class="line">&#123;</div><div class="line">    class_addMethod(self.class, sel, (IMP)dynamicMethod, &quot;@@:&quot;);</div><div class="line">    return [super resolveInstanceMethod:sel];;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>如果没有实现这个方法则会调用<code>- (id)forwardingTargetForSelector:(SEL)aSelector</code>这个方法;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (id)forwardingTargetForSelector:(SEL)aSelector </div><div class="line">&#123;</div><div class="line">    id result = [super forwardingTargetForSelector:aSelector];</div><div class="line">    return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<h2 id="Objective-C提供两类消息转发方式"><a href="#Objective-C提供两类消息转发方式" class="headerlink" title="Objective-C提供两类消息转发方式:"></a>Objective-C提供两类消息转发方式:</h2><ul>
+<li>快速转发: NSObject 类的子类重载 NSObject 的 <code>forwardingTargetForSelector:</code>方法,将该方法转发给其他对象, 实现快速转发. 将对象的实现代码和转发对象合并到一起, 类似于实现了多继承, 使用此方法的技巧是定义了一个类可以消化目标类未实现的方法.</li>
+<li>完整转发: NSObject 类的子类重载 NSObject 的 <code>forwardInvacation:</code>方法, 实现标准转发, 使用此方法要能够使用消息的全部内容(目标, 方法, 参数)</li>
 </ul>
-<p>只要这个方法返回的不是nil和self，整个消息发送的过程就会被重启，当然发送的对象会变成你返回的那个对象;如果没有实现这个方法则会有第三次拯救的方式:</p>
-<ul>
-<li><p>第三次拯救方式: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector</div><div class="line">&#123;</div><div class="line">    id result = [super methodSignatureForSelector:aSelector];</div><div class="line">    return result;</div><div class="line">&#125; </div><div class="line">- (void)forwardInvocation:(NSInvocation *)anInvocation</div><div class="line">&#123;</div><div class="line">    anInvocation.selector = (SEL)dynamicMethod;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="1-快速转发"><a href="#1-快速转发" class="headerlink" title="1. 快速转发:"></a>1. 快速转发:</h3><h3 id="使用需求-转发对象所在类所需实现当前要转发的方法"><a href="#使用需求-转发对象所在类所需实现当前要转发的方法" class="headerlink" title="使用需求: 转发对象所在类所需实现当前要转发的方法"></a><font color="#FF0000">使用需求: 转发对象所在类所需实现当前要转发的方法</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">- (id)init</div><div class="line">&#123;</div><div class="line">    if (self = [super init]) &#123;</div><div class="line">        //初始化一个转发对象</div><div class="line">        _helper = [[HydrogenHelper alloc]init];</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (id)forwardingTargetForSelector:(SEL)aSelector</div><div class="line">&#123;</div><div class="line">    //在指定类中的执行已实现的方法(和aSelector同名, 同参数)</div><div class="line">    if ([_helper respondsToSelector:aSelector]) &#123;</div><div class="line">        return _helper;</div><div class="line">    &#125;</div><div class="line">    return nil;</div><div class="line">    </div><div class="line">    //或者可以直接 return _helper; 意思是当前类未实现的方法都会转发到 _helpe 类;</div><div class="line">    //但是 aSelector 这个方法在 _helper 类中必须有实现, 如果未实现则还是会报错</div><div class="line">&#125;</div><div class="line"></div><div class="line">调用栈信息执行顺序与 Xcode 上相反:</div><div class="line">1. start</div><div class="line">2. __invoking__</div><div class="line">3. [xxx 调用未实现的method]</div><div class="line">4. __forwarding_prep_0___</div><div class="line">5. ___forwarding___</div><div class="line">6. [Class forwordingTargetForSelector:]</div></pre></td></tr></table></figure>
+<h3 id="2-标准转发"><a href="#2-标准转发" class="headerlink" title="2. 标准转发:"></a>2. 标准转发:</h3><h3 id="使用需求-当前类实现够使用消息的全部内容-目标-方法-参数"><a href="#使用需求-当前类实现够使用消息的全部内容-目标-方法-参数" class="headerlink" title="使用需求: 当前类实现够使用消息的全部内容(目标, 方法, 参数)"></a><font color="#FF0000">使用需求: 当前类实现够使用消息的全部内容(目标, 方法, 参数)</font></h3><ul>
+<li><p>如果实现 <code>+ (BOOL)resolveInstanceMethod:(SEL)sel</code> 这个方法, 则会首先执行它</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">+ (BOOL)resolveInstanceMethod:(SEL)sel</div><div class="line">&#123;</div><div class="line">    class_addMethod(self.class, sel, (IMP)dynamicMethod, &quot;@@:&quot;);</div><div class="line">    return [super resolveInstanceMethod:sel];</div><div class="line">&#125;</div><div class="line"></div><div class="line">id dynamicMethod(id self, SEL _cmd)</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;%s:动态添加的方法&quot;,__FUNCTION__);</div><div class="line">    return @&quot;LogMsg&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">如果动态添加方法成功, 则执行 dynamicMethod , 转发结束;</div><div class="line"></div><div class="line">调用栈信息执行顺序与 Xcode 上相反:</div><div class="line">1. start</div><div class="line">2. __invoking__</div><div class="line">3. [xxx 调用未实现的method]</div><div class="line">4. _objc_msgSend_uncached</div><div class="line">5. _class_resoveInstanceMethod(objc_class *, objc_selector *, objc_object *)</div><div class="line">6. [Class resolveInstanceMethod:]</div></pre></td></tr></table></figure>
 </li>
-<li><p>如果都没有执行就会抛出异常.</p>
+<li><p>如果 <code>+ (BOOL)resolveInstanceMethod:(SEL)sel</code> 这个方法没有实现或者动态添加方法失败, 则会执行 <code>- (id)forwardingTargetForSelector:(SEL)aSelector</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (id)forwardingTargetForSelector:(SEL)aSelector </div><div class="line">&#123;</div><div class="line">    id result = [super forwardingTargetForSelector:aSelector];</div><div class="line">    return result;</div><div class="line"></div><div class="line">    //或者执行快速转发</div><div class="line">&#125;</div><div class="line"></div><div class="line">只要这个方法返回的不是nil和self，整个消息发送的过程就会被重启</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果 <code>- (id)forwardingTargetForSelector:(SEL)aSelector</code> 没有实现或者返回 nil 或 self, 则会执行最后一次拯救</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector</div><div class="line">&#123;</div><div class="line">    id result = [super methodSignatureForSelector:aSelector];</div><div class="line">    return result;</div><div class="line">&#125; </div><div class="line"></div><div class="line">- (void)forwardInvocation:(NSInvocation *)anInvocation</div><div class="line">&#123;</div><div class="line">    anInvocation.selector = (SEL)dynamicMethod;</div><div class="line">&#125;</div><div class="line"></div><div class="line">只有 result 返回有值的时候才会执行 forwardInvocation: 否则不执行;</div><div class="line">这就需要提前在类中实现好要去执行的方法</div><div class="line"></div><div class="line">调用栈信息执行顺序与 Xcode 上相反:</div><div class="line">1. start</div><div class="line">2. __invoking__</div><div class="line">3. __forwarding_prep_0___</div><div class="line">4. ___forwarding___</div><div class="line">5. [Class methodSignatureForSelector:]</div><div class="line">6. [Class forwardInvocation:]</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果都执行失败执行 <code>doesNotRecognizeSelector:</code> 会抛出异常.</p>
 </li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cj2ikjzz4001bqmor8ivi1qlz" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cj2pufzfg000svlorkjx69avz" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -609,74 +655,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/17/Runtime/" data-id="cj2ikjzxk0005qmoreqd4b4xu" class="article-share-link">Partager</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/17/Runtime/" data-id="cj2pufzed0005vlorfph2u9op" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="[layout]-python3FroMac" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/12/python3FroMac/" class="article-date">
-  <time datetime="2017-04-12T10:50:28.000Z" itemprop="datePublished">2017-04-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/python3FroMac/">python3FroMac</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/12/python3FroMac/">python3ForMac</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://python-guide-pt-br.readthedocs.io/en/latest/starting/install3/osx/" target="_blank" rel="external">安装教程</a><br>其他就不写了, 因为是按着步骤走, 没有出现错误.</p>
-<h2 id="下面是搬运过来的-方便以后找-原文如下"><a href="#下面是搬运过来的-方便以后找-原文如下" class="headerlink" title="下面是搬运过来的, 方便以后找, 原文如下:"></a>下面是搬运过来的, 方便以后找, 原文如下:</h2><p>The latest version of Mac OS X, Sierra, comes with Python 2.7 out of the box.<br>You do not need to install or configure anything else to use Python 2. These instructions document the installation of Python 3.<br>The version of Python that ships with OS X is great for learning, but it’s not good for development. The version shipped with OS X may be out of date from the official current Python release, which is considered the stable production version.</p>
-<p>Doing it Right<br>Let’s install a real version of Python.</p>
-<p>Before installing Python, you’ll need to install GCC. GCC can be obtained by downloading XCode, the smaller Command Line Tools (must have an Apple account) or the even smaller OSX-GCC-Installer package.</p>
-<p>Note<br><code>If you already have XCode installed, do not install OSX-GCC-Installer. In combination, the software can cause issues that are difficult to diagnose.</code></p>
-<p>Note<br><code>If you perform a fresh install of XCode, you will also need to add the commandline tools by running xcode-select --install on the terminal.
-While OS X comes with a large number of UNIX utilities, those familiar with Linux systems will notice one key component missing: a package manager. Homebrew fills this void.</code></p>
-<p>To install Homebrew, open Terminal or your favorite OSX terminal emulator and run<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure></p>
-<p>The script will explain what changes it will make and prompt you before the installation begins. Once you’ve installed Homebrew, insert the Homebrew directory at the top of your PATH environment variable. You can do this by adding the following line at the bottom of your <code>~/.profile</code> file</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=/usr/local/bin:/usr/local/sbin:$PATH</div></pre></td></tr></table></figure>
-<p>Now, we can install Python 3:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install python3</div></pre></td></tr></table></figure>
-<p>This will take a minute or two.</p>
-<p>Pip<br>Homebrew installs pip3 for you.</p>
-<p>pip3 is the alias for the Python 3 version of pip on systems with both the Homebrew’d Python 2 and 3 installed.</p>
-<p>Working with Python 3<br>At this point, you have the system Python 2.7 available, potentially the Homebrew version of Python 2 installed, and the Homebrew version of Python 3 as well.</p>
-<p>$ python<br>will launch the Python 2 interpreter.</p>
-<p>$ python3<br>will launch the Python 3 interpreter.</p>
-<p>pip3 and pip will both be available. If the Homebrew version of Python 2 is not installed, they will be the same. If the Homebrew version of Python 2 is installed then pip will point to Python 2 and pip3 will point to Python 3.</p>
-<p>Virtual Environments<br>A Virtual Environment (commonly referred to as a ‘virtualenv’) is a tool to keep the dependencies required by different projects in separate places, by creating virtual Python environments for them. It solves the “Project X depends on version 1.x but, Project Y needs 4.x” dilemma, and keeps your global site-packages directory clean and manageable.</p>
-<p>For example, you can work on a project which requires Django 1.10 while also maintaining a project which requires Django 1.8.</p>
-<p>To start using this and see more information: Virtual Environments docs.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/" data-id="cj2ikjzyz0019qmorvr7myt81" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
 
     </footer>
   </div>
@@ -698,7 +680,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   <div class="widget-wrap">
     <h3 class="widget-title">Catégories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Class-dump/">Class-dump</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/load/">load</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python3FroMac/">python3FroMac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo-github/">Hexo+github</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TheBasic/">TheBasic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/load/">load</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python3FroMac/">python3FroMac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/unrecognizedSelector/">unrecognizedSelector</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/反编译/">反编译</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/反编译/Clang/">Clang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/反编译/Class-dump/">Class-dump</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -740,6 +722,10 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       <ul>
         
           <li>
+            <a href="/2017/05/15/Clang/">Clang</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/04/load/">load</a>
           </li>
         
@@ -753,10 +739,6 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
         
           <li>
             <a href="/2017/04/25/崩溃日志/">崩溃日志</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/21/Class-dump/">Objective-C Class-dump</a>
           </li>
         
       </ul>
