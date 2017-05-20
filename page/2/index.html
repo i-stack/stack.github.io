@@ -46,7 +46,7 @@
       </nav>
       <nav id="sub-nav">
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/songMW/stack.github.io"></form>
@@ -109,7 +109,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/" data-id="cj2sutbqo000xnbor25xfpuks" class="article-share-link">Delen</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/" data-id="cj2wyfaw0000s9eork8ihxbgk" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -160,7 +160,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cj2sutbqf000onbor7hbyhjah" class="article-share-link">Delen</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cj2wyfavu000m9eornmjtrgsb" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -257,7 +257,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/01/hexo+github+域名绑定操作步骤/" data-id="cj2sutbqi000snbor9nc8ni8l" class="article-share-link">Delen</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/01/hexo+github+域名绑定操作步骤/" data-id="cj2wyfaw8000y9eoruq35j4m3" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -296,15 +296,66 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="1-dyld-Library-not-loaded"><a href="#1-dyld-Library-not-loaded" class="headerlink" title="1. dyld: Library not loaded"></a>1. dyld: Library not loaded</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dyld: Library not loaded: @rpath/AdHubSDK.framework/AdHubSDK</div><div class="line">Referenced from: /Users/song/Library/Developer/CoreSimulator/Devices/8BF0C742-9FE8-4465-ABF5-51BD18323CF0/data/Containers/Bundle/Application/C863B41F-19D1-410D-83E2-9C547E942F68/TestDemo.app/TestDemo</div><div class="line">Reason: image not found</div></pre></td></tr></table></figure>
-<h3 id="一般是在引入第三方框架时出现的错误-解决方法-General-–-gt-Embedded-Binaries-添加第三方库或者在Build-Phases-中添加一个New-Copy-File-Phases-选择Destination后将第三方库添加进来"><a href="#一般是在引入第三方框架时出现的错误-解决方法-General-–-gt-Embedded-Binaries-添加第三方库或者在Build-Phases-中添加一个New-Copy-File-Phases-选择Destination后将第三方库添加进来" class="headerlink" title="一般是在引入第三方框架时出现的错误,解决方法: General –&gt; Embedded Binaries 添加第三方库或者在Build Phases 中添加一个New Copy File Phases 选择Destination后将第三方库添加进来."></a><font color="#FF0000">一般是在引入第三方框架时出现的错误,解决方法: General –&gt; Embedded Binaries 添加第三方库或者在Build Phases 中添加一个New Copy File Phases 选择Destination后将第三方库添加进来.</font></h3><h2 id="2-Class-PLBuildVersion-is-implemented-in-both"><a href="#2-Class-PLBuildVersion-is-implemented-in-both" class="headerlink" title="2. Class PLBuildVersion is implemented in both"></a>2. Class PLBuildVersion is implemented in both</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class PLBuildVersion is implemented in both</div></pre></td></tr></table></figure>
+<h3 id="一般是在引入第三方框架framework时出现的错误-解决方法-General-–-gt-Embedded-Binaries-添加第三方库或者在Build-Phases-中添加一个New-Copy-File-Phases-选择Destination后将第三方库添加进来"><a href="#一般是在引入第三方框架framework时出现的错误-解决方法-General-–-gt-Embedded-Binaries-添加第三方库或者在Build-Phases-中添加一个New-Copy-File-Phases-选择Destination后将第三方库添加进来" class="headerlink" title="一般是在引入第三方框架framework时出现的错误,解决方法: General –&gt; Embedded Binaries 添加第三方库或者在Build Phases 中添加一个New Copy File Phases 选择Destination后将第三方库添加进来."></a><font color="#FF0000">一般是在引入第三方框架framework时出现的错误,解决方法: General –&gt; Embedded Binaries 添加第三方库或者在Build Phases 中添加一个New Copy File Phases 选择Destination后将第三方库添加进来.</font></h3><h2 id="2-Class-PLBuildVersion-is-implemented-in-both"><a href="#2-Class-PLBuildVersion-is-implemented-in-both" class="headerlink" title="2. Class PLBuildVersion is implemented in both"></a>2. Class PLBuildVersion is implemented in both</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class PLBuildVersion is implemented in both</div></pre></td></tr></table></figure>
 <h2 id="3-”xx“-is-missing-from-working-copy-的问题"><a href="#3-”xx“-is-missing-from-working-copy-的问题" class="headerlink" title="3. ”xx“ is missing from working copy 的问题"></a>3. ”xx“ is missing from working copy 的问题</h2><p>在项目中提交过svn后再在本机上删除不用的图片资源后, build后会有 ”xx“is missing from working copy 的警告<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">svn delete nameOfMissingFile </div><div class="line">或用Git（如果你用的是Git的话）</div><div class="line">git rm nameOfMissingFile</div></pre></td></tr></table></figure></p>
-<h2 id="4-instance-method-restriction-in-category-from"><a href="#4-instance-method-restriction-in-category-from" class="headerlink" title="4. instance method restriction in category from"></a>4. instance method restriction in category from</h2><h2 id="5-The-Copy-Bundle-Resources-build-phase-contains-this-target’s-Info-plist-file-‘XXX-Info-plist’"><a href="#5-The-Copy-Bundle-Resources-build-phase-contains-this-target’s-Info-plist-file-‘XXX-Info-plist’" class="headerlink" title="5. The Copy Bundle Resources build phase contains this target’s Info.plist file ‘XXX/Info.plist’."></a>5. The Copy Bundle Resources build phase contains this target’s Info.plist file ‘XXX/Info.plist’.</h2><h3 id="Xcode回答"><a href="#Xcode回答" class="headerlink" title="Xcode回答"></a><a href="https://developer.apple.com/library/content/qa/qa1649/_index.html" target="_blank" rel="external">Xcode回答</a></h3><h2 id="6-warning-no-umbrella-header-found-for-target-‘XXX’-module-map-will-not-be-generated"><a href="#6-warning-no-umbrella-header-found-for-target-‘XXX’-module-map-will-not-be-generated" class="headerlink" title="6. warning: no umbrella header found for target ‘XXX’, module map will not be generated"></a>6. warning: no umbrella header found for target ‘XXX’, module map will not be generated</h2><h2 id="7-Lexical-or-preprocessor-issue"><a href="#7-Lexical-or-preprocessor-issue" class="headerlink" title="7. Lexical or preprocessor issue"></a>7. Lexical or preprocessor issue</h2><h3 id="Setting-gt-Header-Search-Paths-添加-PROJECT-DIR-缺失文件的主目录路径"><a href="#Setting-gt-Header-Search-Paths-添加-PROJECT-DIR-缺失文件的主目录路径" class="headerlink" title="Setting -&gt; Header Search Paths 添加 $(PROJECT_DIR)/缺失文件的主目录路径 "></a><font color="#FF0000">Setting -&gt; Header Search Paths 添加 $(PROJECT_DIR)/缺失文件的主目录路径 </font></h3><h2 id="8-在类别中重写原类方法引出的警告"><a href="#8-在类别中重写原类方法引出的警告" class="headerlink" title="8. 在类别中重写原类方法引出的警告"></a>8. 在类别中重写原类方法引出的警告</h2><p><code>Category is implementing a method which will also be implemented by its primary class</code><br><code>苹果文档: A category allows you to add new methods to an existing class. If you want to reimplement a method that already exists in the class, you typically create a subclass instead of a category.</code><br>意思是category 允许添加一个新的方法到已经存在的类, 如果想重新实现类中已经存在的方法, 通常是用继承替代类别.<br>只是警告而已, 不是错误, 消除警告的方法:</p>
-<h3 id="解决方式一"><a href="#解决方式一" class="headerlink" title="解决方式一:"></a>解决方式一:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#pragma clang diagnostic push</div><div class="line">#pragma clang diagnostic ignored &quot;-Wobjc-protocol-method-implementation&quot;</div><div class="line">// your override</div><div class="line">- (void)dealloc</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">#pragma clang diagnostic pop</div></pre></td></tr></table></figure>
-<h3 id="解决方式二"><a href="#解决方式二" class="headerlink" title="解决方式二:"></a>解决方式二:</h3><h3 id="在-target-的-build-settings-下搜索-other-warning-flags-然后给其添加-Wno-objc-protocol-method-implementation-批量警示适用"><a href="#在-target-的-build-settings-下搜索-other-warning-flags-然后给其添加-Wno-objc-protocol-method-implementation-批量警示适用" class="headerlink" title="在 target 的 build settings 下搜索 other warning flags, 然后给其添加 -Wno-objc-protocol-method-implementation 批量警示适用"></a><font color="#FF0000">在 target 的 build settings 下搜索 other warning flags, 然后给其添加 -Wno-objc-protocol-method-implementation 批量警示适用</font></h3>
+<h2 id="4-instance-method-restriction-in-category-from"><a href="#4-instance-method-restriction-in-category-from" class="headerlink" title="4. instance method restriction in category from"></a>4. instance method restriction in category from</h2><h2 id="5-The-Copy-Bundle-Resources-build-phase-contains-this-target’s-Info-plist-file-‘XXX-Info-plist’"><a href="#5-The-Copy-Bundle-Resources-build-phase-contains-this-target’s-Info-plist-file-‘XXX-Info-plist’" class="headerlink" title="5. The Copy Bundle Resources build phase contains this target’s Info.plist file ‘XXX/Info.plist’."></a>5. The Copy Bundle Resources build phase contains this target’s Info.plist file ‘XXX/Info.plist’.</h2><h3 id="Xcode回答"><a href="#Xcode回答" class="headerlink" title="Xcode回答"></a><a href="https://developer.apple.com/library/content/qa/qa1649/_index.html" target="_blank" rel="external">Xcode回答</a></h3><h3 id="Build-Phases-gt-Copy-Bundle-Recourse-中删除-info-plist"><a href="#Build-Phases-gt-Copy-Bundle-Recourse-中删除-info-plist" class="headerlink" title="Build Phases -&gt; Copy Bundle Recourse 中删除 info.plist "></a><font color="#FF0000">Build Phases -&gt; Copy Bundle Recourse 中删除 info.plist </font></h3><h2 id="6-warning-no-umbrella-header-found-for-target-‘XXX’-module-map-will-not-be-generated"><a href="#6-warning-no-umbrella-header-found-for-target-‘XXX’-module-map-will-not-be-generated" class="headerlink" title="6. warning: no umbrella header found for target ‘XXX’, module map will not be generated"></a>6. warning: no umbrella header found for target ‘XXX’, module map will not be generated</h2><h2 id="7-Lexical-or-preprocessor-issue-或者-“xxx”-file-not-found"><a href="#7-Lexical-or-preprocessor-issue-或者-“xxx”-file-not-found" class="headerlink" title="7. Lexical or preprocessor issue 或者 “xxx” file not found"></a>7. Lexical or preprocessor issue 或者 “xxx” file not found</h2><h3 id="Setting-gt-Header-Search-Paths-添加-PROJECT-DIR-缺失文件的主目录路径"><a href="#Setting-gt-Header-Search-Paths-添加-PROJECT-DIR-缺失文件的主目录路径" class="headerlink" title="Setting -&gt; Header Search Paths 添加 $(PROJECT_DIR)/缺失文件的主目录路径 "></a><font color="#FF0000">Setting -&gt; Header Search Paths 添加 $(PROJECT_DIR)/缺失文件的主目录路径 </font></h3><h2 id="8-在类别中重写原类方法引出的警告"><a href="#8-在类别中重写原类方法引出的警告" class="headerlink" title="8. 在类别中重写原类方法引出的警告"></a>8. 在类别中重写原类方法引出的警告</h2><p><code>Category is implementing a method which will also be implemented by its primary class</code><br><code>苹果文档: A category allows you to add new methods to an existing class. If you want to reimplement a method that already exists in the class, you typically create a subclass instead of a category.</code><br>意思是category 允许添加一个新的方法到已经存在的类, 如果想重新实现类中已经存在的方法, 通常是用继承替代类别.<br>只是警告而已, 不是错误, 消除警告的方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#pragma clang diagnostic push</div><div class="line">#pragma clang diagnostic ignored &quot;-Wobjc-protocol-method-implementation&quot;</div><div class="line">// your override</div><div class="line">- (void)dealloc</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">#pragma clang diagnostic pop</div><div class="line"></div><div class="line">or </div><div class="line"></div><div class="line">在 target 的 build settings 下搜索 other warning flags, 然后给其添加 -Wno-objc-protocol-method-implementation 批量警示适用</div></pre></td></tr></table></figure></p>
+<h2 id="9-architecture-x86-64-问题"><a href="#9-architecture-x86-64-问题" class="headerlink" title="9. architecture x86_64 问题"></a>9. architecture x86_64 问题</h2><ul>
+<li><h3 id="symbol-s-not-found-for-architecture-x86-64"><a href="#symbol-s-not-found-for-architecture-x86-64" class="headerlink" title="symbol(s) not found for architecture x86_64"></a>symbol(s) not found for architecture x86_64</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;_OBJC_CLASS_$_ALAssetsGroup&quot;, referenced from:</div><div class="line">objc-class-ref in xxx.o</div><div class="line">ld: symbol(s) not found for architecture x86_64</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="大致意思是在-xxx-这个类中引用-ALAssetsGroup-但却没有引用框架-一般在-h文件中就可以发现引入那些头文件-这些头文件需要引入那些框架"><a href="#大致意思是在-xxx-这个类中引用-ALAssetsGroup-但却没有引用框架-一般在-h文件中就可以发现引入那些头文件-这些头文件需要引入那些框架" class="headerlink" title="大致意思是在 xxx 这个类中引用 _ALAssetsGroup, 但却没有引用框架, 一般在.h文件中就可以发现引入那些头文件, 这些头文件需要引入那些框架."></a><font color="#FF0000">大致意思是在 xxx 这个类中引用 _ALAssetsGroup, 但却没有引用框架, 一般在.h文件中就可以发现引入那些头文件, 这些头文件需要引入那些框架.</font></h3><ul>
+<li><h3 id="duplicate-symbols-for-architecture-x86-64错误"><a href="#duplicate-symbols-for-architecture-x86-64错误" class="headerlink" title="duplicate symbols for architecture x86_64错误"></a>duplicate symbols for architecture x86_64错误</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ld: 1185 duplicate symbols for architecture x86_64</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>duplicate的中文意思是“重复的、复制的”, 而symbols的意思是“符号” 可能在你工程中引入了重复的东西.</p>
+<h3 id="a-在工程中重复导入了某一个类或文件-这一般出现在你添加第三方库的时候比较多-在不知道的情况下又导入了一次相同的类"><a href="#a-在工程中重复导入了某一个类或文件-这一般出现在你添加第三方库的时候比较多-在不知道的情况下又导入了一次相同的类" class="headerlink" title="a. 在工程中重复导入了某一个类或文件, 这一般出现在你添加第三方库的时候比较多, 在不知道的情况下又导入了一次相同的类"></a><font color="#FF0000">a. 在工程中重复导入了某一个类或文件, 这一般出现在你添加第三方库的时候比较多, 在不知道的情况下又导入了一次相同的类</font></h3><h3 id="b-import引入-m-头文件"><a href="#b-import引入-m-头文件" class="headerlink" title="b. #import引入 .m 头文件"></a><font color="#FF0000">b. #import引入 .m 头文件</font></h3><h3 id="c-在多个文件中重复定义某个东西"><a href="#c-在多个文件中重复定义某个东西" class="headerlink" title="c. 在多个文件中重复定义某个东西"></a><font color="#FF0000">c. 在多个文件中重复定义某个东西</font></h3><h2 id="10-“-OBJCCLASS-CMMotionManager”-referenced-from"><a href="#10-“-OBJCCLASS-CMMotionManager”-referenced-from" class="headerlink" title="10. “_OBJCCLASS$_CMMotionManager”, referenced from:"></a>10. “_OBJC<em>CLASS</em>$_CMMotionManager”, referenced from:</h2><h3 id="缺少系统库-CoreMotion-framework-在Build-Phases-gt-Link-Binary-With-Libraries-中添加即可"><a href="#缺少系统库-CoreMotion-framework-在Build-Phases-gt-Link-Binary-With-Libraries-中添加即可" class="headerlink" title="缺少系统库 CoreMotion.framework, 在Build Phases -&gt; Link Binary With Libraries 中添加即可."></a><font color="#FF0000">缺少系统库 CoreMotion.framework, 在Build Phases -&gt; Link Binary With Libraries 中添加即可.</font></h3><h2 id="11-unrecognized-selector-sent-to-class-0x102265ad8-类拓展出现的错误"><a href="#11-unrecognized-selector-sent-to-class-0x102265ad8-类拓展出现的错误" class="headerlink" title="11. unrecognized selector sent to class 0x102265ad8 类拓展出现的错误"></a>11. unrecognized selector sent to class 0x102265ad8 类拓展出现的错误</h2><p>Other Linker Flags 链接设置错误导致类扩展不知道如何正确读取, 找不到类方法而产生的错误.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(inherited)子类复写父类同名方法.</div><div class="line"></div><div class="line">-all_load Loads all members of static archive libraries.</div><div class="line"></div><div class="line">-ObjC Loads all members of static archive libraries that implement an Objective-C class or category.</div><div class="line"></div><div class="line">-force_load (path_to_archive) Loads all members of the specified static archive library. Note: -all_load forces all members of all archives to be loaded. This option allows you to target a specific archive.</div></pre></td></tr></table></figure></p>
+<h2 id="12"><a href="#12" class="headerlink" title="12."></a>12.</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/03/26/Xcode编译错误集合/" data-id="cj2sutbq5000gnborq9gi5bzr" class="article-share-link">Delen</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/03/26/Xcode编译错误集合/" data-id="cj2wyfavd000a9eorlts5x385" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="[layout]-Pod使用过程中遇到的问题" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/03/Pod使用过程中遇到的问题/" class="article-date">
+  <time datetime="2017-03-03T06:33:29.000Z" itemprop="datePublished">2017-03-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>►<a class="article-category-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a>►<a class="article-category-link" href="/categories/Objective-C/iOS常见错误收集/Pod使用过程中遇到的问题/">Pod使用过程中遇到的问题</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/03/Pod使用过程中遇到的问题/">Pod使用过程中遇到的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="安装篇"><a href="#安装篇" class="headerlink" title="安装篇"></a>安装篇</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/03/03/Pod使用过程中遇到的问题/" data-id="cj2wyfav200049eorzcf5cydn" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -346,7 +397,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/03/02/NSRunloop/" data-id="cj2sutbpm0005nborglh4zvku" class="article-share-link">Delen</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/03/02/NSRunloop/" data-id="cj2wyfav800069eorjypeoctg" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -384,11 +435,19 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="main-函数"><a href="#main-函数" class="headerlink" title="main 函数"></a>main 函数</h2><p>main 函数是程序的入口, main 函数显示的内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int main(int argc, char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里 <code>@autoreleasepool</code> block 中只包含了一行代, 这行代码将所有的事件、消息全部交给了 UIApplicationMain 来处理.</p>
+<font color="#FF0000">整个 iOS 的应用都是在这个自动释放池 block 中.</font>
+
+<h2 id="autoreleasepool"><a href="#autoreleasepool" class="headerlink" title="@autoreleasepool"></a>@autoreleasepool</h2><p><code>@autoreleasepool</code>是什么?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clang -rewrite-objc main.m</div></pre></td></tr></table></figure></p>
+<p>在生成的.mm源码中可以看到:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int main(int argc, char * argv[]) &#123;</div><div class="line">    /* @autoreleasepool */ &#123; __AtAutoreleasePool __autoreleasepool; </div><div class="line">        return UIApplicationMain(argc, argv, __null, NSStringFromClass(((Class (*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass(&quot;AppDelegate&quot;), sel_registerName(&quot;class&quot;))));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里 <code>@autoreleasepool</code> 被注释掉, 取而代之的是 <code>__AtAutoreleasePool</code> , <code>__AtAutoreleasePool</code> 又是什么?<br>在.mm 中搜索发现踪迹:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">extern &quot;C&quot; __declspec(dllimport) void * objc_autoreleasePoolPush(void);</div><div class="line">extern &quot;C&quot; __declspec(dllimport) void objc_autoreleasePoolPop(void *);</div><div class="line"></div><div class="line">struct __AtAutoreleasePool &#123;</div><div class="line">    __AtAutoreleasePool() &#123;atautoreleasepoolobj = objc_autoreleasePoolPush();&#125;</div><div class="line">    ~__AtAutoreleasePool() &#123;objc_autoreleasePoolPop(atautoreleasepoolobj);&#125;</div><div class="line">    void * atautoreleasepoolobj;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p><code>__AtAutoreleasePool</code> 是一个结构体, </p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/03/01/Autoreleasepool/" data-id="cj2sutbp80000nborak5o6f19" class="article-share-link">Delen</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/03/01/Autoreleasepool/" data-id="cj2wyfav500059eorqnyg9nfq" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -411,9 +470,9 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Catégories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/">Installation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hexo-github/">Hexo+github</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/unrecognizedSelector/">unrecognizedSelector</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/">反编译工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Clang/">Clang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Class-dump/">Class-dump</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/">知识点</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Autoreleasepool/">Autoreleasepool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/NSRunloop/">NSRunloop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/load/">load</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/python3FroMac/">python3FroMac</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/">基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/TheBasic/">TheBasic</a></li></ul></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/">Installation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hexo-github/">Hexo+github</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Pod使用过程中遇到的问题/">Pod使用过程中遇到的问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/unrecognizedSelector/">unrecognizedSelector</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/">反编译工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Clang/">Clang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Class-dump/">Class-dump</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/">知识点</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Autoreleasepool/">Autoreleasepool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/NSRunloop/">NSRunloop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/load/">load</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/python3FroMac/">python3FroMac</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/">基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/TheBasic/">TheBasic</a></li></ul></li></ul></li></ul>
     </div>
   </div>
 
@@ -421,7 +480,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentence/">Sentence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
     </div>
@@ -431,7 +490,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/Installation/" style="font-size: 16.67px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 20px;">Objective-C</a> <a href="/tags/Sentence/" style="font-size: 10px;">Sentence</a> <a href="/tags/Swift/" style="font-size: 13.33px;">Swift</a>
     </div>
@@ -440,7 +499,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
@@ -450,7 +509,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -487,7 +546,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 stack<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
