@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/03/26/Xcode编译错误集合/index.html">
 <meta property="og:site_name" content="stack.blog">
 <meta property="og:description" content="1. dyld: Library not loaded123dyld: Library not loaded: @rpath/AdHubSDK.framework/AdHubSDKReferenced from: /Users/song/Library/Developer/CoreSimulator/Devices/8BF0C742-9FE8-4465-ABF5-51BD18323CF0/data">
-<meta property="og:updated_time" content="2017-05-19T04:27:44.000Z">
+<meta property="og:updated_time" content="2017-06-08T08:22:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xcode编译错误集合">
 <meta name="twitter:description" content="1. dyld: Library not loaded123dyld: Library not loaded: @rpath/AdHubSDK.framework/AdHubSDKReferenced from: /Users/song/Library/Developer/CoreSimulator/Devices/8BF0C742-9FE8-4465-ABF5-51BD18323CF0/data">
@@ -51,7 +51,7 @@
       </nav>
       <nav id="sub-nav">
         
-        <a id="nav-search-btn" class="nav-icon" title="Поиск"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/songMW/stack.github.io"></form>
@@ -100,11 +100,12 @@
 </ul>
 <p>duplicate的中文意思是“重复的、复制的”, 而symbols的意思是“符号” 可能在你工程中引入了重复的东西.</p>
 <h3 id="a-在工程中重复导入了某一个类或文件-这一般出现在你添加第三方库的时候比较多-在不知道的情况下又导入了一次相同的类"><a href="#a-在工程中重复导入了某一个类或文件-这一般出现在你添加第三方库的时候比较多-在不知道的情况下又导入了一次相同的类" class="headerlink" title="a. 在工程中重复导入了某一个类或文件, 这一般出现在你添加第三方库的时候比较多, 在不知道的情况下又导入了一次相同的类"></a><font color="#FF0000">a. 在工程中重复导入了某一个类或文件, 这一般出现在你添加第三方库的时候比较多, 在不知道的情况下又导入了一次相同的类</font></h3><h3 id="b-import引入-m-头文件"><a href="#b-import引入-m-头文件" class="headerlink" title="b. #import引入 .m 头文件"></a><font color="#FF0000">b. #import引入 .m 头文件</font></h3><h3 id="c-在多个文件中重复定义某个东西"><a href="#c-在多个文件中重复定义某个东西" class="headerlink" title="c. 在多个文件中重复定义某个东西"></a><font color="#FF0000">c. 在多个文件中重复定义某个东西</font></h3><h2 id="10-“-OBJCCLASS-CMMotionManager”-referenced-from"><a href="#10-“-OBJCCLASS-CMMotionManager”-referenced-from" class="headerlink" title="10. “_OBJCCLASS$_CMMotionManager”, referenced from:"></a>10. “_OBJC<em>CLASS</em>$_CMMotionManager”, referenced from:</h2><h3 id="缺少系统库-CoreMotion-framework-在Build-Phases-gt-Link-Binary-With-Libraries-中添加即可"><a href="#缺少系统库-CoreMotion-framework-在Build-Phases-gt-Link-Binary-With-Libraries-中添加即可" class="headerlink" title="缺少系统库 CoreMotion.framework, 在Build Phases -&gt; Link Binary With Libraries 中添加即可."></a><font color="#FF0000">缺少系统库 CoreMotion.framework, 在Build Phases -&gt; Link Binary With Libraries 中添加即可.</font></h3><h2 id="11-unrecognized-selector-sent-to-class-0x102265ad8-类拓展出现的错误"><a href="#11-unrecognized-selector-sent-to-class-0x102265ad8-类拓展出现的错误" class="headerlink" title="11. unrecognized selector sent to class 0x102265ad8 类拓展出现的错误"></a>11. unrecognized selector sent to class 0x102265ad8 类拓展出现的错误</h2><p>Other Linker Flags 链接设置错误导致类扩展不知道如何正确读取, 找不到类方法而产生的错误.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(inherited)子类复写父类同名方法.</div><div class="line"></div><div class="line">-all_load Loads all members of static archive libraries.</div><div class="line"></div><div class="line">-ObjC Loads all members of static archive libraries that implement an Objective-C class or category.</div><div class="line"></div><div class="line">-force_load (path_to_archive) Loads all members of the specified static archive library. Note: -all_load forces all members of all archives to be loaded. This option allows you to target a specific archive.</div></pre></td></tr></table></figure></p>
-<h2 id="12"><a href="#12" class="headerlink" title="12."></a>12.</h2>
+<h2 id="12-Dsymutil-Warning"><a href="#12-Dsymutil-Warning" class="headerlink" title="12. Dsymutil Warning"></a>12. Dsymutil Warning</h2><p>Build Settings -&gt; Build Options-&gt;Debug Information Format 将DWARF with dSYM File 改为DWARF<br><code>So if you need it for external analysis of crash reports under archiving you app for distribution you should use DWARF with dSYM file.</code> 需要崩溃日志的时候需要设置为 <code>DWARF with dSYM File</code></p>
+<h2 id="12-warning-no-rule-to-process-file-‘-Users-song-Desktop-AdHubAdNetwork-AdHubAdNetwork-Classes-Baidu-libBaiduMobAdSDK-a’-of-type-archive-ar-for-architecture-i386"><a href="#12-warning-no-rule-to-process-file-‘-Users-song-Desktop-AdHubAdNetwork-AdHubAdNetwork-Classes-Baidu-libBaiduMobAdSDK-a’-of-type-archive-ar-for-architecture-i386" class="headerlink" title="12. warning: no rule to process file ‘/Users/song/Desktop/AdHubAdNetwork/AdHubAdNetwork/Classes/Baidu/libBaiduMobAdSDK.a’ of type archive.ar for architecture i386"></a>12. warning: no rule to process file ‘/Users/song/Desktop/AdHubAdNetwork/AdHubAdNetwork/Classes/Baidu/libBaiduMobAdSDK.a’ of type archive.ar for architecture i386</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/03/26/Xcode编译错误集合/" data-id="cj35bflsm000ojworfh1s093d" class="article-share-link">Поделиться</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/03/26/Xcode编译错误集合/" data-id="cj3v1axbo000g5qorkr7tuia2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -116,7 +117,7 @@
 <nav id="article-nav">
   
     <a href="/2017/03/04/开发者账号申请流程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Следующий</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           (no title)
@@ -126,7 +127,7 @@
   
   
     <a href="/2017/04/01/hexo+github+域名绑定操作步骤/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Предыдущий</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">使用Hexo写博客操作步骤</div>
     </a>
   
@@ -141,7 +142,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Категории</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/">Installation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hexo-github/">Hexo+github</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Pod使用过程中遇到的问题/">Pod使用过程中遇到的问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/unrecognizedSelector/">unrecognizedSelector</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/">反编译工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Clang/">Clang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Class-dump/">Class-dump</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/开发者账号申请流程/">开发者账号申请流程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/">知识点</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Autoreleasepool/">Autoreleasepool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/NSRunloop/">NSRunloop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/load/">load</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/python3FroMac/">python3FroMac</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/">基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/TheBasic/">TheBasic</a></li></ul></li></ul></li></ul>
     </div>
@@ -151,7 +152,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Метки</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentence/">Sentence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
     </div>
@@ -161,7 +162,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Облако меток</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/Installation/" style="font-size: 16.67px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 20px;">Objective-C</a> <a href="/tags/Sentence/" style="font-size: 10px;">Sentence</a> <a href="/tags/Swift/" style="font-size: 13.33px;">Swift</a>
     </div>
@@ -170,7 +171,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Архив</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
@@ -180,7 +181,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Недавние записи</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -217,7 +218,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 stack<br>
-      Создано с помощью <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
