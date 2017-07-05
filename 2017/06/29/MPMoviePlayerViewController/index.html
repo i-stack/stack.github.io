@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: Hexo | stack.blog</title>
+  <title>MPMoviePlayerViewController | stack.blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="stack.blog">
-<meta property="og:url" content="https://github.com/songMW/stack.github.io/categories/Installation/Hexo/index.html">
+  <meta name="description" content="首先贴上官方文档 先看下头文件:1234567891011121314@interface MPMoviePlayerViewController : UIViewController- (instancetype)initWithContentURL:(NSURL *)contentURL NS_DESIGNATED_INITIALIZER;@property (nonatomic, reado">
+<meta name="keywords" content="Objective-C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MPMoviePlayerViewController">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/06/29/MPMoviePlayerViewController/index.html">
 <meta property="og:site_name" content="stack.blog">
+<meta property="og:description" content="首先贴上官方文档 先看下头文件:1234567891011121314@interface MPMoviePlayerViewController : UIViewController- (instancetype)initWithContentURL:(NSURL *)contentURL NS_DESIGNATED_INITIALIZER;@property (nonatomic, reado">
+<meta property="og:updated_time" content="2017-07-05T12:38:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stack.blog">
+<meta name="twitter:title" content="MPMoviePlayerViewController">
+<meta name="twitter:description" content="首先贴上官方文档 先看下头文件:1234567891011121314@interface MPMoviePlayerViewController : UIViewController- (instancetype)initWithContentURL:(NSURL *)contentURL NS_DESIGNATED_INITIALIZER;@property (nonatomic, reado">
   
   
     <link rel="icon" href="/favicon.png">
@@ -55,58 +60,76 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/11/hello-world/" class="archive-article-date">
-  <time datetime="2017-04-11T10:57:01.000Z" itemprop="datePublished">Apr 11</time>
+        <section id="main"><article id="[layout]-MPMoviePlayerViewController" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/29/MPMoviePlayerViewController/" class="article-date">
+  <time datetime="2017-06-29T12:34:53.000Z" itemprop="datePublished">2017-06-29</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>►<a class="article-category-link" href="/categories/Objective-C/AVFoundation/">AVFoundation</a>►<a class="article-category-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/">MoviePlayer</a>►<a class="article-category-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerViewController/">MPMoviePlayerViewController</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/11/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      MPMoviePlayerViewController
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-[page_layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/01/hexo+github+域名绑定操作步骤/" class="archive-article-date">
-  <time datetime="2017-04-01T02:57:26.000Z" itemprop="datePublished">Apr 1</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/01/hexo+github+域名绑定操作步骤/">使用Hexo写博客操作步骤</a>
-    </h1>
-  
+        <p>首先贴上<a href="https://developer.apple.com/documentation/mediaplayer/mpmovieplayercontroller" target="_blank" rel="external">官方文档</a></p>
+<p>先看下头文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@interface MPMoviePlayerViewController : UIViewController</div><div class="line"></div><div class="line">- (instancetype)initWithContentURL:(NSURL *)contentURL NS_DESIGNATED_INITIALIZER;</div><div class="line"></div><div class="line">@property (nonatomic, readonly) MPMoviePlayerController *moviePlayer;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@interface UIViewController (MPMoviePlayerViewController)</div><div class="line"></div><div class="line">- (void)presentMoviePlayerViewControllerAnimated:(MPMoviePlayerViewController *)moviePlayerViewController;</div><div class="line">- (void)dismissMoviePlayerViewControllerAnimated;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<ul>
+<li>MPMoviePlayerViewController 继承 UIViewController;</li>
+<li>API很少, 主要是 moviePlayer 这个属性, 是对 MPMoviePlayerController 的一层封装;</li>
+<li>当然也拥有 MPMoviePlayerController 的所有功能;</li>
+<li>使用简单, 点击Done按钮会自动退出, 有进度条, 快进, 快退, 播放按钮.</li>
+<li>可以去自定义添加控件到播放页面, 不建议这么做, 可以直接使用 MPMoviePlayerController</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MPMoviePlayerViewController *mpMovieController = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL fileURLWithPath:videoPath]];</div><div class="line">[vc presentViewController:mpMovieController animated:YES completion:nil];</div></pre></td></tr></table></figure>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/06/29/MPMoviePlayerViewController/" data-id="cj4r0c576000c1por4mcqwihw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/17/宏与常量/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          宏(define)与常量(const)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/30/MPMoviePlayerController/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MPMoviePlayerController</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
