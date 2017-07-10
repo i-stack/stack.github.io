@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: Installation | stack.blog</title>
+  <title>使用ARC | stack.blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="stack.blog">
-<meta property="og:url" content="https://github.com/songMW/stack.github.io/categories/Installation/index.html">
+  <meta name="description" content="1. 为什么需要内存管理?Objective-C 代码创建的对象存储是以动态方式分配的内存即堆内存中, 在堆内存中创建的对象都会存储在这个内存区域中, 因此需要通过内存管理, 确保将不再使用的对象从该内存中移除, 保证正在使用的内存然能保存在内存中. 2. ARC 是什么? 如何控制对象的生命周期?ARC在编译时通过插入代码, 向对象发送 retain 或者 release 消息达到平衡, 禁止程">
+<meta name="keywords" content="Objective-C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用ARC">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/02/04/使用ARC/index.html">
 <meta property="og:site_name" content="stack.blog">
+<meta property="og:description" content="1. 为什么需要内存管理?Objective-C 代码创建的对象存储是以动态方式分配的内存即堆内存中, 在堆内存中创建的对象都会存储在这个内存区域中, 因此需要通过内存管理, 确保将不再使用的对象从该内存中移除, 保证正在使用的内存然能保存在内存中. 2. ARC 是什么? 如何控制对象的生命周期?ARC在编译时通过插入代码, 向对象发送 retain 或者 release 消息达到平衡, 禁止程">
+<meta property="og:updated_time" content="2017-07-10T12:36:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stack.blog">
+<meta name="twitter:title" content="使用ARC">
+<meta name="twitter:description" content="1. 为什么需要内存管理?Objective-C 代码创建的对象存储是以动态方式分配的内存即堆内存中, 在堆内存中创建的对象都会存储在这个内存区域中, 因此需要通过内存管理, 确保将不再使用的对象从该内存中移除, 保证正在使用的内存然能保存在内存中. 2. ARC 是什么? 如何控制对象的生命周期?ARC在编译时通过插入代码, 向对象发送 retain 或者 release 消息达到平衡, 禁止程">
   
   
     <link rel="icon" href="/favicon.png">
@@ -55,58 +60,81 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/11/hello-world/" class="archive-article-date">
-  <time datetime="2017-04-11T10:57:01.000Z" itemprop="datePublished">Apr 11</time>
+        <section id="main"><article id="[layout]-使用ARC" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/04/使用ARC/" class="article-date">
+  <time datetime="2017-02-04T07:05:05.000Z" itemprop="datePublished">2017-02-04</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>►<a class="article-category-link" href="/categories/Objective-C/知识点/">知识点</a>►<a class="article-category-link" href="/categories/Objective-C/知识点/使用ARC/">使用ARC</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/11/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      使用ARC
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-[page_layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/01/hexo+github+域名绑定操作步骤/" class="archive-article-date">
-  <time datetime="2017-04-01T02:57:26.000Z" itemprop="datePublished">Apr 1</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/01/hexo+github+域名绑定操作步骤/">使用Hexo写博客操作步骤</a>
-    </h1>
-  
+        <h2 id="1-为什么需要内存管理"><a href="#1-为什么需要内存管理" class="headerlink" title="1. 为什么需要内存管理?"></a>1. 为什么需要内存管理?</h2><p>Objective-C 代码创建的对象存储是以动态方式分配的内存即堆内存中, 在堆内存中创建的对象都会存储在这个内存区域中, 因此需要通过内存管理, 确保将不再使用的对象从该内存中移除, 保证正在使用的内存然能保存在内存中.</p>
+<h2 id="2-ARC-是什么-如何控制对象的生命周期"><a href="#2-ARC-是什么-如何控制对象的生命周期" class="headerlink" title="2. ARC 是什么? 如何控制对象的生命周期?"></a>2. ARC 是什么? 如何控制对象的生命周期?</h2><p>ARC在编译时通过插入代码, 向对象发送 <code>retain</code> 或者 <code>release</code> 消息达到平衡, 禁止程序员手动管理对象生命周期.</p>
+<h2 id="3-如何获得对象的所有权"><a href="#3-如何获得对象的所有权" class="headerlink" title="3. 如何获得对象的所有权?"></a>3. 如何获得对象的所有权?</h2><p>Objective-C 程序能够获取以 <code>alloc</code>, <code>new</code>, <code>copy</code>, <code>mutableCopy</code>开头的方法创建的任何对象.</p>
+<h2 id="4-释放对象的所有权"><a href="#4-释放对象的所有权" class="headerlink" title="4. 释放对象的所有权"></a>4. 释放对象的所有权</h2><p>ARC禁止手动方式向对象方式 <code>release</code>, <code>autorelease</code>, <code>dealloc</code> 消息, 执行以下操作时会放弃对象的所有权:</p>
+<ul>
+<li><p>重新分配变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 创建一个 Atom 对象(atom 1)赋予变量atom</div><div class="line">Atom *atom = [[Atom alloc]initWithName:@&quot;atom 1&quot;];</div><div class="line">...</div><div class="line"></div><div class="line">// 再次创建一个 Atom 对象(atom 2)赋予变量atom, 此时 atom 已经指向(atom 2), 所以 (atom 1)失去了一个所有者, 如果没有其他的所有者, 那么它将会被释放掉</div><div class="line">atom = [[Atom alloc]initWithName:@&quot;atom 2&quot;];</div></pre></td></tr></table></figure>
+</li>
+<li><p>将 <code>nil</code> 赋予变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 创建一个 Atom 对象(atom 1)赋予变量atom</div><div class="line">Atom *atom = [[Atom alloc]initWithName:@&quot;atom 1&quot;];</div><div class="line">...</div><div class="line"></div><div class="line">// 将变量 atom 设置为 nil , 此时 atom 已经指向(nil), 所以 (atom 1)失去了一个所有者, 如果没有其他的所有者, 那么它将会被释放掉</div><div class="line">// ARC 会在设为nil的语句后面, 插入向这个Atom对象发送release消息的代码</div><div class="line">atom = nil;</div></pre></td></tr></table></figure>
+</li>
+<li><p>释放对象所有者<br>对象图: 面向对象的程序由相互关联的对象网络构成, 这些对象通过OOP继承或者合成连接到一起, 统称为对象图(object graph).<br>在对象图中, 对象通过合成法规则引入其他子类对象, 如果某个父类对象创建了一个子类对象, 那么这个父类对象就声明了它拥有子类对象的所有权, 释放父类对象时, ARC会自动向它的子类发送 <code>release</code> 消息.</p>
+</li>
+</ul>
+<h2 id="5-集合类"><a href="#5-集合类" class="headerlink" title="5. 集合类"></a>5. 集合类</h2><p>Foundation框架含有各种集合类, 集合类拥有容纳其他对象的实例, 当将对象存储在集合类实例中时, 该集合类会声明改对象的所有权. 当这个集合类被释放时, ARC会自动向该集合类中每个对象发送一条 <code>release</code> 对象.</p>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/02/04/使用ARC/" data-id="cj4y4uvpb001ej0or017cdyrf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/02/bridge-type/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          __bridge_type
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/01/Autoreleasepool/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Autoreleasepool</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         

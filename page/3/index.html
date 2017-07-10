@@ -134,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/03/03/Pod使用过程中遇到的问题/" data-id="cj4r0c57d000i1porzq1h9ioq" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/03/03/Pod使用过程中遇到的问题/" data-id="cj4y4uvo6000ij0or8el0mc5l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -176,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/03/02/NSRunloop/" data-id="cj4r0c57b000g1porba2tsn40" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/03/02/NSRunloop/" data-id="cj4y4uvo3000gj0or3kr290zb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -226,7 +226,190 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/03/01/Autoreleasepool/" data-id="cj4r0c56800001por97rhelhj" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/03/01/Autoreleasepool/" data-id="cj4y4uvna0001j0orin5bm3m1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="[layout]-使用ARC" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/04/使用ARC/" class="article-date">
+  <time datetime="2017-02-04T07:05:05.000Z" itemprop="datePublished">2017-02-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>►<a class="article-category-link" href="/categories/Objective-C/知识点/">知识点</a>►<a class="article-category-link" href="/categories/Objective-C/知识点/使用ARC/">使用ARC</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/04/使用ARC/">使用ARC</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-为什么需要内存管理"><a href="#1-为什么需要内存管理" class="headerlink" title="1. 为什么需要内存管理?"></a>1. 为什么需要内存管理?</h2><p>Objective-C 代码创建的对象存储是以动态方式分配的内存即堆内存中, 在堆内存中创建的对象都会存储在这个内存区域中, 因此需要通过内存管理, 确保将不再使用的对象从该内存中移除, 保证正在使用的内存然能保存在内存中.</p>
+<h2 id="2-ARC-是什么-如何控制对象的生命周期"><a href="#2-ARC-是什么-如何控制对象的生命周期" class="headerlink" title="2. ARC 是什么? 如何控制对象的生命周期?"></a>2. ARC 是什么? 如何控制对象的生命周期?</h2><p>ARC在编译时通过插入代码, 向对象发送 <code>retain</code> 或者 <code>release</code> 消息达到平衡, 禁止程序员手动管理对象生命周期.</p>
+<h2 id="3-如何获得对象的所有权"><a href="#3-如何获得对象的所有权" class="headerlink" title="3. 如何获得对象的所有权?"></a>3. 如何获得对象的所有权?</h2><p>Objective-C 程序能够获取以 <code>alloc</code>, <code>new</code>, <code>copy</code>, <code>mutableCopy</code>开头的方法创建的任何对象.</p>
+<h2 id="4-释放对象的所有权"><a href="#4-释放对象的所有权" class="headerlink" title="4. 释放对象的所有权"></a>4. 释放对象的所有权</h2><p>ARC禁止手动方式向对象方式 <code>release</code>, <code>autorelease</code>, <code>dealloc</code> 消息, 执行以下操作时会放弃对象的所有权:</p>
+<ul>
+<li><p>重新分配变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 创建一个 Atom 对象(atom 1)赋予变量atom</div><div class="line">Atom *atom = [[Atom alloc]initWithName:@&quot;atom 1&quot;];</div><div class="line">...</div><div class="line"></div><div class="line">// 再次创建一个 Atom 对象(atom 2)赋予变量atom, 此时 atom 已经指向(atom 2), 所以 (atom 1)失去了一个所有者, 如果没有其他的所有者, 那么它将会被释放掉</div><div class="line">atom = [[Atom alloc]initWithName:@&quot;atom 2&quot;];</div></pre></td></tr></table></figure>
+</li>
+<li><p>将 <code>nil</code> 赋予变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 创建一个 Atom 对象(atom 1)赋予变量atom</div><div class="line">Atom *atom = [[Atom alloc]initWithName:@&quot;atom 1&quot;];</div><div class="line">...</div><div class="line"></div><div class="line">// 将变量 atom 设置为 nil , 此时 atom 已经指向(nil), 所以 (atom 1)失去了一个所有者, 如果没有其他的所有者, 那么它将会被释放掉</div><div class="line">// ARC 会在设为nil的语句后面, 插入向这个Atom对象发送release消息的代码</div><div class="line">atom = nil;</div></pre></td></tr></table></figure>
+</li>
+<li><p>释放对象所有者<br>对象图: 面向对象的程序由相互关联的对象网络构成, 这些对象通过OOP继承或者合成连接到一起, 统称为对象图(object graph).<br>在对象图中, 对象通过合成法规则引入其他子类对象, 如果某个父类对象创建了一个子类对象, 那么这个父类对象就声明了它拥有子类对象的所有权, 释放父类对象时, ARC会自动向它的子类发送 <code>release</code> 消息.</p>
+</li>
+</ul>
+<h2 id="5-集合类"><a href="#5-集合类" class="headerlink" title="5. 集合类"></a>5. 集合类</h2><p>Foundation框架含有各种集合类, 集合类拥有容纳其他对象的实例, 当将对象存储在集合类实例中时, 该集合类会声明改对象的所有权. 当这个集合类被释放时, ARC会自动向该集合类中每个对象发送一条 <code>release</code> 对象.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/02/04/使用ARC/" data-id="cj4y4uvpb001ej0or017cdyrf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="[layout]-bridge-type" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/02/bridge-type/" class="article-date">
+  <time datetime="2017-02-02T03:05:05.000Z" itemprop="datePublished">2017-02-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>►<a class="article-category-link" href="/categories/Objective-C/知识点/">知识点</a>►<a class="article-category-link" href="/categories/Objective-C/知识点/bridge-type/">__bridge_type</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/02/bridge-type/">__bridge_type</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Objective-C-桥接"><a href="#Objective-C-桥接" class="headerlink" title="Objective-C 桥接"></a>Objective-C 桥接</h2><h3 id="直接桥接数据类型"><a href="#直接桥接数据类型" class="headerlink" title="直接桥接数据类型"></a>直接桥接数据类型</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">Core Foundation数据类型</th>
+<th style="text-align:center">Foundation数据类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CFDataRef</td>
+<td style="text-align:center">NSData</td>
+</tr>
+<tr>
+<td style="text-align:center">CFDateRef</td>
+<td style="text-align:center">NSDate</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableDataRef</td>
+<td style="text-align:center">NSMutableData</td>
+</tr>
+<tr>
+<td style="text-align:center">CFDictionaryRef</td>
+<td style="text-align:center">NSDictionary</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableDictionaryRef</td>
+<td style="text-align:center">NSMutableDictionary</td>
+</tr>
+<tr>
+<td style="text-align:center">CFArrayRef</td>
+<td style="text-align:center">NSArray</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableArrayRef</td>
+<td style="text-align:center">NSMutableArray</td>
+</tr>
+<tr>
+<td style="text-align:center">CFSetRef</td>
+<td style="text-align:center">NSSet</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableSetRef</td>
+<td style="text-align:center">NSMutableSet</td>
+</tr>
+<tr>
+<td style="text-align:center">CFStringRef</td>
+<td style="text-align:center">NSString</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableStringRef</td>
+<td style="text-align:center">NSMutableString</td>
+</tr>
+<tr>
+<td style="text-align:center">CFNumberRef</td>
+<td style="text-align:center">NSNumber</td>
+</tr>
+<tr>
+<td style="text-align:center">CFReadStreamRef</td>
+<td style="text-align:center">NSInputStream</td>
+</tr>
+<tr>
+<td style="text-align:center">CFWriteStreamRef</td>
+<td style="text-align:center">NSOutputStream</td>
+</tr>
+</tbody>
+</table>
+<p>通过直接桥接类型, 编译器能将数据在Core Foundation框架和Foundation框架数据类型之间转换.</p>
+<h3 id="1-直接桥接-隐式转换"><a href="#1-直接桥接-隐式转换" class="headerlink" title="1. 直接桥接, 隐式转换"></a>1. 直接桥接, 隐式转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFStringRef cstr = CFStringCreateWithCString(NULL, &quot;Hello world!&quot;, kCFStringEncodingASCII);</div><div class="line">NSArray *data = [NSArray arrayWithObject: cstr];</div></pre></td></tr></table></figure>
+<p>此时编译器会报错: <code>Implicit conversion of C pointer type &#39;CFStringRef&#39; to Objective-C pointer type &#39;id __Nonnull&#39; reqirese a bridge case</code></p>
+<h3 id="2-直接桥接-显示转换"><a href="#2-直接桥接-显示转换" class="headerlink" title="2. 直接桥接, 显示转换"></a>2. 直接桥接, 显示转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFStringRef cstr = CFStringCreateWithCString(NULL, &quot;Hello world!&quot;, kCFStringEncodingASCII);</div><div class="line">NSArray *data = [NSArray arrayWithObject: (NSString *)cstr];</div></pre></td></tr></table></figure>
+<p>此时虽然已经将 cstr 显示转换为 NSString 类型, 但是 cstr 是Core Foundation框架创建的对象, ARC时不能自动释放, 此时需要手动释放, 使用__bridge桥接:</p>
+<pre><code>CFStringRef cstr = CFStringCreateWithCString(NULL, &quot;Hello world!&quot;, kCFStringEncodingASCII);
+NSArray *data = [NSArray arrayWithObject:(__bridge NSString *)(cstr)];
+// __bridge 标记无法改变直接桥接对象的所有权, 需要手动管理变量 cstr 的生命周期.
+CFRelease(cstr);
+//或者
+//NSArray *data = [NSArray arrayWithObject:(NSString *)CFBridgingRelease(cstr)];
+</code></pre><h3 id="3-ARC-桥接转换"><a href="#3-ARC-桥接转换" class="headerlink" title="3. ARC 桥接转换"></a>3. ARC 桥接转换</h3><p>在使用ARC时, 通过ARC桥接转换可以直接使用直接桥接数据类型, 使用 <code>__bridge</code>, <code>__bridge_retained</code>, <code>__bridge_transfer</code> 作为前缀</p>
+<ul>
+<li>使用__bridge标记可以在不改变对象所有权的情况下, 将对象从Core Foundation框架数据转换为Foundataion框架数据, 反之亦然;</li>
+<li>使用__bridge_retained标记可以将Foundation框架数据类型转换为Core Foundation框架数据类型, 并从ARC接管对象的所有权, 这样就可以手动管理对象的生命周期;</li>
+<li>使用__bridge_transfer标记可以将Core Foundation框架数据类型转换为Foundation框架数据类型, 并从手动管理对象的所有权交给ARC, 这样就可以由ARC管理对象的生命周期;</li>
+<li>(桥接转换标记 目的数据类型)变量名</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/02/02/bridge-type/" data-id="cj4y4uvov0010j0orr8onz8ku" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -251,7 +434,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/">Installation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hexo-github/">Hexo+github</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/">AVFoundation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/">MoviePlayer</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerController/">MPMoviePlayerController</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerViewController/">MPMoviePlayerViewController</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Pod使用过程中遇到的问题/">Pod使用过程中遇到的问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/unrecognizedSelector/">unrecognizedSelector</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/">反编译工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Clang/">Clang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Class-dump/">Class-dump</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/开发者账号申请流程/">开发者账号申请流程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/">知识点</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Autoreleasepool/">Autoreleasepool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/KVC实现原理/">KVC实现原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/NSRunloop/">NSRunloop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/iOS经验总结/">iOS经验总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/load/">load</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/宏-define-与常量-const/">宏(define)与常量(const)</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/python3FroMac/">python3FroMac</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/">基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/TheBasic/">TheBasic</a></li></ul></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/">Installation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hexo-github/">Hexo+github</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/">AVFoundation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/">MoviePlayer</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerController/">MPMoviePlayerController</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerViewController/">MPMoviePlayerViewController</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Pod使用过程中遇到的问题/">Pod使用过程中遇到的问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/unrecognizedSelector/">unrecognizedSelector</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/">反编译工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Clang/">Clang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Class-dump/">Class-dump</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/开发者账号申请流程/">开发者账号申请流程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/">知识点</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Autoreleasepool/">Autoreleasepool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/KVC实现原理/">KVC实现原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/NSRunloop/">NSRunloop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/bridge-type/">__bridge_type</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/iOS经验总结/">iOS经验总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/load/">load</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/使用ARC/">使用ARC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/宏-define-与常量-const/">宏(define)与常量(const)</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/python3FroMac/">python3FroMac</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/">基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/TheBasic/">TheBasic</a></li></ul></li></ul></li></ul>
     </div>
   </div>
 
@@ -280,7 +463,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
     </div>
   </div>
 

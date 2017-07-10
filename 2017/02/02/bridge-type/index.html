@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: Installation | stack.blog</title>
+  <title>__bridge_type | stack.blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="stack.blog">
-<meta property="og:url" content="https://github.com/songMW/stack.github.io/categories/Installation/index.html">
+  <meta name="description" content="Objective-C 桥接直接桥接数据类型   Core Foundation数据类型 Foundation数据类型     CFDataRef NSData   CFDateRef NSDate   CFMutableDataRef NSMutableData   CFDictionaryRef NSDictionary   CFMutableDictionaryRef NSMutableDi">
+<meta name="keywords" content="Objective-C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="__bridge_type">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/02/02/bridge-type/index.html">
 <meta property="og:site_name" content="stack.blog">
+<meta property="og:description" content="Objective-C 桥接直接桥接数据类型   Core Foundation数据类型 Foundation数据类型     CFDataRef NSData   CFDateRef NSDate   CFMutableDataRef NSMutableData   CFDictionaryRef NSDictionary   CFMutableDictionaryRef NSMutableDi">
+<meta property="og:updated_time" content="2017-07-10T12:09:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stack.blog">
+<meta name="twitter:title" content="__bridge_type">
+<meta name="twitter:description" content="Objective-C 桥接直接桥接数据类型   Core Foundation数据类型 Foundation数据类型     CFDataRef NSData   CFDateRef NSDate   CFMutableDataRef NSMutableData   CFDictionaryRef NSDictionary   CFMutableDictionaryRef NSMutableDi">
   
   
     <link rel="icon" href="/favicon.png">
@@ -55,58 +60,141 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/11/hello-world/" class="archive-article-date">
-  <time datetime="2017-04-11T10:57:01.000Z" itemprop="datePublished">Apr 11</time>
+        <section id="main"><article id="[layout]-bridge-type" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/02/bridge-type/" class="article-date">
+  <time datetime="2017-02-02T03:05:05.000Z" itemprop="datePublished">2017-02-02</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>►<a class="article-category-link" href="/categories/Objective-C/知识点/">知识点</a>►<a class="article-category-link" href="/categories/Objective-C/知识点/bridge-type/">__bridge_type</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/11/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      __bridge_type
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-[page_layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/01/hexo+github+域名绑定操作步骤/" class="archive-article-date">
-  <time datetime="2017-04-01T02:57:26.000Z" itemprop="datePublished">Apr 1</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/01/hexo+github+域名绑定操作步骤/">使用Hexo写博客操作步骤</a>
-    </h1>
-  
+        <h2 id="Objective-C-桥接"><a href="#Objective-C-桥接" class="headerlink" title="Objective-C 桥接"></a>Objective-C 桥接</h2><h3 id="直接桥接数据类型"><a href="#直接桥接数据类型" class="headerlink" title="直接桥接数据类型"></a>直接桥接数据类型</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">Core Foundation数据类型</th>
+<th style="text-align:center">Foundation数据类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CFDataRef</td>
+<td style="text-align:center">NSData</td>
+</tr>
+<tr>
+<td style="text-align:center">CFDateRef</td>
+<td style="text-align:center">NSDate</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableDataRef</td>
+<td style="text-align:center">NSMutableData</td>
+</tr>
+<tr>
+<td style="text-align:center">CFDictionaryRef</td>
+<td style="text-align:center">NSDictionary</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableDictionaryRef</td>
+<td style="text-align:center">NSMutableDictionary</td>
+</tr>
+<tr>
+<td style="text-align:center">CFArrayRef</td>
+<td style="text-align:center">NSArray</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableArrayRef</td>
+<td style="text-align:center">NSMutableArray</td>
+</tr>
+<tr>
+<td style="text-align:center">CFSetRef</td>
+<td style="text-align:center">NSSet</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableSetRef</td>
+<td style="text-align:center">NSMutableSet</td>
+</tr>
+<tr>
+<td style="text-align:center">CFStringRef</td>
+<td style="text-align:center">NSString</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableStringRef</td>
+<td style="text-align:center">NSMutableString</td>
+</tr>
+<tr>
+<td style="text-align:center">CFNumberRef</td>
+<td style="text-align:center">NSNumber</td>
+</tr>
+<tr>
+<td style="text-align:center">CFReadStreamRef</td>
+<td style="text-align:center">NSInputStream</td>
+</tr>
+<tr>
+<td style="text-align:center">CFWriteStreamRef</td>
+<td style="text-align:center">NSOutputStream</td>
+</tr>
+</tbody>
+</table>
+<p>通过直接桥接类型, 编译器能将数据在Core Foundation框架和Foundation框架数据类型之间转换.</p>
+<h3 id="1-直接桥接-隐式转换"><a href="#1-直接桥接-隐式转换" class="headerlink" title="1. 直接桥接, 隐式转换"></a>1. 直接桥接, 隐式转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFStringRef cstr = CFStringCreateWithCString(NULL, &quot;Hello world!&quot;, kCFStringEncodingASCII);</div><div class="line">NSArray *data = [NSArray arrayWithObject: cstr];</div></pre></td></tr></table></figure>
+<p>此时编译器会报错: <code>Implicit conversion of C pointer type &#39;CFStringRef&#39; to Objective-C pointer type &#39;id __Nonnull&#39; reqirese a bridge case</code></p>
+<h3 id="2-直接桥接-显示转换"><a href="#2-直接桥接-显示转换" class="headerlink" title="2. 直接桥接, 显示转换"></a>2. 直接桥接, 显示转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFStringRef cstr = CFStringCreateWithCString(NULL, &quot;Hello world!&quot;, kCFStringEncodingASCII);</div><div class="line">NSArray *data = [NSArray arrayWithObject: (NSString *)cstr];</div></pre></td></tr></table></figure>
+<p>此时虽然已经将 cstr 显示转换为 NSString 类型, 但是 cstr 是Core Foundation框架创建的对象, ARC时不能自动释放, 此时需要手动释放, 使用__bridge桥接:</p>
+<pre><code>CFStringRef cstr = CFStringCreateWithCString(NULL, &quot;Hello world!&quot;, kCFStringEncodingASCII);
+NSArray *data = [NSArray arrayWithObject:(__bridge NSString *)(cstr)];
+// __bridge 标记无法改变直接桥接对象的所有权, 需要手动管理变量 cstr 的生命周期.
+CFRelease(cstr);
+//或者
+//NSArray *data = [NSArray arrayWithObject:(NSString *)CFBridgingRelease(cstr)];
+</code></pre><h3 id="3-ARC-桥接转换"><a href="#3-ARC-桥接转换" class="headerlink" title="3. ARC 桥接转换"></a>3. ARC 桥接转换</h3><p>在使用ARC时, 通过ARC桥接转换可以直接使用直接桥接数据类型, 使用 <code>__bridge</code>, <code>__bridge_retained</code>, <code>__bridge_transfer</code> 作为前缀</p>
+<ul>
+<li>使用__bridge标记可以在不改变对象所有权的情况下, 将对象从Core Foundation框架数据转换为Foundataion框架数据, 反之亦然;</li>
+<li>使用__bridge_retained标记可以将Foundation框架数据类型转换为Core Foundation框架数据类型, 并从ARC接管对象的所有权, 这样就可以手动管理对象的生命周期;</li>
+<li>使用__bridge_transfer标记可以将Core Foundation框架数据类型转换为Foundation框架数据类型, 并从手动管理对象的所有权交给ARC, 这样就可以由ARC管理对象的生命周期;</li>
+<li>(桥接转换标记 目的数据类型)变量名</li>
+</ul>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/02/02/bridge-type/" data-id="cj4y4uvov0010j0orr8onz8ku" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/04/使用ARC/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用ARC</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
