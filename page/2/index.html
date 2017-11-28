@@ -57,6 +57,141 @@
       <div class="outer">
         <section id="main">
   
+    <article id="[layout]-GracefulSentence" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/03/GracefulSentence/" class="article-date">
+  <time datetime="2017-05-03T01:27:04.000Z" itemprop="datePublished">2017-05-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/GracefulSentence/">GracefulSentence</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/03/GracefulSentence/">GracefulSentence</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>Withstand the test of time! 经得起时间的考验</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/05/03/GracefulSentence/" data-id="cjajarypk000cq8orgcxa1s06" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sentence/">Sentence</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="[layout]-arm指令集" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/26/arm指令集/" class="article-date">
+  <time datetime="2017-04-26T08:48:52.000Z" itemprop="datePublished">2017-04-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>►<a class="article-category-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a>►<a class="article-category-link" href="/categories/Objective-C/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/26/arm指令集/">arm指令集错误收集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>iOS的指令集有 <code>armv6、armv7、armv7s、arm64</code> Arm是向下兼容的</p>
+<ol>
+<li>armv6 <ul>
+<li>iPhone</li>
+<li>iPhone2</li>
+<li>iPhone3G</li>
+<li>iPod Touch(1, 2)</li>
+</ul>
+</li>
+<li>armv7 <ul>
+<li>iPhone4</li>
+<li>iPhone4S</li>
+<li>iPod (3G, 4G, 5G)</li>
+<li>iPad(1, 2 , 3 , Mini)</li>
+</ul>
+</li>
+<li>armv7s<ul>
+<li>iPhone5</li>
+<li>iPhone5C</li>
+<li>iPad 4</li>
+</ul>
+</li>
+<li>arm64 <ul>
+<li>iPhone5S以后</li>
+<li>iPad Air(2), Retina iPad Mini(2,3)</li>
+</ul>
+</li>
+<li>Architecture: 指你想支持的指令集</li>
+<li>Valid architectures: 指即将编译的指令集</li>
+<li>Build Active Architecture Only: 是否只编译当前适用的指令集 <ul>
+<li>如果要app在各个机器都能够最高效率的运行, 需要将Build Active Architecture Only改为 NO, Valid architectures选择对应的指令集: armv7 armv7s arm64; 但是编译后包得体积会增加, Release时必须设置为NO; </li>
+<li>Valid architectures 为 armv7 时包的体积最小(不能编译armv6), Build Active Architectures 任意;</li>
+<li>如果Build Active Architecture Only设置为 YES, 那么用iPhone 6调试, 最终生成的一个支持arm64指令集的Binary;使用iPhone4编译, 最终生成一个支持armv7指令集的Binary; 意思是只会编译对应指令的包; </li>
+<li>如果Build Active Architecture Only设置为 NO, 编译器会整合指令集, 包会变大, 可以设配不同的设备; 所以一般在DEBUG模式下设为YES, RELEASE设为NO;</li>
+<li>模拟器并不运行arm代码, 软件会被编译成x86可以运行的指令. 所以生成静态库时都是会先生成两个.a, 一个是i386的用于在模拟器运行, 另一个是在真实设备上运行的, 然后再用命令将两个.a合并成一个.</li>
+</ul>
+</li>
+<li>模拟器和真机所需框架<ul>
+<li>模拟器32位需要 i386 框架</li>
+<li>模拟器64位需要 x86_64 框架</li>
+<li>真机32位需要 armv7 或 armv7s 框架</li>
+<li>真机64位需要 arm64 框架</li>
+</ul>
+</li>
+</ol>
+<h1 id="arm报错问题"><a href="#arm报错问题" class="headerlink" title="arm报错问题"></a>arm报错问题</h1><h2 id="1-error-No-architectures-to-compile-for-ONLY-ACTIVE-ARCH-YES-active-arch-x86-64-VALID-ARCHS-i386"><a href="#1-error-No-architectures-to-compile-for-ONLY-ACTIVE-ARCH-YES-active-arch-x86-64-VALID-ARCHS-i386" class="headerlink" title="1. error: No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=x86_64, VALID_ARCHS=i386)"></a>1. error: No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=x86_64, VALID_ARCHS=i386)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 在 `Project target` 里 `Architectures` 设置为 `Standard （armv7,armv7s）`</div><div class="line">2. 修改在 `Project target` 里 `Build Settings` 的 `Valid Architectures` 添加 `i386` 和 `armv7` (Xcode4.6 以上版本不再支持armv6，请去掉);</div><div class="line">3. 设置 `Build Active Architecture Only` 为 `NO`。</div></pre></td></tr></table></figure>
+<h2 id="2-Undefined-symbols-for-architecture-arm64"><a href="#2-Undefined-symbols-for-architecture-arm64" class="headerlink" title="2. Undefined symbols for architecture arm64"></a>2. Undefined symbols for architecture arm64</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Undefined symbols for architecture arm64:</div><div class="line">&quot;_OBJC_CLASS_$_XXX&quot;, referenced from: someFile</div><div class="line">ld: symbol(s) not found for architecture arm64</div></pre></td></tr></table></figure>
+<h3 id="reason-工程内某些地方不支持arm64指令集"><a href="#reason-工程内某些地方不支持arm64指令集" class="headerlink" title="reason: 工程内某些地方不支持arm64指令集 "></a><font color="#FF0000">reason: 工程内某些地方不支持arm64指令集 </font></h3><h3 id="resolve"><a href="#resolve" class="headerlink" title=" resolve: "></a><font color="#FF0000"> resolve: </font></h3><pre><code>1. 设置 Architectures armv7 armv7s, Build Active Architecture Only NO; Valid Architectures armv6 armv7 armv7s arm64;
+2. 如果设置 Architectures, Valid Architectures 设置正确还是不行的话, 在 Other Linker Flags 中添加$(inherited);
+3. 前面2步设置完还是不行的话试试:将 /User/yourname/Library/Developer/XCode/DerivedData 清空.
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/26/arm指令集/" data-id="cjajaryqr0018q8orn6trrp0c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="[layout]-崩溃日志" class="article article-type-[layout]" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/04/25/崩溃日志/" class="article-date">
@@ -109,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/25/崩溃日志/" data-id="cj5jfrnm5001v07orolrrhqti" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/25/崩溃日志/" data-id="cjajaryrs0022q8orqqyscvsd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -173,7 +308,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/Class-dump/" data-id="cj5jfrnjy000507or4oku0yrk" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/21/Class-dump/" data-id="cjajarypa0006q8or7tmgjqvq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -215,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/20/Swift-BasicOperators/" data-id="cj5jfrnkm000m07orryknbqcm" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/20/Swift-BasicOperators/" data-id="cjajaryqc000tq8or7jtxbbab" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
@@ -297,7 +432,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/19/Swift-TheBasic/" data-id="cj5jfrnkx000x07orwa22jzob" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/19/Swift-TheBasic/" data-id="cjajaryqk000zq8orj5smm1h6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
@@ -362,7 +497,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cj5jfrnm0001q07or085zwukg" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/18/unrecognizedSelector/" data-id="cjajaryr1001iq8ori4trgxos" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -426,7 +561,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/17/Runtime/" data-id="cj5jfrnks000s07orq9z70kvr" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/17/Runtime/" data-id="cjajaryqa000rq8or0h7t40sh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
@@ -490,7 +625,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/" data-id="cj5jfrnlh001d07oru7hvdary" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/12/python3FroMac/" data-id="cjajaryqy001gq8ork1v40vsl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
@@ -541,164 +676,10 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cj5jfrnl1000z07orre7krq5d" class="article-share-link">Share</a>
+      <a data-url="https://github.com/songMW/stack.github.io/2017/04/11/hello-world/" data-id="cjajaryqu001aq8orhlze990x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="[page_layout]-hexo+github+域名绑定操作步骤" class="article article-type-[page_layout]" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/01/hexo+github+域名绑定操作步骤/" class="article-date">
-  <time datetime="2017-04-01T02:57:26.000Z" itemprop="datePublished">2017-04-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Installation/">Installation</a>►<a class="article-category-link" href="/categories/Installation/Hexo/">Hexo</a>►<a class="article-category-link" href="/categories/Installation/Hexo/Hexo-github/">Hexo+github</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/01/hexo+github+域名绑定操作步骤/">使用Hexo写博客操作步骤</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>点击进入 <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js官网</a> 下载安装包, Mac也可以使用Homebrew直接构建环境;<br>这里使用的是直接从官网下载安装, 有兴趣的童鞋可以试着尝试使用Homebrew;</p>
-<ul>
-<li>打开终端使用node –version 查看是否安装成功</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IDFA:~ stack$ node --version</div><div class="line">v6.10.2</div><div class="line">IDFA:~ stack$</div></pre></td></tr></table></figure>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>点击进入 <a href="https://git-scm.com/downloads" target="_blank" rel="external">Git官网</a> 配置git环境, 网上教程很多</p>
-<ul>
-<li>同样使用 git –version 查看是否安装成功</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IDFA:~ stack$ git --version</div><div class="line">git version 2.11.0 (Apple Git-81)</div><div class="line">IDFA:~ stack$</div></pre></td></tr></table></figure>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>点击进入 <a href="https://hexo.io/" target="_blank" rel="external">Hexo官网</a>, 由于已经安装Node, 可以在终端直接使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
-<ul>
-<li>同样使用 hexo –version 查看是否安装成功</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">IDFA:~ stack$ hexo --version</div><div class="line">hexo-cli: 1.0.2</div><div class="line">os: Darwin 16.5.0 darwin x64</div><div class="line">http_parser: 2.7.0</div><div class="line">node: 6.10.2</div><div class="line">v8: 5.1.281.98</div><div class="line">uv: 1.9.1</div><div class="line">zlib: 1.2.11</div><div class="line">ares: 1.10.1-DEV</div><div class="line">icu: 58.2</div><div class="line">modules: 48</div><div class="line">openssl: 1.0.2k</div><div class="line">IDFA:~ stack$</div></pre></td></tr></table></figure>
-<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><h3 id="新建github项目"><a href="#新建github项目" class="headerlink" title="新建github项目"></a>新建github项目</h3><ol>
-<li>项目命名为youname.github.io即可(youname自定义)</li>
-<li>clone项目到本地 —&gt; 别名blog</li>
-</ol>
-<h3 id="hexo创建博客环境"><a href="#hexo创建博客环境" class="headerlink" title="hexo创建博客环境"></a>hexo创建博客环境</h3><ol>
-<li>终端cd到blog文件夹下</li>
-<li>初始化</li>
-<li>install <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>创建完成之后, 文件是这样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure></p>
-<p><strong> 开始配置 </strong></p>
-<ul>
-<li>_config.yml <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="external">网页配置文件</a> 可以配置更多的设置 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># URL</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: https://github.com/songMW/stack.github.io</div><div class="line"># root: </div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure>
-<h4 id="注-若CSS样式不起作用-可以注释掉root"><a href="#注-若CSS样式不起作用-可以注释掉root" class="headerlink" title="注: 若CSS样式不起作用, 可以注释掉root:"></a>注: 若CSS样式不起作用, 可以注释掉root:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">type: git</div><div class="line">repo: https://github.com/songMW/stack.github.io.git</div><div class="line">branch: master</div></pre></td></tr></table></figure>
-<p>配置完成之后 hexo server 测试一下效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">IDFA:stack.github.io stack$ hexo server --config _config.yml</div><div class="line">INFO  Start processing</div><div class="line">INFO  Hexo is running at http://localhost:4000/stack.github.io/. Press Ctrl+C to stop.</div><div class="line">^CINFO  Have a nice day</div></pre></td></tr></table></figure>
-<p>打开本地网页就是终端上得地址即可看到效果</p>
-<p>##到这里Hexo就配置好了,下面就是如何用Hexo写博客了<br>当打开地址时会有自动生成的Hello World博客, 可以参考.</p>
-<h3 id="创建一个新页面-博客内容-帖子-无所谓了随便叫"><a href="#创建一个新页面-博客内容-帖子-无所谓了随便叫" class="headerlink" title="创建一个新页面/博客内容/帖子/无所谓了随便叫"></a>创建一个新页面/博客内容/帖子/无所谓了随便叫</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li>layout 默认是 post, 在 _config.yml 中默认的 layout 是 defalut_layout</li>
-<li><code>&lt;title&gt;</code> 是标题名, 注意:不要带&lt;&gt;, 否则会语法报错 -bash: syntax error near unexpected token newline</li>
-</ul>
-<p>这里是 <a href="http://www.tuicool.com/articles/I36zYr" target="_blank" rel="external">hexo命令及Markdown语法</a> 可以参考!</p>
-<h3 id="页面写完之后-需要生成一个静态网页"><a href="#页面写完之后-需要生成一个静态网页" class="headerlink" title="页面写完之后 需要生成一个静态网页"></a>页面写完之后 需要生成一个静态网页</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<ul>
-<li><p>使用 –watch 命令可以查看改变的内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate --watch</div></pre></td></tr></table></figure>
-</li>
-<li><p>最后一步就是部署到 Github 上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate --deploy</div><div class="line">$ hexo deploy --generate</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>上面两个命令是一样的<br>接下来是输入Github的用户名和密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INFO  Deploy done: git</div></pre></td></tr></table></figure></p>
-<p>说明部署完成</p>
-<p>##就先写到这, 第一次记录, 还会遇到很多问题, 到时在补充!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/04/01/hexo+github+域名绑定操作步骤/" data-id="cj5jfrnlf001b07orxiglrwet" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation/">Installation</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="[layout]-Xcode编译错误集合" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/26/Xcode编译错误集合/" class="article-date">
-  <time datetime="2017-03-26T01:48:52.000Z" itemprop="datePublished">2017-03-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>►<a class="article-category-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a>►<a class="article-category-link" href="/categories/Objective-C/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/Xcode编译错误集合/">Xcode编译错误集合</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-dyld-Library-not-loaded"><a href="#1-dyld-Library-not-loaded" class="headerlink" title="1. dyld: Library not loaded"></a>1. dyld: Library not loaded</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dyld: Library not loaded: @rpath/AdHubSDK.framework/AdHubSDK</div><div class="line">Referenced from: /Users/song/Library/Developer/CoreSimulator/Devices/8BF0C742-9FE8-4465-ABF5-51BD18323CF0/data/Containers/Bundle/Application/C863B41F-19D1-410D-83E2-9C547E942F68/TestDemo.app/TestDemo</div><div class="line">Reason: image not found</div></pre></td></tr></table></figure>
-<h3 id="一般是在引入第三方框架framework时出现的错误-解决方法-General-–-gt-Embedded-Binaries-添加第三方库或者在Build-Phases-中添加一个New-Copy-File-Phases-选择Destination后将第三方库添加进来"><a href="#一般是在引入第三方框架framework时出现的错误-解决方法-General-–-gt-Embedded-Binaries-添加第三方库或者在Build-Phases-中添加一个New-Copy-File-Phases-选择Destination后将第三方库添加进来" class="headerlink" title="一般是在引入第三方框架framework时出现的错误,解决方法: General –&gt; Embedded Binaries 添加第三方库或者在Build Phases 中添加一个New Copy File Phases 选择Destination后将第三方库添加进来."></a><font color="#FF0000">一般是在引入第三方框架framework时出现的错误,解决方法: General –&gt; Embedded Binaries 添加第三方库或者在Build Phases 中添加一个New Copy File Phases 选择Destination后将第三方库添加进来.</font></h3><h2 id="2-Class-PLBuildVersion-is-implemented-in-both"><a href="#2-Class-PLBuildVersion-is-implemented-in-both" class="headerlink" title="2. Class PLBuildVersion is implemented in both"></a>2. Class PLBuildVersion is implemented in both</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class PLBuildVersion is implemented in both</div></pre></td></tr></table></figure>
-<h2 id="3-”xx“-is-missing-from-working-copy-的问题"><a href="#3-”xx“-is-missing-from-working-copy-的问题" class="headerlink" title="3. ”xx“ is missing from working copy 的问题"></a>3. ”xx“ is missing from working copy 的问题</h2><p>在项目中提交过svn后再在本机上删除不用的图片资源后, build后会有 ”xx“is missing from working copy 的警告<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">svn delete nameOfMissingFile </div><div class="line">或用Git（如果你用的是Git的话）</div><div class="line">git rm nameOfMissingFile</div></pre></td></tr></table></figure></p>
-<h2 id="4-instance-method-restriction-in-category-from"><a href="#4-instance-method-restriction-in-category-from" class="headerlink" title="4. instance method restriction in category from"></a>4. instance method restriction in category from</h2><h2 id="5-The-Copy-Bundle-Resources-build-phase-contains-this-target’s-Info-plist-file-‘XXX-Info-plist’"><a href="#5-The-Copy-Bundle-Resources-build-phase-contains-this-target’s-Info-plist-file-‘XXX-Info-plist’" class="headerlink" title="5. The Copy Bundle Resources build phase contains this target’s Info.plist file ‘XXX/Info.plist’."></a>5. The Copy Bundle Resources build phase contains this target’s Info.plist file ‘XXX/Info.plist’.</h2><h3 id="Xcode回答"><a href="#Xcode回答" class="headerlink" title="Xcode回答"></a><a href="https://developer.apple.com/library/content/qa/qa1649/_index.html" target="_blank" rel="external">Xcode回答</a></h3><h3 id="Build-Phases-gt-Copy-Bundle-Recourse-中删除-info-plist"><a href="#Build-Phases-gt-Copy-Bundle-Recourse-中删除-info-plist" class="headerlink" title="Build Phases -&gt; Copy Bundle Recourse 中删除 info.plist "></a><font color="#FF0000">Build Phases -&gt; Copy Bundle Recourse 中删除 info.plist </font></h3><h2 id="6-warning-no-umbrella-header-found-for-target-‘XXX’-module-map-will-not-be-generated"><a href="#6-warning-no-umbrella-header-found-for-target-‘XXX’-module-map-will-not-be-generated" class="headerlink" title="6. warning: no umbrella header found for target ‘XXX’, module map will not be generated"></a>6. warning: no umbrella header found for target ‘XXX’, module map will not be generated</h2><h2 id="7-Lexical-or-preprocessor-issue-或者-“xxx”-file-not-found"><a href="#7-Lexical-or-preprocessor-issue-或者-“xxx”-file-not-found" class="headerlink" title="7. Lexical or preprocessor issue 或者 “xxx” file not found"></a>7. Lexical or preprocessor issue 或者 “xxx” file not found</h2><h3 id="Setting-gt-Header-Search-Paths-添加-PROJECT-DIR-缺失文件的主目录路径"><a href="#Setting-gt-Header-Search-Paths-添加-PROJECT-DIR-缺失文件的主目录路径" class="headerlink" title="Setting -&gt; Header Search Paths 添加 $(PROJECT_DIR)/缺失文件的主目录路径 "></a><font color="#FF0000">Setting -&gt; Header Search Paths 添加 $(PROJECT_DIR)/缺失文件的主目录路径 </font></h3><h2 id="8-在类别中重写原类方法引出的警告"><a href="#8-在类别中重写原类方法引出的警告" class="headerlink" title="8. 在类别中重写原类方法引出的警告"></a>8. 在类别中重写原类方法引出的警告</h2><p><code>Category is implementing a method which will also be implemented by its primary class</code><br><code>苹果文档: A category allows you to add new methods to an existing class. If you want to reimplement a method that already exists in the class, you typically create a subclass instead of a category.</code><br>意思是category 允许添加一个新的方法到已经存在的类, 如果想重新实现类中已经存在的方法, 通常是用继承替代类别.<br>只是警告而已, 不是错误, 消除警告的方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#pragma clang diagnostic push</div><div class="line">#pragma clang diagnostic ignored &quot;-Wobjc-protocol-method-implementation&quot;</div><div class="line">// your override</div><div class="line">- (void)dealloc</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">#pragma clang diagnostic pop</div><div class="line"></div><div class="line">or </div><div class="line"></div><div class="line">在 target 的 build settings 下搜索 other warning flags, 然后给其添加 -Wno-objc-protocol-method-implementation 批量警示适用</div></pre></td></tr></table></figure></p>
-<h2 id="9-architecture-x86-64-问题"><a href="#9-architecture-x86-64-问题" class="headerlink" title="9. architecture x86_64 问题"></a>9. architecture x86_64 问题</h2><ul>
-<li><h3 id="symbol-s-not-found-for-architecture-x86-64"><a href="#symbol-s-not-found-for-architecture-x86-64" class="headerlink" title="symbol(s) not found for architecture x86_64"></a>symbol(s) not found for architecture x86_64</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;_OBJC_CLASS_$_ALAssetsGroup&quot;, referenced from:</div><div class="line">objc-class-ref in xxx.o</div><div class="line">ld: symbol(s) not found for architecture x86_64</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="大致意思是在-xxx-这个类中引用-ALAssetsGroup-但却没有引用框架-一般在-h文件中就可以发现引入那些头文件-这些头文件需要引入那些框架"><a href="#大致意思是在-xxx-这个类中引用-ALAssetsGroup-但却没有引用框架-一般在-h文件中就可以发现引入那些头文件-这些头文件需要引入那些框架" class="headerlink" title="大致意思是在 xxx 这个类中引用 _ALAssetsGroup, 但却没有引用框架, 一般在.h文件中就可以发现引入那些头文件, 这些头文件需要引入那些框架."></a><font color="#FF0000">大致意思是在 xxx 这个类中引用 _ALAssetsGroup, 但却没有引用框架, 一般在.h文件中就可以发现引入那些头文件, 这些头文件需要引入那些框架.</font></h3><ul>
-<li><h3 id="duplicate-symbols-for-architecture-x86-64错误"><a href="#duplicate-symbols-for-architecture-x86-64错误" class="headerlink" title="duplicate symbols for architecture x86_64错误"></a>duplicate symbols for architecture x86_64错误</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ld: 1185 duplicate symbols for architecture x86_64</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>duplicate的中文意思是“重复的、复制的”, 而symbols的意思是“符号” 可能在你工程中引入了重复的东西.</p>
-<h3 id="a-在工程中重复导入了某一个类或文件-这一般出现在你添加第三方库的时候比较多-在不知道的情况下又导入了一次相同的类"><a href="#a-在工程中重复导入了某一个类或文件-这一般出现在你添加第三方库的时候比较多-在不知道的情况下又导入了一次相同的类" class="headerlink" title="a. 在工程中重复导入了某一个类或文件, 这一般出现在你添加第三方库的时候比较多, 在不知道的情况下又导入了一次相同的类"></a><font color="#FF0000">a. 在工程中重复导入了某一个类或文件, 这一般出现在你添加第三方库的时候比较多, 在不知道的情况下又导入了一次相同的类</font></h3><h3 id="b-import引入-m-头文件"><a href="#b-import引入-m-头文件" class="headerlink" title="b. #import引入 .m 头文件"></a><font color="#FF0000">b. #import引入 .m 头文件</font></h3><h3 id="c-在多个文件中重复定义某个东西"><a href="#c-在多个文件中重复定义某个东西" class="headerlink" title="c. 在多个文件中重复定义某个东西"></a><font color="#FF0000">c. 在多个文件中重复定义某个东西</font></h3><h2 id="10-“-OBJCCLASS-CMMotionManager”-referenced-from"><a href="#10-“-OBJCCLASS-CMMotionManager”-referenced-from" class="headerlink" title="10. “_OBJCCLASS$_CMMotionManager”, referenced from:"></a>10. “_OBJC<em>CLASS</em>$_CMMotionManager”, referenced from:</h2><h3 id="缺少系统库-CoreMotion-framework-在Build-Phases-gt-Link-Binary-With-Libraries-中添加即可"><a href="#缺少系统库-CoreMotion-framework-在Build-Phases-gt-Link-Binary-With-Libraries-中添加即可" class="headerlink" title="缺少系统库 CoreMotion.framework, 在Build Phases -&gt; Link Binary With Libraries 中添加即可."></a><font color="#FF0000">缺少系统库 CoreMotion.framework, 在Build Phases -&gt; Link Binary With Libraries 中添加即可.</font></h3><h2 id="11-unrecognized-selector-sent-to-class-0x102265ad8-类拓展出现的错误"><a href="#11-unrecognized-selector-sent-to-class-0x102265ad8-类拓展出现的错误" class="headerlink" title="11. unrecognized selector sent to class 0x102265ad8 类拓展出现的错误"></a>11. unrecognized selector sent to class 0x102265ad8 类拓展出现的错误</h2><p>Other Linker Flags 链接设置错误导致类扩展不知道如何正确读取, 找不到类方法而产生的错误.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(inherited)子类复写父类同名方法.</div><div class="line"></div><div class="line">-all_load Loads all members of static archive libraries.</div><div class="line"></div><div class="line">-ObjC Loads all members of static archive libraries that implement an Objective-C class or category.</div><div class="line"></div><div class="line">-force_load (path_to_archive) Loads all members of the specified static archive library. Note: -all_load forces all members of all archives to be loaded. This option allows you to target a specific archive.</div></pre></td></tr></table></figure></p>
-<h2 id="12-Dsymutil-Warning"><a href="#12-Dsymutil-Warning" class="headerlink" title="12. Dsymutil Warning"></a>12. Dsymutil Warning</h2><p>Build Settings -&gt; Build Options-&gt;Debug Information Format 将DWARF with dSYM File 改为DWARF<br><code>So if you need it for external analysis of crash reports under archiving you app for distribution you should use DWARF with dSYM file.</code> 需要崩溃日志的时候需要设置为 <code>DWARF with dSYM File</code></p>
-<h2 id="12-warning-no-rule-to-process-file-‘-Users-song-Desktop-AdHubAdNetwork-AdHubAdNetwork-Classes-Baidu-libBaiduMobAdSDK-a’-of-type-archive-ar-for-architecture-i386"><a href="#12-warning-no-rule-to-process-file-‘-Users-song-Desktop-AdHubAdNetwork-AdHubAdNetwork-Classes-Baidu-libBaiduMobAdSDK-a’-of-type-archive-ar-for-architecture-i386" class="headerlink" title="12. warning: no rule to process file ‘/Users/song/Desktop/AdHubAdNetwork/AdHubAdNetwork/Classes/Baidu/libBaiduMobAdSDK.a’ of type archive.ar for architecture i386"></a>12. warning: no rule to process file ‘/Users/song/Desktop/AdHubAdNetwork/AdHubAdNetwork/Classes/Baidu/libBaiduMobAdSDK.a’ of type archive.ar for architecture i386</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/03/26/Xcode编译错误集合/" data-id="cj5jfrnl8001507oro1k3plo1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
 
     </footer>
   </div>
@@ -720,7 +701,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/">Installation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hexo-github/">Hexo+github</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/">AVFoundation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/">MoviePlayer</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerController/">MPMoviePlayerController</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerViewController/">MPMoviePlayerViewController</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Pod使用过程中遇到的问题/">Pod使用过程中遇到的问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/unrecognizedSelector/">unrecognizedSelector</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/">反编译工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Clang/">Clang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Class-dump/">Class-dump</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/开发者账号申请流程/">开发者账号申请流程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/">每天一道算法题</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/A-B问题/">A+B问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/尾部的零/">尾部的零</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/硬币排成线/">硬币排成线</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/统计二进制有多少个1/">统计二进制有多少个1</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/统计数字/">统计数字</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/测试工具/">测试工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/测试工具/TestFlight/">TestFlight</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/">知识点</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Autoreleasepool/">Autoreleasepool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Class/">Class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/KVC实现原理/">KVC实现原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/NSRunloop/">NSRunloop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/bridge-type/">__bridge_type</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/iOS经验总结/">iOS经验总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/load/">load</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/使用ARC/">使用ARC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/宏-define-与常量-const/">宏(define)与常量(const)</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/python3FroMac/">python3FroMac</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/">基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/TheBasic/">TheBasic</a></li></ul></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/">Installation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hexo-github/">Hexo+github</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/">AVFoundation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/">MoviePlayer</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerController/">MPMoviePlayerController</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerViewController/">MPMoviePlayerViewController</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Pod使用过程中遇到的问题/">Pod使用过程中遇到的问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/unrecognizedSelector/">unrecognizedSelector</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/">反编译工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Clang/">Clang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Class-dump/">Class-dump</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/开发者账号申请流程/">开发者账号申请流程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/">每天一道算法题</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/A-B问题/">A+B问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/尾部的零/">尾部的零</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/硬币排成线/">硬币排成线</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/统计二进制有多少个1/">统计二进制有多少个1</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/统计数字/">统计数字</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/测试工具/">测试工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/测试工具/TestFlight/">TestFlight</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/">知识点</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Autoreleasepool/">Autoreleasepool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Class/">Class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/KVC实现原理/">KVC实现原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/KVO实现原理/">KVO实现原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/NSRunloop/">NSRunloop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/WKWebView/">WKWebView</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/bridge-type/">__bridge_type</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/iOS经验总结/">iOS经验总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/load/">load</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/使用ARC/">使用ARC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/宏-define-与常量-const/">宏(define)与常量(const)</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/python3FroMac/">python3FroMac</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/">基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/TheBasic/">TheBasic</a></li></ul></li></ul></li></ul>
     </div>
   </div>
 
@@ -778,7 +759,7 @@ While OS X comes with a large number of UNIX utilities, those familiar with Linu
           </li>
         
           <li>
-            <a href="/2017/06/17/宏与常量/">宏(define)与常量(const)</a>
+            <a href="/2017/06/18/WKWebView/">WKWebView的坑</a>
           </li>
         
       </ul>
