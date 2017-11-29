@@ -1,92 +1,84 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>iOS经验总结 + 转载 | stack.blog</title>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 禁止手机睡眠1[UIApplication sharedApplication].idleTimerDisabled = YES; 2. 隐藏某行cell12345678910- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath&amp;#123;    // 如果">
-<meta name="keywords" content="Objective-C">
-<meta property="og:type" content="article">
-<meta property="og:title" content="iOS经验总结 + 转载">
-<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/03/15/iOS经验总结/index.html">
-<meta property="og:site_name" content="stack.blog">
-<meta property="og:description" content="1. 禁止手机睡眠1[UIApplication sharedApplication].idleTimerDisabled = YES; 2. 隐藏某行cell12345678910- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath&amp;#123;    // 如果">
-<meta property="og:updated_time" content="2017-07-04T08:02:23.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS经验总结 + 转载">
-<meta name="twitter:description" content="1. 禁止手机睡眠1[UIApplication sharedApplication].idleTimerDisabled = YES; 2. 隐藏某行cell12345678910- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath&amp;#123;    // 如果">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="null">
+  <meta name="keyword" content="undefined">
   
+    <link rel="icon" href="">
   
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
-
+    
+  <title>iOS经验总结 + 转载 | stack.blog</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">stack.blog</a>
-      </h1>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>stack.blog</span>
+    </a>
+    <ul class="right-header">
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/songMW/stack.github.io"></form>
-      </div>
-    </div>
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="[layout]-iOS经验总结" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/15/iOS经验总结/" class="article-date">
-  <time datetime="2017-03-15T11:28:59.000Z" itemprop="datePublished">2017-03-15</time>
-</a>
-    
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>iOS经验总结 + 转载</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017年03月15日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>►<a class="article-category-link" href="/categories/Objective-C/知识点/">知识点</a>►<a class="article-category-link" href="/categories/Objective-C/知识点/iOS经验总结/">iOS经验总结</a>
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>/ <a class="article-category-link" href="/categories/Objective-C/知识点/">知识点</a>/ <a class="article-category-link" href="/categories/Objective-C/知识点/iOS经验总结/">iOS经验总结</a>
   </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      iOS经验总结 + 转载
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-禁止手机睡眠"><a href="#1-禁止手机睡眠" class="headerlink" title="1. 禁止手机睡眠"></a>1. 禁止手机睡眠</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[UIApplication sharedApplication].idleTimerDisabled = YES;</div></pre></td></tr></table></figure>
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="/tags/#Objective-C" class='tag'>Objective-C</a>
+
+
+            
+          </div>
+          <h3 id="1-禁止手机睡眠"><a href="#1-禁止手机睡眠" class="headerlink" title="1. 禁止手机睡眠"></a>1. 禁止手机睡眠</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[UIApplication sharedApplication].idleTimerDisabled = YES;</div></pre></td></tr></table></figure>
 <h3 id="2-隐藏某行cell"><a href="#2-隐藏某行cell" class="headerlink" title="2. 隐藏某行cell"></a>2. 隐藏某行cell</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    // 如果是你需要隐藏的那一行，返回高度为0</div><div class="line">    if(indexPath.row == YouWantToHideRow)</div><div class="line">        return 0; </div><div class="line">    return 44;</div><div class="line">    // 然后再你需要隐藏cell的时候调用</div><div class="line">    [self.tableView beginUpdates];</div><div class="line">    [self.tableView endUpdates];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="3-禁用button高亮"><a href="#3-禁用button高亮" class="headerlink" title="3. 禁用button高亮"></a>3. 禁用button高亮</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">button.adjustsImageWhenHighlighted = NO;  or</div><div class="line">UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];</div></pre></td></tr></table></figure>
 <h3 id="4-动画切换window的根控制器"><a href="#4-动画切换window的根控制器" class="headerlink" title="4. 动画切换window的根控制器"></a>4. 动画切换window的根控制器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[UIView transitionWithView:[UIApplication sharedApplication].keyWindow duration:0.5f options:UIViewAnimationOptionTransitionCrossDissolve animations:^&#123;</div><div class="line">    BOOL oldState = [UIView areAnimationsEnabled];</div><div class="line">    [UIView setAnimationsEnabled:NO];</div><div class="line">    [UIApplication sharedApplication].keyWindow.rootViewController = [RootViewController new];</div><div class="line">    [UIView setAnimationsEnabled:oldState];</div><div class="line">&#125; completion:^(BOOL finished) &#123;</div><div class="line"></div><div class="line">&#125;];</div></pre></td></tr></table></figure>
@@ -166,145 +158,96 @@
 <h3 id="68-为一个view添加虚线边框"><a href="#68-为一个view添加虚线边框" class="headerlink" title="68. 为一个view添加虚线边框"></a>68. 为一个view添加虚线边框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CAShapeLayer *border = [CAShapeLayer layer];</div><div class="line">border.strokeColor = [UIColor colorWithRed:67/255.0f green:37/255.0f blue:83/255.0f alpha:1].CGColor;</div><div class="line">border.fillColor = nil;</div><div class="line">border.lineDashPattern = @[@4, @2];</div><div class="line">border.path = [UIBezierPath bezierPathWithRect:view.bounds].CGPath;</div><div class="line">border.frame = view.bounds;</div><div class="line">[view.layer addSublayer:border];</div></pre></td></tr></table></figure>
 <h3 id="69-UITextView中打开或禁用复制-剪切-选择-全选等功能"><a href="#69-UITextView中打开或禁用复制-剪切-选择-全选等功能" class="headerlink" title="69. UITextView中打开或禁用复制, 剪切, 选择, 全选等功能"></a>69. UITextView中打开或禁用复制, 剪切, 选择, 全选等功能</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// 继承UITextView重写这个方法</div><div class="line">- (BOOL)canPerformAction:(SEL)action withSender:(id)sender</div><div class="line">&#123;</div><div class="line">    // 返回NO为禁用，YES为开启</div><div class="line">    // 粘贴</div><div class="line">    if (action == @selector(paste:)) return NO;</div><div class="line">    // 剪切</div><div class="line">    if (action == @selector(cut:)) return NO;</div><div class="line">    // 复制</div><div class="line">    if (action == @selector(copy:)) return NO;</div><div class="line">    // 选择</div><div class="line">    if (action == @selector(select:)) return NO;</div><div class="line">    // 选中全部</div><div class="line">    if (action == @selector(selectAll:)) return NO;</div><div class="line">    // 删除</div><div class="line">    if (action == @selector(delete:)) return NO;</div><div class="line">    // 分享</div><div class="line">    if (action == @selector(share)) return NO;</div><div class="line">    return [super canPerformAction:action withSender:sender];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/03/15/iOS经验总结/" data-id="cjajaryrd001sq8orsai4cojx" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
-
-    </footer>
-  </div>
-  
+        </section>
+    </article>
     
-<nav id="article-nav">
-  
-    <a href="/2017/03/04/开发者账号申请流程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
         
-          开发者账号申请流程
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/03/26/Xcode编译错误集合/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Xcode编译错误集合</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/">Installation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hexo-github/">Hexo+github</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/">AVFoundation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/">MoviePlayer</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerController/">MPMoviePlayerController</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerViewController/">MPMoviePlayerViewController</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Pod使用过程中遇到的问题/">Pod使用过程中遇到的问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/unrecognizedSelector/">unrecognizedSelector</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/">反编译工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Clang/">Clang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Class-dump/">Class-dump</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/开发者账号申请流程/">开发者账号申请流程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/">每天一道算法题</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/A-B问题/">A+B问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/尾部的零/">尾部的零</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/硬币排成线/">硬币排成线</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/统计二进制有多少个1/">统计二进制有多少个1</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/统计数字/">统计数字</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/测试工具/">测试工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/测试工具/TestFlight/">TestFlight</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/">知识点</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Autoreleasepool/">Autoreleasepool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Class/">Class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/KVC实现原理/">KVC实现原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/KVO实现原理/">KVO实现原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/NSRunloop/">NSRunloop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/WKWebView/">WKWebView</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/bridge-type/">__bridge_type</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/iOS经验总结/">iOS经验总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/load/">load</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/使用ARC/">使用ARC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/宏-define-与常量-const/">宏(define)与常量(const)</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/python3FroMac/">python3FroMac</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/">基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/TheBasic/">TheBasic</a></li></ul></li></ul></li></ul>
-    </div>
   </div>
-
-
-  
+  <aside>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentence/">Sentence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-禁止手机睡眠"><span class="toc-number">1.</span> <span class="toc-text">1. 禁止手机睡眠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-隐藏某行cell"><span class="toc-number">2.</span> <span class="toc-text">2. 隐藏某行cell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-禁用button高亮"><span class="toc-number">3.</span> <span class="toc-text">3. 禁用button高亮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-动画切换window的根控制器"><span class="toc-number">4.</span> <span class="toc-text">4. 动画切换window的根控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-去除数组中重复的对象"><span class="toc-number">5.</span> <span class="toc-text">5. 去除数组中重复的对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-iOS8系统中，tableView最好实现下-tableView-heightForRowAtIndexPath-这个代理方法，要不然在iOS8中可能就会出现显示不全或者无法响应事件的问题"><span class="toc-number">6.</span> <span class="toc-text">6. iOS8系统中，tableView最好实现下-tableView: heightForRowAtIndexPath:这个代理方法，要不然在iOS8中可能就会出现显示不全或者无法响应事件的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-iOS8中实现侧滑功能的时候这个方法必须实现，要不然在iOS8中无法侧滑"><span class="toc-number">7.</span> <span class="toc-text">7. iOS8中实现侧滑功能的时候这个方法必须实现，要不然在iOS8中无法侧滑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-三个通知"><span class="toc-number">8.</span> <span class="toc-text">8. 三个通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-给一个view截图"><span class="toc-number">9.</span> <span class="toc-text">9. 给一个view截图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-对象为nil的时候调用此对象分类的方法不会执行"><span class="toc-number">10.</span> <span class="toc-text">10. 对象为nil的时候调用此对象分类的方法不会执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-设置navigationBar上的title颜色和大小"><span class="toc-number">11.</span> <span class="toc-text">11. 设置navigationBar上的title颜色和大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-颜色转图片"><span class="toc-number">12.</span> <span class="toc-text">12. 颜色转图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-view设置圆角"><span class="toc-number">13.</span> <span class="toc-text">13. view设置圆角</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-强／弱引用"><span class="toc-number">14.</span> <span class="toc-text">14. 强／弱引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-由角度转换弧度"><span class="toc-number">15.</span> <span class="toc-text">15. 由角度转换弧度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-由弧度转换角度"><span class="toc-number">16.</span> <span class="toc-text">16. 由弧度转换角度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-获取图片资源"><span class="toc-number">17.</span> <span class="toc-text">17. 获取图片资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-获取temp"><span class="toc-number">18.</span> <span class="toc-text">18. 获取temp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19-获取沙盒-Document"><span class="toc-number">19.</span> <span class="toc-text">19. 获取沙盒 Document</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20-获取沙盒-Cache"><span class="toc-number">20.</span> <span class="toc-text">20. 获取沙盒 Cache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-GCD代码只执行一次"><span class="toc-number">21.</span> <span class="toc-text">21. GCD代码只执行一次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-自定义NSLog"><span class="toc-number">22.</span> <span class="toc-text">22. 自定义NSLog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-在主线程上运行"><span class="toc-number">23.</span> <span class="toc-text">23. 在主线程上运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-随机颜色"><span class="toc-number">24.</span> <span class="toc-text">24. 随机颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25-修改textField的placeholder的字体颜色-大小"><span class="toc-number">25.</span> <span class="toc-text">25. 修改textField的placeholder的字体颜色. 大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26-统一收起键盘"><span class="toc-number">26.</span> <span class="toc-text">26. 统一收起键盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#27-控制屏幕旋转，在控制器中写"><span class="toc-number">27.</span> <span class="toc-text">27. 控制屏幕旋转，在控制器中写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28-模型转字典"><span class="toc-number">28.</span> <span class="toc-text">28. 模型转字典</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#29-交换两个方法实现"><span class="toc-number">29.</span> <span class="toc-text">29. 交换两个方法实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#30-打印百分号和引号"><span class="toc-number">30.</span> <span class="toc-text">30. 打印百分号和引号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#31-几个常用权限判断"><span class="toc-number">31.</span> <span class="toc-text">31. 几个常用权限判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32-获取手机型号"><span class="toc-number">32.</span> <span class="toc-text">32. 获取手机型号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33-长按复制功能"><span class="toc-number">33.</span> <span class="toc-text">33. 长按复制功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#34-cocoapods升级"><span class="toc-number">34.</span> <span class="toc-text">34. cocoapods升级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#35-判断图片类型"><span class="toc-number">35.</span> <span class="toc-text">35. 判断图片类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#36-获取手机和app信息"><span class="toc-number">36.</span> <span class="toc-text">36. 获取手机和app信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#37-获取一个类的所有属性"><span class="toc-number">37.</span> <span class="toc-text">37. 获取一个类的所有属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#38-image圆角"><span class="toc-number">38.</span> <span class="toc-text">38. image圆角</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#39-image拉伸"><span class="toc-number">39.</span> <span class="toc-text">39. image拉伸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#40-导入自定义字体库"><span class="toc-number">40.</span> <span class="toc-text">40. 导入自定义字体库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#41-拿到当前正在显示的控制器，不管是push进去的，还是present进去的都能拿到"><span class="toc-number">41.</span> <span class="toc-text">41. 拿到当前正在显示的控制器，不管是push进去的，还是present进去的都能拿到</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#42-runtime为一个类动态添加属性"><span class="toc-number">42.</span> <span class="toc-text">42. runtime为一个类动态添加属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#43-Reachability-判断网络状态"><span class="toc-number">43.</span> <span class="toc-text">43. Reachability 判断网络状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#44-AFNetworking监听网络状态"><span class="toc-number">44.</span> <span class="toc-text">44. AFNetworking监听网络状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#45-使用performSelector-调用函数内存泄漏问题"><span class="toc-number">45.</span> <span class="toc-text">45. 使用performSelector:调用函数内存泄漏问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#46-一个字符串是否包含另一个字符串"><span class="toc-number">46.</span> <span class="toc-text">46. 一个字符串是否包含另一个字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#47-移除字符串中的空格和换行"><span class="toc-number">47.</span> <span class="toc-text">47. 移除字符串中的空格和换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#48-判断字符串中是否有空格"><span class="toc-number">48.</span> <span class="toc-text">48. 判断字符串中是否有空格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#49-字符串是否为空"><span class="toc-number">49.</span> <span class="toc-text">49. 字符串是否为空</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#50-当tableView占不满一屏时，去除下边多余的单元格"><span class="toc-number">50.</span> <span class="toc-text">50. 当tableView占不满一屏时，去除下边多余的单元格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#51-isKindOfClass和isMemberOfClass的区别"><span class="toc-number">51.</span> <span class="toc-text">51. isKindOfClass和isMemberOfClass的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#52-禁用系统滑动返回功能"><span class="toc-number">52.</span> <span class="toc-text">52. 禁用系统滑动返回功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#53-使用模拟器截图"><span class="toc-number">53.</span> <span class="toc-text">53. 使用模拟器截图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#54-为UIView某个角添加圆角"><span class="toc-number">54.</span> <span class="toc-text">54. 为UIView某个角添加圆角</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#55-删除Xcode-Derived-data缓存数据"><span class="toc-number">55.</span> <span class="toc-text">55. 删除Xcode Derived data缓存数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#56-让手机震动一下"><span class="toc-number">56.</span> <span class="toc-text">56. 让手机震动一下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#57-layoutSubviews方法什么时候调用？"><span class="toc-number">57.</span> <span class="toc-text">57. layoutSubviews方法什么时候调用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#58-摇一摇功能"><span class="toc-number">58.</span> <span class="toc-text">58. 摇一摇功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#59-获取图片大小"><span class="toc-number">59.</span> <span class="toc-text">59. 获取图片大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#60-获取view的坐标在整个window上的位置"><span class="toc-number">60.</span> <span class="toc-text">60. 获取view的坐标在整个window上的位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#61-获取一个view所属的控制器"><span class="toc-number">61.</span> <span class="toc-text">61. 获取一个view所属的控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#62-UIImage和base64互转"><span class="toc-number">62.</span> <span class="toc-text">62. UIImage和base64互转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#63-判断NSDate是不是今天"><span class="toc-number">63.</span> <span class="toc-text">63. 判断NSDate是不是今天</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#64-设置tableView分割线颜色"><span class="toc-number">64.</span> <span class="toc-text">64. 设置tableView分割线颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#65-设置屏幕方向"><span class="toc-number">65.</span> <span class="toc-text">65. 设置屏幕方向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#66-tableViewCell分割线顶到头"><span class="toc-number">66.</span> <span class="toc-text">66. tableViewCell分割线顶到头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#67-修改cell-imageView的大小"><span class="toc-number">67.</span> <span class="toc-text">67. 修改cell.imageView的大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#68-为一个view添加虚线边框"><span class="toc-number">68.</span> <span class="toc-text">68. 为一个view添加虚线边框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#69-UITextView中打开或禁用复制-剪切-选择-全选等功能"><span class="toc-number">69.</span> <span class="toc-text">69. UITextView中打开或禁用复制, 剪切, 选择, 全选等功能</span></a></li></ol>
+        </div>
     </div>
-  </div>
-
-
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Installation/" style="font-size: 16.67px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 20px;">Objective-C</a> <a href="/tags/Sentence/" style="font-size: 10px;">Sentence</a> <a href="/tags/Swift/" style="font-size: 13.33px;">Swift</a>
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2017 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
     </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/07/25/硬币排成线/">硬币排成线</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/24/统计数字/">统计数字</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/30/MPMoviePlayerController/">MPMoviePlayerController</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/29/MPMoviePlayerViewController/">MPMoviePlayerViewController</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/18/WKWebView/">WKWebView的坑</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 stack<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
 </body>
 </html>

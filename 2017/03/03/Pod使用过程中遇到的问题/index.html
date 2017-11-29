@@ -1,92 +1,84 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Pod使用过程中遇到的问题 | stack.blog</title>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装篇一. CocoaPods简介CocoaPods是iOS的包管理工具. 二. CocoaPods安装1. 安装RubyCocoaPods基于Ruby语言开发而成, Mac系统默认自带Ruby环境, 检测是否安装Ruby:12gem -v2.6.7 2. 安装 gemgem 是一个管理 Ruby 库和程序的标准包, 它通过Ruby Gem 源来查找、安装、升级和卸载软件包1234gem sour">
-<meta name="keywords" content="Objective-C">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Pod使用过程中遇到的问题">
-<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/03/03/Pod使用过程中遇到的问题/index.html">
-<meta property="og:site_name" content="stack.blog">
-<meta property="og:description" content="安装篇一. CocoaPods简介CocoaPods是iOS的包管理工具. 二. CocoaPods安装1. 安装RubyCocoaPods基于Ruby语言开发而成, Mac系统默认自带Ruby环境, 检测是否安装Ruby:12gem -v2.6.7 2. 安装 gemgem 是一个管理 Ruby 库和程序的标准包, 它通过Ruby Gem 源来查找、安装、升级和卸载软件包1234gem sour">
-<meta property="og:updated_time" content="2017-06-07T12:15:29.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pod使用过程中遇到的问题">
-<meta name="twitter:description" content="安装篇一. CocoaPods简介CocoaPods是iOS的包管理工具. 二. CocoaPods安装1. 安装RubyCocoaPods基于Ruby语言开发而成, Mac系统默认自带Ruby环境, 检测是否安装Ruby:12gem -v2.6.7 2. 安装 gemgem 是一个管理 Ruby 库和程序的标准包, 它通过Ruby Gem 源来查找、安装、升级和卸载软件包1234gem sour">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="null">
+  <meta name="keyword" content="undefined">
   
+    <link rel="icon" href="">
   
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
-
+    
+  <title>Pod使用过程中遇到的问题 | stack.blog</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">stack.blog</a>
-      </h1>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>stack.blog</span>
+    </a>
+    <ul class="right-header">
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/songMW/stack.github.io"></form>
-      </div>
-    </div>
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="[layout]-Pod使用过程中遇到的问题" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/03/Pod使用过程中遇到的问题/" class="article-date">
-  <time datetime="2017-03-03T06:33:29.000Z" itemprop="datePublished">2017-03-03</time>
-</a>
-    
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>Pod使用过程中遇到的问题</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017年03月03日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>►<a class="article-category-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a>►<a class="article-category-link" href="/categories/Objective-C/iOS常见错误收集/Pod使用过程中遇到的问题/">Pod使用过程中遇到的问题</a>
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>/ <a class="article-category-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a>/ <a class="article-category-link" href="/categories/Objective-C/iOS常见错误收集/Pod使用过程中遇到的问题/">Pod使用过程中遇到的问题</a>
   </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Pod使用过程中遇到的问题
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装篇"><a href="#安装篇" class="headerlink" title="安装篇"></a>安装篇</h1><h2 id="一-CocoaPods简介"><a href="#一-CocoaPods简介" class="headerlink" title="一. CocoaPods简介"></a>一. CocoaPods简介</h2><p>CocoaPods是iOS的包管理工具.</p>
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="/tags/#Objective-C" class='tag'>Objective-C</a>
+
+
+            
+          </div>
+          <h1 id="安装篇"><a href="#安装篇" class="headerlink" title="安装篇"></a>安装篇</h1><h2 id="一-CocoaPods简介"><a href="#一-CocoaPods简介" class="headerlink" title="一. CocoaPods简介"></a>一. CocoaPods简介</h2><p>CocoaPods是iOS的包管理工具.</p>
 <h2 id="二-CocoaPods安装"><a href="#二-CocoaPods安装" class="headerlink" title="二. CocoaPods安装"></a>二. CocoaPods安装</h2><h3 id="1-安装Ruby"><a href="#1-安装Ruby" class="headerlink" title="1. 安装Ruby"></a>1. 安装Ruby</h3><p>CocoaPods基于Ruby语言开发而成, Mac系统默认自带Ruby环境, 检测是否安装Ruby:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gem -v</div><div class="line">2.6.7</div></pre></td></tr></table></figure></p>
 <h3 id="2-安装-gem"><a href="#2-安装-gem" class="headerlink" title="2. 安装 gem"></a>2. 安装 gem</h3><p><a href="https://rubygems.org/" target="_blank" rel="external">gem 是一个管理 Ruby 库和程序的标准包, 它通过Ruby Gem 源来查找、安装、升级和卸载软件包</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gem source -l</div><div class="line">*** CURRENT SOURCES ***</div><div class="line"></div><div class="line">https://gems.ruby-china.org/</div></pre></td></tr></table></figure></p>
 <p>使用 <code>gem source -l</code> 命令可以查看当前gem源, 并用 <code>https://gems.ruby-china.org/</code> 替换掉原有的gem源, 由于国内网络问题你懂得…</p>
@@ -134,145 +126,96 @@
 <h2 id="问题-pod-升级出现下面的错误"><a href="#问题-pod-升级出现下面的错误" class="headerlink" title="问题. pod 升级出现下面的错误"></a>问题. pod 升级出现下面的错误</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Fetching: claide-1.0.2.gem (100%)</div><div class="line">Successfully installed claide-1.0.2</div><div class="line">Fetching: xcodeproj-1.5.0.gem (100%)</div><div class="line">ERROR:  While executing gem ... (Errno::EPERM)</div><div class="line">Operation not permitted - /usr/bin/xcodeproj</div></pre></td></tr></table></figure>
 <p>在 <code>stackoverflow</code> 搜到的解释是这样的, <code>This is happening because Apple has enabled rootless on the new install</code>, 在10.11系统上苹果已经启用无根的安装. 在这种情况下, 需使用如下的命令: sudo gem install -n /usr/local/bin cocoapods –pre 升级到 <code>1.3.0.beta.1</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Successfully installed xcodeproj-1.5.0</div><div class="line">Fetching: cocoapods-core-1.3.0.beta.1.gem (100%)</div><div class="line">Successfully installed cocoapods-core-1.3.0.beta.1</div><div class="line">Fetching: cocoapods-1.3.0.beta.1.gem (100%)</div><div class="line">Successfully installed cocoapods-1.3.0.beta.1</div><div class="line">Parsing documentation for xcodeproj-1.5.0</div><div class="line">Installing ri documentation for xcodeproj-1.5.0</div><div class="line">Parsing documentation for cocoapods-core-1.3.0.beta.1</div><div class="line">Installing ri documentation for cocoapods-core-1.3.0.beta.1</div><div class="line">Parsing documentation for cocoapods-1.3.0.beta.1</div><div class="line">Installing ri documentation for cocoapods-1.3.0.beta.1</div><div class="line">3 gems installed</div></pre></td></tr></table></figure></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://github.com/songMW/stack.github.io/2017/03/03/Pod使用过程中遇到的问题/" data-id="cjajaryq4000oq8oreiwuuxj6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
-
-    </footer>
-  </div>
-  
+        </section>
+    </article>
     
-<nav id="article-nav">
-  
-    <a href="/2017/03/02/NSRunloop/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
         
-          NSRunloop
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/03/04/开发者账号申请流程/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">开发者账号申请流程</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GracefulSentence/">GracefulSentence</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/">Installation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hello-World/">Hello World</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Installation/Hexo/Hexo-github/">Hexo+github</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/">Objective-C</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/">AVFoundation</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/">MoviePlayer</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerController/">MPMoviePlayerController</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerViewController/">MPMoviePlayerViewController</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Pod使用过程中遇到的问题/">Pod使用过程中遇到的问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/Xcode编译错误集合/">Xcode编译错误集合</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/arm指令集错误收集/">arm指令集错误收集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/unrecognizedSelector/">unrecognizedSelector</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/iOS常见错误收集/崩溃日志/">崩溃日志</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/">反编译工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Clang/">Clang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/反编译工具/Class-dump/">Class-dump</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/开发者账号申请流程/">开发者账号申请流程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/">每天一道算法题</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/A-B问题/">A+B问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/尾部的零/">尾部的零</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/硬币排成线/">硬币排成线</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/统计二进制有多少个1/">统计二进制有多少个1</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/每天一道算法题/统计数字/">统计数字</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/测试工具/">测试工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/测试工具/TestFlight/">TestFlight</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/">知识点</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Autoreleasepool/">Autoreleasepool</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Class/">Class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/KVC实现原理/">KVC实现原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/KVO实现原理/">KVO实现原理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/NSRunloop/">NSRunloop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/Runtime/">Runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/WKWebView/">WKWebView</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/bridge-type/">__bridge_type</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/iOS经验总结/">iOS经验总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/load/">load</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/使用ARC/">使用ARC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Objective-C/知识点/宏-define-与常量-const/">宏(define)与常量(const)</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Python/python3FroMac/">python3FroMac</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/">基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/BasicOperators/">BasicOperators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/基础/TheBasic/">TheBasic</a></li></ul></li></ul></li></ul>
-    </div>
   </div>
-
-
-  
+  <aside>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentence/">Sentence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li></ul>
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装篇"><span class="toc-number">1.</span> <span class="toc-text">安装篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-CocoaPods简介"><span class="toc-number">1.1.</span> <span class="toc-text">一. CocoaPods简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-CocoaPods安装"><span class="toc-number">1.2.</span> <span class="toc-text">二. CocoaPods安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-安装Ruby"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 安装Ruby</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-安装-gem"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 安装 gem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-安装CocoaPods"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 安装CocoaPods</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Installation"><span class="toc-number">1.2.4.</span> <span class="toc-text">Installation</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用篇"><span class="toc-number">2.</span> <span class="toc-text">使用篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-为工程创建pod"><span class="toc-number">2.1.</span> <span class="toc-text">1. 为工程创建pod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-编辑Podfile"><span class="toc-number">2.2.</span> <span class="toc-text">2. 编辑Podfile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-pod-install-导入第三方库"><span class="toc-number">2.3.</span> <span class="toc-text">3. pod install 导入第三方库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用CocoaPod打包"><span class="toc-number">3.</span> <span class="toc-text">使用CocoaPod打包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基于pod命令创建SDK"><span class="toc-number">3.1.</span> <span class="toc-text">1. 基于pod命令创建SDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-podspec-文件的内容结构"><span class="toc-number">3.2.</span> <span class="toc-text">2. podspec 文件的内容结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-验证pod库"><span class="toc-number">3.3.</span> <span class="toc-text">3. 验证pod库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-上传git"><span class="toc-number">3.4.</span> <span class="toc-text">4. 上传git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-上传podspec到cocoa-pods官网的仓库"><span class="toc-number">3.5.</span> <span class="toc-text">5. 上传podspec到cocoa pods官网的仓库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见问题"><span class="toc-number">4.</span> <span class="toc-text">常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题1-install，update速度慢"><span class="toc-number">4.1.</span> <span class="toc-text">问题1. install，update速度慢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题2-Swift类库"><span class="toc-number">4.2.</span> <span class="toc-text">问题2. Swift类库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题3-Error-installing-ProtoCompiler"><span class="toc-number">4.3.</span> <span class="toc-text">问题3. [!] Error installing !ProtoCompiler</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方法：执行sudo-xcode-select-switch-Applications-Xcode-app-Contents-Developer-switch-后面加上你的Xcode-app包内容里的Developer的文件夹路径即可"><span class="toc-number">4.3.1.</span> <span class="toc-text">解决方法：执行sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer (-switch 后面加上你的Xcode.app包内容里的Developer的文件夹路径即可)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题4-iOS-file-patterns-The-source-files-pattern-did-not-match-any-file"><span class="toc-number">4.4.</span> <span class="toc-text">问题4. [iOS] file patterns: The source_files pattern did not match any file.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题-pod-升级出现下面的错误"><span class="toc-number">4.5.</span> <span class="toc-text">问题. pod 升级出现下面的错误</span></a></li></ol></li></ol>
+        </div>
     </div>
-  </div>
-
-
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Installation/" style="font-size: 16.67px;">Installation</a> <a href="/tags/Objective-C/" style="font-size: 20px;">Objective-C</a> <a href="/tags/Sentence/" style="font-size: 10px;">Sentence</a> <a href="/tags/Swift/" style="font-size: 13.33px;">Swift</a>
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2017 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
     </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/07/25/硬币排成线/">硬币排成线</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/24/统计数字/">统计数字</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/30/MPMoviePlayerController/">MPMoviePlayerController</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/29/MPMoviePlayerViewController/">MPMoviePlayerViewController</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/18/WKWebView/">WKWebView的坑</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 stack<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
 </body>
 </html>
