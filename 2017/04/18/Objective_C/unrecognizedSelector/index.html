@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="null">
+  <meta name="keyword" content="undefined">
+  
+    <link rel="icon" href="">
+  
+    
+  <title>unrecognizedSelector | stack.blog</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>stack.blog</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>unrecognizedSelector</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017年04月18日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>/ <a class="article-category-link" href="/categories/Objective-C/iOS常见错误收集/">iOS常见错误收集</a>/ <a class="article-category-link" href="/categories/Objective-C/iOS常见错误收集/unrecognizedSelector/">unrecognizedSelector</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="/tags/#Objective-C" class='tag'>Objective-C</a>
+
+
+            
+          </div>
+          <ol>
+<li>当调用该对象上某个方法,而该对象上没有实现这个方法的时候，可以通过“消息转发”进行解决;</li>
+<li>对象查找selector时，先查找cachelist，如果没有则查找methodlist，如果还没有就查找父类的methodlist;</li>
+<li>都没有查找到时会三次机会可以处理这次selector访问</li>
+</ol>
+<h2 id="Objective-C提供两类消息转发方式"><a href="#Objective-C提供两类消息转发方式" class="headerlink" title="Objective-C提供两类消息转发方式:"></a>Objective-C提供两类消息转发方式:</h2><ul>
+<li>快速转发: NSObject 类的子类重载 NSObject 的 <code>forwardingTargetForSelector:</code>方法,将该方法转发给其他对象, 实现快速转发. 将对象的实现代码和转发对象合并到一起, 类似于实现了多继承, 使用此方法的技巧是定义了一个类可以消化目标类未实现的方法.</li>
+<li>完整转发: NSObject 类的子类重载 NSObject 的 <code>forwardInvacation:</code>方法, 实现标准转发, 使用此方法要能够使用消息的全部内容(目标, 方法, 参数)</li>
+</ul>
+<h3 id="1-快速转发"><a href="#1-快速转发" class="headerlink" title="1. 快速转发:"></a>1. 快速转发:</h3><h3 id="使用需求-转发对象所在类所需实现当前要转发的方法"><a href="#使用需求-转发对象所在类所需实现当前要转发的方法" class="headerlink" title="使用需求: 转发对象所在类所需实现当前要转发的方法"></a><font color="#FF0000">使用需求: 转发对象所在类所需实现当前要转发的方法</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">- (id)init</div><div class="line">&#123;</div><div class="line">    if (self = [super init]) &#123;</div><div class="line">        //初始化一个转发对象</div><div class="line">        _helper = [[HydrogenHelper alloc]init];</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (id)forwardingTargetForSelector:(SEL)aSelector</div><div class="line">&#123;</div><div class="line">    //在指定类中的执行已实现的方法(和aSelector同名, 同参数)</div><div class="line">    if ([_helper respondsToSelector:aSelector]) &#123;</div><div class="line">        return _helper;</div><div class="line">    &#125;</div><div class="line">    return nil;</div><div class="line">    </div><div class="line">    //或者可以直接 return _helper; 意思是当前类未实现的方法都会转发到 _helpe 类;</div><div class="line">    //但是 aSelector 这个方法在 _helper 类中必须有实现, 如果未实现则还是会报错</div><div class="line">&#125;</div><div class="line"></div><div class="line">调用栈信息执行顺序与 Xcode 上相反:</div><div class="line">1. start</div><div class="line">2. __invoking__</div><div class="line">3. [xxx 调用未实现的method]</div><div class="line">4. __forwarding_prep_0___</div><div class="line">5. ___forwarding___</div><div class="line">6. [Class forwordingTargetForSelector:]</div></pre></td></tr></table></figure>
+<h3 id="2-标准转发"><a href="#2-标准转发" class="headerlink" title="2. 标准转发:"></a>2. 标准转发:</h3><h3 id="使用需求-当前类实现够使用消息的全部内容-目标-方法-参数"><a href="#使用需求-当前类实现够使用消息的全部内容-目标-方法-参数" class="headerlink" title="使用需求: 当前类实现够使用消息的全部内容(目标, 方法, 参数)"></a><font color="#FF0000">使用需求: 当前类实现够使用消息的全部内容(目标, 方法, 参数)</font></h3><ul>
+<li><p>如果实现 <code>+ (BOOL)resolveInstanceMethod:(SEL)sel</code> 这个方法, 则会首先执行它</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">+ (BOOL)resolveInstanceMethod:(SEL)sel</div><div class="line">&#123;</div><div class="line">    class_addMethod(self.class, sel, (IMP)dynamicMethod, &quot;@@:&quot;);</div><div class="line">    return [super resolveInstanceMethod:sel];</div><div class="line">&#125;</div><div class="line"></div><div class="line">id dynamicMethod(id self, SEL _cmd)</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;%s:动态添加的方法&quot;,__FUNCTION__);</div><div class="line">    return @&quot;LogMsg&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">如果动态添加方法成功, 则执行 dynamicMethod , 转发结束;</div><div class="line"></div><div class="line">调用栈信息执行顺序与 Xcode 上相反:</div><div class="line">1. start</div><div class="line">2. __invoking__</div><div class="line">3. [xxx 调用未实现的method]</div><div class="line">4. _objc_msgSend_uncached</div><div class="line">5. _class_resoveInstanceMethod(objc_class *, objc_selector *, objc_object *)</div><div class="line">6. [Class resolveInstanceMethod:]</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果 <code>+ (BOOL)resolveInstanceMethod:(SEL)sel</code> 这个方法没有实现或者动态添加方法失败, 则会执行 <code>- (id)forwardingTargetForSelector:(SEL)aSelector</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (id)forwardingTargetForSelector:(SEL)aSelector </div><div class="line">&#123;</div><div class="line">    id result = [super forwardingTargetForSelector:aSelector];</div><div class="line">    return result;</div><div class="line"></div><div class="line">    //或者执行快速转发</div><div class="line">&#125;</div><div class="line"></div><div class="line">只要这个方法返回的不是nil和self，整个消息发送的过程就会被重启</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果 <code>- (id)forwardingTargetForSelector:(SEL)aSelector</code> 没有实现或者返回 nil 或 self, 则会执行最后一次拯救</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector</div><div class="line">&#123;</div><div class="line">    id result = [super methodSignatureForSelector:@selector(logInfo:)];</div><div class="line">    return result;</div><div class="line">&#125; </div><div class="line"></div><div class="line">- (void)forwardInvocation:(NSInvocation *)anInvocation</div><div class="line">&#123;</div><div class="line">    anInvocation.selector = (SEL)dynamicMethod;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)logInfo:(NSString *)str</div><div class="line">&#123;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">只有 result 返回有值的时候才会执行 forwardInvocation: 否则不执行;</div><div class="line">这就需要提前在类中实现好要去执行的方法</div><div class="line"></div><div class="line">调用栈信息执行顺序与 Xcode 上相反:</div><div class="line">1. start</div><div class="line">2. __invoking__</div><div class="line">3. __forwarding_prep_0___</div><div class="line">4. ___forwarding___</div><div class="line">5. [Class methodSignatureForSelector:]</div><div class="line">6. [Class forwardInvocation:]</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果都执行失败执行 <code>doesNotRecognizeSelector:</code> 会抛出异常.</p>
+</li>
+</ul>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Objective-C提供两类消息转发方式"><span class="toc-number">1.</span> <span class="toc-text">Objective-C提供两类消息转发方式:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-快速转发"><span class="toc-number">1.1.</span> <span class="toc-text">1. 快速转发:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用需求-转发对象所在类所需实现当前要转发的方法"><span class="toc-number">1.2.</span> <span class="toc-text">使用需求: 转发对象所在类所需实现当前要转发的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-标准转发"><span class="toc-number">1.3.</span> <span class="toc-text">2. 标准转发:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用需求-当前类实现够使用消息的全部内容-目标-方法-参数"><span class="toc-number">1.4.</span> <span class="toc-text">使用需求: 当前类实现够使用消息的全部内容(目标, 方法, 参数)</span></a></li></ol></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2018 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

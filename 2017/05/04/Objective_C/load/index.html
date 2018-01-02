@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="null">
+  <meta name="keyword" content="undefined">
+  
+    <link rel="icon" href="">
+  
+    
+  <title>load | stack.blog</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>stack.blog</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>load</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017年05月04日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>/ <a class="article-category-link" href="/categories/Objective-C/知识点/">知识点</a>/ <a class="article-category-link" href="/categories/Objective-C/知识点/load/">load</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="/tags/#Objective-C" class='tag'>Objective-C</a>
+
+
+            
+          </div>
+          <h2 id="1-load-是什么"><a href="#1-load-是什么" class="headerlink" title="1. load 是什么?"></a>1. load 是什么?</h2><ul>
+<li>定义在NSObject.h头文件中</li>
+<li>load方法在这个文件被程序装载时调用, 只要是在Compile Sources中出现的文件总是会被装载, 无论这个类是否被用到;</li>
+<li>load方法在main函数之前调用;</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">+ (void)load; </div><div class="line"></div><div class="line">3. +[class load]</div><div class="line">2. call_load_methods</div><div class="line">1. _dyld_start</div></pre></td></tr></table></figure>
+<h2 id="2-load-怎么调用"><a href="#2-load-怎么调用" class="headerlink" title="2. load 怎么调用?"></a>2. load 怎么调用?</h2><ul>
+<li>如果在一个类中实现 load 方法, 则会先调用其父类的 load 方法, 是系统自动调用的; </li>
+<li>如果一个类没有实现 load 方法, 则系统不会调用它的父类;</li>
+<li>类别中调用 load 方法, 遵循上面两条;</li>
+<li>load 方法不能手动调用;</li>
+<li>load 是线程安全的, 内部使用了锁, 应该避免在 load 中阻塞线程</li>
+</ul>
+<h2 id="3-load-使用场景"><a href="#3-load-使用场景" class="headerlink" title="3. load 使用场景"></a>3. load 使用场景</h2><ul>
+<li>实现 Method Swizzle <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">+ (void)load&#123;</div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        Method originalDealloc = class_getInstanceMethod(self, NSSelectorFromString(@&quot;dealloc&quot;));</div><div class="line">        Method newDealloc = class_getInstanceMethod(self, @selector(autoRemoveObserverDealloc));</div><div class="line">        method_exchangeImplementations(originalDealloc, newDealloc);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="4-源码学习"><a href="#4-源码学习" class="headerlink" title="4. 源码学习"></a>4. 源码学习</h2><h2 id="objc—-gt-Sources—-gt-objc-loadmethod-mm"><a href="#objc—-gt-Sources—-gt-objc-loadmethod-mm" class="headerlink" title="objc—&gt;Sources—&gt;objc-loadmethod.mm"></a>objc—&gt;Sources—&gt;objc-loadmethod.mm</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">struct loadable_class &#123;</div><div class="line">    Class cls;  // may be nil</div><div class="line">    IMP method;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">struct loadable_category &#123;</div><div class="line">    Category cat;  // may be nil</div><div class="line">    IMP method;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// List of classes that need +load called (pending superclass +load)</div><div class="line">// This list always has superclasses first because of the way it is constructed</div><div class="line">static struct loadable_class *loadable_classes = nil;</div><div class="line">static int loadable_classes_used = 0;</div><div class="line">static int loadable_classes_allocated = 0;</div><div class="line"></div><div class="line">// List of categories that need +load called (pending parent class +load)</div><div class="line">static struct loadable_category *loadable_categories = nil;</div><div class="line">static int loadable_categories_used = 0;</div><div class="line">static int loadable_categories_allocated = 0;</div></pre></td></tr></table></figure>
+<h3 id="这段代码介绍两个结构体指针-分别是可承载的类和类别-类中"><a href="#这段代码介绍两个结构体指针-分别是可承载的类和类别-类中" class="headerlink" title="这段代码介绍两个结构体指针, 分别是可承载的类和类别. 类中"></a>这段代码介绍两个结构体指针, 分别是可承载的类和类别. 类中</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">/***********************************************************************</div><div class="line">* add_class_to_loadable_list</div><div class="line">* Class cls has just become connected. Schedule it for +load if</div><div class="line">* it implements a +load method.</div><div class="line">**********************************************************************/</div><div class="line">void add_class_to_loadable_list(Class cls)</div><div class="line">&#123;</div><div class="line">    IMP method;</div><div class="line"></div><div class="line">    loadMethodLock.assertLocked();</div><div class="line"></div><div class="line">    method = cls-&gt;getLoadMethod();</div><div class="line">    if (!method) return;  // Don&apos;t bother if cls has no +load method</div><div class="line"></div><div class="line">    if (PrintLoading) &#123;</div><div class="line">        _objc_inform(&quot;LOAD: class &apos;%s&apos; scheduled for +load&quot;, </div><div class="line">        cls-&gt;nameForLogging());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (loadable_classes_used == loadable_classes_allocated) &#123;</div><div class="line">        loadable_classes_allocated = loadable_classes_allocated*2 + 16;</div><div class="line">        loadable_classes = (struct loadable_class *)</div><div class="line">        realloc(loadable_classes,</div><div class="line">        loadable_classes_allocated *</div><div class="line">        sizeof(struct loadable_class));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    loadable_classes[loadable_classes_used].cls = cls;</div><div class="line">    loadable_classes[loadable_classes_used].method = method;</div><div class="line">    loadable_classes_used++;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="1-声明一个IMP"><a href="#1-声明一个IMP" class="headerlink" title="1. 声明一个IMP;"></a>1. 声明一个IMP;</h3><h3 id="2-loadMethodLock-assertLocked-线程安全-使用recursive-mutex-t上锁"><a href="#2-loadMethodLock-assertLocked-线程安全-使用recursive-mutex-t上锁" class="headerlink" title="2. loadMethodLock.assertLocked(); 线程安全, 使用recursive_mutex_t上锁"></a>2. <code>loadMethodLock.assertLocked();</code> 线程安全, 使用recursive_mutex_t上锁</h3><h3 id="3-cls-gt-getLoadMethod-这个方法是获取一个类声明的-load-方法-如果没有声明-load-则会返回nil"><a href="#3-cls-gt-getLoadMethod-这个方法是获取一个类声明的-load-方法-如果没有声明-load-则会返回nil" class="headerlink" title="3. cls-&gt;getLoadMethod()这个方法是获取一个类声明的 +load 方法, 如果没有声明 +load 则会返回nil;"></a>3. <code>cls-&gt;getLoadMethod()</code>这个方法是获取一个类声明的 <code>+load</code> 方法, 如果没有声明 <code>+load</code> 则会返回nil;</h3><h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">void prepare_load_methods(const headerType *mhdr)</div><div class="line">&#123;</div><div class="line">    size_t count, i;</div><div class="line">    runtimeLock.assertWriting();</div><div class="line">    classref_t *classlist = _getObjc2NonlazyClassList(mhdr, &amp;count);</div><div class="line">    for (i = 0; i &lt; count; i++) &#123;</div><div class="line">        schedule_class_load(remapClass(classlist[i]));</div><div class="line">    &#125;</div><div class="line">    category_t **categorylist = _getObjc2NonlazyCategoryList(mhdr, &amp;count);</div><div class="line">    for (i = 0; i &lt; count; i++) &#123;</div><div class="line">        category_t *cat = categorylist[i];</div><div class="line">        Class cls = remapClass(cat-&gt;cls);</div><div class="line">        if (!cls) continue;  // category for ignored weak-linked class</div><div class="line">        realizeClass(cls);</div><div class="line">        assert(cls-&gt;ISA()-&gt;isRealized());</div><div class="line">        add_category_to_loadable_list(cat);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="1-headerType-是什么"><a href="#1-headerType-是什么" class="headerlink" title="1.  headerType  是什么?"></a>1. <em> headerType </em> 是什么?</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">typedef struct mach_header headerType;</div><div class="line">/*</div><div class="line">* The 32-bit mach header appears at the very beginning of the object file for</div><div class="line">* 32-bit architectures.</div><div class="line">*/</div><div class="line">struct mach_header &#123;</div><div class="line">    uint32_t	magic;		/* mach magic number identifier */</div><div class="line">    cpu_type_t	cputype;	/* cpu specifier */</div><div class="line">    cpu_subtype_t	cpusubtype;	/* machine specifier */</div><div class="line">    uint32_t	filetype;	/* type of file */</div><div class="line">    uint32_t	ncmds;		/* number of load commands */</div><div class="line">    uint32_t	sizeofcmds;	/* the size of all the load commands */</div><div class="line">    uint32_t	flags;		/* flags */</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-load-是什么"><span class="toc-number">1.</span> <span class="toc-text">1. load 是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-load-怎么调用"><span class="toc-number">2.</span> <span class="toc-text">2. load 怎么调用?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-load-使用场景"><span class="toc-number">3.</span> <span class="toc-text">3. load 使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-源码学习"><span class="toc-number">4.</span> <span class="toc-text">4. 源码学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#objc—-gt-Sources—-gt-objc-loadmethod-mm"><span class="toc-number">5.</span> <span class="toc-text">objc—>Sources—>objc-loadmethod.mm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#这段代码介绍两个结构体指针-分别是可承载的类和类别-类中"><span class="toc-number">5.1.</span> <span class="toc-text">这段代码介绍两个结构体指针, 分别是可承载的类和类别. 类中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-声明一个IMP"><span class="toc-number">5.2.</span> <span class="toc-text">1. 声明一个IMP;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-loadMethodLock-assertLocked-线程安全-使用recursive-mutex-t上锁"><span class="toc-number">5.3.</span> <span class="toc-text">2. loadMethodLock.assertLocked(); 线程安全, 使用recursive_mutex_t上锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-cls-gt-getLoadMethod-这个方法是获取一个类声明的-load-方法-如果没有声明-load-则会返回nil"><span class="toc-number">5.4.</span> <span class="toc-text">3. cls->getLoadMethod()这个方法是获取一个类声明的 +load 方法, 如果没有声明 +load 则会返回nil;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4"><span class="toc-number">5.5.</span> <span class="toc-text">4.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-headerType-是什么"><span class="toc-number">6.</span> <span class="toc-text">1.  headerType  是什么?</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2018 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>
