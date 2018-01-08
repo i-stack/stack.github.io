@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="null">
+  <meta name="keyword" content="undefined">
+  
+    <link rel="icon" href="">
+  
+    
+  <title>图片压缩 | stack.blog</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>stack.blog</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>图片压缩</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018年01月02日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>/ <a class="article-category-link" href="/categories/Objective-C/知识点/">知识点</a>/ <a class="article-category-link" href="/categories/Objective-C/知识点/Image/">Image</a>/ <a class="article-category-link" href="/categories/Objective-C/知识点/Image/图片压缩/">图片压缩</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="/tags/#Objective-C" class='tag'>Objective-C</a>
+
+
+            
+          </div>
+          <h2 id="PNG-和-JPEG（JPG）区别"><a href="#PNG-和-JPEG（JPG）区别" class="headerlink" title="PNG 和 JPEG（JPG）区别"></a>PNG 和 JPEG（JPG）区别</h2><ol>
+<li>PNG 图片是无损压缩，并且支持 alpha 通道，</li>
+<li>JPEG 图片是有损压缩，可以指定 0-100% 的压缩比；</li>
+<li>苹果提供了两个函数用来生成 PNG 和 JPEG 图片：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// return image as PNG. May return nil if image has no CGImageRef or invalid bitmap format</div><div class="line">UIKIT_EXTERN NSData * __nullable UIImagePNGRepresentation(UIImage * __nonnull image);</div><div class="line"></div><div class="line">// return image as JPEG. May return nil if image has no CGImageRef or invalid bitmap format. compression is 0(most)..1(least)</div><div class="line">UIKIT_EXTERN NSData * __nullable UIImageJPEGRepresentation(UIImage * __nonnull image, CGFloat compressionQuality);</div></pre></td></tr></table></figure>
+<h2 id="图片为什么需要解压图片"><a href="#图片为什么需要解压图片" class="headerlink" title="图片为什么需要解压图片"></a>图片为什么需要解压图片</h2><p>图片的解压缩需要消耗大量的 CPU 时间，为什么需要将图片解压后才能展示到屏幕上呢？这里引入一个概念<a href="https://developer.apple.com/library/content/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_images/dq_images.html#//apple_ref/doc/uid/TP30001066-CH212-SW3" target="_blank" rel="external">位图</a></p>
+<blockquote>
+<p>A bitmap image (or sampled image) is an array of pixels (or samples). Each pixel represents a single point in the image. JPEG, TIFF, and PNG graphics files are examples of bitmap images.<br> 位图就是一个数组，数组中每个元素代表图片中的一个点。</p>
+</blockquote>
+<h3 id="获取图片的原始数据"><a href="#获取图片的原始数据" class="headerlink" title="获取图片的原始数据"></a>获取图片的原始数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CFDataRef ref = CGDataProviderCopyData(CGImageGetDataProvider(_image.CGImage));</div></pre></td></tr></table></figure>
+<h3 id="计算图片所占内存"><a href="#计算图片所占内存" class="headerlink" title="计算图片所占内存"></a>计算图片所占内存</h3><h4 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">_image = [UIImage imageNamed:@&quot;320x480&quot;];</div><div class="line">CGFloat cgImageBytesPerRow = CGImageGetBytesPerRow(_image.CGImage); // 2560</div><div class="line">CGFloat cgImageHeight = CGImageGetHeight(_image.CGImage); // 960</div><div class="line">NSUInteger size  = cgImageHeight * cgImageBytesPerRow;</div><div class="line">NSLog(@&quot;size:%lu&quot;,(unsigned long)size); // 输出 2457600 bytes</div></pre></td></tr></table></figure>
+<h4 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFDataRef ref = CGDataProviderCopyData(CGImageGetDataProvider(_image.CGImage));</div><div class="line">NSLog(@&quot;%@&quot;, ref); // 输出 2457600 bytes</div></pre></td></tr></table></figure>
+<p>打印可以看出一张320*480的图片加载并成功展示到页面所占用的内存达到 2457600 / 1024 / 1024 大约有2.34375M。如果有很多张这样的图片，内存完全不够用。</p>
+<p>这里位图和二进制不是一个概念。</p>
+<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="等比压缩-常用"><a href="#等比压缩-常用" class="headerlink" title="等比压缩 常用"></a>等比压缩 常用</h3><p>使用场景：后台返回固定图片尺寸用于支持iOS和android，比如返回1920x1080大小的图片，如不压缩在iPhone的所有尺寸展示：</p>
+<ol>
+<li>全屏展示：图片展示不全；</li>
+<li>指定其他大小尺寸展示：图片会失真</li>
+</ol>
+<p>此时需要按照等比压缩的方式来压缩图片：假定后台服务器返回图片的尺寸是固定的。<br>在程序中写定图片的宽和高：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define image_width 1080</div><div class="line">#define image_height 1920</div></pre></td></tr></table></figure></p>
+<p>按需求来设定图片展示大小，假设想要在width * height 大小的地方展示图片，如何计算压缩后图片的大小？</p>
+<ol>
+<li><p>定宽<br>图片宽：width<br>图片高：width * image_height / image_width</p>
+</li>
+<li><p>定高<br>图片宽：height * image_width / image_height<br>图片高：height<br>计算完成后在根据压缩后图片的大小来调整展示view的大小。<br>如果服务器返回的图片尺寸不是固定的也可以进行压缩，只是每次计算之前先要获取到图片，拿到图片的大小，过程一样。</p>
+</li>
+</ol>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PNG-和-JPEG（JPG）区别"><span class="toc-number">1.</span> <span class="toc-text">PNG 和 JPEG（JPG）区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片为什么需要解压图片"><span class="toc-number">2.</span> <span class="toc-text">图片为什么需要解压图片</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取图片的原始数据"><span class="toc-number">2.1.</span> <span class="toc-text">获取图片的原始数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算图片所占内存"><span class="toc-number">2.2.</span> <span class="toc-text">计算图片所占内存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方式一："><span class="toc-number">2.2.1.</span> <span class="toc-text">方式一：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方式二："><span class="toc-number">2.2.2.</span> <span class="toc-text">方式二：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片压缩"><span class="toc-number">3.</span> <span class="toc-text">图片压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#等比压缩-常用"><span class="toc-number">3.1.</span> <span class="toc-text">等比压缩 常用</span></a></li></ol></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2018 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

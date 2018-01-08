@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="null">
+  <meta name="keyword" content="undefined">
+  
+    <link rel="icon" href="">
+  
+    
+  <title>NSRuntime | stack.blog</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>stack.blog</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>NSRuntime</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017年04月17日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>/ <a class="article-category-link" href="/categories/Objective-C/知识点/">知识点</a>/ <a class="article-category-link" href="/categories/Objective-C/知识点/NSRun-X/">NSRun_X</a>/ <a class="article-category-link" href="/categories/Objective-C/知识点/NSRun-X/NSRuntime/">NSRuntime</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="/tags/#Objective-C" class='tag'>Objective-C</a>
+
+
+            
+          </div>
+          <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>Objective-C是一门动态语言,它将很多静态语言在编译和链接时做的事放到运行时处理,意味着OC不仅需要编译器,还需要一个运行时系统来执行编译代码.<br>Runtime版本:modern和legacy,我们现在用的就是modern版.<br>Runtime基本是用C和汇编写的,对于C语言，函数的调用在编译的时候会决定调用哪个函数，编译完成之后直接顺序执行.<br>OC的函数调用成为消息发送。属于动态调用过程。在编译的时候并不能决定真正调用哪个函数（事实证明，在编 译阶段，OC可以调用任何函数，即使这个函数并未实现，只要申明过就不会报错。而C语言在编译阶段就会报错)只有在真正运行的时候才会根据函数的名称找 到对应的函数来调用.</p>
+<h2 id="二-OC-的方法调用"><a href="#二-OC-的方法调用" class="headerlink" title="二.OC 的方法调用"></a>二.OC 的方法调用</h2><p>objc_msgSend(self.xxx,@selector(xxx));</p>
+<h2 id="三-实例"><a href="#三-实例" class="headerlink" title="三.实例"></a>三.实例</h2><p>所有类的信息都可以在动态加载中获取,readonly 属性也可以修改</p>
+<ol>
+<li><p>修改变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">unsigned int count = 0;  </div><div class="line">Ivar *ivar = class_copyIvarList([self.person class], &amp;count);  </div><div class="line">for (int i = 0; i &lt; count; i++) &#123;  </div><div class="line">    Ivar var = ivar[i];  </div><div class="line">    const char *varName = ivar_getName(var);  </div><div class="line">    NSString *name = [NSString stringWithUTF8String:varName];  </div><div class="line">    NSLog(@&quot;------%@&quot;,name);  </div><div class="line">    if ([name isEqualToString:@&quot;_name&quot;]) &#123;  </div><div class="line">        object_setIvar(self.person, var, @&quot;李四&quot;);  </div><div class="line">        break;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">NSLog(@&quot;person name class : %@&quot;,self.person.name);   `</div></pre></td></tr></table></figure>
+</li>
+<li><p>交换方法<br>交换的方法如果没有实现的话, 不会有任何效果;<br>传入ClassA而方法确传入其他类的方法也不会有任何效果;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Method m1 = class_getInstanceMethod([self.person class], @selector(firstMethod));  </div><div class="line">Method m2 = class_getInstanceMethod([self.person class], @selector(secondMethod));  </div><div class="line">method_exchangeImplementations(m1, m2);</div></pre></td></tr></table></figure>
+</li>
+<li><p>动态添加方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//(IMP)guessAnswer 意思是guessAnswer的地址指针;  </div><div class="line">//&quot;v@:&quot; 意思是，v代表无返回值void，如果是i则代表int；@代表 id sel; : 代表 SEL _cmd;  </div><div class="line">//“v@:@@” 意思是，两个参数的没有返回值。  </div><div class="line">class_addMethod([self.person class], @selector(test), (IMP)testMethod, &quot;v@:&quot;);  </div><div class="line">if ([self.person respondsToSelector:@selector(test)]) &#123;  </div><div class="line">    [self.person performSelector:@selector(test)];  </div><div class="line">&#125; else &#123;  </div><div class="line">    NSLog(@&quot;Sorry,I don&apos;t know&quot;);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加属性,Category 中也可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSString *chineseName = @&quot;every one&quot;;  </div><div class="line">objc_setAssociatedObject(self, &amp;aName, chineseName, OBJC_ASSOCIATION_COPY_NONATOMIC);  </div><div class="line">NSString *associated = objc_getAssociatedObject(self, &amp;aName);  </div><div class="line">self.textLabel.text = associated;</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取其他类中的方法(针对于静态库)可以获取到方法名,参数个数,返回值类型,参数名暂时未获取到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">- (void)scanStaticLibraryMethod  </div><div class="line">&#123;  </div><div class="line">    unsigned int count = 0;  </div><div class="line">    Method *methods = class_copyMethodList([self.library class], &amp;count);  </div><div class="line">    for (int i = 0; i &lt; count; i++) &#123;  </div><div class="line">        //方法名  </div><div class="line">        NSString *methodName = [NSString stringWithCString: sel_getName(method_getName(methods[i]))encoding: NSASCIIStringEncoding];  </div><div class="line">        Method aMethod = methods[i];  </div><div class="line">        //返回值类型  </div><div class="line">        char *returnType = method_copyReturnType(aMethod);  </div><div class="line">        NSString *type = [NSString stringWithUTF8String:returnType];  </div><div class="line">        //返回参数和返回值类型  </div><div class="line">        const char *methodParameter = method_getTypeEncoding(aMethod);  </div><div class="line">        NSString *methodParameterName = [NSString stringWithUTF8String:methodParameter];  </div><div class="line">        //参数个数  </div><div class="line">        unsigned paramCount = method_getNumberOfArguments(aMethod);  </div><div class="line">        //每个参数类型  </div><div class="line">        for (int i = 0; i &lt; paramCount; i++) &#123;  </div><div class="line">        char *paramType = method_copyArgumentType(aMethod, i);  </div><div class="line">        NSLog(@&quot;当前方法名为:%@,此方法共有%d个参数,当前是第%d个参数,参数类型为:%@,返回值类型为:%@, 参数和返回值类型:%@&quot;,methodName, paramCount, i, [NSString stringWithUTF8String:paramType], type, methodParameterName);  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>当前方法名为:modifyAddress:,此方法共有3个参数,当前是第0个参数,参数类型为:@,返回值类型为:v, 参数和返回值类型:v24@0:8@16<br>当前方法名为:modifyAddress:,此方法共有3个参数,当前是第1个参数,参数类型为::,返回值类型为:v, 参数和返回值类型:v24@0:8@16<br>当前方法名为:modifyAddress:,此方法共有3个参数,当前是第2个参数,参数类型为:@,返回值类型为:v, 参数和返回值类型:v24@0:8@16  </p>
+<h2 id="如何理解-v24-0-8-16"><a href="#如何理解-v24-0-8-16" class="headerlink" title="如何理解 v24@0:8@16?**"></a>如何理解 v24@0:8@16?**</h2><p>OC的对象指针占位8个字节<br>v 表示返回值类型 void; B 表示返回值类型为 bool….<br>24表示整个方法参数占位的总长度<br>@0表示在 offset 为0的地方有个 object-c 的对象,在 object-c method 里首个对象是 self 自身<br>:8在 offset 为8的地方有一个 SEL<br>@16表示在 offset 为16的地方有一个 object-c 对象<br>@表示就是 object-c 对象,数字是内存位置,内存对齐原则</p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-OC-的方法调用"><span class="toc-number">2.</span> <span class="toc-text">二.OC 的方法调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-实例"><span class="toc-number">3.</span> <span class="toc-text">三.实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何理解-v24-0-8-16"><span class="toc-number">4.</span> <span class="toc-text">如何理解 v24@0:8@16?**</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2018 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

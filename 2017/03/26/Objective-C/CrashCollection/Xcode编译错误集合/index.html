@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="null">
+  <meta name="keyword" content="undefined">
+  
+    <link rel="icon" href="">
+  
+    
+  <title>Xcode编译错误集合 | stack.blog</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>stack.blog</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>Xcode编译错误集合</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017年03月26日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>/ <a class="article-category-link" href="/categories/Objective-C/CrashCollection/">CrashCollection</a>/ <a class="article-category-link" href="/categories/Objective-C/CrashCollection/Xcode编译错误集合/">Xcode编译错误集合</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="/tags/#Objective-C" class='tag'>Objective-C</a>
+
+
+            
+          </div>
+          <h2 id="1-dyld-Library-not-loaded"><a href="#1-dyld-Library-not-loaded" class="headerlink" title="1. dyld: Library not loaded"></a>1. dyld: Library not loaded</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dyld: Library not loaded: @rpath/AdHubSDK.framework/AdHubSDK</div><div class="line">Referenced from: /Users/song/Library/Developer/CoreSimulator/Devices/8BF0C742-9FE8-4465-ABF5-51BD18323CF0/data/Containers/Bundle/Application/C863B41F-19D1-410D-83E2-9C547E942F68/TestDemo.app/TestDemo</div><div class="line">Reason: image not found</div></pre></td></tr></table></figure>
+<h3 id="一般是在引入第三方框架framework时出现的错误-解决方法-General-–-gt-Embedded-Binaries-添加第三方库或者在Build-Phases-中添加一个New-Copy-File-Phases-选择Destination后将第三方库添加进来"><a href="#一般是在引入第三方框架framework时出现的错误-解决方法-General-–-gt-Embedded-Binaries-添加第三方库或者在Build-Phases-中添加一个New-Copy-File-Phases-选择Destination后将第三方库添加进来" class="headerlink" title="一般是在引入第三方框架framework时出现的错误,解决方法: General –&gt; Embedded Binaries 添加第三方库或者在Build Phases 中添加一个New Copy File Phases 选择Destination后将第三方库添加进来."></a><font color="#FF0000">一般是在引入第三方框架framework时出现的错误,解决方法: General –&gt; Embedded Binaries 添加第三方库或者在Build Phases 中添加一个New Copy File Phases 选择Destination后将第三方库添加进来.</font></h3><h2 id="2-Class-PLBuildVersion-is-implemented-in-both"><a href="#2-Class-PLBuildVersion-is-implemented-in-both" class="headerlink" title="2. Class PLBuildVersion is implemented in both"></a>2. Class PLBuildVersion is implemented in both</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class PLBuildVersion is implemented in both</div></pre></td></tr></table></figure>
+<h2 id="3-”xx“-is-missing-from-working-copy-的问题"><a href="#3-”xx“-is-missing-from-working-copy-的问题" class="headerlink" title="3. ”xx“ is missing from working copy 的问题"></a>3. ”xx“ is missing from working copy 的问题</h2><p>在项目中提交过svn后再在本机上删除不用的图片资源后, build后会有 ”xx“is missing from working copy 的警告<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">svn delete nameOfMissingFile </div><div class="line">或用Git（如果你用的是Git的话）</div><div class="line">git rm nameOfMissingFile</div></pre></td></tr></table></figure></p>
+<h2 id="4-instance-method-restriction-in-category-from"><a href="#4-instance-method-restriction-in-category-from" class="headerlink" title="4. instance method restriction in category from"></a>4. instance method restriction in category from</h2><h2 id="5-The-Copy-Bundle-Resources-build-phase-contains-this-target’s-Info-plist-file-‘XXX-Info-plist’"><a href="#5-The-Copy-Bundle-Resources-build-phase-contains-this-target’s-Info-plist-file-‘XXX-Info-plist’" class="headerlink" title="5. The Copy Bundle Resources build phase contains this target’s Info.plist file ‘XXX/Info.plist’."></a>5. The Copy Bundle Resources build phase contains this target’s Info.plist file ‘XXX/Info.plist’.</h2><h3 id="Xcode回答"><a href="#Xcode回答" class="headerlink" title="Xcode回答"></a><a href="https://developer.apple.com/library/content/qa/qa1649/_index.html" target="_blank" rel="external">Xcode回答</a></h3><h3 id="Build-Phases-gt-Copy-Bundle-Recourse-中删除-info-plist"><a href="#Build-Phases-gt-Copy-Bundle-Recourse-中删除-info-plist" class="headerlink" title="Build Phases -&gt; Copy Bundle Recourse 中删除 info.plist "></a><font color="#FF0000">Build Phases -&gt; Copy Bundle Recourse 中删除 info.plist </font></h3><h2 id="6-warning-no-umbrella-header-found-for-target-‘XXX’-module-map-will-not-be-generated"><a href="#6-warning-no-umbrella-header-found-for-target-‘XXX’-module-map-will-not-be-generated" class="headerlink" title="6. warning: no umbrella header found for target ‘XXX’, module map will not be generated"></a>6. warning: no umbrella header found for target ‘XXX’, module map will not be generated</h2><h2 id="7-Lexical-or-preprocessor-issue-或者-“xxx”-file-not-found"><a href="#7-Lexical-or-preprocessor-issue-或者-“xxx”-file-not-found" class="headerlink" title="7. Lexical or preprocessor issue 或者 “xxx” file not found"></a>7. Lexical or preprocessor issue 或者 “xxx” file not found</h2><h3 id="Setting-gt-Header-Search-Paths-添加-PROJECT-DIR-缺失文件的主目录路径"><a href="#Setting-gt-Header-Search-Paths-添加-PROJECT-DIR-缺失文件的主目录路径" class="headerlink" title="Setting -&gt; Header Search Paths 添加 $(PROJECT_DIR)/缺失文件的主目录路径 "></a><font color="#FF0000">Setting -&gt; Header Search Paths 添加 $(PROJECT_DIR)/缺失文件的主目录路径 </font></h3><h2 id="8-在类别中重写原类方法引出的警告"><a href="#8-在类别中重写原类方法引出的警告" class="headerlink" title="8. 在类别中重写原类方法引出的警告"></a>8. 在类别中重写原类方法引出的警告</h2><p><code>Category is implementing a method which will also be implemented by its primary class</code><br><code>苹果文档: A category allows you to add new methods to an existing class. If you want to reimplement a method that already exists in the class, you typically create a subclass instead of a category.</code><br>意思是category 允许添加一个新的方法到已经存在的类, 如果想重新实现类中已经存在的方法, 通常是用继承替代类别.<br>只是警告而已, 不是错误, 消除警告的方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#pragma clang diagnostic push</div><div class="line">#pragma clang diagnostic ignored &quot;-Wobjc-protocol-method-implementation&quot;</div><div class="line">// your override</div><div class="line">- (void)dealloc</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">#pragma clang diagnostic pop</div><div class="line"></div><div class="line">or </div><div class="line"></div><div class="line">在 target 的 build settings 下搜索 other warning flags, 然后给其添加 -Wno-objc-protocol-method-implementation 批量警示适用</div></pre></td></tr></table></figure></p>
+<h2 id="9-architecture-x86-64-问题"><a href="#9-architecture-x86-64-问题" class="headerlink" title="9. architecture x86_64 问题"></a>9. architecture x86_64 问题</h2><ul>
+<li><h3 id="symbol-s-not-found-for-architecture-x86-64"><a href="#symbol-s-not-found-for-architecture-x86-64" class="headerlink" title="symbol(s) not found for architecture x86_64"></a>symbol(s) not found for architecture x86_64</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;_OBJC_CLASS_$_ALAssetsGroup&quot;, referenced from:</div><div class="line">objc-class-ref in xxx.o</div><div class="line">ld: symbol(s) not found for architecture x86_64</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="大致意思是在-xxx-这个类中引用-ALAssetsGroup-但却没有引用框架-一般在-h文件中就可以发现引入那些头文件-这些头文件需要引入那些框架"><a href="#大致意思是在-xxx-这个类中引用-ALAssetsGroup-但却没有引用框架-一般在-h文件中就可以发现引入那些头文件-这些头文件需要引入那些框架" class="headerlink" title="大致意思是在 xxx 这个类中引用 _ALAssetsGroup, 但却没有引用框架, 一般在.h文件中就可以发现引入那些头文件, 这些头文件需要引入那些框架."></a><font color="#FF0000">大致意思是在 xxx 这个类中引用 _ALAssetsGroup, 但却没有引用框架, 一般在.h文件中就可以发现引入那些头文件, 这些头文件需要引入那些框架.</font></h3><ul>
+<li><h3 id="duplicate-symbols-for-architecture-x86-64错误"><a href="#duplicate-symbols-for-architecture-x86-64错误" class="headerlink" title="duplicate symbols for architecture x86_64错误"></a>duplicate symbols for architecture x86_64错误</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ld: 1185 duplicate symbols for architecture x86_64</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>duplicate的中文意思是“重复的、复制的”, 而symbols的意思是“符号” 可能在你工程中引入了重复的东西.</p>
+<h3 id="a-在工程中重复导入了某一个类或文件-这一般出现在你添加第三方库的时候比较多-在不知道的情况下又导入了一次相同的类"><a href="#a-在工程中重复导入了某一个类或文件-这一般出现在你添加第三方库的时候比较多-在不知道的情况下又导入了一次相同的类" class="headerlink" title="a. 在工程中重复导入了某一个类或文件, 这一般出现在你添加第三方库的时候比较多, 在不知道的情况下又导入了一次相同的类"></a><font color="#FF0000">a. 在工程中重复导入了某一个类或文件, 这一般出现在你添加第三方库的时候比较多, 在不知道的情况下又导入了一次相同的类</font></h3><h3 id="b-import引入-m-头文件"><a href="#b-import引入-m-头文件" class="headerlink" title="b. #import引入 .m 头文件"></a><font color="#FF0000">b. #import引入 .m 头文件</font></h3><h3 id="c-在多个文件中重复定义某个东西"><a href="#c-在多个文件中重复定义某个东西" class="headerlink" title="c. 在多个文件中重复定义某个东西"></a><font color="#FF0000">c. 在多个文件中重复定义某个东西</font></h3><h2 id="10-“-OBJCCLASS-CMMotionManager”-referenced-from"><a href="#10-“-OBJCCLASS-CMMotionManager”-referenced-from" class="headerlink" title="10. “_OBJCCLASS$_CMMotionManager”, referenced from:"></a>10. “_OBJC<em>CLASS</em>$_CMMotionManager”, referenced from:</h2><h3 id="缺少系统库-CoreMotion-framework-在Build-Phases-gt-Link-Binary-With-Libraries-中添加即可"><a href="#缺少系统库-CoreMotion-framework-在Build-Phases-gt-Link-Binary-With-Libraries-中添加即可" class="headerlink" title="缺少系统库 CoreMotion.framework, 在Build Phases -&gt; Link Binary With Libraries 中添加即可."></a><font color="#FF0000">缺少系统库 CoreMotion.framework, 在Build Phases -&gt; Link Binary With Libraries 中添加即可.</font></h3><h2 id="11-unrecognized-selector-sent-to-class-0x102265ad8-类拓展出现的错误"><a href="#11-unrecognized-selector-sent-to-class-0x102265ad8-类拓展出现的错误" class="headerlink" title="11. unrecognized selector sent to class 0x102265ad8 类拓展出现的错误"></a>11. unrecognized selector sent to class 0x102265ad8 类拓展出现的错误</h2><p>Other Linker Flags 链接设置错误导致类扩展不知道如何正确读取, 找不到类方法而产生的错误.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(inherited)子类复写父类同名方法.</div><div class="line"></div><div class="line">-all_load Loads all members of static archive libraries.</div><div class="line"></div><div class="line">-ObjC Loads all members of static archive libraries that implement an Objective-C class or category.</div><div class="line"></div><div class="line">-force_load (path_to_archive) Loads all members of the specified static archive library. Note: -all_load forces all members of all archives to be loaded. This option allows you to target a specific archive.</div></pre></td></tr></table></figure></p>
+<h2 id="12-Dsymutil-Warning"><a href="#12-Dsymutil-Warning" class="headerlink" title="12. Dsymutil Warning"></a>12. Dsymutil Warning</h2><p>Build Settings -&gt; Build Options-&gt;Debug Information Format 将DWARF with dSYM File 改为DWARF<br><code>So if you need it for external analysis of crash reports under archiving you app for distribution you should use DWARF with dSYM file.</code> 需要崩溃日志的时候需要设置为 <code>DWARF with dSYM File</code></p>
+<h2 id="12-warning-no-rule-to-process-file-‘-Users-song-Desktop-AdHubAdNetwork-AdHubAdNetwork-Classes-Baidu-libBaiduMobAdSDK-a’-of-type-archive-ar-for-architecture-i386"><a href="#12-warning-no-rule-to-process-file-‘-Users-song-Desktop-AdHubAdNetwork-AdHubAdNetwork-Classes-Baidu-libBaiduMobAdSDK-a’-of-type-archive-ar-for-architecture-i386" class="headerlink" title="12. warning: no rule to process file ‘/Users/song/Desktop/AdHubAdNetwork/AdHubAdNetwork/Classes/Baidu/libBaiduMobAdSDK.a’ of type archive.ar for architecture i386"></a>12. warning: no rule to process file ‘/Users/song/Desktop/AdHubAdNetwork/AdHubAdNetwork/Classes/Baidu/libBaiduMobAdSDK.a’ of type archive.ar for architecture i386</h2>
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-dyld-Library-not-loaded"><span class="toc-number">1.</span> <span class="toc-text">1. dyld: Library not loaded</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一般是在引入第三方框架framework时出现的错误-解决方法-General-–-gt-Embedded-Binaries-添加第三方库或者在Build-Phases-中添加一个New-Copy-File-Phases-选择Destination后将第三方库添加进来"><span class="toc-number">1.1.</span> <span class="toc-text">一般是在引入第三方框架framework时出现的错误,解决方法: General –> Embedded Binaries 添加第三方库或者在Build Phases 中添加一个New Copy File Phases 选择Destination后将第三方库添加进来.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Class-PLBuildVersion-is-implemented-in-both"><span class="toc-number">2.</span> <span class="toc-text">2. Class PLBuildVersion is implemented in both</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-”xx“-is-missing-from-working-copy-的问题"><span class="toc-number">3.</span> <span class="toc-text">3. ”xx“ is missing from working copy 的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-instance-method-restriction-in-category-from"><span class="toc-number">4.</span> <span class="toc-text">4. instance method restriction in category from</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-The-Copy-Bundle-Resources-build-phase-contains-this-target’s-Info-plist-file-‘XXX-Info-plist’"><span class="toc-number">5.</span> <span class="toc-text">5. The Copy Bundle Resources build phase contains this target’s Info.plist file ‘XXX/Info.plist’.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Xcode回答"><span class="toc-number">5.1.</span> <span class="toc-text">Xcode回答</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Build-Phases-gt-Copy-Bundle-Recourse-中删除-info-plist"><span class="toc-number">5.2.</span> <span class="toc-text">Build Phases -> Copy Bundle Recourse 中删除 info.plist </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-warning-no-umbrella-header-found-for-target-‘XXX’-module-map-will-not-be-generated"><span class="toc-number">6.</span> <span class="toc-text">6. warning: no umbrella header found for target ‘XXX’, module map will not be generated</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Lexical-or-preprocessor-issue-或者-“xxx”-file-not-found"><span class="toc-number">7.</span> <span class="toc-text">7. Lexical or preprocessor issue 或者 “xxx” file not found</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Setting-gt-Header-Search-Paths-添加-PROJECT-DIR-缺失文件的主目录路径"><span class="toc-number">7.1.</span> <span class="toc-text">Setting -> Header Search Paths 添加 $(PROJECT_DIR)/缺失文件的主目录路径 </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-在类别中重写原类方法引出的警告"><span class="toc-number">8.</span> <span class="toc-text">8. 在类别中重写原类方法引出的警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-architecture-x86-64-问题"><span class="toc-number">9.</span> <span class="toc-text">9. architecture x86_64 问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#symbol-s-not-found-for-architecture-x86-64"><span class="toc-number">9.1.</span> <span class="toc-text">symbol(s) not found for architecture x86_64</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大致意思是在-xxx-这个类中引用-ALAssetsGroup-但却没有引用框架-一般在-h文件中就可以发现引入那些头文件-这些头文件需要引入那些框架"><span class="toc-number">9.2.</span> <span class="toc-text">大致意思是在 xxx 这个类中引用 _ALAssetsGroup, 但却没有引用框架, 一般在.h文件中就可以发现引入那些头文件, 这些头文件需要引入那些框架.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#duplicate-symbols-for-architecture-x86-64错误"><span class="toc-number">9.3.</span> <span class="toc-text">duplicate symbols for architecture x86_64错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#a-在工程中重复导入了某一个类或文件-这一般出现在你添加第三方库的时候比较多-在不知道的情况下又导入了一次相同的类"><span class="toc-number">9.4.</span> <span class="toc-text">a. 在工程中重复导入了某一个类或文件, 这一般出现在你添加第三方库的时候比较多, 在不知道的情况下又导入了一次相同的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-import引入-m-头文件"><span class="toc-number">9.5.</span> <span class="toc-text">b. #import引入 .m 头文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c-在多个文件中重复定义某个东西"><span class="toc-number">9.6.</span> <span class="toc-text">c. 在多个文件中重复定义某个东西</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-“-OBJCCLASS-CMMotionManager”-referenced-from"><span class="toc-number">10.</span> <span class="toc-text">10. “_OBJCCLASS$_CMMotionManager”, referenced from:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#缺少系统库-CoreMotion-framework-在Build-Phases-gt-Link-Binary-With-Libraries-中添加即可"><span class="toc-number">10.1.</span> <span class="toc-text">缺少系统库 CoreMotion.framework, 在Build Phases -> Link Binary With Libraries 中添加即可.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-unrecognized-selector-sent-to-class-0x102265ad8-类拓展出现的错误"><span class="toc-number">11.</span> <span class="toc-text">11. unrecognized selector sent to class 0x102265ad8 类拓展出现的错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-Dsymutil-Warning"><span class="toc-number">12.</span> <span class="toc-text">12. Dsymutil Warning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-warning-no-rule-to-process-file-‘-Users-song-Desktop-AdHubAdNetwork-AdHubAdNetwork-Classes-Baidu-libBaiduMobAdSDK-a’-of-type-archive-ar-for-architecture-i386"><span class="toc-number">13.</span> <span class="toc-text">12. warning: no rule to process file ‘/Users/song/Desktop/AdHubAdNetwork/AdHubAdNetwork/Classes/Baidu/libBaiduMobAdSDK.a’ of type archive.ar for architecture i386</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2018 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>
