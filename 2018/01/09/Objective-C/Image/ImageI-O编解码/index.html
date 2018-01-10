@@ -78,13 +78,40 @@
 
             
           </div>
-          
+          <h2 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h2><p>将已经编码后的图像数据格式转化为可以被渲染的数据。<br>Image/IO的解码，支持了常见的图像格式，包括PNG、APNG、JPEG、GIF、BMP、TIFF <code>CGImageSourceCopyTypeIdentifiers</code> 可以获取支持的图像格式。<br>在iOS 11之后支持了HEIC（即使用了HEVC编码的HEIF格式）。</p>
+<h3 id="静态图"><a href="#静态图" class="headerlink" title="静态图"></a>静态图</h3><p>静态图的解码步骤：</p>
+<ol>
+<li>创建CGImageSource；</li>
+<li>读取图像格式元数据；</li>
+<li>解码得到CGImage；</li>
+<li>生成上层的UIImage，清理。<h4 id="创建CGImageSource"><a href="#创建CGImageSource" class="headerlink" title="创建CGImageSource"></a>创建CGImageSource</h4>CGImageSouce，表示的是一个待解码数据的输入。</li>
+</ol>
+<ul>
+<li>CGImageSourceCreateWithData： 二进制数据（CGData）中创建ImageSource；</li>
+<li>CGImageSourceCreateWithURL： 指定一个URL创建ImageSource；</li>
+<li>CGImageSourceCreateWithDataProvider：从DataProvide中创建ImageSource，DataProvider提供了很多种输入，包括内存，文件，网络，流等。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">NSString *path = [[NSBundle mainBundle]pathForResource:@&quot;14444473,2560,1600&quot; ofType:@&quot;jpg&quot;];</div><div class="line">NSData *data = [NSData dataWithContentsOfFile:path];</div><div class="line"></div><div class="line">CFDataRef dataRef = (__bridge CFDataRef)data;</div><div class="line">// 创建CGImageSource</div><div class="line">CGImageSourceRef sourceRef = CGImageSourceCreateWithData(dataRef, NULL);</div><div class="line">NSAssert(sourceRef != nil, @&quot;sourceRef is nil&quot;);</div><div class="line"></div><div class="line">// 读取图像格式元数据</div><div class="line">NSDictionary *imageProperties = (__bridge NSDictionary *)CGImageSourceCopyPropertiesAtIndex(sourceRef, 0, NULL);</div><div class="line">NSLog(@&quot;获取属性列表：%@&quot;, imageProperties);</div><div class="line">NSUInteger width = [imageProperties[(__bridge NSString *)kCGImagePropertyPixelWidth] unsignedIntegerValue];</div><div class="line">NSLog(@&quot;图片宽：%@&quot;, @(width));</div><div class="line">NSUInteger height = [imageProperties[(__bridge NSString *)kCGImagePropertyPixelHeight] unsignedIntegerValue];</div><div class="line">NSLog(@&quot;图片高：%@&quot;, @(height));</div><div class="line">BOOL hasAlpha = [imageProperties[(__bridge NSString *)kCGImagePropertyHasAlpha] boolValue];</div><div class="line">NSLog(@&quot;是否含有Alpha通道：%@&quot;, @(hasAlpha));</div><div class="line">//图像格式：CGImageSourceGetType</div><div class="line">CFStringRef stringRef = CGImageSourceGetType(sourceRef);</div><div class="line">NSLog(@&quot;图像格式：%@&quot;, (__bridge NSString *)stringRef);</div><div class="line">//图像数量（动图）：CGImageSourceGetCount</div><div class="line">size_t t = CGImageSourceGetCount(sourceRef);</div><div class="line">NSLog(@&quot;图像数量：%zu&quot;, t);</div><div class="line"></div><div class="line">// 解码得到CGImage</div><div class="line">CGImageRef imageRef = CGImageSourceCreateImageAtIndex(sourceRef, 0, NULL);</div><div class="line"></div><div class="line">// 生成UIImage</div><div class="line">UIImage *image = [UIImage imageWithCGImage:imageRef];</div><div class="line">self.showImageView.image = image;</div><div class="line">CGImageRelease(imageRef);</div><div class="line">CFRelease(sourceRef);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意点：</p>
+<ol>
+<li><code>CGImageSourceCreateImageAtIndex</code> 对于静态图 index 传0；</li>
+<li><code>CGImageSourceCopyPropertiesAtIndex</code>  获取图片的元信息</li>
+<li>释放</li>
+</ol>
+<h3 id="动态图"><a href="#动态图" class="headerlink" title="动态图"></a>动态图</h3>
         </section>
     </article>
     
         
   </div>
   <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#解码"><span class="toc-number">1.</span> <span class="toc-text">解码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态图"><span class="toc-number">1.1.</span> <span class="toc-text">静态图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建CGImageSource"><span class="toc-number">1.1.1.</span> <span class="toc-text">创建CGImageSource</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态图"><span class="toc-number">1.2.</span> <span class="toc-text">动态图</span></a></li></ol></li></ol>
+        </div>
+    </div>
     
   </aside>
 </main>
