@@ -1,84 +1,400 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="null">
-  <meta name="keyword" content="undefined">
+
+
+
   
-    <link rel="icon" href="">
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-    
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Objective-C," />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="stack.blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="苹果崩溃日志文档 崩溃日志的实例12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152// 1: 进程信息Incident Identifier: 30E46451-53FD-4965-896A-457FC11AD05FCrashReporter Key:   5">
+<meta name="keywords" content="Objective-C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="崩溃日志">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/04/25/Objective-C/CrashCollection/崩溃日志/index.html">
+<meta property="og:site_name" content="stack.blog">
+<meta property="og:description" content="苹果崩溃日志文档 崩溃日志的实例12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152// 1: 进程信息Incident Identifier: 30E46451-53FD-4965-896A-457FC11AD05FCrashReporter Key:   5">
+<meta property="og:updated_time" content="2018-01-02T08:52:02.881Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="崩溃日志">
+<meta name="twitter:description" content="苹果崩溃日志文档 崩溃日志的实例12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152// 1: 进程信息Incident Identifier: 30E46451-53FD-4965-896A-457FC11AD05FCrashReporter Key:   5">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'QONN7Z36EX',
+      apiKey: 'f54c85840d7d3cf49cd0dae9ea2b7fbc',
+      indexName: 'stack_NAME',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/songMW/stack.github.io/2017/04/25/Objective-C/CrashCollection/崩溃日志/"/>
+
+
+
+
+
   <title>崩溃日志 | stack.blog</title>
-  <link rel="stylesheet" href="/style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+  
+
+
+
+
+
+
+
+
 </head>
 
-<body>
-  <header>
-  <div class="header-container">
-    <a class='logo' href="/">
-      <span>stack.blog</span>
-    </a>
-    <ul class="right-header">
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">stack.blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
       
-        <li class="nav-item">
-          
-            <a href="/" class="item-link">首页</a>
-          
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
         </li>
       
-        <li class="nav-item">
-          
-            <a href="/about" class="item-link">关于</a>
-          
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
         </li>
       
-        <li class="nav-item">
-          
-            <a href="/archives" class="item-link">归档</a>
-          
-        </li>
+
       
-        <li class="nav-item">
+        <li class="menu-item menu-item-search">
           
-            <a href="/tags" class="item-link">标签</a>
+            <a href="javascript:;" class="popup-trigger">
           
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Suche
+          </a>
         </li>
       
     </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
   </div>
-</header>
 
-  <main id='post'>
-  <div class="content">
-    <article>
-        <section class="content markdown-body">
-          <h1>崩溃日志</h1>
-          <div class='post-meta'>
-            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2017年04月25日</time>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
             
-              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Objective-C/">Objective-C</a>/ <a class="article-category-link" href="/categories/Objective-C/CrashCollection/">CrashCollection</a>/ <a class="article-category-link" href="/categories/Objective-C/CrashCollection/崩溃日志/">崩溃日志</a>
-  </div>
 
+  <div id="posts" class="posts-expand">
+    
 
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/songMW/stack.github.io/2017/04/25/Objective-C/CrashCollection/崩溃日志/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="stack">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="stack.blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">崩溃日志</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T18:19:52+08:00">
+                2017-04-25
+              </time>
+            
 
             
+
             
-              | 
-                  <i class="fa fa-tag" aria-hidden="true"></i>
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
                 
-               
-  <a href="/tags/#Objective-C" class='tag'>Objective-C</a>
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Objective-C/CrashCollection/" itemprop="url" rel="index">
+                    <span itemprop="name">CrashCollection</span>
+                  </a>
+                </span>
 
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Objective-C/CrashCollection/崩溃日志/" itemprop="url" rel="index">
+                    <span itemprop="name">崩溃日志</span>
+                  </a>
+                </span>
 
+                
+                
+              
+            </span>
+          
+
+          
             
-          </div>
-          <p><a href="https://developer.apple.com/library/content/qa/qa1747/_index.html" target="_blank" rel="external">苹果崩溃日志文档</a></p>
+          
+
+          
+          
+             <span id="/2017/04/25/Objective-C/CrashCollection/崩溃日志/" class="leancloud_visitors" data-flag-title="崩溃日志">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://developer.apple.com/library/content/qa/qa1747/_index.html" target="_blank" rel="external">苹果崩溃日志文档</a></p>
 <h2 id="崩溃日志的实例"><a href="#崩溃日志的实例" class="headerlink" title="崩溃日志的实例"></a>崩溃日志的实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">// 1: 进程信息</div><div class="line">Incident Identifier: 30E46451-53FD-4965-896A-457FC11AD05F</div><div class="line">CrashReporter Key:   5a56599d836c4f867f6eec76afee451bf9ae5f31</div><div class="line">Hardware Model:	  iPhone4,1</div><div class="line">Process:		 Rage Masters [4155]</div><div class="line">Path:			/var/mobile/Applications/A5635B22-F5EF-4CEB-94B6-FE158D885014/Rage Masters.app/Rage Masters</div><div class="line">Identifier:	  Rage Masters</div><div class="line">Version:		 ??? (???)</div><div class="line">Code Type:	   ARM (Native)</div><div class="line">Parent Process:  launchd [1]</div><div class="line">// 2: 基本信息</div><div class="line">Date/Time:	   2012-10-17 21:39:06.967 -0400</div><div class="line">OS Version:	  iOS 6.0 (10A403)</div><div class="line">Report Version:  104</div><div class="line">// 3: 异常</div><div class="line">Exception Type:  00000020</div><div class="line">Exception Codes: 0x000000008badf00d</div><div class="line">Highlighted Thread:  0</div><div class="line">// 4: 线程回溯</div><div class="line">Thread 0 name:  Dispatch queue: com.apple.main-thread</div><div class="line">Thread 0:</div><div class="line">0   libsystem_kernel.dylib			0x327f2eb4 mach_msg_trap + 20</div><div class="line">1   libsystem_kernel.dylib			0x327f3048 mach_msg + 36</div><div class="line">2   CoreFoundation					0x36bd4040 __CFRunLoopServiceMachPort + 124</div><div class="line">3   CoreFoundation					0x36bd2d9e __CFRunLoopRun + 878</div><div class="line">4   CoreFoundation					0x36b45eb8 CFRunLoopRunSpecific + 352</div><div class="line">5   CoreFoundation					0x36b45d44 CFRunLoopRunInMode + 100</div><div class="line">6   CFNetwork					 	0x32ac343e CFURLConnectionSendSynchronousRequest + 330</div><div class="line">7   Foundation						0x346e69ba +[NSURLConnection sendSynchronousRequest:returningResponse:error:] + 242</div><div class="line">8   Rage Masters				  	0x000d4046 0xd2000 + 8262</div><div class="line">Thread 1:</div><div class="line">0   libsystem_kernel.dylib			0x32803d98 __workq_kernreturn + 8</div><div class="line">1   libsystem_c.dylib			 	0x3a987cf6 _pthread_workq_return + 14</div><div class="line">2   libsystem_c.dylib			 	0x3a987a12 _pthread_wqthread + 362</div><div class="line">3   libsystem_c.dylib			 	0x3a9878a0 start_wqthread + 4</div><div class="line">// 5: 线程状态</div><div class="line">Thread 0 crashed with ARM Thread State (32-bit):</div><div class="line">r0: 0x00000000	r1: 0x00000000	  r2: 0x00000001	  r3: 0x39529fc8</div><div class="line">r4: 0xffffffff	r5: 0x2fd7d301	  r6: 0x2fd7d300	  r7: 0x2fd7d9d0</div><div class="line">r8: 0x2fd7d330	r9: 0x3adbf8a8	 r10: 0x2fd7d308	 r11: 0x00000032</div><div class="line">ip: 0x00000025	sp: 0x2fd7d2ec	  lr: 0x001bdb25	  pc: 0x30301838</div><div class="line">cpsr: 0x00000010</div><div class="line">// 6: 二进制映像</div><div class="line">Binary Images:</div><div class="line">0xd2000 -	0xd7fff +Rage Masters armv7   /var/mobile/Applications/A5635B22-F5EF-4CEB-94B6-FE158D885014/Rage Masters.app/Rage Masters</div><div class="line">0x2fe41000 - 0x2fe61fff  dyld armv7   /usr/lib/dyld</div><div class="line">0x327f2000 - 0x32808fff  libsystem_kernel.dylib armv7   /usr/lib/system/libsystem_kernel.dylib</div><div class="line">0x328a8000 - 0x328bdfff  libresolv.9.dylib armv7   /usr/lib/libresolv.9.dylib</div><div class="line">0x32a70000 - 0x32b35fff  CFNetwork armv7   /System/Library/Frameworks/CFNetwork.framework/CFNetwork</div><div class="line">0x32b7a000 - 0x32cc3fff  libicucore.A.dylib armv7   /usr/lib/libicucore.A.dylib</div><div class="line">0x32cc4000 - 0x32cc5fff  CoreSurface armv7   /System/Library/PrivateFrameworks/CoreSurface.framework/CoreSurface</div><div class="line">0x32f65000 - 0x32f8afff  OpenCL armv7   /System/Library/PrivateFrameworks/OpenCL.framework/OpenCL</div></pre></td></tr></table></figure>
 <h2 id="1-进程信息"><a href="#1-进程信息" class="headerlink" title="1. 进程信息"></a>1. 进程信息</h2><pre><code>* Incident Identifier 是崩溃报告的唯一标识符。
 * CrashReporter Key  是与设备标识相对应的唯一键值。虽然它不是真正的设备标识符，但也是一个非常有用的情报:如果你看到100个崩溃日志的CrashReporter Key值都是相同的，或者只有少数几个不同的CrashReport值，说明这不是一个普遍的问题，只发生在一个或少数几个设备上。
@@ -101,96 +417,510 @@
 <pre><code>* NSUnknownKeyException 通常能够告诉我们错误的类型
 </code></pre><h3 id="3-异常断点"><a href="#3-异常断点" class="headerlink" title="3. 异常断点"></a>3. 异常断点</h3><pre><code>* objc_excption_rethrow 和 设置僵尸变量
 </code></pre>
-        </section>
-    </article>
-    
-        
-  </div>
-  <aside>
-    
-    <div class="toc-container">
-        <h1>目录</h1>
-        <div class="content">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#崩溃日志的实例"><span class="toc-number">1.</span> <span class="toc-text">崩溃日志的实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-进程信息"><span class="toc-number">2.</span> <span class="toc-text">1. 进程信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-基本信息"><span class="toc-number">3.</span> <span class="toc-text">2. 基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-异常"><span class="toc-number">4.</span> <span class="toc-text">3. 异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-线程回溯"><span class="toc-number">5.</span> <span class="toc-text">4. 线程回溯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-线程状态"><span class="toc-number">6.</span> <span class="toc-text">5. 线程状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-二进制映像"><span class="toc-number">7.</span> <span class="toc-text">6. 二进制映像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#低内存闪退"><span class="toc-number">8.</span> <span class="toc-text">低内存闪退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常编码"><span class="toc-number">9.</span> <span class="toc-text">异常编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#从下向上读回溯日志。最底下的帧是最先调用的-依此类推。"><span class="toc-number">9.1.</span> <span class="toc-text">从下向上读回溯日志。最底下的帧是最先调用的, 依此类推。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DEBUG模式下Crash搜集"><span class="toc-number">10.</span> <span class="toc-text">DEBUG模式下Crash搜集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-SIGABRT（EXC-CRASH"><span class="toc-number">10.1.</span> <span class="toc-text">1. SIGABRT（EXC_CRASH)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-EXC-BAD-ACCESS（SIGBUS-或-SIGSEGV）"><span class="toc-number">10.2.</span> <span class="toc-text">2. EXC_BAD_ACCESS（SIGBUS 或 SIGSEGV）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-异常断点"><span class="toc-number">10.3.</span> <span class="toc-text">3. 异常断点</span></a></li></ol></li></ol>
-        </div>
-    </div>
-    
-  </aside>
-</main>
-
-
-
-  <footer>
-  <div class="copyright">
-    <div>
-      &copy; 2018 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
-    </div>
-    <div>
-      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
-    </div>
-  </div>
-</footer>
-
-
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="/lib/in-view.min.js"></script>
-<script src="/lib/lodash.min.js"></script>
-<script>
-  var isDown = true
-  var oldY = 0
-  inView.offset(50)
-
-  document.body.addEventListener('touchstart', function(){});
-  
-  window.addEventListener('scroll', _.throttle(e => {
-    var currentY = window.scrollY
-    if((oldY - currentY) < 0) {
-      isDown = true
-    } else {
-      isDown = false
-    }
-    oldY = currentY
-  }, 250))
-
-  $("article img").each(function() {
-      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
-      $(this).wrapAll(strA);
-  });
-
-  $('.toc-link').each(function() {
-      var href = $(this).attr("href");
       
-      inView(href).on('exit', () => {
-        if (isDown) {
-          handleActive(href)
-        }
-      })
+    </div>
+    
+    
+    
 
-      inView(href).on('enter', () => {
-        if (!isDown) {
-          handleActive(href)
-        }
-      })
+    
 
-      this.onclick = function(e) {
-        var pos = $(href).offset().top - 10;
-        $("html,body").animate({scrollTop: pos}, 300);
-        setTimeout(() => {
-          handleActive(href)
-        }, 350)
-        return false
-      }
-  })
+    
 
-  function handleActive(href) {
-    document.querySelectorAll('.toc-link').forEach(elm => {
-      elm.classList.remove('active')
-    })
-    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/26/Objective-C/CrashCollection/arm指令集/" rel="next" title="arm指令集错误收集">
+                <i class="fa fa-chevron-left"></i> arm指令集错误收集
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/22/Swift/Swift-Keywords/" rel="prev" title="Swift-Keywords">
+                Swift-Keywords <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">stack</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/rss2.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#崩溃日志的实例"><span class="nav-number">1.</span> <span class="nav-text">崩溃日志的实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-进程信息"><span class="nav-number">2.</span> <span class="nav-text">1. 进程信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-基本信息"><span class="nav-number">3.</span> <span class="nav-text">2. 基本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-异常"><span class="nav-number">4.</span> <span class="nav-text">3. 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-线程回溯"><span class="nav-number">5.</span> <span class="nav-text">4. 线程回溯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-线程状态"><span class="nav-number">6.</span> <span class="nav-text">5. 线程状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-二进制映像"><span class="nav-number">7.</span> <span class="nav-text">6. 二进制映像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#低内存闪退"><span class="nav-number">8.</span> <span class="nav-text">低内存闪退</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常编码"><span class="nav-number">9.</span> <span class="nav-text">异常编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从下向上读回溯日志。最底下的帧是最先调用的-依此类推。"><span class="nav-number">9.1.</span> <span class="nav-text">从下向上读回溯日志。最底下的帧是最先调用的, 依此类推。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEBUG模式下Crash搜集"><span class="nav-number">10.</span> <span class="nav-text">DEBUG模式下Crash搜集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-SIGABRT（EXC-CRASH"><span class="nav-number">10.1.</span> <span class="nav-text">1. SIGABRT（EXC_CRASH)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-EXC-BAD-ACCESS（SIGBUS-或-SIGSEGV）"><span class="nav-number">10.2.</span> <span class="nav-text">2. EXC_BAD_ACCESS（SIGBUS 或 SIGSEGV）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-异常断点"><span class="nav-number">10.3.</span> <span class="nav-text">3. 异常断点</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">stack</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
   }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
 
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ig60R2zJJucsoSLJ600AaLnC-gzGzoHsz", "gw0oPYc06slpipLCNvl0fgzH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>
