@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Objective-C," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="stack.blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="创建自己的 github 仓库 登录 gitHub, start a project； create a new repository；   Repository name 仓库名称,必填 Description 仓库的描述信息,可选 仓库的公开性 Public 免费, Private 收费 是否创建一个默认的 README文件, 一个完整的仓库都需要 是否添加.gitignore 文件, 文件记">
+<meta name="keywords" content="Objective-C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CocoaPods制作">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/01/18/Objective-C/Other/CocoaPods制作/index.html">
+<meta property="og:site_name" content="stack.blog">
+<meta property="og:description" content="创建自己的 github 仓库 登录 gitHub, start a project； create a new repository；   Repository name 仓库名称,必填 Description 仓库的描述信息,可选 仓库的公开性 Public 免费, Private 收费 是否创建一个默认的 README文件, 一个完整的仓库都需要 是否添加.gitignore 文件, 文件记">
+<meta property="og:updated_time" content="2018-01-16T10:07:51.336Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CocoaPods制作">
+<meta name="twitter:description" content="创建自己的 github 仓库 登录 gitHub, start a project； create a new repository；   Repository name 仓库名称,必填 Description 仓库的描述信息,可选 仓库的公开性 Public 免费, Private 收费 是否创建一个默认的 README文件, 一个完整的仓库都需要 是否添加.gitignore 文件, 文件记">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'QONN7Z36EX',
+      apiKey: 'f54c85840d7d3cf49cd0dae9ea2b7fbc',
+      indexName: 'stack_NAME',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/songMW/stack.github.io/2017/01/18/Objective-C/Other/CocoaPods制作/"/>
+
+
+
+
+
+  <title>CocoaPods制作 | stack.blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">stack.blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/songMW/stack.github.io/2017/01/18/Objective-C/Other/CocoaPods制作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="stack">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="stack.blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CocoaPods制作</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-18T17:20:35+08:00">
+                2017-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Objective-C/Other/" itemprop="url" rel="index">
+                    <span itemprop="name">Other</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Objective-C/Other/CocoaPods制作/" itemprop="url" rel="index">
+                    <span itemprop="name">CocoaPods制作</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/01/18/Objective-C/Other/CocoaPods制作/" class="leancloud_visitors" data-flag-title="CocoaPods制作">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="创建自己的-github-仓库"><a href="#创建自己的-github-仓库" class="headerlink" title="创建自己的 github 仓库"></a>创建自己的 github 仓库</h2><ol>
+<li>登录 gitHub, start a project；</li>
+<li>create a new repository；</li>
+</ol>
+<ul>
+<li>Repository name 仓库名称,必填</li>
+<li>Description 仓库的描述信息,可选</li>
+<li>仓库的公开性 Public 免费, Private 收费</li>
+<li>是否创建一个默认的 README文件, 一个完整的仓库都需要</li>
+<li>是否添加.gitignore 文件, 文件记录了若干种文件类型</li>
+<li>license 类型 必须 这里使用 MIT, 用于验证 pod 是否可用</li>
+</ul>
+<ol>
+<li>填写完成后 点击 Create repository 创建仓库结束。</li>
+</ol>
+<h2 id="clone-仓库到本地"><a href="#clone-仓库到本地" class="headerlink" title="clone 仓库到本地"></a>clone 仓库到本地</h2><p>方便向仓库中删减内容,需要先将仓库 clone 到本地</p>
+<ol>
+<li>git clone <a href="https://github.com/&quot;username&quot;/&quot;repository">https://github.com/&quot;username&quot;/&quot;repository</a> name”；</li>
+<li>GitHub Desktop。<br>操作完成后, GitHub 上对应的文件都会拷贝到本地。</li>
+</ol>
+<h2 id="向本地-git-仓库添加创建-Pods-依赖库所需文件"><a href="#向本地-git-仓库添加创建-Pods-依赖库所需文件" class="headerlink" title="向本地 git 仓库添加创建 Pods 依赖库所需文件"></a>向本地 git 仓库添加创建 Pods 依赖库所需文件</h2><h3 id="后缀为-podspec-文件-pod-依赖库描述文件-每个-pod-都会有一个"><a href="#后缀为-podspec-文件-pod-依赖库描述文件-每个-pod-都会有一个" class="headerlink" title="后缀为.podspec 文件 pod 依赖库描述文件,每个 pod 都会有一个"></a>后缀为.podspec 文件 pod 依赖库描述文件,每个 pod 都会有一个</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">podspec 文件内容</div><div class="line"></div><div class="line">Pod::Spec.new do |s|</div><div class="line"></div><div class="line">s.name        = &quot;QCMobileAdLibs&quot;</div><div class="line">s.version      = &quot;1.0.0&quot;</div><div class="line">s.summary      = &quot;A mobile advertisement SDK used on iOS.&quot;</div><div class="line">s.description  = &lt;&lt;-DESC</div><div class="line">It is a SDK used on iOS, which implement by Objective-C.</div><div class="line">DESC</div><div class="line"></div><div class="line">s.homepage    = &quot;https://github.com/songMW/QCMobileAdLibs&quot;</div><div class="line">s.license      = &quot;MIT&quot;</div><div class="line">s.author       = &#123; &quot;songs&quot; =&gt; &quot;songshoubing7664@163.com&quot; &#125;</div><div class="line">s.platform    = :iOS, &quot;8.0&quot;</div><div class="line">s.source      = &#123; :git =&gt; &quot;https://github.com/songMW/QCMobileAdLibs.git&quot;, :tag =&gt; &quot;#&#123;s.version&#125;&quot; &#125;</div><div class="line">s.source_files  = &quot;QCMobileAdLibs/**/*.&#123;h,m&#125;&quot;</div><div class="line">s.framework  = &quot;UIKit&quot;</div><div class="line">s.requires_arc = true</div><div class="line">s.module_name = &apos;QCMobileAdLibs&apos;</div><div class="line">end</div></pre></td></tr></table></figure>
+<h3 id="如何创建-pod-spec"><a href="#如何创建-pod-spec" class="headerlink" title="如何创建 pod spec"></a>如何创建 pod spec</h3><p>pod spec create QCMobileAdLibs</p>
+<h3 id="提交文件到-github"><a href="#提交文件到-github" class="headerlink" title="提交文件到 github"></a>提交文件到 github</h3><ol>
+<li>set the new version to 1.0.0</li>
+<li>set the new tag to 1.0.0</li>
+<li>pod lib lint 如果没有出现警告和错误则成功,成功后显示</li>
+</ol>
+<p>-&gt;QCMobileAdLibs(1.0.0)</p>
+<p>QCMobileAdLibs passed validation</p>
+<ol>
+<li>本地 git 仓库修改内容上传到 GitHub 仓库</li>
+</ol>
+<ul>
+<li>git add -A &amp;&amp; git commit -m “Release 1.0.0”</li>
+<li>git tag ‘1.0.0’</li>
+</ul>
+<h3 id="git-push-–tags-这里会让输入用户名-git用户名-不是登录名-和密码-登录密码"><a href="#git-push-–tags-这里会让输入用户名-git用户名-不是登录名-和密码-登录密码" class="headerlink" title="git push –tags 这里会让输入用户名(git用户名,不是登录名)和密码(登录密码)"></a>git push –tags 这里会让输入用户名(git用户名,不是登录名)和密码(登录密码)</h3><h3 id="git-push-origin-master"><a href="#git-push-origin-master" class="headerlink" title="git push origin master"></a>git push origin master</h3><h2 id="上传-pod-spec文件到-CocoaPods-官方仓库"><a href="#上传-pod-spec文件到-CocoaPods-官方仓库" class="headerlink" title="上传 pod spec文件到 CocoaPods 官方仓库"></a>上传 pod spec文件到 CocoaPods 官方仓库</h2><p>trunk 方式需要在 pod 0.33及以上版本；<br>PS:更新 pod:sudo gem install cocoapods。</p>
+<h3 id="注册-trunk"><a href="#注册-trunk" class="headerlink" title="注册 trunk"></a>注册 trunk</h3><p>pod trunk register ‘git 邮箱’ ‘用户名’；<br>pod trunk me 输出下面信息表示注册成功。</p>
+<h3 id="配置-PodSpec"><a href="#配置-PodSpec" class="headerlink" title="配置 PodSpec"></a>配置 PodSpec</h3><ol>
+<li>添加 podspec 描述文件；</li>
+<li>通过 trunk 推送 pod spec 文件。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git tag &apos;1.0.0&apos;</div><div class="line">git push --tags</div><div class="line">git add -A</div><div class="line">git commit -m &quot;提交信息&quot;</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>cd 到podSpec所在目录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk push QCMobileAdLibs.podspec</div></pre></td></tr></table></figure></p>
+<p>执行完成后提交 git 团队审核, 一般2日。</p>
+<h3 id="更新本地-pod-依赖"><a href="#更新本地-pod-依赖" class="headerlink" title="更新本地 pod 依赖"></a>更新本地 pod 依赖</h3><p>在 trunk push 后, 先用”pod search”搜索下,若没有则执行”pod setup”进行本地依赖库更新；<br>cd到~/.cocoapods目录，用du -sh *来查看下载进度。</p>
+<h3 id="更新仓库"><a href="#更新仓库" class="headerlink" title="更新仓库"></a>更新仓库</h3><ol>
+<li>修改完成后上传 git</li>
+<li>set new version to 1.0.1</li>
+<li>set new tag to 1.0.1</li>
+<li>pod lib lint<br>-&gt; QCMobileAdLibs (1.0.1)<br>QCMobileAdLibs passed validation.</li>
+</ol>
+<p>出现上面的内容表示成功,此时 git 上的版本也已更新；</p>
+<ol>
+<li>修改.podspec 中版本号；</li>
+<li>pod trunk push .podspec。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/26/Objective-C/Other/URL到页面加载/" rel="next" title="URL到页面加载">
+                <i class="fa fa-chevron-left"></i> URL到页面加载
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/17/Objective-C/Class/" rel="prev" title="Class">
+                Class <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">stack</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/songMW" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="songshoubing7664@163.com" target="_blank" title="E-mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建自己的-github-仓库"><span class="nav-number">1.</span> <span class="nav-text">创建自己的 github 仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone-仓库到本地"><span class="nav-number">2.</span> <span class="nav-text">clone 仓库到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向本地-git-仓库添加创建-Pods-依赖库所需文件"><span class="nav-number">3.</span> <span class="nav-text">向本地 git 仓库添加创建 Pods 依赖库所需文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#后缀为-podspec-文件-pod-依赖库描述文件-每个-pod-都会有一个"><span class="nav-number">3.1.</span> <span class="nav-text">后缀为.podspec 文件 pod 依赖库描述文件,每个 pod 都会有一个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何创建-pod-spec"><span class="nav-number">3.2.</span> <span class="nav-text">如何创建 pod spec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交文件到-github"><span class="nav-number">3.3.</span> <span class="nav-text">提交文件到 github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-push-–tags-这里会让输入用户名-git用户名-不是登录名-和密码-登录密码"><span class="nav-number">3.4.</span> <span class="nav-text">git push –tags 这里会让输入用户名(git用户名,不是登录名)和密码(登录密码)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-push-origin-master"><span class="nav-number">3.5.</span> <span class="nav-text">git push origin master</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传-pod-spec文件到-CocoaPods-官方仓库"><span class="nav-number">4.</span> <span class="nav-text">上传 pod spec文件到 CocoaPods 官方仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册-trunk"><span class="nav-number">4.1.</span> <span class="nav-text">注册 trunk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-PodSpec"><span class="nav-number">4.2.</span> <span class="nav-text">配置 PodSpec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新本地-pod-依赖"><span class="nav-number">4.3.</span> <span class="nav-text">更新本地 pod 依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新仓库"><span class="nav-number">4.4.</span> <span class="nav-text">更新仓库</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">stack</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ig60R2zJJucsoSLJ600AaLnC-gzGzoHsz", "gw0oPYc06slpipLCNvl0fgzH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
