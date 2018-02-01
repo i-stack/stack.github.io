@@ -41,10 +41,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -53,19 +49,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.0.3" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.3">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.3">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.3">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.3" color="#222">
 
 
 
@@ -80,11 +76,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.4',
+    version: '6.0.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    fastclick: ,
-    lazyload: ,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
@@ -216,78 +212,56 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            Home</a>
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            Archives</a>
+            <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />Archives</a>
         </li>
       
         
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
-            Tags</a>
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
-            Categories</a>
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />Schedule</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />Sitemap</a>
         </li>
       
         
         <li class="menu-item menu-item-commonweal">
           <a href="/404.html" rel="section">
-            Commonweal 404</a>
+            <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />Commonweal 404</a>
         </li>
       
         
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
-            About</a>
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
         </li>
       
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            Search</a>
-        </li>
       
     </ul>
   
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
   
 </nav>
 
@@ -393,20 +367,12 @@
 
           
             
+			
+			
+			
           
 
           
-          
-             <span id="/2017/04/13/Python/Basic/" class="leancloud_visitors" data-flag-title="Basic">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -430,16 +396,9 @@
       
         
           
-          字符串获取字符串长度12str = &quot;123&quot;len(str)
+            <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str = &quot;123&quot;</div><div class="line">len(str)</div></pre></td></tr></table></figure>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/13/Python/Basic/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -557,20 +516,12 @@
 
           
             
+			
+			
+			
           
 
           
-          
-             <span id="/2017/04/12/Python/Python3ForMac/" class="leancloud_visitors" data-flag-title="python3ForMac">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -594,16 +545,30 @@
       
         
           
-          安装教程其他就不写了, 因为是按着步骤走, 没有出现错误.
-下面是搬运过来的, 方便以后找, 原文如下:The latest version of Mac OS X, Sierra, comes with Python 2.7 out of the box.You do not need to in
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/12/Python/Python3ForMac/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p><a href="http://python-guide-pt-br.readthedocs.io/en/latest/starting/install3/osx/" target="_blank" rel="external">安装教程</a><br>其他就不写了, 因为是按着步骤走, 没有出现错误.</p>
+<h2 id="下面是搬运过来的-方便以后找-原文如下"><a href="#下面是搬运过来的-方便以后找-原文如下" class="headerlink" title="下面是搬运过来的, 方便以后找, 原文如下:"></a>下面是搬运过来的, 方便以后找, 原文如下:</h2><p>The latest version of Mac OS X, Sierra, comes with Python 2.7 out of the box.<br>You do not need to install or configure anything else to use Python 2. These instructions document the installation of Python 3.<br>The version of Python that ships with OS X is great for learning, but it’s not good for development. The version shipped with OS X may be out of date from the official current Python release, which is considered the stable production version.</p>
+<p>Doing it Right<br>Let’s install a real version of Python.</p>
+<p>Before installing Python, you’ll need to install GCC. GCC can be obtained by downloading XCode, the smaller Command Line Tools (must have an Apple account) or the even smaller OSX-GCC-Installer package.</p>
+<p>Note<br><code>If you already have XCode installed, do not install OSX-GCC-Installer. In combination, the software can cause issues that are difficult to diagnose.</code></p>
+<p>Note<br><code>If you perform a fresh install of XCode, you will also need to add the commandline tools by running xcode-select --install on the terminal.
+While OS X comes with a large number of UNIX utilities, those familiar with Linux systems will notice one key component missing: a package manager. Homebrew fills this void.</code></p>
+<p>To install Homebrew, open Terminal or your favorite OSX terminal emulator and run<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure></p>
+<p>The script will explain what changes it will make and prompt you before the installation begins. Once you’ve installed Homebrew, insert the Homebrew directory at the top of your PATH environment variable. You can do this by adding the following line at the bottom of your <code>~/.profile</code> file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=/usr/local/bin:/usr/local/sbin:$PATH</div></pre></td></tr></table></figure>
+<p>Now, we can install Python 3:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install python3</div></pre></td></tr></table></figure>
+<p>This will take a minute or two.</p>
+<p>Pip<br>Homebrew installs pip3 for you.</p>
+<p>pip3 is the alias for the Python 3 version of pip on systems with both the Homebrew’d Python 2 and 3 installed.</p>
+<p>Working with Python 3<br>At this point, you have the system Python 2.7 available, potentially the Homebrew version of Python 2 installed, and the Homebrew version of Python 3 as well.</p>
+<p>$ python<br>will launch the Python 2 interpreter.</p>
+<p>$ python3<br>will launch the Python 3 interpreter.</p>
+<p>pip3 and pip will both be available. If the Homebrew version of Python 2 is not installed, they will be the same. If the Homebrew version of Python 2 is installed then pip will point to Python 2 and pip3 will point to Python 3.</p>
+<p>Virtual Environments<br>A Virtual Environment (commonly referred to as a ‘virtualenv’) is a tool to keep the dependencies required by different projects in separate places, by creating virtual Python environments for them. It solves the “Project X depends on version 1.x but, Project Y needs 4.x” dilemma, and keeps your global site-packages directory clean and manageable.</p>
+<p>For example, you can work on a project which requires Django 1.10 while also maintaining a project which requires Django 1.8.</p>
+<p>To start using this and see more information: Virtual Environments docs.</p>
+
+          
         
       
     </div>
@@ -728,20 +693,12 @@
 
           
             
+			
+			
+			
           
 
           
-          
-             <span id="/2017/04/12/Objective-C/CrashCollection/unrecognizedSelector/" class="leancloud_visitors" data-flag-title="unrecognizedSelector">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -765,20 +722,31 @@
       
         
           
-          
-当调用该对象上某个方法,而该对象上没有实现这个方法的时候，可以通过“消息转发”进行解决;
-对象查找selector时，先查找cachelist，如果没有则查找methodlist，如果还没有就查找父类的methodlist;
-都没有查找到时会三次机会可以处理这次selector访问
+            <ol>
+<li>当调用该对象上某个方法,而该对象上没有实现这个方法的时候，可以通过“消息转发”进行解决;</li>
+<li>对象查找selector时，先查找cachelist，如果没有则查找methodlist，如果还没有就查找父类的methodlist;</li>
+<li>都没有查找到时会三次机会可以处理这次selector访问</li>
+</ol>
+<h2 id="Objective-C提供两类消息转发方式"><a href="#Objective-C提供两类消息转发方式" class="headerlink" title="Objective-C提供两类消息转发方式:"></a>Objective-C提供两类消息转发方式:</h2><ul>
+<li>快速转发: NSObject 类的子类重载 NSObject 的 <code>forwardingTargetForSelector:</code>方法,将该方法转发给其他对象, 实现快速转发. 将对象的实现代码和转发对象合并到一起, 类似于实现了多继承, 使用此方法的技巧是定义了一个类可以消化目标类未实现的方法.</li>
+<li>完整转发: NSObject 类的子类重载 NSObject 的 <code>forwardInvacation:</code>方法, 实现标准转发, 使用此方法要能够使用消息的全部内容(目标, 方法, 参数)</li>
+</ul>
+<h3 id="1-快速转发"><a href="#1-快速转发" class="headerlink" title="1. 快速转发:"></a>1. 快速转发:</h3><h3 id="使用需求-转发对象所在类所需实现当前要转发的方法"><a href="#使用需求-转发对象所在类所需实现当前要转发的方法" class="headerlink" title="使用需求: 转发对象所在类所需实现当前要转发的方法"></a><font color="#FF0000">使用需求: 转发对象所在类所需实现当前要转发的方法</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">- (id)init</div><div class="line">&#123;</div><div class="line">    if (self = [super init]) &#123;</div><div class="line">        //初始化一个转发对象</div><div class="line">        _helper = [[HydrogenHelper alloc]init];</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (id)forwardingTargetForSelector:(SEL)aSelector</div><div class="line">&#123;</div><div class="line">    //在指定类中的执行已实现的方法(和aSelector同名, 同参数)</div><div class="line">    if ([_helper respondsToSelector:aSelector]) &#123;</div><div class="line">        return _helper;</div><div class="line">    &#125;</div><div class="line">    return nil;</div><div class="line">    </div><div class="line">    //或者可以直接 return _helper; 意思是当前类未实现的方法都会转发到 _helpe 类;</div><div class="line">    //但是 aSelector 这个方法在 _helper 类中必须有实现, 如果未实现则还是会报错</div><div class="line">&#125;</div><div class="line"></div><div class="line">调用栈信息执行顺序与 Xcode 上相反:</div><div class="line">1. start</div><div class="line">2. __invoking__</div><div class="line">3. [xxx 调用未实现的method]</div><div class="line">4. __forwarding_prep_0___</div><div class="line">5. ___forwarding___</div><div class="line">6. [Class forwordingTargetForSelector:]</div></pre></td></tr></table></figure>
+<h3 id="2-标准转发"><a href="#2-标准转发" class="headerlink" title="2. 标准转发:"></a>2. 标准转发:</h3><h3 id="使用需求-当前类实现够使用消息的全部内容-目标-方法-参数"><a href="#使用需求-当前类实现够使用消息的全部内容-目标-方法-参数" class="headerlink" title="使用需求: 当前类实现够使用消息的全部内容(目标, 方法, 参数)"></a><font color="#FF0000">使用需求: 当前类实现够使用消息的全部内容(目标, 方法, 参数)</font></h3><ul>
+<li><p>如果实现 <code>+ (BOOL)resolveInstanceMethod:(SEL)sel</code> 这个方法, 则会首先执行它</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">+ (BOOL)resolveInstanceMethod:(SEL)sel</div><div class="line">&#123;</div><div class="line">    class_addMethod(self.class, sel, (IMP)dynamicMethod, &quot;@@:&quot;);</div><div class="line">    return [super resolveInstanceMethod:sel];</div><div class="line">&#125;</div><div class="line"></div><div class="line">id dynamicMethod(id self, SEL _cmd)</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;%s:动态添加的方法&quot;,__FUNCTION__);</div><div class="line">    return @&quot;LogMsg&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">如果动态添加方法成功, 则执行 dynamicMethod , 转发结束;</div><div class="line"></div><div class="line">调用栈信息执行顺序与 Xcode 上相反:</div><div class="line">1. start</div><div class="line">2. __invoking__</div><div class="line">3. [xxx 调用未实现的method]</div><div class="line">4. _objc_msgSend_uncached</div><div class="line">5. _class_resoveInstanceMethod(objc_class *, objc_selector *, objc_object *)</div><div class="line">6. [Class resolveInstanceMethod:]</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果 <code>+ (BOOL)resolveInstanceMethod:(SEL)sel</code> 这个方法没有实现或者动态添加方法失败, 则会执行 <code>- (id)forwardingTargetForSelector:(SEL)aSelector</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (id)forwardingTargetForSelector:(SEL)aSelector </div><div class="line">&#123;</div><div class="line">    id result = [super forwardingTargetForSelector:aSelector];</div><div class="line">    return result;</div><div class="line"></div><div class="line">    //或者执行快速转发</div><div class="line">&#125;</div><div class="line"></div><div class="line">只要这个方法返回的不是nil和self，整个消息发送的过程就会被重启</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果 <code>- (id)forwardingTargetForSelector:(SEL)aSelector</code> 没有实现或者返回 nil 或 self, 则会执行最后一次拯救</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector</div><div class="line">&#123;</div><div class="line">    id result = [super methodSignatureForSelector:@selector(logInfo:)];</div><div class="line">    return result;</div><div class="line">&#125; </div><div class="line"></div><div class="line">- (void)forwardInvocation:(NSInvocation *)anInvocation</div><div class="line">&#123;</div><div class="line">    anInvocation.selector = (SEL)dynamicMethod;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)logInfo:(NSString *)str</div><div class="line">&#123;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">只有 result 返回有值的时候才会执行 forwardInvocation: 否则不执行;</div><div class="line">这就需要提前在类中实现好要去执行的方法</div><div class="line"></div><div class="line">调用栈信息执行顺序与 Xcode 上相反:</div><div class="line">1. start</div><div class="line">2. __invoking__</div><div class="line">3. __forwarding_prep_0___</div><div class="line">4. ___forwarding___</div><div class="line">5. [Class methodSignatureForSelector:]</div><div class="line">6. [Class forwardInvocation:]</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果都执行失败执行 <code>doesNotRecognizeSelector:</code> 会抛出异常.</p>
+</li>
+</ul>
 
-Object
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/12/Objective-C/CrashCollection/unrecognizedSelector/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -910,20 +878,12 @@ Object
 
           
             
+			
+			
+			
           
 
           
-          
-             <span id="/2017/04/05/Objective-C/NSRun_X/NSRuntime/" class="leancloud_visitors" data-flag-title="NSRuntime">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -947,15 +907,30 @@ Object
       
         
           
-          基本概念Objective-C是一门动态语言,它将很多静态语言在编译和链接时做的事放到运行时处理,意味着OC不仅需要编译器,还需要一个运行时系统来执行编译代码.Runtime版本:modern和legacy,我们现在用的就是modern版.Runtime基本是用C和汇编写的,对于C语言，函数的调用在
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/05/Objective-C/NSRun_X/NSRuntime/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>Objective-C是一门动态语言,它将很多静态语言在编译和链接时做的事放到运行时处理,意味着OC不仅需要编译器,还需要一个运行时系统来执行编译代码.<br>Runtime版本:modern和legacy,我们现在用的就是modern版.<br>Runtime基本是用C和汇编写的,对于C语言，函数的调用在编译的时候会决定调用哪个函数，编译完成之后直接顺序执行.<br>OC的函数调用成为消息发送。属于动态调用过程。在编译的时候并不能决定真正调用哪个函数（事实证明，在编 译阶段，OC可以调用任何函数，即使这个函数并未实现，只要申明过就不会报错。而C语言在编译阶段就会报错)只有在真正运行的时候才会根据函数的名称找 到对应的函数来调用.</p>
+<h2 id="二-OC-的方法调用"><a href="#二-OC-的方法调用" class="headerlink" title="二.OC 的方法调用"></a>二.OC 的方法调用</h2><p>objc_msgSend(self.xxx,@selector(xxx));</p>
+<h2 id="三-实例"><a href="#三-实例" class="headerlink" title="三.实例"></a>三.实例</h2><p>所有类的信息都可以在动态加载中获取,readonly 属性也可以修改</p>
+<ol>
+<li><p>修改变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">unsigned int count = 0;  </div><div class="line">Ivar *ivar = class_copyIvarList([self.person class], &amp;count);  </div><div class="line">for (int i = 0; i &lt; count; i++) &#123;  </div><div class="line">    Ivar var = ivar[i];  </div><div class="line">    const char *varName = ivar_getName(var);  </div><div class="line">    NSString *name = [NSString stringWithUTF8String:varName];  </div><div class="line">    NSLog(@&quot;------%@&quot;,name);  </div><div class="line">    if ([name isEqualToString:@&quot;_name&quot;]) &#123;  </div><div class="line">        object_setIvar(self.person, var, @&quot;李四&quot;);  </div><div class="line">        break;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">NSLog(@&quot;person name class : %@&quot;,self.person.name);   `</div></pre></td></tr></table></figure>
+</li>
+<li><p>交换方法<br>交换的方法如果没有实现的话, 不会有任何效果;<br>传入ClassA而方法确传入其他类的方法也不会有任何效果;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Method m1 = class_getInstanceMethod([self.person class], @selector(firstMethod));  </div><div class="line">Method m2 = class_getInstanceMethod([self.person class], @selector(secondMethod));  </div><div class="line">method_exchangeImplementations(m1, m2);</div></pre></td></tr></table></figure>
+</li>
+<li><p>动态添加方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//(IMP)guessAnswer 意思是guessAnswer的地址指针;  </div><div class="line">//&quot;v@:&quot; 意思是，v代表无返回值void，如果是i则代表int；@代表 id sel; : 代表 SEL _cmd;  </div><div class="line">//“v@:@@” 意思是，两个参数的没有返回值。  </div><div class="line">class_addMethod([self.person class], @selector(test), (IMP)testMethod, &quot;v@:&quot;);  </div><div class="line">if ([self.person respondsToSelector:@selector(test)]) &#123;  </div><div class="line">    [self.person performSelector:@selector(test)];  </div><div class="line">&#125; else &#123;  </div><div class="line">    NSLog(@&quot;Sorry,I don&apos;t know&quot;);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加属性,Category 中也可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSString *chineseName = @&quot;every one&quot;;  </div><div class="line">objc_setAssociatedObject(self, &amp;aName, chineseName, OBJC_ASSOCIATION_COPY_NONATOMIC);  </div><div class="line">NSString *associated = objc_getAssociatedObject(self, &amp;aName);  </div><div class="line">self.textLabel.text = associated;</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取其他类中的方法(针对于静态库)可以获取到方法名,参数个数,返回值类型,参数名暂时未获取到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">- (void)scanStaticLibraryMethod  </div><div class="line">&#123;  </div><div class="line">    unsigned int count = 0;  </div><div class="line">    Method *methods = class_copyMethodList([self.library class], &amp;count);  </div><div class="line">    for (int i = 0; i &lt; count; i++) &#123;  </div><div class="line">        //方法名  </div><div class="line">        NSString *methodName = [NSString stringWithCString: sel_getName(method_getName(methods[i]))encoding: NSASCIIStringEncoding];  </div><div class="line">        Method aMethod = methods[i];  </div><div class="line">        //返回值类型  </div><div class="line">        char *returnType = method_copyReturnType(aMethod);  </div><div class="line">        NSString *type = [NSString stringWithUTF8String:returnType];  </div><div class="line">        //返回参数和返回值类型  </div><div class="line">        const char *methodParameter = method_getTypeEncoding(aMethod);  </div><div class="line">        NSString *methodParameterName = [NSString stringWithUTF8String:methodParameter];  </div><div class="line">        //参数个数  </div><div class="line">        unsigned paramCount = method_getNumberOfArguments(aMethod);  </div><div class="line">        //每个参数类型  </div><div class="line">        for (int i = 0; i &lt; paramCount; i++) &#123;  </div><div class="line">        char *paramType = method_copyArgumentType(aMethod, i);  </div><div class="line">        NSLog(@&quot;当前方法名为:%@,此方法共有%d个参数,当前是第%d个参数,参数类型为:%@,返回值类型为:%@, 参数和返回值类型:%@&quot;,methodName, paramCount, i, [NSString stringWithUTF8String:paramType], type, methodParameterName);  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>当前方法名为:modifyAddress:,此方法共有3个参数,当前是第0个参数,参数类型为:@,返回值类型为:v, 参数和返回值类型:v24@0:8@16<br>当前方法名为:modifyAddress:,此方法共有3个参数,当前是第1个参数,参数类型为::,返回值类型为:v, 参数和返回值类型:v24@0:8@16<br>当前方法名为:modifyAddress:,此方法共有3个参数,当前是第2个参数,参数类型为:@,返回值类型为:v, 参数和返回值类型:v24@0:8@16  </p>
+<h2 id="如何理解-v24-0-8-16"><a href="#如何理解-v24-0-8-16" class="headerlink" title="如何理解 v24@0:8@16?**"></a>如何理解 v24@0:8@16?**</h2><p>OC的对象指针占位8个字节<br>v 表示返回值类型 void; B 表示返回值类型为 bool….<br>24表示整个方法参数占位的总长度<br>@0表示在 offset 为0的地方有个 object-c 的对象,在 object-c method 里首个对象是 self 自身<br>:8在 offset 为8的地方有一个 SEL<br>@16表示在 offset 为16的地方有一个 object-c 对象<br>@表示就是 object-c 对象,数字是内存位置,内存对齐原则</p>
+
+          
         
       
     </div>
@@ -1073,20 +1048,12 @@ Object
 
           
             
+			
+			
+			
           
 
           
-          
-             <span id="/2017/04/02/Hexo/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1110,15 +1077,17 @@ Object
       
         
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/02/Hexo/hello-world/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+          
         
       
     </div>
@@ -1236,20 +1205,12 @@ Object
 
           
             
+			
+			
+			
           
 
           
-          
-             <span id="/2017/04/01/Hexo/hexo+github+域名绑定操作步骤/" class="leancloud_visitors" data-flag-title="Hexo+gihub">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1273,19 +1234,63 @@ Object
       
         
           
-          环境配置安装Node.js点击进入 Node.js官网 下载安装包, Mac也可以使用Homebrew直接构建环境;这里使用的是直接从官网下载安装, 有兴趣的童鞋可以试着尝试使用Homebrew;
+            <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>点击进入 <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js官网</a> 下载安装包, Mac也可以使用Homebrew直接构建环境;<br>这里使用的是直接从官网下载安装, 有兴趣的童鞋可以试着尝试使用Homebrew;</p>
+<ul>
+<li>打开终端使用node –version 查看是否安装成功</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IDFA:~ stack$ node --version</div><div class="line">v6.10.2</div><div class="line">IDFA:~ stack$</div></pre></td></tr></table></figure>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>点击进入 <a href="https://git-scm.com/downloads" target="_blank" rel="external">Git官网</a> 配置git环境, 网上教程很多</p>
+<ul>
+<li>同样使用 git –version 查看是否安装成功</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IDFA:~ stack$ git --version</div><div class="line">git version 2.11.0 (Apple Git-81)</div><div class="line">IDFA:~ stack$</div></pre></td></tr></table></figure>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>点击进入 <a href="https://hexo.io/" target="_blank" rel="external">Hexo官网</a>, 由于已经安装Node, 可以在终端直接使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<ul>
+<li>同样使用 hexo –version 查看是否安装成功</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">IDFA:~ stack$ hexo --version</div><div class="line">hexo-cli: 1.0.2</div><div class="line">os: Darwin 16.5.0 darwin x64</div><div class="line">http_parser: 2.7.0</div><div class="line">node: 6.10.2</div><div class="line">v8: 5.1.281.98</div><div class="line">uv: 1.9.1</div><div class="line">zlib: 1.2.11</div><div class="line">ares: 1.10.1-DEV</div><div class="line">icu: 58.2</div><div class="line">modules: 48</div><div class="line">openssl: 1.0.2k</div><div class="line">IDFA:~ stack$</div></pre></td></tr></table></figure>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><h3 id="新建github项目"><a href="#新建github项目" class="headerlink" title="新建github项目"></a>新建github项目</h3><ol>
+<li>项目命名为youname.github.io即可(youname自定义)</li>
+<li>clone项目到本地 —&gt; 别名blog</li>
+</ol>
+<h3 id="hexo创建博客环境"><a href="#hexo创建博客环境" class="headerlink" title="hexo创建博客环境"></a>hexo创建博客环境</h3><ol>
+<li>终端cd到blog文件夹下</li>
+<li>初始化</li>
+<li>install <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>创建完成之后, 文件是这样的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure></p>
+<p><strong> 开始配置 </strong></p>
+<ul>
+<li>_config.yml <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="external">网页配置文件</a> 可以配置更多的设置 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># URL</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: https://github.com/songMW/stack.github.io</div><div class="line"># root: </div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure>
+<h4 id="注-若CSS样式不起作用-可以注释掉root"><a href="#注-若CSS样式不起作用-可以注释掉root" class="headerlink" title="注: 若CSS样式不起作用, 可以注释掉root:"></a>注: 若CSS样式不起作用, 可以注释掉root:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">type: git</div><div class="line">repo: https://github.com/songMW/stack.github.io.git</div><div class="line">branch: master</div></pre></td></tr></table></figure>
+<p>配置完成之后 hexo server 测试一下效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">IDFA:stack.github.io stack$ hexo server --config _config.yml</div><div class="line">INFO  Start processing</div><div class="line">INFO  Hexo is running at http://localhost:4000/stack.github.io/. Press Ctrl+C to stop.</div><div class="line">^CINFO  Have a nice day</div></pre></td></tr></table></figure>
+<p>打开本地网页就是终端上得地址即可看到效果</p>
+<p>##到这里Hexo就配置好了,下面就是如何用Hexo写博客了<br>当打开地址时会有自动生成的Hello World博客, 可以参考.</p>
+<h3 id="创建一个新页面-博客内容-帖子-无所谓了随便叫"><a href="#创建一个新页面-博客内容-帖子-无所谓了随便叫" class="headerlink" title="创建一个新页面/博客内容/帖子/无所谓了随便叫"></a>创建一个新页面/博客内容/帖子/无所谓了随便叫</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>layout 默认是 post, 在 _config.yml 中默认的 layout 是 defalut_layout</li>
+<li><code>&lt;title&gt;</code> 是标题名, 注意:不要带&lt;&gt;, 否则会语法报错 -bash: syntax error near unexpected token newline</li>
+</ul>
+<p>这里是 <a href="http://www.tuicool.com/articles/I36zYr" target="_blank" rel="external">hexo命令及Markdown语法</a> 可以参考!</p>
+<h3 id="页面写完之后-需要生成一个静态网页"><a href="#页面写完之后-需要生成一个静态网页" class="headerlink" title="页面写完之后 需要生成一个静态网页"></a>页面写完之后 需要生成一个静态网页</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<ul>
+<li><p>使用 –watch 命令可以查看改变的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate --watch</div></pre></td></tr></table></figure>
+</li>
+<li><p>最后一步就是部署到 Github 上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate --deploy</div><div class="line">$ hexo deploy --generate</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上面两个命令是一样的<br>接下来是输入Github的用户名和密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INFO  Deploy done: git</div></pre></td></tr></table></figure></p>
+<p>说明部署完成</p>
+<p>##就先写到这, 第一次记录, 还会遇到很多问题, 到时在补充!</p>
 
-打开终端使用node –version 查看是否安装成功
-
-123IDFA:~ stack$ nod
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/01/Hexo/hexo+github+域名绑定操作步骤/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -1410,20 +1415,12 @@ Object
 
           
             
+			
+			
+			
           
 
           
-          
-             <span id="/2017/03/26/Objective-C/CrashCollection/Xcode编译错误集合/" class="leancloud_visitors" data-flag-title="Xcode编译错误集合">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1447,15 +1444,24 @@ Object
       
         
           
-          dyld: Library not loaded123dyld: Library not loaded: @rpath/AdHubSDK.framework/AdHubSDKReferenced from: /Users/song/Library/Developer/CoreSimulator/De
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/26/Objective-C/CrashCollection/Xcode编译错误集合/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="dyld-Library-not-loaded"><a href="#dyld-Library-not-loaded" class="headerlink" title="dyld: Library not loaded"></a><code>dyld: Library not loaded</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dyld: Library not loaded: @rpath/AdHubSDK.framework/AdHubSDK</div><div class="line">Referenced from: /Users/song/Library/Developer/CoreSimulator/Devices/8BF0C742-9FE8-4465-ABF5-51BD18323CF0/data/Containers/Bundle/Application/C863B41F-19D1-410D-83E2-9C547E942F68/TestDemo.app/TestDemo</div><div class="line">Reason: image not found</div></pre></td></tr></table></figure>
+<h3 id="一般是在引入第三方框架framework时出现的错误-解决方法-General-–-gt-Embedded-Binaries-添加第三方库或者在Build-Phases-中添加一个New-Copy-File-Phases-选择Destination后将第三方库添加进来"><a href="#一般是在引入第三方框架framework时出现的错误-解决方法-General-–-gt-Embedded-Binaries-添加第三方库或者在Build-Phases-中添加一个New-Copy-File-Phases-选择Destination后将第三方库添加进来" class="headerlink" title="一般是在引入第三方框架framework时出现的错误,解决方法: General –&gt; Embedded Binaries 添加第三方库或者在Build Phases 中添加一个New Copy File Phases 选择Destination后将第三方库添加进来."></a><font color="#FF0000">一般是在引入第三方框架framework时出现的错误,解决方法: General –&gt; Embedded Binaries 添加第三方库或者在Build Phases 中添加一个New Copy File Phases 选择Destination后将第三方库添加进来.</font></h3><h2 id="Class-PLBuildVersion-is-implemented-in-both"><a href="#Class-PLBuildVersion-is-implemented-in-both" class="headerlink" title="Class PLBuildVersion is implemented in both"></a><code>Class PLBuildVersion is implemented in both</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class PLBuildVersion is implemented in both</div></pre></td></tr></table></figure>
+<h2 id="”xx“-is-missing-from-working-copy-的问题"><a href="#”xx“-is-missing-from-working-copy-的问题" class="headerlink" title="”xx“ is missing from working copy 的问题"></a><code>”xx“ is missing from working copy 的问题</code></h2><p>在项目中提交过svn后再在本机上删除不用的图片资源后, build后会有 ”xx“is missing from working copy 的警告<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">svn delete nameOfMissingFile </div><div class="line">或用Git（如果你用的是Git的话）</div><div class="line">git rm nameOfMissingFile</div></pre></td></tr></table></figure></p>
+<h2 id="instance-method-restriction-in-category-from"><a href="#instance-method-restriction-in-category-from" class="headerlink" title="instance method restriction in category from"></a><code>instance method restriction in category from</code></h2><h2 id="The-Copy-Bundle-Resources-build-phase-contains-this-target-39-s-Info-plist-file-39-XXX-Info-plist-39"><a href="#The-Copy-Bundle-Resources-build-phase-contains-this-target-39-s-Info-plist-file-39-XXX-Info-plist-39" class="headerlink" title="The Copy Bundle Resources build phase contains this target&#39;s Info.plist file &#39;XXX/Info.plist&#39;."></a><code>The Copy Bundle Resources build phase contains this target&#39;s Info.plist file &#39;XXX/Info.plist&#39;.</code></h2><h3 id="Xcode回答"><a href="#Xcode回答" class="headerlink" title="Xcode回答"></a><a href="https://developer.apple.com/library/content/qa/qa1649/_index.html" target="_blank" rel="external">Xcode回答</a></h3><h3 id="Build-Phases-gt-Copy-Bundle-Recourse-中删除-info-plist"><a href="#Build-Phases-gt-Copy-Bundle-Recourse-中删除-info-plist" class="headerlink" title="Build Phases -&gt; Copy Bundle Recourse 中删除 info.plist "></a><font color="#FF0000">Build Phases -&gt; Copy Bundle Recourse 中删除 info.plist </font></h3><h2 id="warning-no-umbrella-header-found-for-target-39-XXX-39-module-map-will-not-be-generated"><a href="#warning-no-umbrella-header-found-for-target-39-XXX-39-module-map-will-not-be-generated" class="headerlink" title="warning: no umbrella header found for target &#39;XXX&#39;, module map will not be generated"></a><code>warning: no umbrella header found for target &#39;XXX&#39;, module map will not be generated</code></h2><h2 id="Lexical-or-preprocessor-issue-或者-quot-xxx-quot-file-not-found"><a href="#Lexical-or-preprocessor-issue-或者-quot-xxx-quot-file-not-found" class="headerlink" title="Lexical or preprocessor issue 或者 &quot;xxx&quot; file not found"></a><code>Lexical or preprocessor issue 或者 &quot;xxx&quot; file not found</code></h2><h3 id="Setting-gt-Header-Search-Paths-添加-PROJECT-DIR-缺失文件的主目录路径"><a href="#Setting-gt-Header-Search-Paths-添加-PROJECT-DIR-缺失文件的主目录路径" class="headerlink" title="Setting -&gt; Header Search Paths 添加 $(PROJECT_DIR)/缺失文件的主目录路径 "></a><font color="#FF0000">Setting -&gt; Header Search Paths 添加 $(PROJECT_DIR)/缺失文件的主目录路径 </font></h3><h2 id="在类别中重写原类方法引出的警告"><a href="#在类别中重写原类方法引出的警告" class="headerlink" title="在类别中重写原类方法引出的警告"></a><code>在类别中重写原类方法引出的警告</code></h2><p><code>Category is implementing a method which will also be implemented by its primary class</code><br><code>苹果文档: A category allows you to add new methods to an existing class. If you want to reimplement a method that already exists in the class, you typically create a subclass instead of a category.</code><br>意思是category 允许添加一个新的方法到已经存在的类, 如果想重新实现类中已经存在的方法, 通常是用继承替代类别.<br>只是警告而已, 不是错误, 消除警告的方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#pragma clang diagnostic push</div><div class="line">#pragma clang diagnostic ignored &quot;-Wobjc-protocol-method-implementation&quot;</div><div class="line">// your override</div><div class="line">- (void)dealloc</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">#pragma clang diagnostic pop</div><div class="line"></div><div class="line">or </div><div class="line"></div><div class="line">在 target 的 build settings 下搜索 other warning flags, 然后给其添加 -Wno-objc-protocol-method-implementation 批量警示适用</div></pre></td></tr></table></figure></p>
+<h2 id="architecture-x86-64-问题"><a href="#architecture-x86-64-问题" class="headerlink" title="architecture x86_64 问题"></a><code>architecture x86_64 问题</code></h2><ul>
+<li><h3 id="symbol-s-not-found-for-architecture-x86-64"><a href="#symbol-s-not-found-for-architecture-x86-64" class="headerlink" title="symbol(s) not found for architecture x86_64"></a>symbol(s) not found for architecture x86_64</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;_OBJC_CLASS_$_ALAssetsGroup&quot;, referenced from:</div><div class="line">objc-class-ref in xxx.o</div><div class="line">ld: symbol(s) not found for architecture x86_64</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="大致意思是在-xxx-这个类中引用-ALAssetsGroup-但却没有引用框架-一般在-h文件中就可以发现引入那些头文件-这些头文件需要引入那些框架"><a href="#大致意思是在-xxx-这个类中引用-ALAssetsGroup-但却没有引用框架-一般在-h文件中就可以发现引入那些头文件-这些头文件需要引入那些框架" class="headerlink" title="大致意思是在 xxx 这个类中引用 _ALAssetsGroup, 但却没有引用框架, 一般在.h文件中就可以发现引入那些头文件, 这些头文件需要引入那些框架."></a><font color="#FF0000">大致意思是在 xxx 这个类中引用 _ALAssetsGroup, 但却没有引用框架, 一般在.h文件中就可以发现引入那些头文件, 这些头文件需要引入那些框架.</font></h3><ul>
+<li><h3 id="duplicate-symbols-for-architecture-x86-64错误"><a href="#duplicate-symbols-for-architecture-x86-64错误" class="headerlink" title="duplicate symbols for architecture x86_64错误"></a>duplicate symbols for architecture x86_64错误</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ld: 1185 duplicate symbols for architecture x86_64</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>duplicate的中文意思是“重复的、复制的”, 而symbols的意思是“符号” 可能在你工程中引入了重复的东西.</p>
+<h3 id="a-在工程中重复导入了某一个类或文件-这一般出现在你添加第三方库的时候比较多-在不知道的情况下又导入了一次相同的类"><a href="#a-在工程中重复导入了某一个类或文件-这一般出现在你添加第三方库的时候比较多-在不知道的情况下又导入了一次相同的类" class="headerlink" title="a. 在工程中重复导入了某一个类或文件, 这一般出现在你添加第三方库的时候比较多, 在不知道的情况下又导入了一次相同的类"></a><font color="#FF0000">a. 在工程中重复导入了某一个类或文件, 这一般出现在你添加第三方库的时候比较多, 在不知道的情况下又导入了一次相同的类</font></h3><h3 id="b-import引入-m-头文件"><a href="#b-import引入-m-头文件" class="headerlink" title="b. #import引入 .m 头文件"></a><font color="#FF0000">b. #import引入 .m 头文件</font></h3><h3 id="c-在多个文件中重复定义某个东西"><a href="#c-在多个文件中重复定义某个东西" class="headerlink" title="c. 在多个文件中重复定义某个东西"></a><font color="#FF0000">c. 在多个文件中重复定义某个东西</font></h3><h2 id="quot-OBJC-CLASS-CMMotionManager-quot-referenced-from"><a href="#quot-OBJC-CLASS-CMMotionManager-quot-referenced-from" class="headerlink" title="&quot;_OBJC_CLASS_$_CMMotionManager&quot;, referenced from:"></a><code>&quot;_OBJC_CLASS_$_CMMotionManager&quot;, referenced from:</code></h2><h3 id="缺少系统库-CoreMotion-framework-在Build-Phases-gt-Link-Binary-With-Libraries-中添加即可"><a href="#缺少系统库-CoreMotion-framework-在Build-Phases-gt-Link-Binary-With-Libraries-中添加即可" class="headerlink" title="缺少系统库 CoreMotion.framework, 在Build Phases -&gt; Link Binary With Libraries 中添加即可."></a><font color="#FF0000">缺少系统库 CoreMotion.framework, 在Build Phases -&gt; Link Binary With Libraries 中添加即可.</font></h3><h2 id="unrecognized-selector-sent-to-class-0x102265ad8-类拓展出现的错误"><a href="#unrecognized-selector-sent-to-class-0x102265ad8-类拓展出现的错误" class="headerlink" title="unrecognized selector sent to class 0x102265ad8 类拓展出现的错误"></a><code>unrecognized selector sent to class 0x102265ad8 类拓展出现的错误</code></h2><p>Other Linker Flags 链接设置错误导致类扩展不知道如何正确读取, 找不到类方法而产生的错误.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(inherited)子类复写父类同名方法.</div><div class="line"></div><div class="line">-all_load Loads all members of static archive libraries.</div><div class="line"></div><div class="line">-ObjC Loads all members of static archive libraries that implement an Objective-C class or category.</div><div class="line"></div><div class="line">-force_load (path_to_archive) Loads all members of the specified static archive library. Note: -all_load forces all members of all archives to be loaded. This option allows you to target a specific archive.</div></pre></td></tr></table></figure></p>
+<h2 id="Dsymutil-Warning"><a href="#Dsymutil-Warning" class="headerlink" title="Dsymutil Warning"></a><code>Dsymutil Warning</code></h2><p>Build Settings -&gt; Build Options-&gt;Debug Information Format 将DWARF with dSYM File 改为DWARF<br><code>So if you need it for external analysis of crash reports under archiving you app for distribution you should use DWARF with dSYM file.</code> 需要崩溃日志的时候需要设置为 <code>DWARF with dSYM File</code></p>
+<h2 id="warning-no-rule-to-process-file-39-Users-song-Desktop-AdHubAdNetwork-AdHubAdNetwork-Classes-Baidu-libBaiduMobAdSDK-a-39-of-type-archive-ar-for-architecture-i386"><a href="#warning-no-rule-to-process-file-39-Users-song-Desktop-AdHubAdNetwork-AdHubAdNetwork-Classes-Baidu-libBaiduMobAdSDK-a-39-of-type-archive-ar-for-architecture-i386" class="headerlink" title="warning: no rule to process file &#39;/Users/song/Desktop/AdHubAdNetwork/AdHubAdNetwork/Classes/Baidu/libBaiduMobAdSDK.a&#39; of type archive.ar for architecture i386"></a><code>warning: no rule to process file &#39;/Users/song/Desktop/AdHubAdNetwork/AdHubAdNetwork/Classes/Baidu/libBaiduMobAdSDK.a&#39; of type archive.ar for architecture i386</code></h2><h2 id="fatal-error-init-coder-has-not-been-implemented"><a href="#fatal-error-init-coder-has-not-been-implemented" class="headerlink" title="fatal error: init(coder:) has not been implemented"></a><code>fatal error: init(coder:) has not been implemented</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">required init?(coder aDecoder: NSCoder) &#123;</div><div class="line">super.init(coder: aDecoder)</div><div class="line">//        fatalError(&quot;init(coder:) has not been implemented&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -1580,20 +1586,12 @@ Object
 
           
             
+			
+			
+			
           
 
           
-          
-             <span id="/2017/03/15/Objective-C/Other/iOS经验总结/" class="leancloud_visitors" data-flag-title="iOS经验总结 + 转载">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1617,16 +1615,88 @@ Object
       
         
           
-          1. 禁止手机睡眠1[UIApplication sharedApplication].idleTimerDisabled = YES;
-2. 隐藏某行cell12345678910- (CGFloat)tableView:(UITableView *)tableView heightForRowA
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/15/Objective-C/Other/iOS经验总结/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h3 id="1-禁止手机睡眠"><a href="#1-禁止手机睡眠" class="headerlink" title="1. 禁止手机睡眠"></a>1. 禁止手机睡眠</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[UIApplication sharedApplication].idleTimerDisabled = YES;</div></pre></td></tr></table></figure>
+<h3 id="2-隐藏某行cell"><a href="#2-隐藏某行cell" class="headerlink" title="2. 隐藏某行cell"></a>2. 隐藏某行cell</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    // 如果是你需要隐藏的那一行，返回高度为0</div><div class="line">    if(indexPath.row == YouWantToHideRow)</div><div class="line">        return 0; </div><div class="line">    return 44;</div><div class="line">    // 然后再你需要隐藏cell的时候调用</div><div class="line">    [self.tableView beginUpdates];</div><div class="line">    [self.tableView endUpdates];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-禁用button高亮"><a href="#3-禁用button高亮" class="headerlink" title="3. 禁用button高亮"></a>3. 禁用button高亮</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">button.adjustsImageWhenHighlighted = NO;  or</div><div class="line">UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];</div></pre></td></tr></table></figure>
+<h3 id="4-动画切换window的根控制器"><a href="#4-动画切换window的根控制器" class="headerlink" title="4. 动画切换window的根控制器"></a>4. 动画切换window的根控制器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[UIView transitionWithView:[UIApplication sharedApplication].keyWindow duration:0.5f options:UIViewAnimationOptionTransitionCrossDissolve animations:^&#123;</div><div class="line">    BOOL oldState = [UIView areAnimationsEnabled];</div><div class="line">    [UIView setAnimationsEnabled:NO];</div><div class="line">    [UIApplication sharedApplication].keyWindow.rootViewController = [RootViewController new];</div><div class="line">    [UIView setAnimationsEnabled:oldState];</div><div class="line">&#125; completion:^(BOOL finished) &#123;</div><div class="line"></div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<h3 id="5-去除数组中重复的对象"><a href="#5-去除数组中重复的对象" class="headerlink" title="5. 去除数组中重复的对象"></a>5. 去除数组中重复的对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSArray *newArr = [oldArr valueForKeyPath:@&quot;@distinctUnionOfObjects.self&quot;];</div></pre></td></tr></table></figure>
+<h3 id="6-iOS8系统中，tableView最好实现下-tableView-heightForRowAtIndexPath-这个代理方法，要不然在iOS8中可能就会出现显示不全或者无法响应事件的问题"><a href="#6-iOS8系统中，tableView最好实现下-tableView-heightForRowAtIndexPath-这个代理方法，要不然在iOS8中可能就会出现显示不全或者无法响应事件的问题" class="headerlink" title="6. iOS8系统中，tableView最好实现下-tableView: heightForRowAtIndexPath:这个代理方法，要不然在iOS8中可能就会出现显示不全或者无法响应事件的问题"></a>6. iOS8系统中，tableView最好实现下-tableView: heightForRowAtIndexPath:这个代理方法，要不然在iOS8中可能就会出现显示不全或者无法响应事件的问题</h3><h3 id="7-iOS8中实现侧滑功能的时候这个方法必须实现，要不然在iOS8中无法侧滑"><a href="#7-iOS8中实现侧滑功能的时候这个方法必须实现，要不然在iOS8中无法侧滑" class="headerlink" title="7. iOS8中实现侧滑功能的时候这个方法必须实现，要不然在iOS8中无法侧滑"></a>7. iOS8中实现侧滑功能的时候这个方法必须实现，要不然在iOS8中无法侧滑</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 必须写的方法，和editActionsForRowAtIndexPath配对使用，里面什么不写也行</div><div class="line">- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath </div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="8-三个通知"><a href="#8-三个通知" class="headerlink" title="8. 三个通知"></a>8. 三个通知</h3><pre><code>* NSSystemTimeZoneDidChangeNotification监听修改时间界面的两个按钮状态变化
+* UIApplicationSignificantTimeChangeNotification 监听用户改变时间 （只要点击自动设置按钮就会调用） 
+* NSSystemClockDidChangeNotification 监听用户修改时间（时间不同才会调用）
+</code></pre><h3 id="9-给一个view截图"><a href="#9-给一个view截图" class="headerlink" title="9. 给一个view截图"></a>9. 给一个view截图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, 0.0);</div><div class="line">[view.layer renderInContext:UIGraphicsGetCurrentContext()];</div><div class="line">UIImage *img = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">UIGraphicsEndImageContext();</div></pre></td></tr></table></figure>
+<h3 id="10-对象为nil的时候调用此对象分类的方法不会执行"><a href="#10-对象为nil的时候调用此对象分类的方法不会执行" class="headerlink" title="10. 对象为nil的时候调用此对象分类的方法不会执行"></a>10. 对象为nil的时候调用此对象分类的方法不会执行</h3><h3 id="11-设置navigationBar上的title颜色和大小"><a href="#11-设置navigationBar上的title颜色和大小" class="headerlink" title="11. 设置navigationBar上的title颜色和大小"></a>11. 设置navigationBar上的title颜色和大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.navigationController.navigationBar setTitleTextAttributes:@&#123;NSForegroundColorAttributeName : [UIColor youColor], NSFontAttributeName : [UIFont systemFontOfSize:15]&#125;];</div></pre></td></tr></table></figure>
+<h3 id="12-颜色转图片"><a href="#12-颜色转图片" class="headerlink" title="12. 颜色转图片"></a>12. 颜色转图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">+ (UIImage *)cl_imageWithColor:(UIColor *)color </div><div class="line">&#123;</div><div class="line">    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);</div><div class="line">    UIGraphicsBeginImageContext(rect.size);</div><div class="line">    CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line"></div><div class="line">    CGContextSetFillColorWithColor(context, [color CGColor]);</div><div class="line">    CGContextFillRect(context, rect);</div><div class="line"></div><div class="line">    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">    UIGraphicsEndImageContext();</div><div class="line"></div><div class="line">    return image;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="13-view设置圆角"><a href="#13-view设置圆角" class="headerlink" title="13. view设置圆角"></a>13. view设置圆角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#define ViewBorderRadius(View, Radius, Width, Color)\</div><div class="line">\</div><div class="line">[View.layer setCornerRadius:(Radius)];\</div><div class="line">[View.layer setMasksToBounds:YES];\</div><div class="line">[View.layer setBorderWidth:(Width)];\</div><div class="line">[View.layer setBorderColor:[Color CGColor]] // view圆角</div></pre></td></tr></table></figure>
+<h3 id="14-强／弱引用"><a href="#14-强／弱引用" class="headerlink" title="14. 强／弱引用"></a>14. 强／弱引用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define WeakSelf(type)  __weak typeof(type) weak##type = type; // weak</div><div class="line">#define StrongSelf(type)  __strong typeof(type) type = weak##type; // strong</div></pre></td></tr></table></figure>
+<h3 id="15-由角度转换弧度"><a href="#15-由角度转换弧度" class="headerlink" title="15. 由角度转换弧度"></a>15. 由角度转换弧度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define DegreesToRadian(x) (M_PI * (x) / 180.0)</div></pre></td></tr></table></figure>
+<h3 id="16-由弧度转换角度"><a href="#16-由弧度转换角度" class="headerlink" title="16. 由弧度转换角度"></a>16. 由弧度转换角度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define RadianToDegrees(radian) (radian * 180.0) / (M_PI)</div></pre></td></tr></table></figure>
+<h3 id="17-获取图片资源"><a href="#17-获取图片资源" class="headerlink" title="17. 获取图片资源"></a>17. 获取图片资源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define GetImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@&quot;%@&quot;,imageName]]</div></pre></td></tr></table></figure>
+<h3 id="18-获取temp"><a href="#18-获取temp" class="headerlink" title="18. 获取temp"></a>18. 获取temp</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define PathTemp NSTemporaryDirectory()</div></pre></td></tr></table></figure>
+<h3 id="19-获取沙盒-Document"><a href="#19-获取沙盒-Document" class="headerlink" title="19. 获取沙盒 Document"></a>19. 获取沙盒 Document</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define PathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]</div></pre></td></tr></table></figure>
+<h3 id="20-获取沙盒-Cache"><a href="#20-获取沙盒-Cache" class="headerlink" title="20. 获取沙盒 Cache"></a>20. 获取沙盒 Cache</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define PathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]</div></pre></td></tr></table></figure>
+<h3 id="21-GCD代码只执行一次"><a href="#21-GCD代码只执行一次" class="headerlink" title="21. GCD代码只执行一次"></a>21. GCD代码只执行一次</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define kDISPATCH_ONCE_BLOCK(onceBlock) static dispatch_once_t onceToken; dispatch_once(&amp;onceToken, onceBlock);</div></pre></td></tr></table></figure>
+<h3 id="22-自定义NSLog"><a href="#22-自定义NSLog" class="headerlink" title="22. 自定义NSLog"></a>22. 自定义NSLog</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#ifdef DEBUG</div><div class="line">#define NSLog(fmt, ...) NSLog((@&quot;%s [Line %d] &quot; fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)</div><div class="line">#else</div><div class="line">#define NSLog(...)</div><div class="line">#endif</div></pre></td></tr></table></figure>
+<h3 id="23-在主线程上运行"><a href="#23-在主线程上运行" class="headerlink" title="23. 在主线程上运行"></a>23. 在主线程上运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define kDISPATCH_MAIN_THREAD(mainQueueBlock) dispatch_async(dispatch_get_main_queue(), mainQueueBlock);</div></pre></td></tr></table></figure>
+<h3 id="24-随机颜色"><a href="#24-随机颜色" class="headerlink" title="24. 随机颜色"></a>24. 随机颜色</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">+ (UIColor *)RandomColor </div><div class="line">&#123;</div><div class="line">    NSInteger aRedValue = arc4random() % 255;</div><div class="line">    NSInteger aGreenValue = arc4random() % 255;</div><div class="line">    NSInteger aBlueValue = arc4random() % 255;</div><div class="line">    UIColor *randColor = [UIColor colorWithRed:aRedValue / 255.0f green:aGreenValue / 255.0f blue:aBlueValue / 255.0f alpha:1.0f];</div><div class="line">    return randColor;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="25-修改textField的placeholder的字体颜色-大小"><a href="#25-修改textField的placeholder的字体颜色-大小" class="headerlink" title="25. 修改textField的placeholder的字体颜色. 大小"></a>25. 修改textField的placeholder的字体颜色. 大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[textField setValue:[UIColor redColor] forKeyPath:@&quot;_placeholderLabel.textColor&quot;];</div><div class="line">[textField setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@&quot;_placeholderLabel.font&quot;];</div></pre></td></tr></table></figure>
+<h3 id="26-统一收起键盘"><a href="#26-统一收起键盘" class="headerlink" title="26. 统一收起键盘"></a>26. 统一收起键盘</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[[UIApplication sharedApplication] keyWindow] endEditing:YES];</div></pre></td></tr></table></figure>
+<h3 id="27-控制屏幕旋转，在控制器中写"><a href="#27-控制屏幕旋转，在控制器中写" class="headerlink" title="27. 控制屏幕旋转，在控制器中写"></a>27. 控制屏幕旋转，在控制器中写</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/** 是否支持自动转屏 */</div><div class="line">- (BOOL)shouldAutorotate </div><div class="line">&#123;</div><div class="line">    return YES;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/** 支持哪些屏幕方向 */</div><div class="line">- (UIInterfaceOrientationMask)supportedInterfaceOrientations </div><div class="line">&#123;</div><div class="line">    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/** 默认的屏幕方向（当前ViewController必须是通过模态出来的UIViewController（模态带导航的无效）方式展现出来的才会调用这个方法 */</div><div class="line">- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation </div><div class="line">&#123;</div><div class="line">    return UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="28-模型转字典"><a href="#28-模型转字典" class="headerlink" title="28. 模型转字典"></a>28. 模型转字典</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">static NSSet *classes;</div><div class="line"></div><div class="line">- (NSMutableDictionary *)getParameterDictionary </div><div class="line">&#123;</div><div class="line">    NSMutableDictionary *dict = [NSMutableDictionary dictionary];</div><div class="line">    Class c = self.class;</div><div class="line">    while (c) &#123;</div><div class="line">        unsigned count;</div><div class="line">        objc_property_t *properties = class_copyPropertyList([c class], &amp;count);</div><div class="line">        for (int i = 0; i &lt; count; i++) &#123;</div><div class="line">            NSString *key = [NSString stringWithUTF8String:property_getName(properties[i])];</div><div class="line">            dict[key] = [self valueForKey:key];</div><div class="line">        &#125;</div><div class="line">        free(properties);</div><div class="line">        c = class_getSuperclass(c);</div><div class="line">        if ([self isClassFromFoundation:c]) break;</div><div class="line">    &#125;</div><div class="line">    return dict;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (BOOL)isClassFromFoundation:(Class)c</div><div class="line">&#123;</div><div class="line">    if (c == [NSObject class] || c == [NSManagedObject class]) return YES;</div><div class="line">    __block BOOL result = NO;</div><div class="line">    [[self foundationClasses] enumerateObjectsUsingBlock:^(Class foundationClass, BOOL *stop) &#123;</div><div class="line">        if ([c isSubclassOfClass:foundationClass]) &#123;</div><div class="line">            result = YES;</div><div class="line">            *stop = YES;</div><div class="line">        &#125;</div><div class="line">    &#125;];</div><div class="line">    return result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (NSSet *)foundationClasses</div><div class="line">&#123;</div><div class="line">    if (classes == nil) &#123;</div><div class="line">        classes = [NSSet setWithObjects:</div><div class="line">                                        [NSURL class],</div><div class="line">                                        [NSDate class],</div><div class="line">                                        [NSValue class],</div><div class="line">                                        [NSData class],</div><div class="line">                                        [NSError class],</div><div class="line">                                        [NSArray class],</div><div class="line">                                        [NSDictionary class],</div><div class="line">                                        [NSString class],</div><div class="line">                                        [NSAttributedString class], nil];</div><div class="line">    &#125;</div><div class="line">    return classes;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="29-交换两个方法实现"><a href="#29-交换两个方法实现" class="headerlink" title="29. 交换两个方法实现"></a>29. 交换两个方法实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Class aClass = [self class]; </div><div class="line">SEL originalSelector = @selector(viewWillAppear:); </div><div class="line">SEL swizzledSelector = @selector(xxx_viewWillAppear:); </div><div class="line"></div><div class="line">Method originalMethod = class_getInstanceMethod(aClass, originalSelector); </div><div class="line">Method swizzledMethod = class_getInstanceMethod(aClass, swizzledSelector); </div><div class="line"></div><div class="line">BOOL didAddMethod = class_addMethod(aClass, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod)); </div><div class="line"></div><div class="line">if (didAddMethod) &#123; </div><div class="line">    class_replaceMethod(aClass, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod)); </div><div class="line">&#125; </div><div class="line">else &#123; </div><div class="line">    method_exchangeImplementations(originalMethod, swizzledMethod); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="30-打印百分号和引号"><a href="#30-打印百分号和引号" class="headerlink" title="30. 打印百分号和引号"></a>30. 打印百分号和引号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSLog(@&quot;%%&quot;);</div><div class="line">NSLog(@&quot;\&quot;&quot;);</div></pre></td></tr></table></figure>
+<h3 id="31-几个常用权限判断"><a href="#31-几个常用权限判断" class="headerlink" title="31. 几个常用权限判断"></a>31. 几个常用权限判断</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">if ([CLLocationManager authorizationStatus] ==kCLAuthorizationStatusDenied) &#123;</div><div class="line">    NSLog(@&quot;没有定位权限&quot;);</div><div class="line">&#125;</div><div class="line">AVAuthorizationStatus statusVideo = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];</div><div class="line">if (statusVideo == AVAuthorizationStatusDenied) &#123;</div><div class="line">    NSLog(@&quot;没有摄像头权限&quot;);</div><div class="line">&#125;</div><div class="line">//是否有麦克风权限</div><div class="line">AVAuthorizationStatus statusAudio = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];</div><div class="line">if (statusAudio == AVAuthorizationStatusDenied) &#123;</div><div class="line">    NSLog(@&quot;没有录音权限&quot;);</div><div class="line">&#125;</div><div class="line">[PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) &#123;</div><div class="line">    if (status == PHAuthorizationStatusDenied) &#123;</div><div class="line">        NSLog(@&quot;没有相册权限&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<h3 id="32-获取手机型号"><a href="#32-获取手机型号" class="headerlink" title="32. 获取手机型号"></a>32. 获取手机型号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">+ (NSString *)getDeviceInfo</div><div class="line">&#123;</div><div class="line">    struct utsname systemInfo;</div><div class="line">    uname(&amp;systemInfo);</div><div class="line">    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone1,1&quot;]) return @&quot;iPhone 2G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone1,2&quot;]) return @&quot;iPhone 3G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone2,1&quot;]) return @&quot;iPhone 3GS&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone3,1&quot;]) return @&quot;iPhone 4&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone3,2&quot;]) return @&quot;iPhone 4&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone3,3&quot;]) return @&quot;iPhone 4&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone4,1&quot;]) return @&quot;iPhone 4S&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone5,1&quot;]) return @&quot;iPhone 5&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone5,2&quot;]) return @&quot;iPhone 5&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone5,3&quot;]) return @&quot;iPhone 5c&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone5,4&quot;]) return @&quot;iPhone 5c&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone6,1&quot;]) return @&quot;iPhone 5s&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone6,2&quot;]) return @&quot;iPhone 5s&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone7,1&quot;]) return @&quot;iPhone 6 Plus&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone7,2&quot;]) return @&quot;iPhone 6&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone8,1&quot;]) return @&quot;iPhone 6s&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone8,2&quot;]) return @&quot;iPhone 6s Plus&quot;;</div><div class="line">    // 日行两款手机型号均为日本独占，可能使用索尼FeliCa支付方案而不是苹果支付</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone9,1&quot;])    return @&quot;国行. 日版. 港行iPhone 7&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone9,2&quot;])    return @&quot;港行. 国行iPhone 7 Plus&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone9,3&quot;])    return @&quot;美版. 台版iPhone 7&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone9,4&quot;])    return @&quot;美版. 台版iPhone 7 Plus&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone8,4&quot;]) return @&quot;iPhone SE&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPod1,1&quot;]) return @&quot;iPod Touch 1G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPod2,1&quot;]) return @&quot;iPod Touch 2G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPod3,1&quot;]) return @&quot;iPod Touch 3G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPod4,1&quot;]) return @&quot;iPod Touch 4G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPod5,1&quot;]) return @&quot;iPod Touch 5G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad1,1&quot;]) return @&quot;iPad 1G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,1&quot;]) return @&quot;iPad 2&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,2&quot;]) return @&quot;iPad 2&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,3&quot;]) return @&quot;iPad 2&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,4&quot;]) return @&quot;iPad 2&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,5&quot;]) return @&quot;iPad Mini 1G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,6&quot;]) return @&quot;iPad Mini 1G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,7&quot;]) return @&quot;iPad Mini 1G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad3,1&quot;]) return @&quot;iPad 3&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad3,2&quot;]) return @&quot;iPad 3&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad3,3&quot;]) return @&quot;iPad 3&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad3,4&quot;]) return @&quot;iPad 4&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad3,5&quot;]) return @&quot;iPad 4&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad3,6&quot;]) return @&quot;iPad 4&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad4,1&quot;]) return @&quot;iPad Air&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad4,2&quot;]) return @&quot;iPad Air&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad4,3&quot;]) return @&quot;iPad Air&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad4,4&quot;]) return @&quot;iPad Mini 2G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad4,5&quot;]) return @&quot;iPad Mini 2G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;iPad4,6&quot;]) return @&quot;iPad Mini 2G&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;i386&quot;]) return @&quot;iPhone Simulator&quot;;</div><div class="line">    if ([platform isEqualToString:@&quot;x86_64&quot;]) return @&quot;iPhone Simulator&quot;;</div><div class="line">    return platform;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="33-长按复制功能"><a href="#33-长按复制功能" class="headerlink" title="33. 长按复制功能"></a>33. 长按复制功能</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad</div><div class="line">&#123;</div><div class="line">    [self.view addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(pasteBoard:)]];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)pasteBoard:(UILongPressGestureRecognizer *)longPress </div><div class="line">&#123;</div><div class="line">    if (longPress.state == UIGestureRecognizerStateBegan) &#123;</div><div class="line">        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];</div><div class="line">        pasteboard.string = @&quot;需要复制的文本&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="34-cocoapods升级"><a href="#34-cocoapods升级" class="headerlink" title="34. cocoapods升级"></a>34. cocoapods升级</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在终端执行 sudo gem install -n /usr/local/bin cocoapods --pre</div></pre></td></tr></table></figure>
+<h3 id="35-判断图片类型"><a href="#35-判断图片类型" class="headerlink" title="35. 判断图片类型"></a>35. 判断图片类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//通过图片Data数据第一个字节 来获取图片扩展名</div><div class="line">- (NSString *)contentTypeForImageData:(NSData *)data</div><div class="line">&#123;</div><div class="line">    uint8_t c;</div><div class="line">    [data getBytes:&amp;c length:1];</div><div class="line">    switch (c)</div><div class="line">    &#123;</div><div class="line">        case 0xFF:</div><div class="line">        return @&quot;jpeg&quot;;</div><div class="line"></div><div class="line">        case 0x89:</div><div class="line">        return @&quot;png&quot;;</div><div class="line"></div><div class="line">        case 0x47:</div><div class="line">        return @&quot;gif&quot;;</div><div class="line"></div><div class="line">        case 0x49:</div><div class="line">        case 0x4D:</div><div class="line">        return @&quot;tiff&quot;;</div><div class="line"></div><div class="line">        case 0x52:</div><div class="line">        if ([data length] &lt; 12) &#123;</div><div class="line">            return nil;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 12)] encoding:NSASCIIStringEncoding];</div><div class="line">        if ([testString hasPrefix:@&quot;RIFF&quot;] &amp;&amp; [testString hasSuffix:@&quot;WEBP&quot;])&#123;</div><div class="line">            return @&quot;webp&quot;;</div><div class="line">        &#125;</div><div class="line">        return nil;</div><div class="line">    &#125;</div><div class="line">    return nil;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="36-获取手机和app信息"><a href="#36-获取手机和app信息" class="headerlink" title="36. 获取手机和app信息"></a>36. 获取手机和app信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];  </div><div class="line">CFShow(infoDictionary);  </div><div class="line">// app名称  </div><div class="line">NSString *app_Name = [infoDictionary objectForKey:@&quot;CFBundleDisplayName&quot;];  </div><div class="line">// app版本  </div><div class="line">NSString *app_Version = [infoDictionary objectForKey:@&quot;CFBundleShortVersionString&quot;];  </div><div class="line">// app build版本  </div><div class="line">NSString *app_build = [infoDictionary objectForKey:@&quot;CFBundleVersion&quot;];  </div><div class="line"></div><div class="line">//手机序列号  </div><div class="line">NSString* identifierNumber = [[UIDevice currentDevice] uniqueIdentifier];  </div><div class="line">NSLog(@&quot;手机序列号: %@&quot;,identifierNumber);  </div><div class="line">//手机别名： 用户定义的名称  </div><div class="line">NSString* userPhoneName = [[UIDevice currentDevice] name];  </div><div class="line">NSLog(@&quot;手机别名: %@&quot;, userPhoneName);  </div><div class="line">//设备名称  </div><div class="line">NSString* deviceName = [[UIDevice currentDevice] systemName];  </div><div class="line">NSLog(@&quot;设备名称: %@&quot;,deviceName );  </div><div class="line">//手机系统版本  </div><div class="line">NSString* phoneVersion = [[UIDevice currentDevice] systemVersion];  </div><div class="line">NSLog(@&quot;手机系统版本: %@&quot;, phoneVersion);  </div><div class="line">//手机型号  </div><div class="line">NSString* phoneModel = [[UIDevice currentDevice] model];  </div><div class="line">NSLog(@&quot;手机型号: %@&quot;,phoneModel );  </div><div class="line">//地方型号  （国际化区域名称）  </div><div class="line">NSString* localPhoneModel = [[UIDevice currentDevice] localizedModel];  </div><div class="line">NSLog(@&quot;国际化区域名称: %@&quot;,localPhoneModel );  </div><div class="line"></div><div class="line">NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];  </div><div class="line">// 当前应用名称  </div><div class="line">NSString *appCurName = [infoDictionary objectForKey:@&quot;CFBundleDisplayName&quot;];  </div><div class="line">NSLog(@&quot;当前应用名称：%@&quot;,appCurName);  </div><div class="line">// 当前应用软件版本  比如：1.0.1  </div><div class="line">NSString *appCurVersion = [infoDictionary objectForKey:@&quot;CFBundleShortVersionString&quot;];  </div><div class="line">NSLog(@&quot;当前应用软件版本:%@&quot;,appCurVersion);  </div><div class="line">// 当前应用版本号码   int类型  </div><div class="line">NSString *appCurVersionNum = [infoDictionary objectForKey:@&quot;CFBundleVersion&quot;];  </div><div class="line">NSLog(@&quot;当前应用版本号码：%@&quot;,appCurVersionNum);</div></pre></td></tr></table></figure>
+<h3 id="37-获取一个类的所有属性"><a href="#37-获取一个类的所有属性" class="headerlink" title="37. 获取一个类的所有属性"></a>37. 获取一个类的所有属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">id LenderClass = objc_getClass(&quot;Lender&quot;);</div><div class="line">unsigned int outCount, i;</div><div class="line">objc_property_t *properties = class_copyPropertyList(LenderClass, &amp;outCount);</div><div class="line">for (i = 0; i &lt; outCount; i++) &#123;</div><div class="line">objc_property_t property = properties[i];</div><div class="line">fprintf(stdout, &quot;%s %s\n&quot;, property_getName(property), property_getAttributes(property));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="38-image圆角"><a href="#38-image圆角" class="headerlink" title="38. image圆角"></a>38. image圆角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (UIImage *)circleImage</div><div class="line">&#123;</div><div class="line">    UIGraphicsBeginImageContextWithOptions(self.size, NO, 1);</div><div class="line">    CGContextRef ctx = UIGraphicsGetCurrentContext();</div><div class="line">    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);</div><div class="line">    CGContextAddEllipseInRect(ctx, rect);</div><div class="line">    CGContextClip(ctx);</div><div class="line">    [self drawInRect:rect];</div><div class="line">    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">    UIGraphicsEndImageContext();</div><div class="line">    return image;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="39-image拉伸"><a href="#39-image拉伸" class="headerlink" title="39. image拉伸"></a>39. image拉伸</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+ (UIImage *)resizableImage:(NSString *)imageName</div><div class="line">&#123;</div><div class="line">    UIImage *image = [UIImage imageNamed:imageName];</div><div class="line">    CGFloat imageW = image.size.width;</div><div class="line">    CGFloat imageH = image.size.height;</div><div class="line">    return [image resizableImageWithCapInsets:UIEdgeInsetsMake(imageH * 0.5, imageW * 0.5, imageH * 0.5, imageW * 0.5) resizingMode:UIImageResizingModeStretch];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="40-导入自定义字体库"><a href="#40-导入自定义字体库" class="headerlink" title="40. 导入自定义字体库"></a>40. 导入自定义字体库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. 找到你想用的字体的 ttf 格式, 拖入工程</div><div class="line">2. 在工程的plist中增加一行数组 Fonts provided by application</div><div class="line">3. 为这个key添加一个item, value为你刚才导入的ttf文件名</div><div class="line">4. 直接使用即可: label.font = [UIFont fontWithName:@&quot;你刚才导入的ttf文件名&quot; size:20.0];</div></pre></td></tr></table></figure>
+<h3 id="41-拿到当前正在显示的控制器，不管是push进去的，还是present进去的都能拿到"><a href="#41-拿到当前正在显示的控制器，不管是push进去的，还是present进去的都能拿到" class="headerlink" title="41. 拿到当前正在显示的控制器，不管是push进去的，还是present进去的都能拿到"></a>41. 拿到当前正在显示的控制器，不管是push进去的，还是present进去的都能拿到</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (UIViewController *)getVisibleViewControllerFrom:(UIViewController*)vc </div><div class="line">&#123;</div><div class="line">    if ([vc isKindOfClass:[UINavigationController class]]) &#123;</div><div class="line">        return [self getVisibleViewControllerFrom:[((UINavigationController*) vc) visibleViewController]];</div><div class="line">    &#125;</div><div class="line">    else if ([vc isKindOfClass:[UITabBarController class]])&#123;</div><div class="line">        return [self getVisibleViewControllerFrom:[((UITabBarController*) vc) selectedViewController]];</div><div class="line">    &#125; </div><div class="line">    else &#123;</div><div class="line">        if (vc.presentedViewController) &#123;</div><div class="line">            return [self getVisibleViewControllerFrom:vc.presentedViewController];</div><div class="line">    &#125;</div><div class="line">    else &#123;</div><div class="line">        return vc;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="42-runtime为一个类动态添加属性"><a href="#42-runtime为一个类动态添加属性" class="headerlink" title="42. runtime为一个类动态添加属性"></a>42. runtime为一个类动态添加属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">objc_setAssociatedObject(self, WZBPlaceholderViewKey, placeholderView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</div><div class="line">objc_getAssociatedObject(self, WZBPlaceholderViewKey);</div></pre></td></tr></table></figure>
+<h3 id="43-Reachability-判断网络状态"><a href="#43-Reachability-判断网络状态" class="headerlink" title="43. Reachability 判断网络状态"></a>43. Reachability 判断网络状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">NetworkStatus status = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];</div><div class="line">if (status == NotReachable) &#123;</div><div class="line">    NSLog(@&quot;当前设备无网络&quot;);</div><div class="line">&#125;</div><div class="line">if (status == ReachableViaWiFi) &#123;</div><div class="line">    NSLog(@&quot;当前wifi网络&quot;);</div><div class="line">&#125;</div><div class="line">if (status == ReachableViaWWAN) &#123;</div><div class="line">    NSLog(@&quot;当前蜂窝移动网络&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="44-AFNetworking监听网络状态"><a href="#44-AFNetworking监听网络状态" class="headerlink" title="44. AFNetworking监听网络状态"></a>44. AFNetworking监听网络状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// 监听网络状况</div><div class="line">AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];</div><div class="line">[mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) &#123;</div><div class="line">    switch (status) &#123;</div><div class="line">        case AFNetworkReachabilityStatusUnknown:</div><div class="line">            break;</div><div class="line">        case AFNetworkReachabilityStatusNotReachable: </div><div class="line">            //当前设备无网络</div><div class="line">            break;</div><div class="line">        case AFNetworkReachabilityStatusReachableViaWiFi:</div><div class="line">            //当前Wi-Fi网络  </div><div class="line">            break;</div><div class="line">        case AFNetworkReachabilityStatusReachableViaWWAN:</div><div class="line">            //当前蜂窝移动网络</div><div class="line">            break;</div><div class="line">        default:</div><div class="line">            break;</div><div class="line">    &#125;</div><div class="line">&#125;];</div><div class="line">[mgr startMonitoring];</div></pre></td></tr></table></figure>
+<h3 id="45-使用performSelector-调用函数内存泄漏问题"><a href="#45-使用performSelector-调用函数内存泄漏问题" class="headerlink" title="45. 使用performSelector:调用函数内存泄漏问题"></a>45. 使用performSelector:调用函数内存泄漏问题</h3><p>使用[obj performSelector:NSSelectorFromString(@”aMethod”)]; 这类方法时可能会收到一个警告”performSelector may cause a leak because its selector is unknown”.<br>是因为编译器不清楚这个对象能不能相应这个方法，如果不能，则是不安全的，而且编译器也不清楚该怎么处理这个方法的返回值！<br>使用以下代码调用即可:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">if (! obj) &#123; </div><div class="line">    return;</div><div class="line">&#125;</div><div class="line">SEL selector = NSSelectorFromString(@&quot;aMethod&quot;);</div><div class="line">IMP imp = [obj methodForSelector:selector];</div><div class="line">void (*func)(id, SEL) = (void *)imp;</div><div class="line">func(obj, selector);</div><div class="line">或者:</div><div class="line">SEL selector = NSSelectorFromString(@&quot;aMethod&quot;);</div><div class="line">((void (*)(id, SEL))[obj methodForSelector:selector])(obj, selector);</div></pre></td></tr></table></figure></p>
+<h3 id="46-一个字符串是否包含另一个字符串"><a href="#46-一个字符串是否包含另一个字符串" class="headerlink" title="46. 一个字符串是否包含另一个字符串"></a>46. 一个字符串是否包含另一个字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 方法1</div><div class="line">if ([str1 containsString:str2]) &#123;</div><div class="line">    NSLog(@&quot;str1包含str2&quot;);</div><div class="line">&#125; </div><div class="line">else &#123;</div><div class="line">    NSLog(@&quot;str1不包含str2&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 方法2</div><div class="line">if ([str1 rangeOfString: str2].location == NSNotFound) &#123;</div><div class="line">    NSLog(@&quot;str1不包含str2&quot;);</div><div class="line">&#125; </div><div class="line">else &#123;</div><div class="line">    NSLog(@&quot;str1包含str2&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="47-移除字符串中的空格和换行"><a href="#47-移除字符串中的空格和换行" class="headerlink" title="47. 移除字符串中的空格和换行"></a>47. 移除字符串中的空格和换行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+ (NSString *)removeSpaceAndNewline:(NSString *)str</div><div class="line">&#123;</div><div class="line">    NSString *temp = [str stringByReplacingOccurrencesOfString:@&quot; &quot; withString:@&quot;&quot;];</div><div class="line">    temp = [temp stringByReplacingOccurrencesOfString:@&quot;\r&quot; withString:@&quot;&quot;];</div><div class="line">    temp = [temp stringByReplacingOccurrencesOfString:@&quot;\n&quot; withString:@&quot;&quot;];</div><div class="line">    return temp;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="48-判断字符串中是否有空格"><a href="#48-判断字符串中是否有空格" class="headerlink" title="48. 判断字符串中是否有空格"></a>48. 判断字符串中是否有空格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">+ (BOOL)isBlank:(NSString *)str </div><div class="line">&#123;</div><div class="line">    NSRange _range = [str rangeOfString:@&quot; &quot;];</div><div class="line">    if (_range.location != NSNotFound) &#123;</div><div class="line">        return YES;</div><div class="line">    &#125; </div><div class="line">    else &#123;</div><div class="line">        return NO;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="49-字符串是否为空"><a href="#49-字符串是否为空" class="headerlink" title="49. 字符串是否为空"></a>49. 字符串是否为空</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">+ (BOOL)isEqualToNil:(NSString *)str</div><div class="line">&#123;</div><div class="line">    return str.length &lt;= 0 || [str isEqualToString:@&quot;&quot;] || !str;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="50-当tableView占不满一屏时，去除下边多余的单元格"><a href="#50-当tableView占不满一屏时，去除下边多余的单元格" class="headerlink" title="50. 当tableView占不满一屏时，去除下边多余的单元格"></a>50. 当tableView占不满一屏时，去除下边多余的单元格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">self.tableView.tableHeaderView = [UIView new];</div><div class="line">self.tableView.tableFooterView = [UIView new];</div></pre></td></tr></table></figure>
+<h3 id="51-isKindOfClass和isMemberOfClass的区别"><a href="#51-isKindOfClass和isMemberOfClass的区别" class="headerlink" title="51. isKindOfClass和isMemberOfClass的区别"></a>51. isKindOfClass和isMemberOfClass的区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">isKindOfClass可以判断某个对象是否属于某个类，或者这个类的子类。</div><div class="line">isMemberOfClass更加精准，它只能判断这个对象类型是否为这个类(不能判断子类)</div></pre></td></tr></table></figure>
+<h3 id="52-禁用系统滑动返回功能"><a href="#52-禁用系统滑动返回功能" class="headerlink" title="52. 禁用系统滑动返回功能"></a>52. 禁用系统滑动返回功能</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidAppear:(BOOL)animated</div><div class="line">&#123;</div><div class="line">    [super viewDidAppear:animated];</div><div class="line">    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) &#123;self.navigationController.interactivePopGestureRecognizer.delegate = self;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewWillDisappear:(BOOL)animated &#123;</div><div class="line">    [super viewWillDisappear:animated];</div><div class="line">    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) &#123;self.navigationController.interactivePopGestureRecognizer.delegate = nil;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer</div><div class="line">&#123;</div><div class="line">    return NO;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="53-使用模拟器截图"><a href="#53-使用模拟器截图" class="headerlink" title="53. 使用模拟器截图"></a>53. 使用模拟器截图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">快捷键command + s</div><div class="line">或者File-&gt;Save Screen Shot</div></pre></td></tr></table></figure>
+<h3 id="54-为UIView某个角添加圆角"><a href="#54-为UIView某个角添加圆角" class="headerlink" title="54. 为UIView某个角添加圆角"></a>54. 为UIView某个角添加圆角</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 左上角和右下角添加圆角</div><div class="line">UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerBottomRight) cornerRadii:CGSizeMake(20, 20)];</div><div class="line">CAShapeLayer *maskLayer = [CAShapeLayer layer];</div><div class="line">maskLayer.frame = view.bounds;</div><div class="line">maskLayer.path = maskPath.CGPath;</div><div class="line">view.layer.mask = maskLayer;</div></pre></td></tr></table></figure>
+<h3 id="55-删除Xcode-Derived-data缓存数据"><a href="#55-删除Xcode-Derived-data缓存数据" class="headerlink" title="55. 删除Xcode Derived data缓存数据"></a>55. 删除Xcode Derived data缓存数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">依次点击Xcode -&gt; Preferences -&gt; location，然后点击 Derived data路径后到小箭头，删除这个文件夹下的数据就可以</div></pre></td></tr></table></figure>
+<h3 id="56-让手机震动一下"><a href="#56-让手机震动一下" class="headerlink" title="56. 让手机震动一下"></a>56. 让手机震动一下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#import &lt;AudioToolbox/AudioToolbox.h&gt;</div><div class="line">AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);</div><div class="line">或者</div><div class="line">AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);</div></pre></td></tr></table></figure>
+<h3 id="57-layoutSubviews方法什么时候调用？"><a href="#57-layoutSubviews方法什么时候调用？" class="headerlink" title="57. layoutSubviews方法什么时候调用？"></a>57. layoutSubviews方法什么时候调用？</h3><pre><code>* init方法不会调用
+* addSubview方法等时候会调用
+* bounds改变的时候调用
+* scrollView滚动的时候会调用scrollView的layoutSubviews方法(所以不建议在scrollView的layoutSubviews方法中做复杂逻辑)
+* 旋转设备的时候调用
+* 子视图被移除的时候调用
+</code></pre><h3 id="58-摇一摇功能"><a href="#58-摇一摇功能" class="headerlink" title="58. 摇一摇功能"></a>58. 摇一摇功能</h3><pre><code>* 打开摇一摇功能
+    [UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
+* 让需要摇动的控制器成为第一响应者
+    [self becomeFirstResponder];
+* 实现以下方法
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 开始摇动</div><div class="line">- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event</div><div class="line">// 取消摇动</div><div class="line">- (void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event</div><div class="line">// 摇动结束</div><div class="line">- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event</div></pre></td></tr></table></figure>
+<h3 id="59-获取图片大小"><a href="#59-获取图片大小" class="headerlink" title="59. 获取图片大小"></a>59. 获取图片大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CGFloat imageWidth = image.size.width;</div><div class="line">CGFloat imageHeight = imageWidth * image.scale;</div></pre></td></tr></table></figure>
+<h3 id="60-获取view的坐标在整个window上的位置"><a href="#60-获取view的坐标在整个window上的位置" class="headerlink" title="60. 获取view的坐标在整个window上的位置"></a>60. 获取view的坐标在整个window上的位置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// v上的(0, 0)点在toView上的位置</div><div class="line">CGPoint point = [v convertPoint:CGPointMake(0, 0) toView:[UIApplication sharedApplication].windows.lastObject];</div><div class="line">或者</div><div class="line">CGPoint point = [v.superview convertPoint:v.frame.origin toView:[UIApplication sharedApplication].windows.lastObject];</div></pre></td></tr></table></figure>
+<h3 id="61-获取一个view所属的控制器"><a href="#61-获取一个view所属的控制器" class="headerlink" title="61. 获取一个view所属的控制器"></a>61. 获取一个view所属的控制器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// view分类方法</div><div class="line">- (UIViewController *)belongViewController </div><div class="line">&#123;</div><div class="line">    for (UIView *next = [self superview]; next; next = next.superview) &#123;</div><div class="line">        UIResponder* nextResponder = [next nextResponder];</div><div class="line">        if ([nextResponder isKindOfClass:[UIViewController class]]) &#123;</div><div class="line">            return (UIViewController *)nextResponder;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return nil;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="62-UIImage和base64互转"><a href="#62-UIImage和base64互转" class="headerlink" title="62. UIImage和base64互转"></a>62. UIImage和base64互转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// view分类方法</div><div class="line">- (NSString *)encodeToBase64String:(UIImage *)image</div><div class="line">&#123;</div><div class="line">    return [UIImagePNGRepresentation(image) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData </div><div class="line">&#123;</div><div class="line">    NSData *data = [[NSData alloc]initWithBase64EncodedString:strEncodeData options:NSDataBase64DecodingIgnoreUnknownCharacters];</div><div class="line">    return [UIImage imageWithData:data];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="63-判断NSDate是不是今天"><a href="#63-判断NSDate是不是今天" class="headerlink" title="63. 判断NSDate是不是今天"></a>63. 判断NSDate是不是今天</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSCalendarUnitEra | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:aDate];</div><div class="line">NSDateComponents *today = [[NSCalendar currentCalendar] components:NSCalendarUnitEra | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:[NSDate date]];</div><div class="line">if([today day] == [otherDay day] &amp;&amp;</div><div class="line">[today month] == [otherDay month] &amp;&amp;</div><div class="line">[today year] == [otherDay year] &amp;&amp;</div><div class="line">[today era] == [otherDay era]) &#123;</div><div class="line">// 是今天</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="64-设置tableView分割线颜色"><a href="#64-设置tableView分割线颜色" class="headerlink" title="64. 设置tableView分割线颜色"></a>64. 设置tableView分割线颜色</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.tableView setSeparatorColor:[UIColor myColor]];</div></pre></td></tr></table></figure>
+<h3 id="65-设置屏幕方向"><a href="#65-设置屏幕方向" class="headerlink" title="65. 设置屏幕方向"></a>65. 设置屏幕方向</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[UIDevice currentDevice] setValue:@(UIInterfaceOrientationLandscapeLeft) forKey:@&quot;orientation&quot;];</div></pre></td></tr></table></figure>
+<h3 id="66-tableViewCell分割线顶到头"><a href="#66-tableViewCell分割线顶到头" class="headerlink" title="66. tableViewCell分割线顶到头"></a>66. tableViewCell分割线顶到头</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath</div><div class="line">&#123;</div><div class="line">    [cell setSeparatorInset:UIEdgeInsetsZero];</div><div class="line">    [cell setLayoutMargins:UIEdgeInsetsZero];</div><div class="line">    cell.preservesSuperviewLayoutMargins = NO;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLayoutSubviews </div><div class="line">&#123;</div><div class="line">    [self.tableView setSeparatorInset:UIEdgeInsetsZero];</div><div class="line">    [self.tableView setLayoutMargins:UIEdgeInsetsZero];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="67-修改cell-imageView的大小"><a href="#67-修改cell-imageView的大小" class="headerlink" title="67. 修改cell.imageView的大小"></a>67. 修改cell.imageView的大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">UIImage *icon = [UIImage imageNamed:@&quot;&quot;];</div><div class="line">CGSize itemSize = CGSizeMake(30, 30);</div><div class="line">UIGraphicsBeginImageContextWithOptions(itemSize, NO ,0.0);</div><div class="line">CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);</div><div class="line">[icon drawInRect:imageRect];</div><div class="line">cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">UIGraphicsEndImageContext();</div></pre></td></tr></table></figure>
+<h3 id="68-为一个view添加虚线边框"><a href="#68-为一个view添加虚线边框" class="headerlink" title="68. 为一个view添加虚线边框"></a>68. 为一个view添加虚线边框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CAShapeLayer *border = [CAShapeLayer layer];</div><div class="line">border.strokeColor = [UIColor colorWithRed:67/255.0f green:37/255.0f blue:83/255.0f alpha:1].CGColor;</div><div class="line">border.fillColor = nil;</div><div class="line">border.lineDashPattern = @[@4, @2];</div><div class="line">border.path = [UIBezierPath bezierPathWithRect:view.bounds].CGPath;</div><div class="line">border.frame = view.bounds;</div><div class="line">[view.layer addSublayer:border];</div></pre></td></tr></table></figure>
+<h3 id="69-UITextView中打开或禁用复制-剪切-选择-全选等功能"><a href="#69-UITextView中打开或禁用复制-剪切-选择-全选等功能" class="headerlink" title="69. UITextView中打开或禁用复制, 剪切, 选择, 全选等功能"></a>69. UITextView中打开或禁用复制, 剪切, 选择, 全选等功能</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// 继承UITextView重写这个方法</div><div class="line">- (BOOL)canPerformAction:(SEL)action withSender:(id)sender</div><div class="line">&#123;</div><div class="line">    // 返回NO为禁用，YES为开启</div><div class="line">    // 粘贴</div><div class="line">    if (action == @selector(paste:)) return NO;</div><div class="line">    // 剪切</div><div class="line">    if (action == @selector(cut:)) return NO;</div><div class="line">    // 复制</div><div class="line">    if (action == @selector(copy:)) return NO;</div><div class="line">    // 选择</div><div class="line">    if (action == @selector(select:)) return NO;</div><div class="line">    // 选中全部</div><div class="line">    if (action == @selector(selectAll:)) return NO;</div><div class="line">    // 删除</div><div class="line">    if (action == @selector(delete:)) return NO;</div><div class="line">    // 分享</div><div class="line">    if (action == @selector(share)) return NO;</div><div class="line">    return [super canPerformAction:action withSender:sender];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="70-UICollectionView-UITableView-顶部留白问题"><a href="#70-UICollectionView-UITableView-顶部留白问题" class="headerlink" title="70. UICollectionView / UITableView 顶部留白问题"></a>70. UICollectionView / UITableView 顶部留白问题</h3><p>UIViewController下如果只有一个UIScollView或者其子类（UITableView，UICollectionView)，会自动留出空白，scollview滚动经过各种bar下面时能隐约看到内容。但是每个UIViewController只能有唯一一个UIScollView或者其子类，如果超过一个，需要将此属性设置为NO，自己去控制留白以及坐标问题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.automaticallyAdjustsScrollViewInsets = false</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -1751,20 +1821,12 @@ Object
 
           
             
+			
+			
+			
           
 
           
-          
-             <span id="/2017/03/10/Objective-C/CrashCollection/Pod使用过程中遇到的问题/" class="leancloud_visitors" data-flag-title="Pod使用过程中遇到的问题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1788,17 +1850,55 @@ Object
       
         
           
-          安装篇一. CocoaPods简介CocoaPods是iOS的包管理工具.
-二. CocoaPods安装1. 安装RubyCocoaPods基于Ruby语言开发而成, Mac系统默认自带Ruby环境, 检测是否安装Ruby:12gem -v2.6.7
-2. 安装 gemgem 是一个管理 Ruby 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/10/Objective-C/CrashCollection/Pod使用过程中遇到的问题/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="安装篇"><a href="#安装篇" class="headerlink" title="安装篇"></a>安装篇</h1><h2 id="一-CocoaPods简介"><a href="#一-CocoaPods简介" class="headerlink" title="一. CocoaPods简介"></a>一. CocoaPods简介</h2><p>CocoaPods是iOS的包管理工具.</p>
+<h2 id="二-CocoaPods安装"><a href="#二-CocoaPods安装" class="headerlink" title="二. CocoaPods安装"></a>二. CocoaPods安装</h2><h3 id="1-安装Ruby"><a href="#1-安装Ruby" class="headerlink" title="1. 安装Ruby"></a>1. 安装Ruby</h3><p>CocoaPods基于Ruby语言开发而成, Mac系统默认自带Ruby环境, 检测是否安装Ruby:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gem -v</div><div class="line">2.6.7</div></pre></td></tr></table></figure></p>
+<h3 id="2-安装-gem"><a href="#2-安装-gem" class="headerlink" title="2. 安装 gem"></a>2. 安装 gem</h3><p><a href="https://rubygems.org/" target="_blank" rel="external">gem 是一个管理 Ruby 库和程序的标准包, 它通过Ruby Gem 源来查找、安装、升级和卸载软件包</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gem source -l</div><div class="line">*** CURRENT SOURCES ***</div><div class="line"></div><div class="line">https://gems.ruby-china.org/</div></pre></td></tr></table></figure></p>
+<p>使用 <code>gem source -l</code> 命令可以查看当前gem源, 并用 <code>https://gems.ruby-china.org/</code> 替换掉原有的gem源, 由于国内网络问题你懂得…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//移除源</div><div class="line">gem sources --remove https://rubygems.org/ </div><div class="line"></div><div class="line">//添加源</div><div class="line">gem sources -a https://gems.ruby-china.org/</div></pre></td></tr></table></figure>
+<p>完成上面两步之后再次执行 <code>gem source -l</code> 查下看是否 gem 安装成功</p>
+<h3 id="3-安装CocoaPods"><a href="#3-安装CocoaPods" class="headerlink" title="3. 安装CocoaPods"></a>3. 安装CocoaPods</h3><p><a href="https://guides.cocoapods.org/" target="_blank" rel="external">CocoaPods官网</a></p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a><font color="#FF0000">Installation</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods</div></pre></td></tr></table></figure>
+<p>安装中….<br>检测pod是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pod --version</div><div class="line">1.2.1</div></pre></td></tr></table></figure></p>
+<p>出现上面的信息说明安装成功, 一次就成了, 不知道安装失败的情形….</p>
+<h1 id="使用篇"><a href="#使用篇" class="headerlink" title="使用篇"></a>使用篇</h1><h2 id="1-为工程创建pod"><a href="#1-为工程创建pod" class="headerlink" title="1. 为工程创建pod"></a>1. 为工程创建pod</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd 工程目录</div><div class="line">pod init</div></pre></td></tr></table></figure>
+<p>会在工程目录下出现 <code>Podfile</code> 文件</p>
+<h2 id="2-编辑Podfile"><a href="#2-编辑Podfile" class="headerlink" title="2. 编辑Podfile"></a>2. 编辑Podfile</h2><p>Podfile文件中写入我们需要的第三方库, 比如添加 AFNetworking Podfile内容如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//当前类库支持的iOS最低版本是iOS 7.0</div><div class="line">platform :ios, &apos;7.0&apos;</div><div class="line"></div><div class="line">//类库名称和版本</div><div class="line">pod &apos;AFNetworking&apos;, &apos;~&gt; 3.0&apos;</div></pre></td></tr></table></figure></p>
+<p>使用 <code>pod search AFNetworking</code> 即可得到 <code>AFNetworking</code> 的相关信息.</p>
+<h2 id="3-pod-install-导入第三方库"><a href="#3-pod-install-导入第三方库" class="headerlink" title="3. pod install 导入第三方库"></a>3. pod install 导入第三方库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod install</div></pre></td></tr></table></figure>
+<p>使用 <code>pod install</code> 导入第三方库, 导入成功后, 工程中会出现 <code>AdHubSDK.xcworkspace</code> 这个文件, 以后只需打开它就可以了.</p>
+<h1 id="使用CocoaPod打包"><a href="#使用CocoaPod打包" class="headerlink" title="使用CocoaPod打包"></a>使用CocoaPod打包</h1><h2 id="1-基于pod命令创建SDK"><a href="#1-基于pod命令创建SDK" class="headerlink" title="1. 基于pod命令创建SDK"></a>1. 基于pod命令创建SDK</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod lib create MyCustomLib</div></pre></td></tr></table></figure>
+<p>调用以后terminal中会需要填写以下问题, 一般选择创建Demo, 其他选项根据需求填写:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">What language do you want to use?? [ Swift / ObjC ]</div><div class="line">&gt; ObjC</div><div class="line"></div><div class="line">Would you like to include a demo application with your library? [ Yes / No ]</div><div class="line">&gt; YES</div><div class="line"></div><div class="line">Which testing frameworks will you use? [ Specta / Kiwi / None ]</div><div class="line">&gt; None</div><div class="line"></div><div class="line">Would you like to do view based testing? [ Yes / No ]</div><div class="line">&gt; Yes</div><div class="line"></div><div class="line">What is your class prefix?</div><div class="line">&gt; QC</div></pre></td></tr></table></figure></p>
+<h2 id="2-podspec-文件的内容结构"><a href="#2-podspec-文件的内容结构" class="headerlink" title="2. podspec 文件的内容结构"></a>2. podspec 文件的内容结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">#</div><div class="line"># Be sure to run `pod lib lint AdHubAdNetwork.podspec&apos; to ensure this is a</div><div class="line"># valid spec before submitting.</div><div class="line">#</div><div class="line"># Any lines starting with a # are optional, but their use is encouraged</div><div class="line"># To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html</div><div class="line">#</div><div class="line"></div><div class="line">Pod::Spec.new do |s|</div><div class="line">s.name             = &apos;AdHubAdNetwork&apos;</div><div class="line">s.version          = &apos;0.1.0&apos;</div><div class="line">s.summary          = &apos;BaiduSDK, AFPSDK, GDTSDK 广告SDK .&apos;</div><div class="line"></div><div class="line"># This description is used to generate tags and improve search results.</div><div class="line">#   * Think: What does it do? Why did you write it? What is the focus?</div><div class="line">#   * Try to keep it short, snappy and to the point.</div><div class="line">#   * Write the description between the DESC delimiters below.</div><div class="line">#   * Finally, don&apos;t worry about the indent, CocoaPods strips it!</div><div class="line"></div><div class="line">s.description      = &lt;&lt;-DESC</div><div class="line">收集BaiduSDK, AFPSDK, GDTSDK三家广告SDK综合在一起, 方便开发者下载使用.</div><div class="line">DESC</div><div class="line"></div><div class="line">s.homepage         = &apos;https://github.com/songMW/AdHubAdNetwork&apos;</div><div class="line"># s.screenshots     = &apos;www.example.com/screenshots_1&apos;, &apos;www.example.com/screenshots_2&apos;</div><div class="line">s.license          = &#123; :type =&gt; &apos;MIT&apos;, :file =&gt; &apos;LICENSE&apos; &#125;</div><div class="line">s.author           = &#123; &apos;songMW&apos; =&gt; &apos;songshoubing7664@163.com&apos; &#125;</div><div class="line">s.source           = &#123; :git =&gt; &apos;https://github.com/songMW/AdHubAdNetwork.git&apos;, :tag =&gt; s.version.to_s &#125;</div><div class="line"># s.social_media_url = &apos;https://twitter.com/&lt;TWITTER_USERNAME&gt;&apos;</div><div class="line"></div><div class="line">s.ios.deployment_target = &apos;7.0&apos;</div><div class="line"></div><div class="line">#s.source_files = &apos;AdHubAdNetwork/Classes/*&apos;</div><div class="line"></div><div class="line">#s.resource_bundles = &#123;</div><div class="line">#&apos;AdHubAdNetwork&apos; =&gt; [&apos;AdHubAdNetwork/Classes/**/*.bundle&apos;]</div><div class="line">#&#125;</div><div class="line"></div><div class="line">#s.vendored_libraries  = [&apos;AdHubAdNetwork/Classes/AFP/*.a&apos;, &apos;AdHubAdNetwork/Classes/GDT/*.a&apos;]</div><div class="line">#s.vendored_frameworks = [&apos;AdHubAdNetwork/Classes/AFP/*.framework&apos;, &apos;AdHubAdNetwork/Classes/Baidu/*.framework&apos;]</div><div class="line"></div><div class="line">s.frameworks = &apos;SystemConfiguration&apos;, &apos;CoreGraphics&apos;, &apos;CoreTelephony&apos;, &apos;Security&apos;, &apos;CoreLocation&apos;, &apos;JavaScriptCore&apos;, &apos;UIKit&apos;, &apos;StoreKit&apos;</div><div class="line">s.libraries  = &apos;iconv&apos;, &apos;sqlite3&apos;, &apos;stdc++&apos;, &apos;z&apos;</div><div class="line"></div><div class="line">s.subspec &apos;GDT&apos; do |gdt|</div><div class="line">gdt.source_files = &apos;AdHubAdNetwork/Classes/GDT/*&apos;</div><div class="line">gdt.vendored_libraries = &apos;AdHubAdNetwork/Classes/GDT/*.a&apos;</div><div class="line">end</div><div class="line"></div><div class="line">s.subspec &apos;Baidu&apos; do |baidu|</div><div class="line">baidu.resources = &apos;AdHubAdNetwork/Classes/Baidu/*.bundle&apos;</div><div class="line">baidu.vendored_libraries = &apos;AdHubAdNetwork/Classes/Baidu/*.a&apos;</div><div class="line">baidu.source_files = &apos;AdHubAdNetwork/Classes/Baidu/*&apos;</div><div class="line">end</div><div class="line"></div><div class="line">s.subspec &apos;AFP&apos; do |afp|</div><div class="line">afp.source_files = &apos;AdHubAdNetwork/Classes/AFP/*&apos;</div><div class="line">afp.vendored_frameworks = &apos;AdHubAdNetwork/Classes/AFP/*.framework&apos;</div><div class="line">afp.vendored_libraries  = &apos;AdHubAdNetwork/Classes/AFP/*.a&apos;</div><div class="line">afp.resources = &apos;AdHubAdNetwork/Classes/AFP/*.bundle&apos;</div><div class="line">end</div><div class="line"></div><div class="line"># s.public_header_files = &apos;AdHubAdNetwork/Classes/**/*.h&apos;</div><div class="line"># s.dependency &apos;AFNetworking&apos;, &apos;~&gt; 2.3&apos;</div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure>
+<p>后面会以这个实例来说遇到的问题.<br>podspec中重要参数:</p>
+<ul>
+<li><code>s.source</code> 在 github 或者其他平台上创建的仓库地址.</li>
+<li><code>s.source_files</code> 表示具体的源码的路径, 这里注意源码一般放到 Classes 文件夹目录下, 而且实体文件中不要有非源码内容放到Classes 文件夹. Classes 文件夹的所有内容都要 Add Targets To: MyCustomLib. 不要 Classes 文件夹或子文件夹中部分内容被 remove referrence.</li>
+<li><code>s.resource_bundles</code> 中的资源. 系统会自动将 MyCustomLib/Assets 文件夹下的内容, cocoapod 会将我们把 Assets 中的内容自动打包成 MyCustomLib.bundle.</li>
+<li><code>s.public_header_files</code> 用来指定需要对外部暴露的头文件的位置.</li>
+<li><code>s.frameworks</code> 和 <code>s.libraries</code>, 表示当前sdk依赖的系统的 framework 和类库.</li>
+<li><code>s.dependency</code> 表示当前 podspec 类库对外部第三方库的依赖. 如果使用 pod package 打包sdk时候, 这里的 dependency 会被自动添加前缀, 防止重复引用冲突. 而且这里的依赖只能是pod库(公有或者私有)的内容.</li>
+<li><code>s.subspec</code> 用来引入我们sdk依赖的自己的 framework 或者 .a 等静态库.</li>
+</ul>
+<h2 id="3-验证pod库"><a href="#3-验证pod库" class="headerlink" title="3. 验证pod库"></a>3. 验证pod库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod lib lint</div></pre></td></tr></table></figure>
+<ul>
+<li>–allow-warnings 忽略警告</li>
+<li>–verbose, –no-clean 查看详情</li>
+</ul>
+<h2 id="4-上传git"><a href="#4-上传git" class="headerlink" title="4. 上传git"></a>4. 上传git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//上传代码到仓库</div><div class="line">git add .</div><div class="line">git commit -m &quot;需要填写&quot;</div><div class="line">git remote add origin http://github/xxx.git</div><div class="line">git push -u origin master</div><div class="line"></div><div class="line">//添加 tag</div><div class="line">git tag -a 0.1.0 -m &quot;v0.1.0&quot;</div><div class="line">git push origin --tags</div><div class="line"></div><div class="line">//删除 tag</div><div class="line">git tag -d [tagVersion]</div><div class="line">git push origin --delete tag [tagVersion]</div></pre></td></tr></table></figure>
+<h2 id="5-上传podspec到cocoa-pods官网的仓库"><a href="#5-上传podspec到cocoa-pods官网的仓库" class="headerlink" title="5. 上传podspec到cocoa pods官网的仓库"></a>5. 上传podspec到cocoa pods官网的仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk push MyExtension.podspec</div></pre></td></tr></table></figure>
+<p>[注册trunk] (<a href="https://guides.cocoapods.org/terminal/commands.html#pod_trunk_register" target="_blank" rel="external">https://guides.cocoapods.org/terminal/commands.html#pod_trunk_register</a>)</p>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p><a href="http://www.jianshu.com/p/c28fc53cdad1" target="_blank" rel="external">网上总结的帖子</a></p>
+<h2 id="问题1-install，update速度慢"><a href="#问题1-install，update速度慢" class="headerlink" title="问题1. install，update速度慢"></a>问题1. install，update速度慢</h2><p>出现原因: 你本地的repo库太长时间没有更新了<br>解决办法: pod repo update</p>
+<p>原因在于当执行以上两个命令的时候会升级CocoaPods的specs仓库, 如果不想在install, update的时候升级specs库, 可以使用参数忽略掉<br>pod install –no-repo-update<br>pod update –no-repo-update</p>
+<h2 id="问题2-Swift类库"><a href="#问题2-Swift类库" class="headerlink" title="问题2. Swift类库"></a>问题2. Swift类库</h2><p>导入Swift语言编写的类库时需要加use_frameworks!</p>
+<h2 id="问题3-Error-installing-ProtoCompiler"><a href="#问题3-Error-installing-ProtoCompiler" class="headerlink" title="问题3. [!] Error installing !ProtoCompiler"></a>问题3. [!] Error installing !ProtoCompiler</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[!] Error installing !ProtoCompiler</div><div class="line">[!] /usr/bin/curl -f -L -o /var/folders/nc/t1y4crs914bdytqxx1q_97lr0000gn/T/d20170521-1306-120ndjz/file.zip https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-osx-x86_64.zip --create-dirs --netrc-optional</div><div class="line"></div><div class="line">% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</div><div class="line">Dload  Upload   Total   Spent    Left  Speed</div><div class="line">100   604    0   604    0     0    407      0 --:--:--  0:00:01 --:--:--   407</div><div class="line">0     0    0     0    0     0      0      0 --:--:--  0:01:16 --:--:--     0curl: (7) Failed to connect to github-cloud.s3.amazonaws.com port 443: Operation timed out</div></pre></td></tr></table></figure>
+<h3 id="解决方法：执行sudo-xcode-select-switch-Applications-Xcode-app-Contents-Developer-switch-后面加上你的Xcode-app包内容里的Developer的文件夹路径即可"><a href="#解决方法：执行sudo-xcode-select-switch-Applications-Xcode-app-Contents-Developer-switch-后面加上你的Xcode-app包内容里的Developer的文件夹路径即可" class="headerlink" title="解决方法：执行sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer (-switch 后面加上你的Xcode.app包内容里的Developer的文件夹路径即可)"></a>解决方法：执行sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer (-switch 后面加上你的Xcode.app包内容里的Developer的文件夹路径即可)</h3><h2 id="问题4-iOS-file-patterns-The-source-files-pattern-did-not-match-any-file"><a href="#问题4-iOS-file-patterns-The-source-files-pattern-did-not-match-any-file" class="headerlink" title="问题4. [iOS] file patterns: The source_files pattern did not match any file."></a>问题4. [iOS] file patterns: The <code>source_files</code> pattern did not match any file.</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- ERROR | [iOS] file patterns: The `source_files` pattern did not match any file.</div></pre></td></tr></table></figure>
+<p>指定共享的类库时设置 s.source_files 发生了错误, 这里的路径是相对于 xx.podspec 文件的, 如果是与 xx.podspec 同级的文件夹, 直接写文件夹名称即可, 如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">s.source_files = &quot;xx&quot;</div><div class="line">s.source_files = &quot;xx/*.&#123;h,m&#125;&quot;</div></pre></td></tr></table></figure></p>
+<p>如果有多级目录, 一定要逐级添加.<br>或者 进入 <code>/Users/user/Library/Caches/CocoaPods/Pods/External</code> 中找到正在编译的文件, 看是否存在库文件</p>
+<h2 id="问题-pod-升级出现下面的错误"><a href="#问题-pod-升级出现下面的错误" class="headerlink" title="问题. pod 升级出现下面的错误"></a>问题. pod 升级出现下面的错误</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Fetching: claide-1.0.2.gem (100%)</div><div class="line">Successfully installed claide-1.0.2</div><div class="line">Fetching: xcodeproj-1.5.0.gem (100%)</div><div class="line">ERROR:  While executing gem ... (Errno::EPERM)</div><div class="line">Operation not permitted - /usr/bin/xcodeproj</div></pre></td></tr></table></figure>
+<p>在 <code>stackoverflow</code> 搜到的解释是这样的, <code>This is happening because Apple has enabled rootless on the new install</code>, 在10.11系统上苹果已经启用无根的安装. 在这种情况下, 需使用如下的命令: sudo gem install -n /usr/local/bin cocoapods –pre 升级到 <code>1.3.0.beta.1</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Successfully installed xcodeproj-1.5.0</div><div class="line">Fetching: cocoapods-core-1.3.0.beta.1.gem (100%)</div><div class="line">Successfully installed cocoapods-core-1.3.0.beta.1</div><div class="line">Fetching: cocoapods-1.3.0.beta.1.gem (100%)</div><div class="line">Successfully installed cocoapods-1.3.0.beta.1</div><div class="line">Parsing documentation for xcodeproj-1.5.0</div><div class="line">Installing ri documentation for xcodeproj-1.5.0</div><div class="line">Parsing documentation for cocoapods-core-1.3.0.beta.1</div><div class="line">Installing ri documentation for cocoapods-core-1.3.0.beta.1</div><div class="line">Parsing documentation for cocoapods-1.3.0.beta.1</div><div class="line">Installing ri documentation for cocoapods-1.3.0.beta.1</div><div class="line">3 gems installed</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -1923,20 +2023,12 @@ Object
 
           
             
+			
+			
+			
           
 
           
-          
-             <span id="/2017/03/04/Objective-C/Other/开发者账号申请流程/" class="leancloud_visitors" data-flag-title="开发者账号申请流程">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1960,20 +2052,28 @@ Object
       
         
           
-          什么是开发者账号? 为什么要申请? 有什么用?
-在进行iOS开发时, 不可缺少的一件事就是去申请开发者账号…
-开发者中心下载Xcode编译器, 配置开发者证书进行真机测试来调试, 项目打包并发布上线到AppStore了, 而这些步骤都是需要开发者账号的. 
-
-开发者账号类型
-个人账号     用于个
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/04/Objective-C/Other/开发者账号申请流程/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="什么是开发者账号-为什么要申请-有什么用"><a href="#什么是开发者账号-为什么要申请-有什么用" class="headerlink" title="什么是开发者账号? 为什么要申请? 有什么用?"></a><em>什么是开发者账号? 为什么要申请? 有什么用?</em></h1><ol>
+<li>在进行iOS开发时, 不可缺少的一件事就是去申请开发者账号…</li>
+<li>开发者中心下载Xcode编译器, 配置开发者证书进行真机测试来调试, 项目打包并发布上线到AppStore了, 而这些步骤都是需要开发者账号的. </li>
+</ol>
+<h1 id="开发者账号类型"><a href="#开发者账号类型" class="headerlink" title="开发者账号类型"></a><em>开发者账号类型</em></h1><ol>
+<li>个人账号     用于个人开发者进行开发和向App Store上传应用      只能有一个开发者并且调试设备数量受限     99$</li>
+<li>公司账号     用于公司或团队进行开发和向App Store上传应用      可以有多个开发者并且调试设备数量受限     99$</li>
+<li>企业账号     用于企业内部发布不需要审核不能发布应用到App Store 任何设备都可以通过苹果OTA方式进行安装    299$</li>
+<li>教育账号     苹果给教育机构的账号需要苹果进行审批             不可以发布到App Store且需要是教育机构   free</li>
+</ol>
+<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a><em>前期准备</em></h1><ol>
+<li>公司邮箱注册AppleID一个(用来接收苹果和邓白氏的邮件);</li>
+<li>公司英文名称; 公司办公地址,英文; 公司座机电话; 联系人; 联系人电话;</li>
+<li>公司和企业申请苹果开发者账号, 是需要一个邓白氏码的. 这个是苹果用来确认你企业资格的一个东西, 一般如果企业以前没有申请过的话, 苹果提供入口让你提交申请. 如果已经有的话,时间会减少很多.</li>
+</ol>
+<p><a href="https://developer.apple.com/programs/enroll/" target="_blank" rel="external">Start Your Enrollment</a></p>
+<p><a href="https://developer.apple.com/support/D-U-N-S/" target="_blank" rel="external">D-U-N-S® Number</a></p>
+<p>登录成功之后会出现下面这个界面:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">    Apple ID Information</div><div class="line">    The information on this Apple ID account will be used for verification and legal agreements, so please make sure your legal name and country are correct. To edit your account information, contact us.</div><div class="line">Email   注册邮箱地址</div><div class="line">Name    userName</div><div class="line">Country China</div><div class="line"></div><div class="line">下面一行是选择开发者账号的用途, 第一个是个人, 第二个是公司, 第三个是政府, 一般选择第二个</div><div class="line"></div><div class="line">Please note: In order for your company name to be listed as the seller on the App Store, your company must be recognized as a legal entity in your country. Sole proprietors and single person companies located in countries where they are not recognized as legal entities will be enrolled and be listed for download under the enrollee’s personal legal name, if selected for distribution by Apple.</div><div class="line">To enroll, you will need:</div><div class="line">Legal Entity Status</div><div class="line">To enroll in a developer program, your organization must be a legal entity so that it can enter into legal agreements with Apple. We do not accept DBAs, fictitious businesses, trade names, or branches. The legal entity name must correspond with the tax ID you plan to use and will appear as the “seller” for apps you may distribute on the App Store and Mac App Store. </div><div class="line">        Example: Seller: ABC Company, Inc.</div><div class="line"></div><div class="line">A D-U-N-S® Number</div><div class="line">Your organization must have a D-U-N-S® Number so that we can verify your organization’s identity and legal entity status. These unique nine-digit numbers are assigned by Dun &amp; Bradstreet and are widely used as standard business identifiers. You can check to see if your organization already has a D-U-N-S® Number and request one if necessary. They are free in most jurisdictions. </div><div class="line"></div><div class="line">The Authority to Sign Legal Agreements</div><div class="line">As the person enrolling your organization in a developer program, you must have the legal authority to bind your organization to legal agreements. You must be the organization’s owner/founder, executive team member, senior project lead, or have legal authority granted to you by a senior employee.</div></pre></td></tr></table></figure></p>
+<h2 id="申请邓白氏码"><a href="#申请邓白氏码" class="headerlink" title="申请邓白氏码"></a>申请邓白氏码</h2><p>在申请页面提交信息后, 隔3天左右会接到一个电话和收到一封邮件.<br>电话主要是询问是否是你申请邓白氏服务, 然后让你查收邮件.<br>这个邮件比较急, 当时收到邮件 11:41, 下午 13：30 之前要把邮件回复. 所以要提前准备好材料<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">苹果项目联系人</div><div class="line">您好, 我们是华夏邓白氏,我们需要跟您核实下企业信息: 最晚在2017-6-5下午13：30</div><div class="line">前回复邮件，一直不回到期会自动取消，如有问题可以邮件告知，</div><div class="line">1.公司名称(中文，英文后缀规范Co., Ltd.或者Inc.)(若名称有过变更，请告知变更前名称):</div><div class="line">2.详细现在上班地址(中文和英文):</div><div class="line">3.邮编:</div><div class="line">4.公司有无英文简称:</div><div class="line">5.有无分公司或办事处(只需填有或无):</div><div class="line">6.公司的主营业务(一个最主要的):</div><div class="line">7.公司员工人数：</div><div class="line">8.联系人(中文)</div><div class="line">姓名:</div><div class="line">性别:</div><div class="line">座机:</div><div class="line">手机:</div><div class="line">职位:</div><div class="line">9.营业执照的照片或扫描件(清晰可见即可)如是事业单位请出示法人证</div><div class="line">辛苦您了！如有问题电话联系我：021-2610 7629</div><div class="line">您回复我后，我帮您申请审核处理好，48小时内，系统会把duns编码发到您在苹果公司留下的邮箱， 48小时未收到邮件可回复给我，会告知您的。得到编码后，快的7个工作日，慢的14个工作日（太早使用，数据信息苹果没收到会说没有联系方式，直接帮您重置，你又要重新申请），最多尝试3次然后走后续流程。如要修改信息可以及时回复邮件。</div><div class="line">如有接下来流程问题，您可以打苹果客服：4006701855</div></pre></td></tr></table></figure></p>
+<p>邮件按步骤回复完成之后, 在晚上6点左右的时候就收到邓白氏码.<br>第二天又收到一封邮件内容是告诉你邓白氏码已经更新成功, 然后要等7-14天以后在使用 <code>You may start using your number in 14 days.</code><br>到此为止, 邓白氏码申请成功.</p>
+<h2 id="开始申请账号"><a href="#开始申请账号" class="headerlink" title="开始申请账号"></a>开始申请账号</h2>
+          
         
       
     </div>
@@ -2047,6 +2147,183 @@ Object
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">64</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
           
 
           
@@ -2124,7 +2401,7 @@ Object
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.3</div>
 
 
 
@@ -2171,8 +2448,6 @@ Object
 
 
 
-  
-
 
 
 
@@ -2202,18 +2477,13 @@ Object
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.3"></script>
 
 
 
@@ -2221,9 +2491,9 @@ Object
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.3"></script>
 
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.3"></script>
 
 
 
@@ -2232,7 +2502,7 @@ Object
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.3"></script>
 
 
 
@@ -2268,128 +2538,8 @@ Object
 
 
 
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
 
   
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
-
-
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("ig60R2zJJucsoSLJ600AaLnC-gzGzoHsz", "gw0oPYc06slpipLCNvl0fgzH");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 
