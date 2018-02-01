@@ -5,12 +5,15 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -38,10 +41,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -50,43 +49,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.0.3" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.3">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.3">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.3">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="stack.blog" type="application/atom+xml" />
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.3" color="#222">
 
 
 
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="stack.blog">
-<meta property="og:url" content="https://github.com/songMW/stack.github.io/page/2/index.html">
-<meta property="og:site_name" content="stack.blog">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stack.blog">
 
 
 
@@ -94,16 +75,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
+    scheme: 'Muse',
+    version: '6.0.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: 'QONN7Z36EX',
       apiKey: 'f54c85840d7d3cf49cd0dae9ea2b7fbc',
@@ -115,13 +94,38 @@
 </script>
 
 
+  
+
+
+
+
+  
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="stack.blog">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/page/2/index.html">
+<meta property="og:site_name" content="stack.blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="stack.blog">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="stack.blog" type="application/atom+xml" />
+
+
+
 
   <link rel="canonical" href="https://github.com/songMW/stack.github.io/page/2/"/>
 
 
 
-
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
   <title>stack.blog</title>
   
 
@@ -131,6 +135,34 @@
 
 
 
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
 </head>
 
@@ -146,7 +178,7 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+      <div class="header-inner"> <div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
@@ -180,113 +212,33 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
         </li>
       
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
       
     </ul>
   
 
   
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
-  
 </nav>
+
+
+  
 
 
 
  </div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
@@ -301,6 +253,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -337,13 +291,12 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-04T11:05:05+08:00">
-                2017-06-04
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-04T11:05:05+08:00">2017-06-04</time>
             
 
+            
             
 
             
@@ -358,47 +311,31 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index">
-                    <span itemprop="name">KnowledgeLists</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index"><span itemprop="name">KnowledgeLists</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/KV-X/" itemprop="url" rel="index">
-                    <span itemprop="name">KV_X</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/KV-X/" itemprop="url" rel="index"><span itemprop="name">KV_X</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/KV-X/KVC/" itemprop="url" rel="index">
-                    <span itemprop="name">KVC</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/KV-X/KVC/" itemprop="url" rel="index"><span itemprop="name">KVC</span></a></span>
 
                 
                 
@@ -411,17 +348,6 @@
           
 
           
-          
-             <span id="/2017/06/04/Objective-C/KV_X/KVC/" class="leancloud_visitors" data-flag-title="KVC">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -445,19 +371,71 @@
       
         
           
-          NSKeyValueCoding简介
-A mechanism by which you can access the properties of an object indirectly by name or key。
+            <h2 id="NSKeyValueCoding简介"><a href="#NSKeyValueCoding简介" class="headerlink" title="NSKeyValueCoding简介"></a>NSKeyValueCoding简介</h2><blockquote>
+<p>A mechanism by which you can access the properties of an object indirectly by name or key。</p>
+</blockquote>
+<ol>
+<li>KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属性的机制;</li>
+<li>KVC 是通过字符串的名字 [key] 来访问类属性的机制, 而不是通过调用 setter、getter 方法去访问；</li>
+<li>KVC 是通过名称（键）简介访问和操作对象的属性；</li>
+<li>KVC 的键是属性的名称，值是属性的值。</li>
+</ol>
+<h2 id="对象的属性"><a href="#对象的属性" class="headerlink" title="对象的属性"></a>对象的属性</h2><p>对象的内部状态是由属性封装，该状态无法直接读取，需要使用属性的访问方法：setter和getter；编译器会自动生成setter和getter方法，减少手动编写的代码量并提高了程序的一致性和可维护性。</p>
+<h3 id="如何获取对象的属性"><a href="#如何获取对象的属性" class="headerlink" title="如何获取对象的属性"></a>如何获取对象的属性</h3><ol>
+<li>使用标准的属性访问方法访问该属性；</li>
+<li>使用点语法访问，编译器会自动将属性的点表达式转换为对应的调用访问方法的语句 -&gt; 标准的属性访问方法。</li>
+</ol>
+<h3 id="使用标准属性访问方法更新模型"><a href="#使用标准属性访问方法更新模型" class="headerlink" title="使用标准属性访问方法更新模型"></a>使用标准属性访问方法更新模型</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)updateModel:(<span class="built_in">NSString</span> *)value forKey:(<span class="built_in">NSString</span> *)key</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> ([key isEqualToStirng:<span class="string">@"age"</span>]) &#123;</div><div class="line">        <span class="keyword">self</span>.age = value;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> ([key isEqualToStirng:<span class="string">@"name"</span>]) &#123;</div><div class="line">        <span class="keyword">self</span>.name = value;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>每次属性的值发生改变时都需要调用这段代码来更新新值，不具备良好的伸缩性且难以维护。</p>
+<h3 id="使用键值编码更新模型"><a href="#使用键值编码更新模型" class="headerlink" title="使用键值编码更新模型"></a>使用键值编码更新模型</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)updateModel:(<span class="built_in">NSString</span> *)value forKey:(<span class="built_in">NSString</span> *)key</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">self</span> setValue: value forKey: key];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码量少了很多，易于维护和拓展，当模型中的属性发生变化时，无须逐个去更新模型值。</p>
+<h2 id="键和键路径"><a href="#键和键路径" class="headerlink" title="键和键路径"></a>键和键路径</h2><ol>
+<li>键是用于标识属性的字符串；</li>
+<li>键路径指明了需要遍历的对象的属性序列。</li>
+</ol>
+<h3 id="使用KVC获取多个属性的值"><a href="#使用KVC获取多个属性的值" class="headerlink" title="使用KVC获取多个属性的值"></a>使用KVC获取多个属性的值</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSArray</span> *array = @[<span class="string">@"name"</span>, <span class="string">@"age"</span>];</div><div class="line"><span class="built_in">NSDictionary</span> *dict = [person dictionaryWithValuesForKeys:array];</div></pre></td></tr></table></figure>
+<p>这里的 <code>name</code> 和 <code>age</code> 属性都是 <code>person</code> 类的实例。</p>
+<h3 id="使用KVC设置多个属性值"><a href="#使用KVC设置多个属性值" class="headerlink" title="使用KVC设置多个属性值"></a>使用KVC设置多个属性值</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Name *tom = [[Name alloc]init];</div><div class="line">Address *home = [[Address alloc]init];</div><div class="line"><span class="built_in">NSDictionary</span> *personProperties = @&#123;<span class="string">@"name"</span> : tom, <span class="string">@"address"</span> : home&#125;;</div><div class="line">[person setValuesForKeysWithDictionary:personProperties];</div></pre></td></tr></table></figure>
+<p>这里只要是  <code>person</code> 类中的实例都可以去设置，因为KVC可以遍历键路径。 简单的说就是 <code>person.zone...</code> 这样的形式。</p>
+<h2 id="实现KVC"><a href="#实现KVC" class="headerlink" title="实现KVC"></a>实现KVC</h2><p>键值编码的设计基于以下两种基本的机制：</p>
+<ol>
+<li>通过名称/键间接访问对象的属性，而不是直接调用访问方法；</li>
+<li>将键与属性访问方法或属性支持的变量对应起来。</li>
+</ol>
+<p>非正式协议 <code>NSKeyValueCoding</code> 定义了通过名称/键间接访问对象属性的机制。<code>NSObject</code> 类遵循  <code>NSKeyValueCoding</code>  协议，因此它的所有类都为键值编码提供支持。</p>
+<h3 id="键值编码API"><a href="#键值编码API" class="headerlink" title="键值编码API"></a>键值编码API</h3><p>非正式协议 <code>NSKeyValueCoding</code> 定义了标准的键值编码API，这些方法可以获取/设置属性值，属性验证及配置键值编码操作。</p>
+<h4 id="accessInstanceVariablesDirectly"><a href="#accessInstanceVariablesDirectly" class="headerlink" title="accessInstanceVariablesDirectly"></a><code>accessInstanceVariablesDirectly</code></h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+ (<span class="built_in">BOOL</span>)accessInstanceVariablesDirectly;</div></pre></td></tr></table></figure>
+<p>该方法返回一个BOOL值， YES表示键值编码可以直接访问相应的实例变量，NO表示不能只能搜索 <code>set&lt;key&gt;</code>的名称。<br>默认返回YES，可以重写该方法。</p>
+<h4 id="valueForUndefinedKey"><a href="#valueForUndefinedKey" class="headerlink" title="valueForUndefinedKey"></a><code>valueForUndefinedKey</code></h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">id</span>)valueForUndefinedKey:(<span class="built_in">NSString</span> *)key;</div></pre></td></tr></table></figure>
+<p>当 <code>valueForKey:</code> 方法发现没有与输入的键对应的时候会调用。<br>未定义键方法的默认实现会抛出<code>NSUndefinedKeyException</code>异常，可以在子类中重写使未定义键返回自定义值。</p>
+<h4 id="setValue-forUndefinedKey"><a href="#setValue-forUndefinedKey" class="headerlink" title="setValue:forUndefinedKey:"></a><code>setValue:forUndefinedKey:</code></h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setValue:(<span class="keyword">id</span>)value forUndefinedKey:(<span class="built_in">NSString</span> *)key</div></pre></td></tr></table></figure>
+<p>当 <code>setValue:forKey:</code> 方法发现没有与输入的键对应的时候会调用。<br>未定义键方法的默认实现会抛出<code>NSUndefinedKeyException</code>异常，可以在子类中重写使未定义键返回自定义值。</p>
+<h4 id="valueForUndefinedKey：方法的实现"><a href="#valueForUndefinedKey：方法的实现" class="headerlink" title="valueForUndefinedKey：方法的实现"></a>valueForUndefinedKey：方法的实现</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">id</span>)valueForUndefinedKey:(<span class="built_in">NSString</span> *)key</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="literal">nil</span> == key &amp;&amp; [<span class="string">@"hello"</span> isEqualToString: key]) &#123;</div><div class="line">        <span class="keyword">return</span> 自定义值；</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 抛出异常</span></div><div class="line">    [<span class="built_in">NSException</span> raise: <span class="built_in">NSUndefinedKeyException</span> format: <span class="string">@"key %@ not defined"</span>, key];</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="setNilValueForKey-NSString-key"><a href="#setNilValueForKey-NSString-key" class="headerlink" title="setNilValueForKey:(NSString *)key"></a><code>setNilValueForKey:(NSString *)key</code></h4><p>如果设置的属性是基本数据类型时，不能<code>setValue:nil</code> ，会crash。需要重写这个方法。</p>
+<h4 id="validateValue-forKey-error"><a href="#validateValue-forKey-error" class="headerlink" title="validateValue:forKey:error:"></a><code>validateValue:forKey:error:</code></h4><p>它可以用来检查 set 的值是否正确、为不正确的值做一个替换值或者拒绝设置新值并返回错误原因。</p>
+<h4 id="validateValue-forKeyPath-error"><a href="#validateValue-forKeyPath-error" class="headerlink" title="validateValue:forKeyPath:error"></a><code>validateValue:forKeyPath:error</code></h4><h4 id="集合返回可变实例"><a href="#集合返回可变实例" class="headerlink" title="集合返回可变实例"></a>集合返回可变实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSMutableArray *items = [order mutaleArrayValueForKey:@&quot;items&quot;];</div></pre></td></tr></table></figure>
+<p>即使是只读集合，也可以返回可变集合实例。</p>
+<h3 id="键值搜索-setValue-forKey-调用顺序"><a href="#键值搜索-setValue-forKey-调用顺序" class="headerlink" title="键值搜索 setValue:forKey: 调用顺序"></a>键值搜索 <code>setValue:forKey:</code> 调用顺序</h3><ol>
+<li>搜索目标类寻找名称符合格式 <code>set&lt;Key&gt;:</code> ，<code>setIs&lt;Key&gt;:</code> 的访问方法，<code>key</code>是属性名称；比如：key = “name”，KVC在目标类中搜索名为<code>setName:</code>的访问方法；</li>
+<li>如果没有搜索到访问方法，<code>accessInstanceVariablesDirectly</code> 返回YES，就会在目标类中搜索名称为 <code>_&lt;key&gt;</code>，<code>_is&lt;Key&gt;</code>，<code>&lt;key&gt;</code>，<code>is&lt;Key&gt;</code> 格式的实例变量。注：搜索优先级从高到低。</li>
+<li>如果找到了匹配的访问方法或者实例变量，<code>setValue:forKey:</code>  就会被用于设置值；</li>
+<li>如果没有找到匹配的访问方法或实例变量，接收对象 <code>setValue:forUndefinedKey:</code> 会被调用。</li>
+</ol>
+<p>代码验证：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"HBBaseModel.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">KVCModel</span> : <span class="title">HBBaseModel</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSString</span> *_name;</div><div class="line">    <span class="built_in">NSString</span> *_isName;</div><div class="line">    <span class="built_in">NSString</span> *name;</div><div class="line">    <span class="built_in">NSString</span> *isName;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)newName;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">KVCModel</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">instancetype</span>)init</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</div><div class="line">        _name = <span class="string">@"_name"</span>;</div><div class="line">        _isName = <span class="string">@"_isName"</span>;</div><div class="line">        name = <span class="string">@"name"</span>;</div><div class="line">        isName = <span class="string">@"isName"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 1. 有set&lt;Key&gt;, 此时打印结果只有 _name 和 _isName 的值改变为 newName</span></div><div class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)newName</div><div class="line">&#123;</div><div class="line">    _name = newName;</div><div class="line">    _isName = newName;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 2. 如果注释掉 set&lt;Key&gt;， 会去调用 accessInstanceVariablesDirectly， 如果返回YES时会去查找实例变量，执行 3-6步；返回NO，则不会去查找实例变量，执行第8步。</span></div><div class="line"></div><div class="line"><span class="comment">// 3. 注释掉set&lt;Key&gt;, 此时只有 _name 的值改变为设置的新值；</span></div><div class="line"><span class="comment">// 4. 注释掉 _name, 此时只有 _isName 的值改变为设置的新值；</span></div><div class="line"><span class="comment">// 5. 注释掉_isName, 此时只有 name 的值改变为设置的新值；</span></div><div class="line"><span class="comment">// 6. 注释掉 name, 此时只有 isName 的值改变为设置的新值；</span></div><div class="line"><span class="comment">// 7. 如果没有查找到上述相关的KEY，则会执行第8步。</span></div><div class="line"></div><div class="line"><span class="comment">// 8. 都没有查找到对应KEY则会调用 setValue:forUndefinedKey:</span></div><div class="line"></div><div class="line">- (<span class="built_in">NSString</span> *)HB_description</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSString</span> *des = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"\n_name:%@\n_isName:%@\nname:%@\nisName:%@"</span>, _name, _isName, name, isName];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"=====================PRINT BEGIN====================="</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, des);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"=====================PRINT END======================="</span>);</div><div class="line">    <span class="keyword">return</span> des;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="键值搜索-valueForKey-调用顺序"><a href="#键值搜索-valueForKey-调用顺序" class="headerlink" title="键值搜索 valueForKey: 调用顺序"></a>键值搜索 <code>valueForKey:</code> 调用顺序</h3><ol>
+<li>获取方法的名称<key>访问方法格式，<code>get&lt;Key&gt;</code>，<code>&lt;key&gt;</code>，<code>is&lt;Key&gt;</code>。注：搜索优先级从高到低。</key></li>
+<li>如果没有搜索到访问方法，会去搜索<code>countOf&lt;Key&gt;</code> 和 <code>objectIn&lt;key&gt;AtIndex:(&lt;Key&gt;AtIndexes:)</code>这两个方法，一般很少用；</li>
+<li>如果没有搜索到上述方法，<code>accessInstanceVariablesDirectly</code> 返回YES，就会在目标类中搜索名称为  <code>_&lt;key&gt;</code> 格式的实例变量。注：网上有些教程说没有找到 <code>_&lt;key&gt;</code> 会按 <code>_is&lt;Key&gt;</code>，<code>&lt;key&gt;</code>，<code>is&lt;Key&gt;</code>  的顺序依次去查询，代码验证的时候发现 <code>_is&lt;Key&gt;</code>，<code>&lt;key&gt;</code>，<code>is&lt;Key&gt;</code>  返回都是null。</li>
+<li>如果找到了匹配的访问方法或者实例变量，<code>valueForKey:</code>  就会被用于获取值；</li>
+<li>如果没有找到匹配的访问方法或实例变量，接收对象 <code>valueForUndefinedKey:</code> 会被调用。</li>
+</ol>
+<p>代码验证：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"KVCModel.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">KVCModel</span>()</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>,<span class="keyword">strong</span>)<span class="built_in">NSMutableArray</span> *dataArray;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">KVCModel</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">instancetype</span>)init</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</div><div class="line">        _name = <span class="string">@"_name"</span>;</div><div class="line">        _isName = <span class="string">@"_isName"</span>;</div><div class="line">        name = <span class="string">@"name"</span>;</div><div class="line">        isName = <span class="string">@"isName"</span>;</div><div class="line"></div><div class="line">        _dataArray = [<span class="built_in">NSMutableArray</span> array];</div><div class="line">        [_dataArray addObject:_name];</div><div class="line">        [_dataArray addObject:_isName];</div><div class="line">        [_dataArray addObject:name];</div><div class="line">        [_dataArray addObject:isName];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 1. 首先查找 get&lt;Key&gt;</span></div><div class="line">- (<span class="built_in">NSString</span> *)getName</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">@"getName"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 2. 其次查找 &lt;key&gt;</span></div><div class="line">- (<span class="built_in">NSString</span> *)name</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">@"name"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 3. 然后是is&lt;Key&gt;</span></div><div class="line">- (<span class="built_in">NSString</span> *)isName</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">@"isName"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 如果1，2，3都没有查找到</span></div><div class="line"><span class="comment">// 4. 查找countOf&lt;Key&gt;</span></div><div class="line">- (<span class="built_in">NSUInteger</span>)countOfName</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>.dataArray.count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (KVCModel *)objectInNameAtIndex:(<span class="built_in">NSUInteger</span>)index</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> [<span class="keyword">self</span>.dataArray objectAtIndex:index];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 如果1，2，3，4都没有，查找accessInstanceVariablesDirectly</span></div><div class="line"><span class="comment">// 如果accessInstanceVariablesDirectly返回YES；</span></div><div class="line">查找_&lt;key&gt;格式的实例变量；没有该格式的变量时会执行第<span class="number">8</span>步。</div><div class="line"><span class="comment">// 如果accessInstanceVariablesDirectly返回NO, 执行第8步</span></div><div class="line"></div><div class="line"><span class="comment">// 8. 抛出异常</span></div><div class="line">- (<span class="keyword">id</span>)valueForUndefinedKey:(<span class="built_in">NSString</span> *)key</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">@""</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="自定义KVC"><a href="#自定义KVC" class="headerlink" title="自定义KVC"></a>自定义KVC</h3><h4 id="实现-setValue-forKey"><a href="#实现-setValue-forKey" class="headerlink" title="实现 setValue:forKey:"></a>实现 <code>setValue:forKey:</code></h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)HB_setValue:(<span class="keyword">id</span>)value forKey:(<span class="built_in">NSString</span> *)key</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (!key.length || !key) &#123;</div><div class="line">        <span class="built_in">NSException</span> *exception = [<span class="built_in">NSException</span> exceptionWithName:<span class="string">@"HBKeyValueCoding"</span> reason:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"key:%@ is not exist!"</span>, key] userInfo:<span class="literal">nil</span>];</div><div class="line">        <span class="keyword">@throw</span> exception;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// find set&lt;Key&gt;</span></div><div class="line">    <span class="built_in">NSString</span> *setKey = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"set%@:"</span>, key.capitalizedString];</div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> respondsToSelector:<span class="built_in">NSSelectorFromString</span>(setKey)]) &#123;</div><div class="line">        HBSuppressPerformSelectorLeakWarning(</div><div class="line">            [<span class="keyword">self</span> performSelector:<span class="built_in">NSSelectorFromString</span>(setKey) withObject:value];</div><div class="line">        )</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// find setIs&lt;Key&gt;</span></div><div class="line">    <span class="built_in">NSString</span> *setIsKey = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"setIs%@:"</span>,key.capitalizedString];</div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> respondsToSelector:<span class="built_in">NSSelectorFromString</span>(setIsKey)]) &#123;</div><div class="line">        HBSuppressPerformSelectorLeakWarning(</div><div class="line">            [<span class="keyword">self</span> performSelector:<span class="built_in">NSSelectorFromString</span>(setIsKey) withObject:value];</div><div class="line">        )</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// if set&lt;Key&gt; and setIs&lt;Key&gt; is not exist</span></div><div class="line">    <span class="built_in">BOOL</span> result = [<span class="keyword">self</span>.class accessInstanceVariablesDirectly];</div><div class="line">    <span class="keyword">if</span> (!result) &#123;</div><div class="line">        <span class="built_in">NSException</span> *exception = [<span class="built_in">NSException</span> exceptionWithName:<span class="string">@"HBKeyValueCoding"</span> reason:<span class="string">@"accessInstanceVariablesDirectly return NO!"</span> userInfo:<span class="literal">nil</span>];</div><div class="line">        <span class="keyword">@throw</span> exception;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// if accessInstanceVariablesDirectly return YES, find current class variables.</span></div><div class="line">    <span class="built_in">NSArray</span> *varLists = [<span class="keyword">self</span> HB_accessCurrenClassVariables];</div><div class="line"></div><div class="line">    <span class="comment">// _&lt;key&gt;</span></div><div class="line">    <span class="built_in">NSString</span> *keyName = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"_%@"</span>, key];</div><div class="line">    <span class="keyword">if</span> ([varLists containsObject:keyName]) &#123;</div><div class="line">        Ivar var = class_getInstanceVariable(<span class="keyword">self</span>.class, keyName.UTF8String);</div><div class="line">        object_setIvar(<span class="keyword">self</span>, var, value);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// _is&lt;Key&gt;</span></div><div class="line">    keyName = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"_is%@"</span>, key.capitalizedString];</div><div class="line">    <span class="keyword">if</span> ([varLists containsObject:keyName]) &#123;</div><div class="line">        Ivar var = class_getInstanceVariable(<span class="keyword">self</span>.class, keyName.UTF8String);</div><div class="line">        object_setIvar(<span class="keyword">self</span>, var, value);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// &lt;key&gt;</span></div><div class="line">    keyName = key;</div><div class="line">    <span class="keyword">if</span> ([varLists containsObject:keyName]) &#123;</div><div class="line">        object_setIvar(selIvar var = class_getInstanceVariable(<span class="keyword">self</span>.class, keyName.UTF8String);</div><div class="line">        object_setIvar(<span class="keyword">self</span>, var, value);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//is&lt;Key&gt;</span></div><div class="line">    keyName = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"is%@"</span>, key.capitalizedString];</div><div class="line">    <span class="keyword">if</span> ([varLists containsObject:keyName]) &#123;</div><div class="line">        Ivar var = class_getInstanceVariable(<span class="keyword">self</span>.class, keyName.UTF8String);</div><div class="line">        object_setIvar(<span class="keyword">self</span>, var, value);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// deal with exception</span></div><div class="line">    [<span class="keyword">self</span> setValue:value forUndefinedKey:key];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setValue:(<span class="keyword">id</span>)value forUndefinedKey:(<span class="built_in">NSString</span> *)key</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"\n ==================== IMPORTANT ===================="</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Class:%@ UndefinedKey: %@"</span>, <span class="built_in">NSStringFromClass</span>(<span class="keyword">self</span>.class), key);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"==================== IMPORTANT ===================="</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="实现-valueForKey"><a href="#实现-valueForKey" class="headerlink" title="实现 valueForKey:"></a>实现 <code>valueForKey:</code></h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">NSString</span> *)HB_valueForKey:(<span class="built_in">NSString</span> *)key</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSString</span> *value = <span class="string">@""</span>;</div><div class="line">    <span class="keyword">if</span> (!key.length || !key) &#123;</div><div class="line">        <span class="built_in">NSException</span> *exception = [<span class="built_in">NSException</span> exceptionWithName:<span class="string">@"HBKeyValueCoding"</span> reason:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"key:%@ is not exist!"</span>, key] userInfo:<span class="literal">nil</span>];</div><div class="line">        <span class="keyword">@throw</span> exception;</div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// find get&lt;Key&gt;</span></div><div class="line">    <span class="built_in">NSString</span> *getKey = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"get%@"</span>, key.capitalizedString];</div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> respondsToSelector:<span class="built_in">NSSelectorFromString</span>(getKey)]) &#123;</div><div class="line">        HBSuppressPerformSelectorLeakWarning(</div><div class="line">            value = [<span class="keyword">self</span> performSelector:<span class="built_in">NSSelectorFromString</span>(getKey)];</div><div class="line">        )</div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// if get&lt;Key&gt; not exist, find &lt;key&gt;</span></div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> respondsToSelector:<span class="built_in">NSSelectorFromString</span>(key)]) &#123;</div><div class="line">        HBSuppressPerformSelectorLeakWarning(</div><div class="line">            value = [<span class="keyword">self</span> performSelector:<span class="built_in">NSSelectorFromString</span>(key)];</div><div class="line">        )</div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// if &lt;key&gt; not exist, find is&lt;Key&gt;</span></div><div class="line">    <span class="built_in">NSString</span> *isKey = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"is%@"</span>, key.capitalizedString];</div><div class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> respondsToSelector:<span class="built_in">NSSelectorFromString</span>(isKey)]) &#123;</div><div class="line">        HBSuppressPerformSelectorLeakWarning(</div><div class="line">            value = [<span class="keyword">self</span> performSelector:<span class="built_in">NSSelectorFromString</span>(isKey)];</div><div class="line">        )</div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// find accessInstanceVariablesDirectly.</span></div><div class="line">    <span class="built_in">BOOL</span> result = [<span class="keyword">self</span>.class accessInstanceVariablesDirectly];</div><div class="line">    <span class="keyword">if</span> (!result) &#123;</div><div class="line">        <span class="built_in">NSException</span> *exception = [<span class="built_in">NSException</span> exceptionWithName:<span class="string">@"HBKeyValueCoding"</span> reason:<span class="string">@"accessInstanceVariablesDirectly return NO"</span> userInfo:<span class="literal">nil</span>];</div><div class="line">        <span class="keyword">@throw</span> exception;</div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">NSArray</span> *varLists = [<span class="keyword">self</span> HB_accessCurrenClassVariables];</div><div class="line">    <span class="built_in">NSString</span> *keyName = key;</div><div class="line">    <span class="built_in">NSString</span> *fisrtChar = [key substringToIndex:<span class="number">1</span>];</div><div class="line">    <span class="keyword">if</span> (![fisrtChar isEqualToString:<span class="string">@"_"</span>]) &#123;</div><div class="line">        keyName = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"_%@"</span>, key];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ([varLists containsObject:keyName]) &#123;</div><div class="line">        Ivar var = class_getInstanceVariable(<span class="keyword">self</span>.class, keyName.UTF8String);</div><div class="line">        <span class="keyword">id</span> varValue = object_getIvar(<span class="keyword">self</span>, var);</div><div class="line">        value = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@"</span>, varValue];</div><div class="line">         <span class="keyword">return</span> value;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// 异常处理</span></div><div class="line">    [<span class="keyword">self</span> valueForUndefinedKey:key];</div><div class="line">    <span class="keyword">return</span> value;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">id</span>)valueForUndefinedKey:(<span class="built_in">NSString</span> *)key</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"\n ==================== IMPORTANT ===================="</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"Class:%@ valueForUndefinedKey: %@"</span>, <span class="built_in">NSStringFromClass</span>(<span class="keyword">self</span>.class), key);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"==================== IMPORTANT ===================="</span>);</div><div class="line">    <span class="keyword">return</span> <span class="string">@"没有匹配到相关key:我也很为难！"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上是模拟KVC的实现方式，其中添加了容错处理，更容易去定位。日常开发中使用KVC用系统的就可以，手动实现 <code>valueForUndefinedKey</code> 和 <code>setValue: forUndefinedKey:</code> 即可。</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><h4 id="后台JSON数据转模型"><a href="#后台JSON数据转模型" class="headerlink" title="后台JSON数据转模型"></a>后台JSON数据转模型</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - Dict to be mapped in your model objects</span></div><div class="line">- (<span class="keyword">void</span>)HB_setterValuesForKeysWithDictionary:(<span class="built_in">NSDictionary</span> *)dict</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (dict &amp;&amp; dict.count) &#123;</div><div class="line">        [dict enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull key, <span class="keyword">id</span>  _Nonnull obj, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line">            [<span class="keyword">self</span> HB_setValue:obj forKey:key];</div><div class="line">        &#125;];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        <span class="built_in">NSAssert</span>(dict != <span class="literal">nil</span>, <span class="string">@"传入的字典为空或者不存在！"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - JSON to be mapped in your model objects</span></div><div class="line">- (<span class="keyword">void</span>)HB_setterValuesForKeysWithJSONString:(<span class="built_in">NSString</span> *)jsonString</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (jsonString.length) &#123;</div><div class="line">        <span class="built_in">NSData</span> *data = [jsonString dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line">        <span class="built_in">NSDictionary</span> *dict = [<span class="built_in">NSJSONSerialization</span> JSONObjectWithData:data options:<span class="built_in">NSJSONReadingMutableContainers</span> error:<span class="literal">nil</span>];</div><div class="line">        [<span class="keyword">self</span> HB_setterValuesForKeysWithDictionary:dict];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        <span class="built_in">NSAssert</span>(jsonString.length &gt; <span class="number">0</span>, <span class="string">@"传入的字典为空或者不存在！"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-
-KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/04/Objective-C/KV_X/KVC/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -497,6 +475,8 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -533,13 +513,12 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-30T15:59:06+08:00">
-                2017-05-30
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-30T15:59:06+08:00">2017-05-30</time>
             
 
+            
             
 
             
@@ -554,36 +533,24 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index">
-                    <span itemprop="name">KnowledgeLists</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index"><span itemprop="name">KnowledgeLists</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/Define-Const/" itemprop="url" rel="index">
-                    <span itemprop="name">Define_Const</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/Define-Const/" itemprop="url" rel="index"><span itemprop="name">Define_Const</span></a></span>
 
                 
                 
@@ -596,17 +563,6 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
           
 
           
-          
-             <span id="/2017/05/30/Objective-C/Define_Const/" class="leancloud_visitors" data-flag-title="宏(define)与常量(const)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -630,16 +586,31 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
       
         
           
-          当我们想全局共用一些数据时, 可以用宏、变量、常量宏定义形式: #define THIS_IS_MACRO @”this is macro”在预处理器里进行文本替换, 没有类型, 不做任何类型检查, 编译器可以对相同的字符串进行优化, 大量宏会导致二进制包变大
-变量定义形式: NSString *t
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/30/Objective-C/Define_Const/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="当我们想全局共用一些数据时-可以用宏、变量、常量"><a href="#当我们想全局共用一些数据时-可以用宏、变量、常量" class="headerlink" title="当我们想全局共用一些数据时, 可以用宏、变量、常量"></a>当我们想全局共用一些数据时, 可以用宏、变量、常量</h2><h3 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h3><p>定义形式: #define THIS_IS_MACRO @”this is macro”<br>在预处理器里进行文本替换, 没有类型, 不做任何类型检查, 编译器可以对相同的字符串进行优化, 大量宏会导致二进制包变大</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>定义形式: NSString *thisIsVariable = @”this is variable”;<br>共享一块内存空间, 就算项目中N处用到, 也不会分配N块内存空间, 可以被修改, 在编译阶段会执行类型检查</p>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>定义形式: </p>
+<ol>
+<li>const NSString *thisIsConstVariable = @”this is const variable, value can changed”;</li>
+<li>NSString const *thisIsConstVariable = @”this is const variable, value can changed”;</li>
+<li>NSString *const thisIsConstVariable = @”this is const variable, value can not changed”;</li>
+<li>static const NSString *thisIsStaticConstVariable = @”this is static const variable”;</li>
+</ol>
+<p>共享一块内存空间, 就算项目中N处用到, 也不会分配N块内存空间, 可以根据const修饰的位置设定能否修改, 在编译阶段会执行类型检查</p>
+<h2 id="常量区分"><a href="#常量区分" class="headerlink" title="常量区分"></a>常量区分</h2><ol>
+<li><p>全局常量: 不管你定义在任何文件夹,外部都能访问<br>只要在类中声明一个全局变量, 该变量在整个工程中都可以访问到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//在 ViewController 中声明一个全局变量 testSting</div><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">NSString *const testSting = @&quot;hello world&quot;;</div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">//在 AppDelegate 中可以获取到该值</div><div class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions </div><div class="line">&#123;</div><div class="line">    extern NSString *const testSting;</div><div class="line">    NSLog(@&quot;%@&quot;, testSting);</div><div class="line">    return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>局部常量: 用static修饰后,不能提供外界访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">//在 ViewController 中声明一个全局变量 testSting</div><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">static NSString *const testStaticString = @&quot;static&quot;;</div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">//在 AppDelegate 中获取</div><div class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions </div><div class="line">&#123;</div><div class="line">    extern NSString *const testStaticString;</div><div class="line">    NSLog(@&quot;%@&quot;, testStaticString);</div><div class="line">    return YES;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//会报错</div><div class="line">Undefined symbols for architecture x86_64:</div><div class="line">&quot;_testStaticString&quot;, referenced from:</div><div class="line">-[AppDelegate application:didFinishLaunchingWithOptions:] in AppDelegate.o</div><div class="line">ld: symbol(s) not found for architecture x86_64</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="extern"><a href="#extern" class="headerlink" title="extern"></a>extern</h2><p>extern是用来声明一个已经定义过的变量, 多个类中同时声明同一个变量但却没有初始化, 当访问这个变量时会报错:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Undefined symbols for architecture x86_64:</div><div class="line">&quot;_testSting&quot;, referenced from:</div><div class="line">-[AppDelegate application:didFinishLaunchingWithOptions:] in AppDelegate.o</div><div class="line">ld: symbol(s) not found for architecture x86_64</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure></p>
+<p>如果多个类中同时使用extern声明同一个变量, 定义多次, 则会报错:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ld: 1 duplicate symbol for architecture x86_64</div><div class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</div></pre></td></tr></table></figure></p>
+<pre><code>* extern可以用来声明一个全局变量, 但是不能用来定义变量
+* 默认情况下, 一个全局变量是可以供多个源文件共享的, 也就说, 多个源文件中同名的全局变量都代表着同一个变量
+* 如果在定义全局变量的时候加上static关键字, 此时static的作用在于限制该全局变量的作用域, 只能在定义该全局变量的文件中才能使用, 跟其他源文件中的同名变量互不干扰
+</code></pre>
+          
         
       
     </div>
@@ -679,6 +650,8 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -715,13 +688,12 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-22T14:21:50+08:00">
-                2017-05-22
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-22T14:21:50+08:00">2017-05-22</time>
             
 
+            
             
 
             
@@ -736,36 +708,24 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Swift</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Swift/" itemprop="url" rel="index"><span itemprop="name">Swift</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/Basic/" itemprop="url" rel="index">
-                    <span itemprop="name">Basic</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Swift/Basic/" itemprop="url" rel="index"><span itemprop="name">Basic</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/Basic/Keywords/" itemprop="url" rel="index">
-                    <span itemprop="name">Keywords</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Swift/Basic/Keywords/" itemprop="url" rel="index"><span itemprop="name">Keywords</span></a></span>
 
                 
                 
@@ -778,17 +738,6 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
           
 
           
-          
-             <span id="/2017/05/22/Swift/Swift-Keywords/" class="leancloud_visitors" data-flag-title="Keywords">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -812,15 +761,16 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
       
         
           
-          guard关键字是什么“A guard statement, like an if statement, executes statements depending on the Boolean value of an expression. You use a guard statement to
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/22/Swift/Swift-Keywords/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="guard关键字是什么"><a href="#guard关键字是什么" class="headerlink" title="guard关键字是什么"></a>guard关键字是什么</h2><p><code>“A guard statement, like an if statement, executes statements depending on the Boolean value of an expression. You use a guard statement to require that a condition must be true in order for the code after the guard statement to be executed. Unlike an if statement, a guard statement always has an else clause—the code inside the else clause is executed if the condition is not true.”</code></p>
+<ol>
+<li>和if语句很相似，是否执行语句也是基于Boolean表达式，使用guard关键字需要条件为true才会让guard后面的语句执行;</li>
+<li>必须有一个else语句，else语句块是条件不满足时需要执行的代码，此时结束函数执行；</li>
+<li>else 中必须有一个return或者break；</li>
+<li>个人理解为代码逻辑容错判断类似 assert。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">func guardTest(say: String?)&#123;</div><div class="line">    guard let sayHi = say else &#123;</div><div class="line">        print(&quot;sayHi is nil&quot;)          ----------- 1</div><div class="line">        return                         ----------- 2</div><div class="line">    &#125;</div><div class="line">    print(sayHi)                       ----------- 3</div><div class="line">&#125;</div><div class="line">guardTest(say: nil)     // 此时会打印 &quot;sayHi is nil&quot;</div><div class="line">guardTest(say: &quot;hello&quot;) // 此时会直接走第三步</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -860,6 +810,8 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -896,13 +848,12 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-19T12:21:50+08:00">
-                2017-05-19
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-19T12:21:50+08:00">2017-05-19</time>
             
 
+            
             
 
             
@@ -917,36 +868,24 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Swift</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Swift/" itemprop="url" rel="index"><span itemprop="name">Swift</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/Basic/" itemprop="url" rel="index">
-                    <span itemprop="name">Basic</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Swift/Basic/" itemprop="url" rel="index"><span itemprop="name">Basic</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/Basic/TheBasic/" itemprop="url" rel="index">
-                    <span itemprop="name">TheBasic</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Swift/Basic/TheBasic/" itemprop="url" rel="index"><span itemprop="name">TheBasic</span></a></span>
 
                 
                 
@@ -959,17 +898,6 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
           
 
           
-          
-             <span id="/2017/05/19/Swift/Swift-TheBasic/" class="leancloud_visitors" data-flag-title="TheBasic">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -993,17 +921,48 @@ KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
       
         
           
+            <ol>
+<li>option is similar to using nil with pointers in Objective-C, work for any type option (?) 和 nil 相似, 可以用于任何类型, 不仅仅是类,如果有值那么就是显示该值, 如果没有值则为nil;</li>
+<li>Swift is a type-safe language, which means the language helps you to clear about the types of values your code can work with. Swift 是类型安全语言, 意味着Swift可以帮助你分析变量类型.</li>
+</ol>
+<h2 id="Constants-and-Variables"><a href="#Constants-and-Variables" class="headerlink" title="Constants and Variables"></a>Constants and Variables</h2><ol>
+<li><p>Constants cannot be changed once it is set, declare contants with the ‘let’ keyword声明常量使用关键字 let, 一旦设置值后不能被改变;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//声明一个新的常量叫 maximunNumberOfLogingAttempts 并给他一个值10</div><div class="line">let maximunNumberOfLogingAttempts = 10</div><div class="line">//如果尝试修改 maximunNumberOfLogingAttempts 的值编译器会报错</div><div class="line">//maximunNumberOfLogingAttempts = 11</div><div class="line">//Cannot assign to value: &apos;maximunNumberOfLogingAttempts&apos; is a &apos;let&apos; constant</div></pre></td></tr></table></figure>
+</li>
+<li><p>Variable can be set to a different value in the future, declare variable with the ‘var’ keyword 声明变量使用关键字 var, 可以设置不同的值;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//声明一个变量叫 str 并给他一个值 &quot;Hello, playground&quot;</div><div class="line">var str = &quot;Hello, playground&quot;</div><div class="line">str = &quot;I am changed!&quot;</div><div class="line">//使用 commas(,) 来同时声明多个变量</div><div class="line">var x = 0.0, y = 0.0, z = 0.0</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果在代码中存储一个值不在改变, 通常使用’let’关键字来声明它为常量;<br>如果在代码中存储一个值会改变, 通常使用 ‘var’关键字声明它为变量;</p>
+</li>
+</ol>
+<h2 id="Type-Annotations-键入注释"><a href="#Type-Annotations-键入注释" class="headerlink" title="Type Annotations 键入注释"></a>Type Annotations 键入注释</h2><ul>
+<li>当你声明一个常量或者变量时可以提供一个键入注释来清楚的描述这个常量或者变量存储的是什么类型, 在常量或者变量名后加一个冒号(:)接着是一个空格,然后是使用的类型, var welcomeMessage: String 意思是为 welcomeMessage 提供一个键入注释, 指明这个变量可以存储 String 类型的值 –&gt; 声明一个变量 welcomeMessage 的类型是 String</li>
+</ul>
+<h2 id="Tuples-元组"><a href="#Tuples-元组" class="headerlink" title="Tuples 元组"></a>Tuples 元组</h2><ul>
+<li>将多个值组合成一个单一的复合值, 这些值的类型可以是任何类型, 也可以是混合类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">let http404Error = (404, &quot;Not Found&quot;)</div><div class="line">// http404Error is of type (Int, String) equals (404, &quot;Not Found&quot;)</div><div class="line">// Described as a tuple of type (Int, String)</div><div class="line">// 创建元组是无序的, 可以包含许多不同类型的类型 (Int, Int, Int) or (String, Bool) or 其他任何需要的排列组合</div><div class="line">// 元组的获取: 可以将元组分解为常量或变量, 然后用寻常的方法获取它们</div><div class="line">let (statusCode, statusMessage) = http404Error</div><div class="line">print(&quot;The status code is \(statusCode)&quot;)</div><div class="line">print(&quot;The status message is \(statusMessage)&quot;)</div><div class="line">// 如果只需要元组内特定的值, 可以使用 &quot;_&quot; 来忽略其他</div><div class="line">let (justTheStatusCode, _) = http404Error</div><div class="line">print(&quot;The status code is \(justTheStatusCode)&quot;)</div><div class="line">// 创建元组没有名称</div><div class="line">let (p1, p2, p3) = (1, 2, 3)</div><div class="line">print(p1)</div><div class="line">print(p2)</div><div class="line">print(p3)</div><div class="line"></div><div class="line">let testTuple = (1, 2, 3)</div><div class="line">let (test1, test2, test3) = testTuple</div><div class="line">// 元组内元素个数要对应</div><div class="line">let (onlyTest1, _, _) = testTuple</div><div class="line">print(onlyTest1)</div><div class="line"></div><div class="line">// 也可以使用元组的下标获取元组单独的元素值, 下标从0开始</div><div class="line">print(&quot;The status code is \(http404Error.0)&quot;)</div><div class="line">print(&quot;The status message is \(http404Error.1)&quot;)</div><div class="line">// 定义一个元组时可以为单独的元素命名</div><div class="line">let http200Status = (statusCode: 200, description: &quot;OK&quot;)</div><div class="line">// 此时获取元组的元素使用变量名.元素名</div><div class="line">print(&quot;The status code is \(http200Status.statusCode)&quot;)</div><div class="line">print(&quot;The status message is \(http200Status.description)&quot;)</div></pre></td></tr></table></figure>
+<h2 id="Optional"><a href="#Optional" class="headerlink" title="Optional"></a>Optional</h2><ol>
+<li>使用optional的情形是在值可能缺失的情况下</li>
+<li>nil 可以给一个可选类型的变量赋值为nil</li>
+<li>nil 不能用于没有可选类型的常量或变量</li>
+<li>Swift 中 nil 与 Objective-C 中 nil 区别?<br><code>OC中 nil 指向一个不存在的对象;</code><br><code>Swift 中 nil 不是一个指针, 它是某种确定类型值的缺失, 任何可选类型都可以设置为nil, 而不仅仅是对象</code></li>
+</ol>
+<h2 id="if-statement-and-force-unwrapping"><a href="#if-statement-and-force-unwrapping" class="headerlink" title="if statement and force unwrapping"></a>if statement and force unwrapping</h2><ol>
+<li>针对可选类型值判断</li>
+<li>! 告诉编译器: 知道这个可选类型的变量有值, 即强制拆包<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var statemetValue: String? = &quot;a value&quot;</div><div class="line">if statemetValue != nil &#123;</div><div class="line">//statementValue has a certain value Optional(&quot;a value&quot;)</div><div class="line">    print(&quot;statementValue has a certain value \(statemetValue)&quot;)</div><div class="line">//statementValue has a certain value a value</div><div class="line">    print(&quot;statementValue has a certain value \(statemetValue!)&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Optional-Binding-可选绑定"><a href="#Optional-Binding-可选绑定" class="headerlink" title="Optional Binding 可选绑定"></a>Optional Binding 可选绑定</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">下面代码解释为:</div><div class="line">如果 Int(possibleNumber!) 返回一个 Int 的值, 那么就设置一个新的常量 actualNumber(不是可选类型) 接收它的值</div><div class="line">如果转换失败, 则执行 else</div><div class="line">var possibleNumber: String? = &quot;123&quot;//&quot;hello world&quot;</div><div class="line">if let actualNumber = Int(possibleNumber!) &#123;</div><div class="line">    print(&quot;\(possibleNumber) has an integer value of \(actualNumber)&quot;)</div><div class="line">    print(&quot;\(actualNumber)&quot;)</div><div class="line">&#125; </div><div class="line">else &#123;</div><div class="line">    print(&quot;\(possibleNumber) could not be converted to an integer&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Implicitly-Unwrapped-Optionals-隐式解包"><a href="#Implicitly-Unwrapped-Optionals-隐式解包" class="headerlink" title="Implicitly Unwrapped Optionals 隐式解包"></a>Implicitly Unwrapped Optionals 隐式解包</h2><ol>
+<li>如果变量是可选类型, 隐式解包时需要 ! </li>
+<li>如果变量可以确定是有值的, 则不需要隐式解包</li>
+<li>如果可选类型变量没有值,即默认是nil时, 不能使用隐式解包, 否则会报错</li>
+<li>可以使用 if 语句来检测可选类型的值和普通的可选类型一样<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var possibleString: String? = &quot;hello world&quot;</div><div class="line">var actualString = possibleString!</div><div class="line">    print(&quot;\(actualString) is not optional type&quot;)</div><div class="line"></div><div class="line">var possibleStringActual: String! = &quot;actual value&quot;</div><div class="line">actualString  = possibleStringActual</div><div class="line">    print(&quot;\(actualString) is not optional type and not need exclamation mark(!)&quot;)</div><div class="line"></div><div class="line">var possibleStringNotValue: String?</div><div class="line">if let testString = possibleStringNotValue &#123;</div><div class="line">    print(&quot;testString has a value is \(possibleStringNotValue)&quot;)</div><div class="line">&#125;</div><div class="line">else&#123;</div><div class="line">    print(&quot;possibleStringNotValue is nil&quot;)</div><div class="line">&#125;</div><div class="line">//actualString = possibleStringNotValue!</div><div class="line">//fatal error: unexpectedly found nil while unwrapping an Optional value</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
           
-option is similar to using nil with pointers in Objective-C, work for any type option (?) 和 nil 相似, 可以用于任何类型, 不仅仅是类,如果有值那么就是显示该值, 如果没有值则为nil;
-Swift i
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/19/Swift/Swift-TheBasic/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1043,6 +1002,8 @@ Swift i
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1079,13 +1040,12 @@ Swift i
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T15:47:07+08:00">
-                2017-05-15
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-15T15:47:07+08:00">2017-05-15</time>
             
 
+            
             
 
             
@@ -1100,36 +1060,24 @@ Swift i
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Decompilation/" itemprop="url" rel="index">
-                    <span itemprop="name">Decompilation</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Decompilation/" itemprop="url" rel="index"><span itemprop="name">Decompilation</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Decompilation/Clang/" itemprop="url" rel="index">
-                    <span itemprop="name">Clang</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Decompilation/Clang/" itemprop="url" rel="index"><span itemprop="name">Clang</span></a></span>
 
                 
                 
@@ -1142,17 +1090,6 @@ Swift i
           
 
           
-          
-             <span id="/2017/05/15/Objective-C/Decompilation/Clang/" class="leancloud_visitors" data-flag-title="Clang">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1176,16 +1113,11 @@ Swift i
       
         
           
-          Clang是什么？Clang是一个C、C++、OC语言的轻量级编译器.
-Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的错误：1234main.m:9:9: fatal error: &apos;UIKit/UIKit.h&apos; file 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/15/Objective-C/Decompilation/Clang/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="Clang是什么？"><a href="#Clang是什么？" class="headerlink" title="Clang是什么？"></a>Clang是什么？</h2><p><code>Clang是一个C、C++、OC语言的轻量级编译器.</code></p>
+<h2 id="Clang的用途-重写OC源码转为C"><a href="#Clang的用途-重写OC源码转为C" class="headerlink" title="Clang的用途 重写OC源码转为C++"></a>Clang的用途 重写OC源码转为C++</h2><p><code>clang -rewrite-objc xxx.m</code> 遇到如下的错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">main.m:9:9: fatal error: &apos;UIKit/UIKit.h&apos; file not found</div><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line">^</div><div class="line">1 error generated.</div></pre></td></tr></table></figure></p>
+<p>解决方法如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clang -x objective-c -rewrite-objc -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk xxx.m</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -1225,6 +1157,8 @@ Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的�
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1261,13 +1195,12 @@ Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-04T16:20:45+08:00">
-                2017-05-04
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-04T16:20:45+08:00">2017-05-04</time>
             
 
+            
             
 
             
@@ -1282,36 +1215,24 @@ Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index">
-                    <span itemprop="name">KnowledgeLists</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index"><span itemprop="name">KnowledgeLists</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/load/" itemprop="url" rel="index">
-                    <span itemprop="name">load</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/load/" itemprop="url" rel="index"><span itemprop="name">load</span></a></span>
 
                 
                 
@@ -1324,17 +1245,6 @@ Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的�
           
 
           
-          
-             <span id="/2017/05/04/Objective-C/load/" class="leancloud_visitors" data-flag-title="load">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1358,20 +1268,29 @@ Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的�
       
         
           
-          1. load 是什么?
-定义在NSObject.h头文件中
-load方法在这个文件被程序装载时调用, 只要是在Compile Sources中出现的文件总是会被装载, 无论这个类是否被用到;
-load方法在main函数之前调用;
+            <h2 id="1-load-是什么"><a href="#1-load-是什么" class="headerlink" title="1. load 是什么?"></a>1. load 是什么?</h2><ul>
+<li>定义在NSObject.h头文件中</li>
+<li>load方法在这个文件被程序装载时调用, 只要是在Compile Sources中出现的文件总是会被装载, 无论这个类是否被用到;</li>
+<li>load方法在main函数之前调用;</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">+ (void)load; </div><div class="line"></div><div class="line">3. +[class load]</div><div class="line">2. call_load_methods</div><div class="line">1. _dyld_start</div></pre></td></tr></table></figure>
+<h2 id="2-load-怎么调用"><a href="#2-load-怎么调用" class="headerlink" title="2. load 怎么调用?"></a>2. load 怎么调用?</h2><ul>
+<li>如果在一个类中实现 load 方法, 则会先调用其父类的 load 方法, 是系统自动调用的; </li>
+<li>如果一个类没有实现 load 方法, 则系统不会调用它的父类;</li>
+<li>类别中调用 load 方法, 遵循上面两条;</li>
+<li>load 方法不能手动调用;</li>
+<li>load 是线程安全的, 内部使用了锁, 应该避免在 load 中阻塞线程</li>
+</ul>
+<h2 id="3-load-使用场景"><a href="#3-load-使用场景" class="headerlink" title="3. load 使用场景"></a>3. load 使用场景</h2><ul>
+<li>实现 Method Swizzle <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">+ (void)load&#123;</div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        Method originalDealloc = class_getInstanceMethod(self, NSSelectorFromString(@&quot;dealloc&quot;));</div><div class="line">        Method newDealloc = class_getInstanceMethod(self, @selector(autoRemoveObserverDealloc));</div><div class="line">        method_exchangeImplementations(originalDealloc, newDealloc);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="4-源码学习"><a href="#4-源码学习" class="headerlink" title="4. 源码学习"></a>4. 源码学习</h2><h2 id="objc—-gt-Sources—-gt-objc-loadmethod-mm"><a href="#objc—-gt-Sources—-gt-objc-loadmethod-mm" class="headerlink" title="objc—&gt;Sources—&gt;objc-loadmethod.mm"></a>objc—&gt;Sources—&gt;objc-loadmethod.mm</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">struct loadable_class &#123;</div><div class="line">    Class cls;  // may be nil</div><div class="line">    IMP method;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">struct loadable_category &#123;</div><div class="line">    Category cat;  // may be nil</div><div class="line">    IMP method;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// List of classes that need +load called (pending superclass +load)</div><div class="line">// This list always has superclasses first because of the way it is constructed</div><div class="line">static struct loadable_class *loadable_classes = nil;</div><div class="line">static int loadable_classes_used = 0;</div><div class="line">static int loadable_classes_allocated = 0;</div><div class="line"></div><div class="line">// List of categories that need +load called (pending parent class +load)</div><div class="line">static struct loadable_category *loadable_categories = nil;</div><div class="line">static int loadable_categories_used = 0;</div><div class="line">static int loadable_categories_allocated = 0;</div></pre></td></tr></table></figure>
+<h3 id="这段代码介绍两个结构体指针-分别是可承载的类和类别-类中"><a href="#这段代码介绍两个结构体指针-分别是可承载的类和类别-类中" class="headerlink" title="这段代码介绍两个结构体指针, 分别是可承载的类和类别. 类中"></a>这段代码介绍两个结构体指针, 分别是可承载的类和类别. 类中</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">/***********************************************************************</div><div class="line">* add_class_to_loadable_list</div><div class="line">* Class cls has just become connected. Schedule it for +load if</div><div class="line">* it implements a +load method.</div><div class="line">**********************************************************************/</div><div class="line">void add_class_to_loadable_list(Class cls)</div><div class="line">&#123;</div><div class="line">    IMP method;</div><div class="line"></div><div class="line">    loadMethodLock.assertLocked();</div><div class="line"></div><div class="line">    method = cls-&gt;getLoadMethod();</div><div class="line">    if (!method) return;  // Don&apos;t bother if cls has no +load method</div><div class="line"></div><div class="line">    if (PrintLoading) &#123;</div><div class="line">        _objc_inform(&quot;LOAD: class &apos;%s&apos; scheduled for +load&quot;, </div><div class="line">        cls-&gt;nameForLogging());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (loadable_classes_used == loadable_classes_allocated) &#123;</div><div class="line">        loadable_classes_allocated = loadable_classes_allocated*2 + 16;</div><div class="line">        loadable_classes = (struct loadable_class *)</div><div class="line">        realloc(loadable_classes,</div><div class="line">        loadable_classes_allocated *</div><div class="line">        sizeof(struct loadable_class));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    loadable_classes[loadable_classes_used].cls = cls;</div><div class="line">    loadable_classes[loadable_classes_used].method = method;</div><div class="line">    loadable_classes_used++;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="1-声明一个IMP"><a href="#1-声明一个IMP" class="headerlink" title="1. 声明一个IMP;"></a>1. 声明一个IMP;</h3><h3 id="2-loadMethodLock-assertLocked-线程安全-使用recursive-mutex-t上锁"><a href="#2-loadMethodLock-assertLocked-线程安全-使用recursive-mutex-t上锁" class="headerlink" title="2. loadMethodLock.assertLocked(); 线程安全, 使用recursive_mutex_t上锁"></a>2. <code>loadMethodLock.assertLocked();</code> 线程安全, 使用recursive_mutex_t上锁</h3><h3 id="3-cls-gt-getLoadMethod-这个方法是获取一个类声明的-load-方法-如果没有声明-load-则会返回nil"><a href="#3-cls-gt-getLoadMethod-这个方法是获取一个类声明的-load-方法-如果没有声明-load-则会返回nil" class="headerlink" title="3. cls-&gt;getLoadMethod()这个方法是获取一个类声明的 +load 方法, 如果没有声明 +load 则会返回nil;"></a>3. <code>cls-&gt;getLoadMethod()</code>这个方法是获取一个类声明的 <code>+load</code> 方法, 如果没有声明 <code>+load</code> 则会返回nil;</h3><h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">void prepare_load_methods(const headerType *mhdr)</div><div class="line">&#123;</div><div class="line">    size_t count, i;</div><div class="line">    runtimeLock.assertWriting();</div><div class="line">    classref_t *classlist = _getObjc2NonlazyClassList(mhdr, &amp;count);</div><div class="line">    for (i = 0; i &lt; count; i++) &#123;</div><div class="line">        schedule_class_load(remapClass(classlist[i]));</div><div class="line">    &#125;</div><div class="line">    category_t **categorylist = _getObjc2NonlazyCategoryList(mhdr, &amp;count);</div><div class="line">    for (i = 0; i &lt; count; i++) &#123;</div><div class="line">        category_t *cat = categorylist[i];</div><div class="line">        Class cls = remapClass(cat-&gt;cls);</div><div class="line">        if (!cls) continue;  // category for ignored weak-linked class</div><div class="line">        realizeClass(cls);</div><div class="line">        assert(cls-&gt;ISA()-&gt;isRealized());</div><div class="line">        add_category_to_loadable_list(cat);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="1-headerType-是什么"><a href="#1-headerType-是什么" class="headerlink" title="1.  headerType  是什么?"></a>1. <em> headerType </em> 是什么?</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">typedef struct mach_header headerType;</div><div class="line">/*</div><div class="line">* The 32-bit mach header appears at the very beginning of the object file for</div><div class="line">* 32-bit architectures.</div><div class="line">*/</div><div class="line">struct mach_header &#123;</div><div class="line">    uint32_t	magic;		/* mach magic number identifier */</div><div class="line">    cpu_type_t	cputype;	/* cpu specifier */</div><div class="line">    cpu_subtype_t	cpusubtype;	/* machine specifier */</div><div class="line">    uint32_t	filetype;	/* type of file */</div><div class="line">    uint32_t	ncmds;		/* number of load commands */</div><div class="line">    uint32_t	sizeofcmds;	/* the size of all the load commands */</div><div class="line">    uint32_t	flags;		/* flags */</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
-12345+ (void)load; 3. +[class loa
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/04/Objective-C/load/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -1411,6 +1330,8 @@ load方法在main函数之前调用;
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1447,13 +1368,12 @@ load方法在main函数之前调用;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-01T14:20:16+08:00">
-                2017-05-01
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-01T14:20:16+08:00">2017-05-01</time>
             
 
+            
             
 
             
@@ -1468,36 +1388,24 @@ load方法在main函数之前调用;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Swift</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Swift/" itemprop="url" rel="index"><span itemprop="name">Swift</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/Basic/" itemprop="url" rel="index">
-                    <span itemprop="name">Basic</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Swift/Basic/" itemprop="url" rel="index"><span itemprop="name">Basic</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/Basic/BasicOperators/" itemprop="url" rel="index">
-                    <span itemprop="name">BasicOperators</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Swift/Basic/BasicOperators/" itemprop="url" rel="index"><span itemprop="name">BasicOperators</span></a></span>
 
                 
                 
@@ -1510,17 +1418,6 @@ load方法在main函数之前调用;
           
 
           
-          
-             <span id="/2017/05/01/Swift/Swift-BasicOperators/" class="leancloud_visitors" data-flag-title="BasicOperators">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1544,15 +1441,13 @@ load方法在main函数之前调用;
       
         
           
-          @objc让 OC 能够调用该类，需要在类的定义前加入一个关键字 @objc。这是告诉编译器在幕后进行一些额外操作（命名，创建一个不可见的头文件等），让 Swift 的代码暴露给 OC。只有一个XXX-Swift.h 头文件，所有通过 @objc 关键字暴露的 Swift 代码都会被放置这个 XXX
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/01/Swift/Swift-BasicOperators/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="objc"><a href="#objc" class="headerlink" title="@objc"></a>@objc</h2><p>让 OC 能够调用该类，需要在类的定义前加入一个关键字 @objc。这是告诉编译器在幕后进行一些额外操作（命名，创建一个不可见的头文件等），让 Swift 的代码暴露给 OC。<br>只有一个XXX-Swift.h 头文件，所有通过 @objc 关键字暴露的 Swift 代码都会被放置这个 XXX-Swift.h  文件中。</p>
+<h2 id="Generated-Interface-Header-Name"><a href="#Generated-Interface-Header-Name" class="headerlink" title="Generated Interface Header Name"></a><code>Generated Interface Header Name</code></h2><p>target -&gt; Build Setting 选项卡。在 Swift Compiler – Code Generation 里找到 Objective-C Generated Interface Header Name：”XXX-Swift.h”。这就是 OC 中需要引入的头文件。</p>
+<h2 id="XXX-Bridging-Header-h"><a href="#XXX-Bridging-Header-h" class="headerlink" title="XXX-Bridging-Header.h"></a><code>XXX-Bridging-Header.h</code></h2><p>是用来暴露 OC 的库给 Swift 的。</p>
+<h2 id="Swift里声明一个枚举类型，在OC里却不认识这个变量，如何使用呢？"><a href="#Swift里声明一个枚举类型，在OC里却不认识这个变量，如何使用呢？" class="headerlink" title="Swift里声明一个枚举类型，在OC里却不认识这个变量，如何使用呢？"></a>Swift里声明一个枚举类型，在OC里却不认识这个变量，如何使用呢？</h2><p>把 <code>enum</code> 定义为 <code>NSInteger</code> 类型，在OC里直接使用 <code>NSInteger</code> 值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@objc enum HBGuidePageAppearStyle: NSInteger&#123;</div><div class="line">    case HBGuidePageAppearStyle_push = 0, HBGuidePageAppearStyle_present, HBGuidePageAppearStyle_child</div><div class="line">&#125;</div><div class="line"></div><div class="line">var guidePageAppearStyle : HBGuidePageAppearStyle = .HBGuidePageAppearStyle_present</div></pre></td></tr></table></figure></p>
+<p>OC调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.guidePageAppearStyle = HBGuidePageAppearStyle_push;</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -1592,6 +1487,8 @@ load方法在main函数之前调用;
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1628,13 +1525,12 @@ load方法在main函数之前调用;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-30T16:48:52+08:00">
-                2017-04-30
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-30T16:48:52+08:00">2017-04-30</time>
             
 
+            
             
 
             
@@ -1649,36 +1545,24 @@ load方法在main函数之前调用;
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/CrashCollection/" itemprop="url" rel="index">
-                    <span itemprop="name">CrashCollection</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/CrashCollection/" itemprop="url" rel="index"><span itemprop="name">CrashCollection</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/CrashCollection/arm指令集错误收集/" itemprop="url" rel="index">
-                    <span itemprop="name">arm指令集错误收集</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/CrashCollection/arm指令集错误收集/" itemprop="url" rel="index"><span itemprop="name">arm指令集错误收集</span></a></span>
 
                 
                 
@@ -1691,17 +1575,6 @@ load方法在main函数之前调用;
           
 
           
-          
-             <span id="/2017/04/30/Objective-C/CrashCollection/arm指令集/" class="leancloud_visitors" data-flag-title="arm指令集错误收集">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1725,28 +1598,58 @@ load方法在main函数之前调用;
       
         
           
-          iOS的指令集有 armv6、armv7、armv7s、arm64 Arm是向下兼容的
-
-armv6 
-iPhone
-iPhone2
-iPhone3G
-iPod Touch(1, 2)
-
-
-armv7 
-iPhone4
-iPhone4S
-iPod (3G, 4G, 5G)
-iPad(1, 2 , 3
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/30/Objective-C/CrashCollection/arm指令集/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>iOS的指令集有 <code>armv6、armv7、armv7s、arm64</code> Arm是向下兼容的</p>
+<ol>
+<li>armv6 <ul>
+<li>iPhone</li>
+<li>iPhone2</li>
+<li>iPhone3G</li>
+<li>iPod Touch(1, 2)</li>
+</ul>
+</li>
+<li>armv7 <ul>
+<li>iPhone4</li>
+<li>iPhone4S</li>
+<li>iPod (3G, 4G, 5G)</li>
+<li>iPad(1, 2 , 3 , Mini)</li>
+</ul>
+</li>
+<li>armv7s<ul>
+<li>iPhone5</li>
+<li>iPhone5C</li>
+<li>iPad 4</li>
+</ul>
+</li>
+<li>arm64 <ul>
+<li>iPhone5S以后</li>
+<li>iPad Air(2), Retina iPad Mini(2,3)</li>
+</ul>
+</li>
+<li>Architecture: 指你想支持的指令集</li>
+<li>Valid architectures: 指即将编译的指令集</li>
+<li>Build Active Architecture Only: 是否只编译当前适用的指令集 <ul>
+<li>如果要app在各个机器都能够最高效率的运行, 需要将Build Active Architecture Only改为 NO, Valid architectures选择对应的指令集: armv7 armv7s arm64; 但是编译后包得体积会增加, Release时必须设置为NO; </li>
+<li>Valid architectures 为 armv7 时包的体积最小(不能编译armv6), Build Active Architectures 任意;</li>
+<li>如果Build Active Architecture Only设置为 YES, 那么用iPhone 6调试, 最终生成的一个支持arm64指令集的Binary;使用iPhone4编译, 最终生成一个支持armv7指令集的Binary; 意思是只会编译对应指令的包; </li>
+<li>如果Build Active Architecture Only设置为 NO, 编译器会整合指令集, 包会变大, 可以设配不同的设备; 所以一般在DEBUG模式下设为YES, RELEASE设为NO;</li>
+<li>模拟器并不运行arm代码, 软件会被编译成x86可以运行的指令. 所以生成静态库时都是会先生成两个.a, 一个是i386的用于在模拟器运行, 另一个是在真实设备上运行的, 然后再用命令将两个.a合并成一个.</li>
+</ul>
+</li>
+<li>模拟器和真机所需框架<ul>
+<li>模拟器32位需要 i386 框架</li>
+<li>模拟器64位需要 x86_64 框架</li>
+<li>真机32位需要 armv7 或 armv7s 框架</li>
+<li>真机64位需要 arm64 框架</li>
+</ul>
+</li>
+</ol>
+<h1 id="arm报错问题"><a href="#arm报错问题" class="headerlink" title="arm报错问题"></a>arm报错问题</h1><h2 id="1-error-No-architectures-to-compile-for-ONLY-ACTIVE-ARCH-YES-active-arch-x86-64-VALID-ARCHS-i386"><a href="#1-error-No-architectures-to-compile-for-ONLY-ACTIVE-ARCH-YES-active-arch-x86-64-VALID-ARCHS-i386" class="headerlink" title="1. error: No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=x86_64, VALID_ARCHS=i386)"></a>1. error: No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=x86_64, VALID_ARCHS=i386)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 在 `Project target` 里 `Architectures` 设置为 `Standard （armv7,armv7s）`</div><div class="line">2. 修改在 `Project target` 里 `Build Settings` 的 `Valid Architectures` 添加 `i386` 和 `armv7` (Xcode4.6 以上版本不再支持armv6，请去掉);</div><div class="line">3. 设置 `Build Active Architecture Only` 为 `NO`。</div></pre></td></tr></table></figure>
+<h2 id="2-Undefined-symbols-for-architecture-arm64"><a href="#2-Undefined-symbols-for-architecture-arm64" class="headerlink" title="2. Undefined symbols for architecture arm64"></a>2. Undefined symbols for architecture arm64</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Undefined symbols for architecture arm64:</div><div class="line">&quot;_OBJC_CLASS_$_XXX&quot;, referenced from: someFile</div><div class="line">ld: symbol(s) not found for architecture arm64</div></pre></td></tr></table></figure>
+<h3 id="reason-工程内某些地方不支持arm64指令集"><a href="#reason-工程内某些地方不支持arm64指令集" class="headerlink" title="reason: 工程内某些地方不支持arm64指令集 "></a><font color="#FF0000">reason: 工程内某些地方不支持arm64指令集 </font></h3><h3 id="resolve"><a href="#resolve" class="headerlink" title=" resolve: "></a><font color="#FF0000"> resolve: </font></h3><pre><code>1. 设置 Architectures armv7 armv7s, Build Active Architecture Only NO; Valid Architectures armv6 armv7 armv7s arm64;
+2. 如果设置 Architectures, Valid Architectures 设置正确还是不行的话, 在 Other Linker Flags 中添加$(inherited);
+3. 前面2步设置完还是不行的话试试:将 /User/yourname/Library/Developer/XCode/DerivedData 清空.
+</code></pre>
+          
         
       
     </div>
@@ -1786,6 +1689,8 @@ iPad(1, 2 , 3
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1822,13 +1727,12 @@ iPad(1, 2 , 3
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-25T18:19:52+08:00">
-                2017-04-25
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T18:19:52+08:00">2017-04-25</time>
             
 
+            
             
 
             
@@ -1843,36 +1747,24 @@ iPad(1, 2 , 3
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/CrashCollection/" itemprop="url" rel="index">
-                    <span itemprop="name">CrashCollection</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/CrashCollection/" itemprop="url" rel="index"><span itemprop="name">CrashCollection</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/CrashCollection/崩溃日志/" itemprop="url" rel="index">
-                    <span itemprop="name">崩溃日志</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/CrashCollection/崩溃日志/" itemprop="url" rel="index"><span itemprop="name">崩溃日志</span></a></span>
 
                 
                 
@@ -1885,17 +1777,6 @@ iPad(1, 2 , 3
           
 
           
-          
-             <span id="/2017/04/25/Objective-C/CrashCollection/崩溃日志/" class="leancloud_visitors" data-flag-title="崩溃日志">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1919,16 +1800,30 @@ iPad(1, 2 , 3
       
         
           
-          苹果崩溃日志文档
-崩溃日志的实例12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152// 1: 进程信息Incident Identifier: 30E46451
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/25/Objective-C/CrashCollection/崩溃日志/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p><a href="https://developer.apple.com/library/content/qa/qa1747/_index.html" target="_blank" rel="external">苹果崩溃日志文档</a></p>
+<h2 id="崩溃日志的实例"><a href="#崩溃日志的实例" class="headerlink" title="崩溃日志的实例"></a>崩溃日志的实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">// 1: 进程信息</div><div class="line">Incident Identifier: 30E46451-53FD-4965-896A-457FC11AD05F</div><div class="line">CrashReporter Key:   5a56599d836c4f867f6eec76afee451bf9ae5f31</div><div class="line">Hardware Model:	  iPhone4,1</div><div class="line">Process:		 Rage Masters [4155]</div><div class="line">Path:			/var/mobile/Applications/A5635B22-F5EF-4CEB-94B6-FE158D885014/Rage Masters.app/Rage Masters</div><div class="line">Identifier:	  Rage Masters</div><div class="line">Version:		 ??? (???)</div><div class="line">Code Type:	   ARM (Native)</div><div class="line">Parent Process:  launchd [1]</div><div class="line">// 2: 基本信息</div><div class="line">Date/Time:	   2012-10-17 21:39:06.967 -0400</div><div class="line">OS Version:	  iOS 6.0 (10A403)</div><div class="line">Report Version:  104</div><div class="line">// 3: 异常</div><div class="line">Exception Type:  00000020</div><div class="line">Exception Codes: 0x000000008badf00d</div><div class="line">Highlighted Thread:  0</div><div class="line">// 4: 线程回溯</div><div class="line">Thread 0 name:  Dispatch queue: com.apple.main-thread</div><div class="line">Thread 0:</div><div class="line">0   libsystem_kernel.dylib			0x327f2eb4 mach_msg_trap + 20</div><div class="line">1   libsystem_kernel.dylib			0x327f3048 mach_msg + 36</div><div class="line">2   CoreFoundation					0x36bd4040 __CFRunLoopServiceMachPort + 124</div><div class="line">3   CoreFoundation					0x36bd2d9e __CFRunLoopRun + 878</div><div class="line">4   CoreFoundation					0x36b45eb8 CFRunLoopRunSpecific + 352</div><div class="line">5   CoreFoundation					0x36b45d44 CFRunLoopRunInMode + 100</div><div class="line">6   CFNetwork					 	0x32ac343e CFURLConnectionSendSynchronousRequest + 330</div><div class="line">7   Foundation						0x346e69ba +[NSURLConnection sendSynchronousRequest:returningResponse:error:] + 242</div><div class="line">8   Rage Masters				  	0x000d4046 0xd2000 + 8262</div><div class="line">Thread 1:</div><div class="line">0   libsystem_kernel.dylib			0x32803d98 __workq_kernreturn + 8</div><div class="line">1   libsystem_c.dylib			 	0x3a987cf6 _pthread_workq_return + 14</div><div class="line">2   libsystem_c.dylib			 	0x3a987a12 _pthread_wqthread + 362</div><div class="line">3   libsystem_c.dylib			 	0x3a9878a0 start_wqthread + 4</div><div class="line">// 5: 线程状态</div><div class="line">Thread 0 crashed with ARM Thread State (32-bit):</div><div class="line">r0: 0x00000000	r1: 0x00000000	  r2: 0x00000001	  r3: 0x39529fc8</div><div class="line">r4: 0xffffffff	r5: 0x2fd7d301	  r6: 0x2fd7d300	  r7: 0x2fd7d9d0</div><div class="line">r8: 0x2fd7d330	r9: 0x3adbf8a8	 r10: 0x2fd7d308	 r11: 0x00000032</div><div class="line">ip: 0x00000025	sp: 0x2fd7d2ec	  lr: 0x001bdb25	  pc: 0x30301838</div><div class="line">cpsr: 0x00000010</div><div class="line">// 6: 二进制映像</div><div class="line">Binary Images:</div><div class="line">0xd2000 -	0xd7fff +Rage Masters armv7   /var/mobile/Applications/A5635B22-F5EF-4CEB-94B6-FE158D885014/Rage Masters.app/Rage Masters</div><div class="line">0x2fe41000 - 0x2fe61fff  dyld armv7   /usr/lib/dyld</div><div class="line">0x327f2000 - 0x32808fff  libsystem_kernel.dylib armv7   /usr/lib/system/libsystem_kernel.dylib</div><div class="line">0x328a8000 - 0x328bdfff  libresolv.9.dylib armv7   /usr/lib/libresolv.9.dylib</div><div class="line">0x32a70000 - 0x32b35fff  CFNetwork armv7   /System/Library/Frameworks/CFNetwork.framework/CFNetwork</div><div class="line">0x32b7a000 - 0x32cc3fff  libicucore.A.dylib armv7   /usr/lib/libicucore.A.dylib</div><div class="line">0x32cc4000 - 0x32cc5fff  CoreSurface armv7   /System/Library/PrivateFrameworks/CoreSurface.framework/CoreSurface</div><div class="line">0x32f65000 - 0x32f8afff  OpenCL armv7   /System/Library/PrivateFrameworks/OpenCL.framework/OpenCL</div></pre></td></tr></table></figure>
+<h2 id="1-进程信息"><a href="#1-进程信息" class="headerlink" title="1. 进程信息"></a>1. 进程信息</h2><pre><code>* Incident Identifier 是崩溃报告的唯一标识符。
+* CrashReporter Key  是与设备标识相对应的唯一键值。虽然它不是真正的设备标识符，但也是一个非常有用的情报:如果你看到100个崩溃日志的CrashReporter Key值都是相同的，或者只有少数几个不同的CrashReport值，说明这不是一个普遍的问题，只发生在一个或少数几个设备上。
+* Hardware Model  标识设备类型。 如果很多崩溃日志都是来自相同的设备类型，说明应用只在某特定类型的设备上有问题。上面的日志里，崩溃日志产生的设备是iPhone 4s。
+* Process  是应用名称。中括号里面的数字是闪退时应用的进程ID。
+</code></pre><h2 id="2-基本信息"><a href="#2-基本信息" class="headerlink" title="2. 基本信息"></a>2. 基本信息</h2><p>这部分给出了一些基本信息，包括闪退发生的日期和时间，设备的iOS版本。如果有很多崩溃日志都来自iOS 6.0，说明问题只发生在iOS 6.0上。 </p>
+<h2 id="3-异常"><a href="#3-异常" class="headerlink" title="3. 异常"></a>3. 异常</h2><p>在这部分，你可以看到闪退发生时抛出的异常类型。还能看到异常编码和抛出异常的线程。根据崩溃报告类型的不同，在这部分你还能看到一些另外的信息。 </p>
+<h2 id="4-线程回溯"><a href="#4-线程回溯" class="headerlink" title="4. 线程回溯"></a>4. 线程回溯</h2><p>这部分提供应用中所有线程的回溯日志。 回溯是闪退发生时所有活动帧清单。它包含闪退发生时调用函数的清单。看下面这行日志:<br><code>2    XYZLib    0x34648e88    0x83000 + 8740</code><br><code>它包括四列:</code><br><code>1. 帧编号—— 此处是2。</code><br><code>2. 二进制库的名称 ——此处是 XYZLib.</code><br><code>3. 调用方法的地址 ——此处是 0x34648e88.</code><br><code>4. 第四列分为两个子列，一个基本地址和一个偏移量。此处是0×83000 + 8740, 第一个数字指向文件，第二个数字指向文件中的代码行。</code></p>
+<h2 id="5-线程状态"><a href="#5-线程状态" class="headerlink" title="5. 线程状态"></a>5. 线程状态</h2><p>这部分是闪退时寄存器中的值。一般不需要这部分的信息，因为回溯部分的信息已经足够让你找出问题所在。 </p>
+<h2 id="6-二进制映像"><a href="#6-二进制映像" class="headerlink" title="6. 二进制映像"></a>6. 二进制映像</h2><p>这部分列出了闪退时已经加载的二进制文件。</p>
+<h2 id="低内存闪退"><a href="#低内存闪退" class="headerlink" title="低内存闪退"></a>低内存闪退</h2><p>被iOS因释放内存页终止的进程名称后面你会看到 jettisoned  字样。如果看到它出现在你的应用名称后面，说明你的应用因使用太多内存而被终止了。<br>低内存崩溃日志看起来像这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">Incident Identifier: 30E46451-53FD-4965-896A-457FC11AD05F</div><div class="line">CrashReporter Key:   5a56599d836c4f867f6eec76afee451bf9ae5f31</div><div class="line">OS Version:          iPhone OS 3.1.3 (7E18)</div><div class="line">Date/Time:           2012-10-17 21:39:06.967 -0400</div><div class="line">Free pages:        96</div><div class="line">Wired pages:       10558</div><div class="line">Purgeable pages:   0</div><div class="line">Largest process:   Rage Masters</div><div class="line">Processes</div><div class="line">Name                 UUID                    Count resident pages</div><div class="line">Rage Masters     9320 (jettisoned) (active)</div><div class="line">mediaserverd      255</div><div class="line">dataaccessd      505</div><div class="line">syslogd       71</div><div class="line">apsd      171</div><div class="line">securityd      243</div><div class="line">notifyd     2027</div><div class="line">CommCenter      189</div><div class="line">SpringBoard     2158 (active)</div><div class="line">accessoryd       91</div><div class="line">configd      371</div><div class="line">fairplayd       93</div><div class="line">mDNSResponder      292</div><div class="line">lockdownd     1204</div><div class="line">launchd       72</div></pre></td></tr></table></figure></p>
+<h2 id="异常编码"><a href="#异常编码" class="headerlink" title="异常编码"></a>异常编码</h2><ul>
+<li>0x8badf00d : 读做 “ate bad food”! (把数字换成字母，是不是很像 :p)该编码表示应用是因为发生watchdog超时而被iOS终止的。  通常是应用花费太多时间而无法启动、终止或响应用系统事件。</li>
+<li>0xbad22222 : 该编码表示 VoIP 应用因为过于频繁重启而被终止。</li>
+<li>0xdead10cc : 读做 “dead lock”!该代码表明应用因为在后台运行时占用系统资源，如通讯录数据库不释放而被终止 。</li>
+<li>0xdeadfa11 : 读做 “dead fall”! 该代码表示应用是被用户强制退出的。根据苹果文档, 强制退出发生在用户长按开关按钮直到出现 “滑动来关机”, 然后长按 Home按钮。强制退出将产生 包含0xdeadfa11 异常编码的崩溃日志, 因为大多数是强制退出是因为应用阻塞了界面。</li>
+</ul>
+<h3 id="从下向上读回溯日志。最底下的帧是最先调用的-依此类推。"><a href="#从下向上读回溯日志。最底下的帧是最先调用的-依此类推。" class="headerlink" title="从下向上读回溯日志。最底下的帧是最先调用的, 依此类推。"></a>从下向上读回溯日志。最底下的帧是最先调用的, 依此类推。</h3><h2 id="DEBUG模式下Crash搜集"><a href="#DEBUG模式下Crash搜集" class="headerlink" title="DEBUG模式下Crash搜集"></a>DEBUG模式下Crash搜集</h2><h3 id="1-SIGABRT（EXC-CRASH"><a href="#1-SIGABRT（EXC-CRASH" class="headerlink" title="1. SIGABRT（EXC_CRASH)"></a>1. SIGABRT（EXC_CRASH)</h3><pre><code>* 对象多次释放
+</code></pre><h3 id="2-EXC-BAD-ACCESS（SIGBUS-或-SIGSEGV）"><a href="#2-EXC-BAD-ACCESS（SIGBUS-或-SIGSEGV）" class="headerlink" title="2. EXC_BAD_ACCESS（SIGBUS 或 SIGSEGV）"></a>2. EXC_BAD_ACCESS（SIGBUS 或 SIGSEGV）</h3><p>通常是内存问题导致的, 这种情况通常很难定位, 因为有些会直接停在 main() 函数, Xcode 的 Debug 面板没有任何直接的错误信息, 开启异常断点只能得到部分错误信息, 想要的却没有; 有时可能需要多点几次, 才能得到错误信息; </p>
+<pre><code>* NSUnknownKeyException 通常能够告诉我们错误的类型
+</code></pre><h3 id="3-异常断点"><a href="#3-异常断点" class="headerlink" title="3. 异常断点"></a>3. 异常断点</h3><pre><code>* objc_excption_rethrow 和 设置僵尸变量
+</code></pre>
+          
         
       
     </div>
@@ -1970,6 +1865,8 @@ iPad(1, 2 , 3
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -2004,13 +1901,12 @@ iPad(1, 2 , 3
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-21T12:21:03+08:00">
-                2017-04-21
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-21T12:21:03+08:00">2017-04-21</time>
             
 
+            
             
 
             
@@ -2025,36 +1921,24 @@ iPad(1, 2 , 3
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Decompilation/" itemprop="url" rel="index">
-                    <span itemprop="name">Decompilation</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Decompilation/" itemprop="url" rel="index"><span itemprop="name">Decompilation</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Decompilation/Class-dump/" itemprop="url" rel="index">
-                    <span itemprop="name">Class-dump</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Decompilation/Class-dump/" itemprop="url" rel="index"><span itemprop="name">Class-dump</span></a></span>
 
                 
                 
@@ -2067,17 +1951,6 @@ iPad(1, 2 , 3
           
 
           
-          
-             <span id="/2017/04/21/Objective-C/Decompilation/Class-dump/" class="leancloud_visitors" data-flag-title="Objective-C Class-dump">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -2101,17 +1974,30 @@ iPad(1, 2 , 3
       
         
           
-          class-dump 是什么?使用classdump对原程序进行dum, 可以dump出所有源程序的函数所有信息：源程序所有函数类型，变量;这样就可以了解程序结构方便逆向工程反编译.
-下载安装包官网
-把 class-dump 放到 /usr/local/bin 目录下, 在终端输入class-dum
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/21/Objective-C/Decompilation/Class-dump/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="class-dump-是什么"><a href="#class-dump-是什么" class="headerlink" title="class-dump 是什么?"></a>class-dump 是什么?</h2><p>使用<code>classdump</code>对原程序进行dum, 可以dump出所有源程序的函数所有信息：源程序所有函数类型，变量;<br>这样就可以了解程序结构方便逆向工程反编译.</p>
+<h2 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h2><p><a href="http://stevenygard.com/projects/class-dump/" target="_blank" rel="external">官网</a></p>
+<p>把 <code>class-dump</code> 放到 <code>/usr/local/bin</code> 目录下, 在终端输入<code>class-dump</code>, 显示<code>class-dump</code>的版本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">IDFA:~ mac$ class-dump</div><div class="line">class-dump 3.5 (64 bit)</div><div class="line">Usage: class-dump [options] &lt;mach-o-file&gt;</div><div class="line"></div><div class="line">where options are:</div><div class="line">-a             show instance variable offsets</div><div class="line">-A             show implementation addresses</div><div class="line">--arch &lt;arch&gt;  choose a specific architecture from a universal binary (ppc, ppc64, i386, x86_64, armv6, armv7, armv7s, arm64)</div><div class="line">-C &lt;regex&gt;     only display classes matching regular expression</div><div class="line">-f &lt;str&gt;       find string in method name</div><div class="line">-H             generate header files in current directory, or directory specified with -o</div><div class="line">-I             sort classes, categories, and protocols by inheritance (overrides -s)</div><div class="line">-o &lt;dir&gt;       output directory used for -H</div><div class="line">-r             recursively expand frameworks and fixed VM shared libraries</div><div class="line">-s             sort classes and categories by name</div><div class="line">-S             sort methods by name</div><div class="line">-t             suppress header in output, for testing</div><div class="line">--list-arches  list the arches in the file, then exit</div><div class="line">--sdk-ios      specify iOS SDK version (will look in /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS&lt;version&gt;.sdk</div><div class="line">--sdk-mac      specify Mac OS X version (will look in /Developer/SDKs/MacOSX&lt;version&gt;.sdk</div><div class="line">--sdk-root     specify the full SDK root path (or use --sdk-ios/--sdk-mac for a shortcut)</div></pre></td></tr></table></figure></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>在终端输入:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">IDFA:~ mac$ class-dump -H /Applications/WeChat.app -o /Users/mac/Desktop/Class-dump/weixin</div></pre></td></tr></table></figure></p>
+<p>根据 class-dump options 解释:<br>-H 是生成在当前仓库生成头文件<br>-o 是输出到指定文件夹下</p>
+<p><a href="https://github.com/nygard/class-dump">github上命令</a></p>
+<p>下面是搜集github上常用的命令:</p>
+<ul>
+<li><p>class-dump AppKit:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class-dump /System/Library/Frameworks/AppKit.framework</div></pre></td></tr></table></figure>
+</li>
+<li><p>class-dump UIKit:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class-dump /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/UIKit.framework</div></pre></td></tr></table></figure>
+</li>
+<li><p>class-dump UIKit and all the frameworks it uses:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class-dump /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/UIKit.framework -r --sdk-ios 4.3</div></pre></td></tr></table></figure>
+</li>
+<li><p>class-dump UIKit (and all the frameworks it uses) from developer tools that have been installed in /Dev42 instead of /Developer:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class-dump /Dev42/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/UIKit.framework -r --sdk-root /Dev42/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上面的命令只是搜集, 没有一一验证.</p>
+
+          
         
       
     </div>
@@ -2157,9 +2043,6 @@ iPad(1, 2 , 3
           </div>
           
 
-
-          
-
         </div>
         
           
@@ -2188,42 +2071,184 @@ iPad(1, 2 , 3
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">64</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">49</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
 
-            
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
               
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">63</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
+            </nav>
+          
 
           
             <div class="feed-link motion-element">
@@ -2235,22 +2260,6 @@ iPad(1, 2 , 3
           
 
           
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/songMW" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="songshoubing7664@163.com" target="_blank" title="E-mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-mail</a>
-                  </span>
-                
-            </div>
-          
 
           
           
@@ -2258,6 +2267,9 @@ iPad(1, 2 , 3
           
           
 
+          
+            
+          
           
 
         </div>
@@ -2284,10 +2296,14 @@ iPad(1, 2 , 3
   <span class="author" itemprop="copyrightHolder">stack</span>
 
   
+
+  
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -2295,7 +2311,7 @@ iPad(1, 2 , 3
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.3</div>
 
 
 
@@ -2339,7 +2355,11 @@ iPad(1, 2 , 3
 
 
 
-  
+
+
+
+
+
 
 
 
@@ -2359,16 +2379,6 @@ iPad(1, 2 , 3
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -2377,45 +2387,29 @@ iPad(1, 2 , 3
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.3"></script>
 
 
 
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
   
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.3"></script>
 
 
 
   
-
-
-  
-
 
 
 
@@ -2442,133 +2436,9 @@ iPad(1, 2 , 3
 
 
 
-
-
   
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
-
-
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("ig60R2zJJucsoSLJ600AaLnC-gzGzoHsz", "gw0oPYc06slpipLCNvl0fgzH");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
 
 
 
@@ -2577,6 +2447,12 @@ iPad(1, 2 , 3
   
 
   
+
+  
+
+  
+  
+
   
 
   

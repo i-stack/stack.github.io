@@ -5,12 +5,15 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -38,10 +41,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -50,43 +49,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.0.3" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.3">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.3">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.3">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="stack.blog" type="application/atom+xml" />
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.3" color="#222">
 
 
 
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="stack.blog">
-<meta property="og:url" content="https://github.com/songMW/stack.github.io/page/4/index.html">
-<meta property="og:site_name" content="stack.blog">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stack.blog">
 
 
 
@@ -94,16 +75,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
+    scheme: 'Muse',
+    version: '6.0.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: 'QONN7Z36EX',
       apiKey: 'f54c85840d7d3cf49cd0dae9ea2b7fbc',
@@ -115,13 +94,38 @@
 </script>
 
 
+  
+
+
+
+
+  
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="stack.blog">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/page/4/index.html">
+<meta property="og:site_name" content="stack.blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="stack.blog">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="stack.blog" type="application/atom+xml" />
+
+
+
 
   <link rel="canonical" href="https://github.com/songMW/stack.github.io/page/4/"/>
 
 
 
-
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
   <title>stack.blog</title>
   
 
@@ -131,6 +135,34 @@
 
 
 
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
 </head>
 
@@ -146,7 +178,7 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+      <div class="header-inner"> <div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
@@ -180,113 +212,33 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
+          <a href="/archives/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
         </li>
       
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
       
     </ul>
   
 
   
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
-  
 </nav>
+
+
+  
 
 
 
  </div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
@@ -301,6 +253,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -337,13 +291,12 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-02T11:29:59+08:00">
-                2017-03-02
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-02T11:29:59+08:00">2017-03-02</time>
             
 
+            
             
 
             
@@ -358,47 +311,31 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index">
-                    <span itemprop="name">KnowledgeLists</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index"><span itemprop="name">KnowledgeLists</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/NSRun-X/" itemprop="url" rel="index">
-                    <span itemprop="name">NSRun_X</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/NSRun-X/" itemprop="url" rel="index"><span itemprop="name">NSRun_X</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/NSRun-X/NSRunloop/" itemprop="url" rel="index">
-                    <span itemprop="name">NSRunloop</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/NSRun-X/NSRunloop/" itemprop="url" rel="index"><span itemprop="name">NSRunloop</span></a></span>
 
                 
                 
@@ -411,17 +348,6 @@
           
 
           
-          
-             <span id="/2017/03/02/Objective-C/NSRun_X/NSRunloop/" class="leancloud_visitors" data-flag-title="NSRunloop">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -445,15 +371,8 @@
       
         
           
+            
           
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/02/Objective-C/NSRun_X/NSRunloop/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -493,6 +412,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -529,13 +450,12 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T18:29:59+08:00">
-                2017-03-01
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T18:29:59+08:00">2017-03-01</time>
             
 
+            
             
 
             
@@ -550,36 +470,24 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index">
-                    <span itemprop="name">KnowledgeLists</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index"><span itemprop="name">KnowledgeLists</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/Autoreleasepool/" itemprop="url" rel="index">
-                    <span itemprop="name">Autoreleasepool</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/Autoreleasepool/" itemprop="url" rel="index"><span itemprop="name">Autoreleasepool</span></a></span>
 
                 
                 
@@ -592,17 +500,6 @@
           
 
           
-          
-             <span id="/2017/03/01/Objective-C/Autoreleasepool/" class="leancloud_visitors" data-flag-title="Autoreleasepool">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -626,15 +523,16 @@
       
         
           
-          main 函数main 函数是程序的入口, main 函数显示的内容:12345int main(int argc, char * argv[]) &#123;    @autoreleasepool &#123;        return UIApplicationMain(argc, argv
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/01/Objective-C/Autoreleasepool/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="main-函数"><a href="#main-函数" class="headerlink" title="main 函数"></a>main 函数</h2><p>main 函数是程序的入口, main 函数显示的内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int main(int argc, char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里 <code>@autoreleasepool</code> block 中只包含了一行代, 这行代码将所有的事件、消息全部交给了 UIApplicationMain 来处理.</p>
+<font color="#FF0000">整个 iOS 的应用都是在这个自动释放池 block 中.</font>
+
+<h2 id="autoreleasepool"><a href="#autoreleasepool" class="headerlink" title="@autoreleasepool"></a>@autoreleasepool</h2><p><code>@autoreleasepool</code>是什么?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clang -rewrite-objc main.m</div></pre></td></tr></table></figure></p>
+<p>在生成的.mm源码中可以看到:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int main(int argc, char * argv[]) &#123;</div><div class="line">    /* @autoreleasepool */ &#123; __AtAutoreleasePool __autoreleasepool; </div><div class="line">        return UIApplicationMain(argc, argv, __null, NSStringFromClass(((Class (*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass(&quot;AppDelegate&quot;), sel_registerName(&quot;class&quot;))));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里 <code>@autoreleasepool</code> 被注释掉, 取而代之的是 <code>__AtAutoreleasePool</code> , <code>__AtAutoreleasePool</code> 又是什么?<br>在.mm 中搜索发现踪迹:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">extern &quot;C&quot; __declspec(dllimport) void * objc_autoreleasePoolPush(void);</div><div class="line">extern &quot;C&quot; __declspec(dllimport) void objc_autoreleasePoolPop(void *);</div><div class="line"></div><div class="line">struct __AtAutoreleasePool &#123;</div><div class="line">    __AtAutoreleasePool() &#123;atautoreleasepoolobj = objc_autoreleasePoolPush();&#125;</div><div class="line">    ~__AtAutoreleasePool() &#123;objc_autoreleasePoolPop(atautoreleasepoolobj);&#125;</div><div class="line">    void * atautoreleasepoolobj;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p><code>__AtAutoreleasePool</code> 是一个结构体, </p>
+
+          
         
       
     </div>
@@ -674,6 +572,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -710,13 +610,12 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-18T18:27:10+08:00">
-                2017-02-18
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-18T18:27:10+08:00">2017-02-18</time>
             
 
+            
             
 
             
@@ -731,36 +630,24 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Other/" itemprop="url" rel="index">
-                    <span itemprop="name">Other</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Other/" itemprop="url" rel="index"><span itemprop="name">Other</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Other/屏蔽浏览器广告/" itemprop="url" rel="index">
-                    <span itemprop="name">屏蔽浏览器广告</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Other/屏蔽浏览器广告/" itemprop="url" rel="index"><span itemprop="name">屏蔽浏览器广告</span></a></span>
 
                 
                 
@@ -773,17 +660,6 @@
           
 
           
-          
-             <span id="/2017/02/18/Objective-C/Other/屏蔽浏览器广告/" class="leancloud_visitors" data-flag-title="屏蔽浏览器广告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -807,21 +683,14 @@
       
         
           
+            <ol>
+<li><p>AdBlock Plus 屏蔽广告插件；</p>
+</li>
+<li><p>清除百度推广 www.baidu.com 底部”使用百度前必读”—&gt;隐私权保护声明–&gt;个性化配置–&gt;选择停用。</p>
+</li>
+</ol>
+
           
-AdBlock Plus 屏蔽广告插件；
-
-清除百度推广 www.baidu.com 底部”使用百度前必读”—&gt;隐私权保护声明–&gt;个性化配置–&gt;选择停用。
-
-
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/18/Objective-C/Other/屏蔽浏览器广告/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -861,6 +730,8 @@ AdBlock Plus 屏蔽广告插件；
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -897,13 +768,12 @@ AdBlock Plus 屏蔽广告插件；
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-16T18:23:27+08:00">
-                2017-02-16
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-16T18:23:27+08:00">2017-02-16</time>
             
 
+            
             
 
             
@@ -918,36 +788,24 @@ AdBlock Plus 屏蔽广告插件；
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Other/" itemprop="url" rel="index">
-                    <span itemprop="name">Other</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Other/" itemprop="url" rel="index"><span itemprop="name">Other</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Other/httpRange/" itemprop="url" rel="index">
-                    <span itemprop="name">httpRange</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Other/httpRange/" itemprop="url" rel="index"><span itemprop="name">httpRange</span></a></span>
 
                 
                 
@@ -960,17 +818,6 @@ AdBlock Plus 屏蔽广告插件；
           
 
           
-          
-             <span id="/2017/02/16/Objective-C/Other/httpRange/" class="leancloud_visitors" data-flag-title="httpRange">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -994,19 +841,18 @@ AdBlock Plus 屏蔽广告插件；
       
         
           
-          设置请求头Range可以指定每次下载数据包大小
-bytes = 0 - 499     从 0 - 499的头500个字节
-bytes = 500 - 999 从 500 - 999的第二个500字节
-bytes = 500-       从500字节以后的所有字节
-bytes = -500    
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/16/Objective-C/Other/httpRange/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>设置请求头Range可以指定每次下载数据包大小</p>
+<p>bytes = 0 - 499     从 0 - 499的头500个字节</p>
+<p>bytes = 500 - 999 从 500 - 999的第二个500字节</p>
+<p>bytes = 500-       从500字节以后的所有字节</p>
+<p>bytes = -500       最后500个字节</p>
+<p>bytes = 500 - 599 800 - 899 同时指定几个范围</p>
+<ul>
+<li>用于分隔</li>
+</ul>
+<p>前面的数字表示起始字节<br>后面的数字表示截至字节,没有表示到末尾<br>，用于分组</p>
+
+          
         
       
     </div>
@@ -1046,6 +892,8 @@ bytes = -500
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1082,13 +930,12 @@ bytes = -500
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-14T11:05:05+08:00">
-                2017-02-14
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-14T11:05:05+08:00">2017-02-14</time>
             
 
+            
             
 
             
@@ -1103,36 +950,24 @@ bytes = -500
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Other/" itemprop="url" rel="index">
-                    <span itemprop="name">Other</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Other/" itemprop="url" rel="index"><span itemprop="name">Other</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Other/TestFlight/" itemprop="url" rel="index">
-                    <span itemprop="name">TestFlight</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Other/TestFlight/" itemprop="url" rel="index"><span itemprop="name">TestFlight</span></a></span>
 
                 
                 
@@ -1145,17 +980,6 @@ bytes = -500
           
 
           
-          
-             <span id="/2017/02/14/Objective-C/Other/TestFlight/" class="leancloud_visitors" data-flag-title="TestFlight">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1179,24 +1003,31 @@ bytes = -500
       
         
           
-          TestFlight
-什么是TestFlight
-邀请用户测试来程序;
-收集线上程序的重要信息;
-使用 email 方式邀请测试者, 最多2000人
+            <p><a href="https://developer.apple.com/testflight/" target="_blank" rel="external">TestFlight</a></p>
+<h2 id="什么是TestFlight"><a href="#什么是TestFlight" class="headerlink" title="什么是TestFlight"></a>什么是TestFlight</h2><ol>
+<li>邀请用户测试来程序;</li>
+<li>收集线上程序的重要信息;</li>
+<li>使用 email 方式邀请测试者, 最多2000人</li>
+</ol>
+<h2 id="如何安装"><a href="#如何安装" class="headerlink" title="如何安装?"></a>如何安装?</h2><p>iTunes/AppStore 下载安装, 广告文档中有下载地址.</p>
+<h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><ul>
+<li>需要参与app测试人员提供一个邮箱</li>
+<li>开发者登录iTunes Connect</li>
+<li>给测试者发送邀请</li>
+<li>测试者接受邀请</li>
+<li>然后通过TestFlight下载安装程序</li>
+<li>不需要用户提供设备的UDID</li>
+<li>内部测试人员最多25个人, 外部测试人员最多2000个人</li>
+<li>不需要重新配置证书了, 也不需要手动发送ipa包, 直接上传到iTunes即可.</li>
+</ul>
+<h2 id="开发者需要做的什么"><a href="#开发者需要做的什么" class="headerlink" title="开发者需要做的什么"></a>开发者需要做的什么</h2><ol>
+<li><a href="https://itunesconnect.apple.com" target="_blank" rel="external">进入网址:</a> 输入账号密码登录iTunes Connect.</li>
+<li>登录iTunes Connect, 点击我的App, 进入App列表页</li>
+<li>点击Internal Testers 添加测试人员</li>
+<li>点击External Testers 选择添加新测试员</li>
+</ol>
 
-如何安装?iTunes/AppStore 下载安装, 广告文档中有下载地址.
-Getting Started
-需要参与app测试人员提供一个邮箱
-开
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/14/Objective-C/Other/TestFlight/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -1236,6 +1067,8 @@ Getting Started
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1272,13 +1105,12 @@ Getting Started
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-04T15:05:05+08:00">
-                2017-02-04
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-04T15:05:05+08:00">2017-02-04</time>
             
 
+            
             
 
             
@@ -1293,36 +1125,24 @@ Getting Started
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index">
-                    <span itemprop="name">KnowledgeLists</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index"><span itemprop="name">KnowledgeLists</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/ARC/" itemprop="url" rel="index">
-                    <span itemprop="name">ARC</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/ARC/" itemprop="url" rel="index"><span itemprop="name">ARC</span></a></span>
 
                 
                 
@@ -1335,17 +1155,6 @@ Getting Started
           
 
           
-          
-             <span id="/2017/02/04/Objective-C/ARC/" class="leancloud_visitors" data-flag-title="ARC">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1369,16 +1178,24 @@ Getting Started
       
         
           
-          1. 为什么需要内存管理?Objective-C 代码创建的对象存储是以动态方式分配的内存即堆内存中, 在堆内存中创建的对象都会存储在这个内存区域中, 因此需要通过内存管理, 确保将不再使用的对象从该内存中移除, 保证正在使用的内存然能保存在内存中.
-2. ARC 是什么? 如何控制对象的生命周期?
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/04/Objective-C/ARC/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="1-为什么需要内存管理"><a href="#1-为什么需要内存管理" class="headerlink" title="1. 为什么需要内存管理?"></a>1. 为什么需要内存管理?</h2><p>Objective-C 代码创建的对象存储是以动态方式分配的内存即堆内存中, 在堆内存中创建的对象都会存储在这个内存区域中, 因此需要通过内存管理, 确保将不再使用的对象从该内存中移除, 保证正在使用的内存然能保存在内存中.</p>
+<h2 id="2-ARC-是什么-如何控制对象的生命周期"><a href="#2-ARC-是什么-如何控制对象的生命周期" class="headerlink" title="2. ARC 是什么? 如何控制对象的生命周期?"></a>2. ARC 是什么? 如何控制对象的生命周期?</h2><p>ARC在编译时通过插入代码, 向对象发送 <code>retain</code> 或者 <code>release</code> 消息达到平衡, 禁止程序员手动管理对象生命周期.</p>
+<h2 id="3-如何获得对象的所有权"><a href="#3-如何获得对象的所有权" class="headerlink" title="3. 如何获得对象的所有权?"></a>3. 如何获得对象的所有权?</h2><p>Objective-C 程序能够获取以 <code>alloc</code>, <code>new</code>, <code>copy</code>, <code>mutableCopy</code>开头的方法创建的任何对象.</p>
+<h2 id="4-释放对象的所有权"><a href="#4-释放对象的所有权" class="headerlink" title="4. 释放对象的所有权"></a>4. 释放对象的所有权</h2><p>ARC禁止手动方式向对象方式 <code>release</code>, <code>autorelease</code>, <code>dealloc</code> 消息, 执行以下操作时会放弃对象的所有权:</p>
+<ul>
+<li><p>重新分配变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 创建一个 Atom 对象(atom 1)赋予变量atom</div><div class="line">Atom *atom = [[Atom alloc]initWithName:@&quot;atom 1&quot;];</div><div class="line">...</div><div class="line"></div><div class="line">// 再次创建一个 Atom 对象(atom 2)赋予变量atom, 此时 atom 已经指向(atom 2), 所以 (atom 1)失去了一个所有者, 如果没有其他的所有者, 那么它将会被释放掉</div><div class="line">atom = [[Atom alloc]initWithName:@&quot;atom 2&quot;];</div></pre></td></tr></table></figure>
+</li>
+<li><p>将 <code>nil</code> 赋予变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 创建一个 Atom 对象(atom 1)赋予变量atom</div><div class="line">Atom *atom = [[Atom alloc]initWithName:@&quot;atom 1&quot;];</div><div class="line">...</div><div class="line"></div><div class="line">// 将变量 atom 设置为 nil , 此时 atom 已经指向(nil), 所以 (atom 1)失去了一个所有者, 如果没有其他的所有者, 那么它将会被释放掉</div><div class="line">// ARC 会在设为nil的语句后面, 插入向这个Atom对象发送release消息的代码</div><div class="line">atom = nil;</div></pre></td></tr></table></figure>
+</li>
+<li><p>释放对象所有者<br>对象图: 面向对象的程序由相互关联的对象网络构成, 这些对象通过OOP继承或者合成连接到一起, 统称为对象图(object graph).<br>在对象图中, 对象通过合成法规则引入其他子类对象, 如果某个父类对象创建了一个子类对象, 那么这个父类对象就声明了它拥有子类对象的所有权, 释放父类对象时, ARC会自动向它的子类发送 <code>release</code> 消息.</p>
+</li>
+</ul>
+<h2 id="5-集合类"><a href="#5-集合类" class="headerlink" title="5. 集合类"></a>5. 集合类</h2><p>Foundation框架含有各种集合类, 集合类拥有容纳其他对象的实例, 当将对象存储在集合类实例中时, 该集合类会声明改对象的所有权. 当这个集合类被释放时, ARC会自动向该集合类中每个对象发送一条 <code>release</code> 对象.</p>
+<h1 id="retain-内部实现"><a href="#retain-内部实现" class="headerlink" title="retain 内部实现"></a>retain 内部实现</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (id)retain</div><div class="line">&#123;</div><div class="line">    return ((id) self) -&gt; rootRetain();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -1418,6 +1235,8 @@ Getting Started
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1454,13 +1273,12 @@ Getting Started
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-02T11:05:05+08:00">
-                2017-02-02
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-02T11:05:05+08:00">2017-02-02</time>
             
 
+            
             
 
             
@@ -1475,36 +1293,24 @@ Getting Started
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index">
-                    <span itemprop="name">KnowledgeLists</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index"><span itemprop="name">KnowledgeLists</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/bridge-type/" itemprop="url" rel="index">
-                    <span itemprop="name">__bridge_type</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/bridge-type/" itemprop="url" rel="index"><span itemprop="name">__bridge_type</span></a></span>
 
                 
                 
@@ -1517,17 +1323,6 @@ Getting Started
           
 
           
-          
-             <span id="/2017/02/02/Objective-C/bridge-type/" class="leancloud_visitors" data-flag-title="__bridge_type">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1551,36 +1346,92 @@ Getting Started
       
         
           
-          Objective-C 桥接直接桥接数据类型
+            <h2 id="Objective-C-桥接"><a href="#Objective-C-桥接" class="headerlink" title="Objective-C 桥接"></a>Objective-C 桥接</h2><h3 id="直接桥接数据类型"><a href="#直接桥接数据类型" class="headerlink" title="直接桥接数据类型"></a>直接桥接数据类型</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">Core Foundation数据类型</th>
+<th style="text-align:center">Foundation数据类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CFDataRef</td>
+<td style="text-align:center">NSData</td>
+</tr>
+<tr>
+<td style="text-align:center">CFDateRef</td>
+<td style="text-align:center">NSDate</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableDataRef</td>
+<td style="text-align:center">NSMutableData</td>
+</tr>
+<tr>
+<td style="text-align:center">CFDictionaryRef</td>
+<td style="text-align:center">NSDictionary</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableDictionaryRef</td>
+<td style="text-align:center">NSMutableDictionary</td>
+</tr>
+<tr>
+<td style="text-align:center">CFArrayRef</td>
+<td style="text-align:center">NSArray</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableArrayRef</td>
+<td style="text-align:center">NSMutableArray</td>
+</tr>
+<tr>
+<td style="text-align:center">CFSetRef</td>
+<td style="text-align:center">NSSet</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableSetRef</td>
+<td style="text-align:center">NSMutableSet</td>
+</tr>
+<tr>
+<td style="text-align:center">CFStringRef</td>
+<td style="text-align:center">NSString</td>
+</tr>
+<tr>
+<td style="text-align:center">CFMutableStringRef</td>
+<td style="text-align:center">NSMutableString</td>
+</tr>
+<tr>
+<td style="text-align:center">CFNumberRef</td>
+<td style="text-align:center">NSNumber</td>
+</tr>
+<tr>
+<td style="text-align:center">CFReadStreamRef</td>
+<td style="text-align:center">NSInputStream</td>
+</tr>
+<tr>
+<td style="text-align:center">CFWriteStreamRef</td>
+<td style="text-align:center">NSOutputStream</td>
+</tr>
+</tbody>
+</table>
+<p>通过直接桥接类型, 编译器能将数据在Core Foundation框架和Foundation框架数据类型之间转换.</p>
+<h3 id="1-直接桥接-隐式转换"><a href="#1-直接桥接-隐式转换" class="headerlink" title="1. 直接桥接, 隐式转换"></a>1. 直接桥接, 隐式转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFStringRef cstr = CFStringCreateWithCString(NULL, &quot;Hello world!&quot;, kCFStringEncodingASCII);</div><div class="line">NSArray *data = [NSArray arrayWithObject: cstr];</div></pre></td></tr></table></figure>
+<p>此时编译器会报错: <code>Implicit conversion of C pointer type &#39;CFStringRef&#39; to Objective-C pointer type &#39;id __Nonnull&#39; reqirese a bridge case</code></p>
+<h3 id="2-直接桥接-显示转换"><a href="#2-直接桥接-显示转换" class="headerlink" title="2. 直接桥接, 显示转换"></a>2. 直接桥接, 显示转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFStringRef cstr = CFStringCreateWithCString(NULL, &quot;Hello world!&quot;, kCFStringEncodingASCII);</div><div class="line">NSArray *data = [NSArray arrayWithObject: (NSString *)cstr];</div></pre></td></tr></table></figure>
+<p>此时虽然已经将 cstr 显示转换为 NSString 类型, 但是 cstr 是Core Foundation框架创建的对象, ARC时不能自动释放, 此时需要手动释放, 使用__bridge桥接:</p>
+<pre><code>CFStringRef cstr = CFStringCreateWithCString(NULL, &quot;Hello world!&quot;, kCFStringEncodingASCII);
+NSArray *data = [NSArray arrayWithObject:(__bridge NSString *)(cstr)];
+// __bridge 标记无法改变直接桥接对象的所有权, 需要手动管理变量 cstr 的生命周期.
+CFRelease(cstr);
+//或者
+//NSArray *data = [NSArray arrayWithObject:(NSString *)CFBridgingRelease(cstr)];
+</code></pre><h3 id="3-ARC-桥接转换"><a href="#3-ARC-桥接转换" class="headerlink" title="3. ARC 桥接转换"></a>3. ARC 桥接转换</h3><p>在使用ARC时, 通过ARC桥接转换可以直接使用直接桥接数据类型, 使用 <code>__bridge</code>, <code>__bridge_retained</code>, <code>__bridge_transfer</code> 作为前缀</p>
+<ul>
+<li>使用__bridge标记可以在不改变对象所有权的情况下, 将对象从Core Foundation框架数据转换为Foundataion框架数据, 反之亦然;</li>
+<li>使用__bridge_retained标记可以将Foundation框架数据类型转换为Core Foundation框架数据类型, 并从ARC接管对象的所有权, 这样就可以手动管理对象的生命周期;</li>
+<li>使用__bridge_transfer标记可以将Core Foundation框架数据类型转换为Foundation框架数据类型, 并从手动管理对象的所有权交给ARC, 这样就可以由ARC管理对象的生命周期;</li>
+<li>(桥接转换标记 目的数据类型)变量名</li>
+</ul>
 
-
-Core Foundation数据类型
-Foundation数据类型
-
-
-
-
-CFDataRef
-NSData
-
-
-CFDateRef
-NSDate
-
-
-CFMutableDataRef
-NSMutableData
-
-
-CFDictionaryRef
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/02/Objective-C/bridge-type/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -1620,6 +1471,8 @@ CFDictionaryRef
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1656,13 +1509,12 @@ CFDictionaryRef
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-01T10:22:00+08:00">
-                2017-02-01
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-01T10:22:00+08:00">2017-02-01</time>
             
 
+            
             
 
             
@@ -1677,36 +1529,24 @@ CFDictionaryRef
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Other/" itemprop="url" rel="index">
-                    <span itemprop="name">Other</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Other/" itemprop="url" rel="index"><span itemprop="name">Other</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Other/google人机验证/" itemprop="url" rel="index">
-                    <span itemprop="name">google人机验证</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Other/google人机验证/" itemprop="url" rel="index"><span itemprop="name">google人机验证</span></a></span>
 
                 
                 
@@ -1719,17 +1559,6 @@ CFDictionaryRef
           
 
           
-          
-             <span id="/2017/02/01/Objective-C/Other/google人机验证/" class="leancloud_visitors" data-flag-title="google人机验证">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1753,19 +1582,12 @@ CFDictionaryRef
       
         
           
-          使用翻墙工具时有时会弹出人机验证的界面，很是麻烦，网上搜到一个解决方法总结如下：
-
-在谷歌浏览器地址栏输入recaptcha回车跳到人机身份验证页面，打上√，确定就行了！以后再出现人机验证只需打个勾就行了！
-
+            <p>使用翻墙工具时有时会弹出人机验证的界面，很是麻烦，网上搜到一个解决方法总结如下：</p>
+<blockquote>
+<p>在谷歌浏览器地址栏输入recaptcha回车<br>跳到人机身份验证页面，打上√，确定就行了！<br>以后再出现人机验证只需打个勾就行了！</p>
+</blockquote>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/01/Objective-C/Other/google人机验证/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1805,6 +1627,8 @@ CFDictionaryRef
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1841,13 +1665,12 @@ CFDictionaryRef
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-28T18:17:47+08:00">
-                2017-01-28
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-28T18:17:47+08:00">2017-01-28</time>
             
 
+            
             
 
             
@@ -1862,36 +1685,24 @@ CFDictionaryRef
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index">
-                    <span itemprop="name">KnowledgeLists</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index"><span itemprop="name">KnowledgeLists</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/KnowledgeLists/WIFI热点开发/" itemprop="url" rel="index">
-                    <span itemprop="name">WIFI热点开发</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/WIFI热点开发/" itemprop="url" rel="index"><span itemprop="name">WIFI热点开发</span></a></span>
 
                 
                 
@@ -1904,17 +1715,6 @@ CFDictionaryRef
           
 
           
-          
-             <span id="/2017/01/28/Objective-C/WIFI热点开发/" class="leancloud_visitors" data-flag-title="WIFI热点开发">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1938,15 +1738,22 @@ CFDictionaryRef
       
         
           
-          跳转到设置页面info.plist 中添加 URL types 并设置 URL Schemesstring 类型 prefs12345NSURL *url = [NSURL URLWithString:@&quot;prefs:root=WIFI&quot;];if ([[UIApplication
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/28/Objective-C/WIFI热点开发/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h2 id="跳转到设置页面"><a href="#跳转到设置页面" class="headerlink" title="跳转到设置页面"></a>跳转到设置页面</h2><p>info.plist 中添加 URL types 并设置 URL Schemes<br>string 类型 prefs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">NSURL *url = [NSURL URLWithString:@&quot;prefs:root=WIFI&quot;];</div><div class="line">if ([[UIApplication sharedApplication] canOpenURL:url])</div><div class="line">&#123;</div><div class="line">    [[UIApplication sharedApplication] openURL:url];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="弹出WIFI提示框"><a href="#弹出WIFI提示框" class="headerlink" title="弹出WIFI提示框"></a>弹出WIFI提示框</h2><ol>
+<li>键名：Application uses Wi-Fi 值：YES；</li>
+<li>键名：SBUsesNetwork 值：3；</li>
+<li>iOS9需要向苹果申请授权 <a href="https://developer.apple.com//contact/network-extension" target="_blank" rel="external">苹果授权地址</a>；</li>
+<li>iOS9以下由于受苹果系统限制，不能获取到和设置列表中那样的 WIFI 列表，采用上传当前地理位置从服务器获取开放热点。</li>
+</ol>
+<h2 id="iOS9以下安装描述文件实现："><a href="#iOS9以下安装描述文件实现：" class="headerlink" title="iOS9以下安装描述文件实现："></a>iOS9以下安装描述文件实现：</h2><ol>
+<li>描述文件其实就是 XML 格式的数据；</li>
+<li>下载一个 Apple Configurator2可以自己制作描述文件；</li>
+<li>用文本编辑打开.mobileconfig文件给服务器,他们会按照这个格式来做描述文件；</li>
+<li>需要注意一点是PayloadUUID这个参数是需要客户端上传的,保证应用的唯一性；</li>
+<li><a href="">描述文件签名</a></li>
+</ol>
+
+          
         
       
     </div>
@@ -1988,6 +1795,8 @@ CFDictionaryRef
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -2022,13 +1831,12 @@ CFDictionaryRef
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-26T11:05:05+08:00">
-                2017-01-26
-              </time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-26T11:05:05+08:00">2017-01-26</time>
             
 
+            
             
 
             
@@ -2043,36 +1851,24 @@ CFDictionaryRef
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Objective-C</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Other/" itemprop="url" rel="index">
-                    <span itemprop="name">Other</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Other/" itemprop="url" rel="index"><span itemprop="name">Other</span></a></span>
 
                 
                 
-                  ， 
+                  , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Objective-C/Other/URL到页面加载/" itemprop="url" rel="index">
-                    <span itemprop="name">URL到页面加载</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Other/URL到页面加载/" itemprop="url" rel="index"><span itemprop="name">URL到页面加载</span></a></span>
 
                 
                 
@@ -2085,17 +1881,6 @@ CFDictionaryRef
           
 
           
-          
-             <span id="/2017/01/26/Objective-C/Other/URL到页面加载/" class="leancloud_visitors" data-flag-title="URL到页面加载">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -2119,17 +1904,33 @@ CFDictionaryRef
       
         
           
-          引用 stackoverflow ：stackoverflow
+            <h2 id="引用-stackoverflow-："><a href="#引用-stackoverflow-：" class="headerlink" title="引用 stackoverflow ："></a>引用 <code>stackoverflow</code> ：</h2><p><a href="http://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser" target="_blank" rel="external">stackoverflow</a></p>
+<ol>
+<li><p>browser checks cache; if requested object is in cache and is fresh, skip to #9<br>浏览器检查缓存，若缓存中存储着要请求的内容，并且内容是最新的，直接跳转到第9步；</p>
+</li>
+<li><p>browser asks OS for server’s IP address<br>浏览器请求操作系统（OS）解析服务器的IP地址；</p>
+</li>
+<li><p>OS makes a DNS lookup and replies the IP address to the browser<br>操作系统做DNS解析，查找并返回IP地址给浏览器；</p>
+</li>
+<li><p>browser opens a TCP connection to server (this step is much more complex with HTTPS)<br>浏览器与服务器建立TCP连接（若使用的是https协议，连接过程会更加的复杂）；</p>
+</li>
+<li><p>browser sends the HTTP request through TCP connection<br>浏览器通过TCP连接发送http请求；</p>
+</li>
+<li><p>browser receives HTTP response and may close the TCP connection, or reuse it for another request<br>浏览器接收HTTP响应并且可以关闭TCP连接，或者将其重用于另一个请求；</p>
+</li>
+<li><p>browser checks if the response is a redirect (3xx result status codes), authorization request (401), error (4xx and 5xx), etc.; these are handled differently from normal responses (2xx)<br>浏览器检查响应是否是重定向（3xx结果状态代码),授权请求(401),错误（4xx和5xx)等; 这些处理不同于正常响应(2xx）；</p>
+</li>
+<li><p>if cacheable, response is stored in cache<br>如果可高速缓存，则将响应存储在高速缓存中；</p>
+</li>
+<li><p>browser decodes response (e.g. if it’s gzipped)<br>浏览器解码响应（例如，如果是gzip压缩）；</p>
+</li>
+<li><p>browser determines what to do with response (e.g. is it a HTML page, is it an image, is it a sound clip?)<br>浏览器决定如何处理响应（例如，它是一个HTML页面，它是一个图像，它是一个声音剪辑?）；</p>
+</li>
+<li><p>browser renders response, or offers a download dialog for unrecognized types<br>浏览器呈现响应，或为无法识别的类型提供下载对话框。</p>
+</li>
+</ol>
 
-browser checks cache; if requested object is in cache and is fresh, skip to #9浏览器检查缓存，若缓存中存储着要请求的内容，并且内容是最新的，直接跳转到第9步
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/26/Objective-C/Other/URL到页面加载/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -2175,9 +1976,6 @@ browser checks cache; if requested object is in cache and is fresh, skip to #9�
           </div>
           
 
-
-          
-
         </div>
         
           
@@ -2206,42 +2004,184 @@ browser checks cache; if requested object is in cache and is fresh, skip to #9�
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">64</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">49</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
 
-            
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
               
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">63</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
+            </nav>
+          
 
           
             <div class="feed-link motion-element">
@@ -2253,22 +2193,6 @@ browser checks cache; if requested object is in cache and is fresh, skip to #9�
           
 
           
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/songMW" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="songshoubing7664@163.com" target="_blank" title="E-mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-mail</a>
-                  </span>
-                
-            </div>
-          
 
           
           
@@ -2276,6 +2200,9 @@ browser checks cache; if requested object is in cache and is fresh, skip to #9�
           
           
 
+          
+            
+          
           
 
         </div>
@@ -2302,10 +2229,14 @@ browser checks cache; if requested object is in cache and is fresh, skip to #9�
   <span class="author" itemprop="copyrightHolder">stack</span>
 
   
+
+  
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -2313,7 +2244,7 @@ browser checks cache; if requested object is in cache and is fresh, skip to #9�
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.3</div>
 
 
 
@@ -2357,7 +2288,11 @@ browser checks cache; if requested object is in cache and is fresh, skip to #9�
 
 
 
-  
+
+
+
+
+
 
 
 
@@ -2377,16 +2312,6 @@ browser checks cache; if requested object is in cache and is fresh, skip to #9�
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -2395,45 +2320,29 @@ browser checks cache; if requested object is in cache and is fresh, skip to #9�
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.3"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.3"></script>
 
 
 
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
   
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.3"></script>
 
 
 
   
-
-
-  
-
 
 
 
@@ -2460,133 +2369,9 @@ browser checks cache; if requested object is in cache and is fresh, skip to #9�
 
 
 
-
-
   
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
-
-
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("ig60R2zJJucsoSLJ600AaLnC-gzGzoHsz", "gw0oPYc06slpipLCNvl0fgzH");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
 
 
 
@@ -2595,6 +2380,12 @@ browser checks cache; if requested object is in cache and is fresh, skip to #9�
   
 
   
+
+  
+
+  
+  
+
   
 
   
