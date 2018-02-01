@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -41,6 +41,10 @@
 
 
 
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
 
 
 
@@ -49,19 +53,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.0.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.0.3" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
 
 
 
@@ -75,12 +79,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    version: '6.0.3',
+    scheme: 'Pisces',
+    version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
+    fancybox: true,
+    fastclick: ,
+    lazyload: ,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
@@ -212,20 +216,78 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+            Home</a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+          <a href="/archives" rel="section">
+            Archives</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            Tags</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            Categories</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            Commonweal 404</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            About</a>
         </li>
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            Search</a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -349,6 +411,17 @@
 
           
           
+             <span id="/2018/01/09/Objective-C/Image/ImageI-O编解码/" class="leancloud_visitors" data-flag-title="ImageI/O编解码">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -371,55 +444,15 @@
       
         
           
-            <h1 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h1><p>将已经编码后的图像数据格式转化为可以被渲染的数据。<br>Image/IO的解码，支持了常见的图像格式，包括PNG、APNG、JPEG、GIF、BMP、TIFF <code>CGImageSourceCopyTypeIdentifiers</code> 可以获取支持的图像格式。<br>在iOS 11之后支持了HEIC（即使用了HEVC编码的HEIF格式）。</p>
-<h2 id="静态图"><a href="#静态图" class="headerlink" title="静态图"></a>静态图</h2><p>静态图的解码步骤：</p>
-<ol>
-<li>创建CGImageSource；</li>
-<li>读取图像格式元数据；</li>
-<li>解码得到CGImage；</li>
-<li>生成上层的UIImage，清理。<br>创建CGImageSource<br>CGImageSouce，表示的是一个待解码数据的输入。</li>
-</ol>
-<ul>
-<li>CGImageSourceCreateWithData： 二进制数据（CGData）中创建ImageSource；</li>
-<li>CGImageSourceCreateWithURL： 指定一个URL创建ImageSource；</li>
-<li>CGImageSourceCreateWithDataProvider：从DataProvide中创建ImageSource，DataProvider提供了很多种输入，包括内存，文件，网络，流等。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">NSString *path = [[NSBundle mainBundle]pathForResource:@&quot;14444473,2560,1600&quot; ofType:@&quot;jpg&quot;];</div><div class="line">NSData *data = [NSData dataWithContentsOfFile:path];</div><div class="line"></div><div class="line">CFDataRef dataRef = (__bridge CFDataRef)data;</div><div class="line">// 创建CGImageSource</div><div class="line">CGImageSourceRef sourceRef = CGImageSourceCreateWithData(dataRef, NULL);</div><div class="line">NSAssert(sourceRef != nil, @&quot;sourceRef is nil&quot;);</div><div class="line"></div><div class="line">// 读取图像格式元数据</div><div class="line">NSDictionary *imageProperties = (__bridge NSDictionary *)CGImageSourceCopyPropertiesAtIndex(sourceRef, 0, NULL);</div><div class="line">NSLog(@&quot;获取属性列表：%@&quot;, imageProperties);</div><div class="line">NSUInteger width = [imageProperties[(__bridge NSString *)kCGImagePropertyPixelWidth] unsignedIntegerValue];</div><div class="line">NSLog(@&quot;图片宽：%@&quot;, @(width));</div><div class="line">NSUInteger height = [imageProperties[(__bridge NSString *)kCGImagePropertyPixelHeight] unsignedIntegerValue];</div><div class="line">NSLog(@&quot;图片高：%@&quot;, @(height));</div><div class="line">BOOL hasAlpha = [imageProperties[(__bridge NSString *)kCGImagePropertyHasAlpha] boolValue];</div><div class="line">NSLog(@&quot;是否含有Alpha通道：%@&quot;, @(hasAlpha));</div><div class="line">//图像格式：CGImageSourceGetType</div><div class="line">CFStringRef stringRef = CGImageSourceGetType(sourceRef);</div><div class="line">NSLog(@&quot;图像格式：%@&quot;, (__bridge NSString *)stringRef);</div><div class="line">//图像数量（动图）：CGImageSourceGetCount</div><div class="line">size_t t = CGImageSourceGetCount(sourceRef);</div><div class="line">NSLog(@&quot;图像数量：%zu&quot;, t);</div><div class="line"></div><div class="line">// 解码得到CGImage</div><div class="line">CGImageRef imageRef = CGImageSourceCreateImageAtIndex(sourceRef, 0, NULL);</div><div class="line"></div><div class="line">// 生成UIImage</div><div class="line">UIImage *image = [UIImage imageWithCGImage:imageRef];</div><div class="line">self.showImageView.image = image;</div><div class="line">CGImageRelease(imageRef);</div><div class="line">CFRelease(sourceRef);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>注意点：</p>
-<ol>
-<li><code>CGImageSourceCreateImageAtIndex</code> 对于静态图 index 传0；</li>
-<li><code>CGImageSourceCopyPropertiesAtIndex</code>  获取图片的元信息</li>
-<li>释放</li>
-</ol>
-<h2 id="动态图"><a href="#动态图" class="headerlink" title="动态图"></a>动态图</h2><ol>
-<li>创建CGImageSource ；</li>
-<li>使用<code>CGImageSourceGetCount</code>获取到图片的帧数；</li>
-<li>循环遍历每一帧，循环静态图2～4步骤<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">NSURL *url = [NSURL URLWithString:dynamicImageURL];</div><div class="line">CGImageSourceRef sourcesRef = CGImageSourceCreateWithURL((__bridge_retained CFURLRef)url, NULL);</div><div class="line"></div><div class="line">// 获取图片帧数</div><div class="line">size_t count = CGImageSourceGetCount(sourcesRef);</div><div class="line">NSMutableArray&lt;UIImage *&gt; *images = [NSMutableArray array];</div><div class="line">double totalDuration = 0;</div><div class="line">for (size_t i = 0; i &lt; count; i++) &#123;</div><div class="line">NSDictionary *propertiesDict = (__bridge_transfer NSDictionary *)CGImageSourceCopyPropertiesAtIndex(sourcesRef, i, NULL);</div><div class="line">NSDictionary *gitPropertiesDict = propertiesDict[(NSString *)kCGImagePropertyGIFDictionary];</div><div class="line">double duration = [gitPropertiesDict[(NSString *)kCGImagePropertyGIFUnclampedDelayTime] doubleValue]; // GIF原始的帧持续时长，秒数</div><div class="line">totalDuration += duration;</div><div class="line">CGImageRef imageRef = CGImageSourceCreateImageAtIndex(sourcesRef, i, NULL);</div><div class="line">UIImage *image  = [UIImage imageWithCGImage:imageRef];</div><div class="line">[images addObject:image];</div><div class="line">CGImageRelease(imageRef);</div><div class="line">&#125;</div><div class="line">self.showImageView.image = [UIImage animatedImageWithImages:images duration:totalDuration];</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>UIImage这个animatedImages的接口，会根据传入的images的数量，平均分配传入的totalDuration的展示时长</p>
-<h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><p>指的就是将一个UIImage表示的图像，编码为对应图像格式的数据，输出NSData的过程。Image/IO提供的对应概念，叫做CGImageDestination，表示一个输出。之后的编码相关的操作与Destination对应。</p>
-<h2 id="静态图-1"><a href="#静态图-1" class="headerlink" title="静态图"></a>静态图</h2><p>静态图编码步骤：</p>
-<ol>
-<li>创建CGImageDestination；</li>
-<li>添加图像格式元数据（可选）和CGImage；</li>
-<li>编码得到NSData。</li>
-</ol>
-<p>创建 CGImageDestination：</p>
-<ol>
-<li><code>CGImageDestinationCreateWithURL</code></li>
-<li><code>CGImageDestinationCreateWithData</code></li>
-<li><code>CGImageDestinationCreateWithDataConsumer</code></li>
-</ol>
-<p>添加图片到CGImageDestination</p>
-<ol>
-<li><code>CGImageDestinationAddImage</code></li>
-<li><code>CGImageDestinationAddImageFromSource</code></li>
-</ol>
-<p>验证是否添加完成<br>使用<code>CGImageDestinationFinalize</code>验证图片是否添加完成，一旦完成后就不能向图片添加更多的数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<h2 id="动态图-1"><a href="#动态图-1" class="headerlink" title="动态图"></a>动态图</h2>
-          
+          解码将已经编码后的图像数据格式转化为可以被渲染的数据。Image/IO的解码，支持了常见的图像格式，包括PNG、APNG、JPEG、GIF、BMP、TIFF CGImageSourceCopyTypeIdentifiers 可以获取支持的图像格式。在iOS 11之后支持了HEIC（即使用了HEVC编
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/09/Objective-C/Image/ImageI-O编解码/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -555,6 +588,17 @@
 
           
           
+             <span id="/2018/01/08/Objective-C/Image/ImageI:O/" class="leancloud_visitors" data-flag-title="ImageI/O">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -577,83 +621,17 @@
       
         
           
-            <h2 id="使用Image-I-O-基础"><a href="#使用Image-I-O-基础" class="headerlink" title="使用Image I/O 基础"></a>使用Image I/O 基础</h2><p><code>ImageI/O framework</code>  提供从源图像 <code>CGImageSourceRef</code> 读取数据的不透明的数据类型并且写入图片数据到目的地 <code>CGImageDestinationRef</code>。它支持多种图像格式，包括标准的Web格式、高动态范围的图像和原始的摄像机数据。</p>
-<ul>
-<li>一个URL被认为是 <code>Core Foundation</code> 的数据类型 <code>CFURLRef : A reference to a CFURL object.</code>;</li>
-<li><code>Core Foundation</code> 的对象 <code>CFDataRef</code> 和 <code>CFMutableDataRef</code>;</li>
-<li>data consumer  对象<code>CGDataConsumerRef : An abstraction for data-writing tasks that eliminates the need to manage a raw memory buffer.</code> 和 数据提供对象 <code>CGDataProviderRef:</code> 抽象的数据读取任务，不用管理内存缓存;</li>
-</ul>
-<p>CGDataProviderRef：来自 <code>CFTypeRef</code> 并继承了所有 <code>Core Foundation</code> 的所有共有属性</p>
-<blockquote>
-<p>typedef struct CF_BRIDGED_TYPE(id) CGDataProvider *CGDataProviderRef;</p>
-</blockquote>
-<p>CFTypeRef ：<code>Core Foundation</code> 的基础类型，在多态函数中被用作类型和返回值，是一个通用的对象引用，充当其他<code>Core Foundation</code> 对象的占位符</p>
-<blockquote>
-<p>/<em> Base “type” of all “CF objects”, and polymorphic functions on them </em>/<br>typedef const CF_BRIDGED_TYPE(id) void * CFTypeRef;</p>
-</blockquote>
-<h2 id="工程中使用Image-I-O"><a href="#工程中使用Image-I-O" class="headerlink" title="工程中使用Image I/O"></a>工程中使用Image I/O</h2><blockquote>
-<p> #import <imageio imageio.h=""></imageio></p>
-</blockquote>
-<h2 id="支持的图片类型"><a href="#支持的图片类型" class="headerlink" title="支持的图片类型"></a>支持的图片类型</h2><p><code>ImageI/O framework</code>  支持大多数常见的图片文件格式，比如： JPEG, JPEG2000, RAW, TIFF, BMP, and PNG</p>
-<h3 id="获取最新的I-O支持的图片列表"><a href="#获取最新的I-O支持的图片列表" class="headerlink" title="获取最新的I/O支持的图片列表"></a>获取最新的I/O支持的图片列表</h3><ul>
-<li><code>CGImageSourceCopyTypeIdentifiers</code> 返回一个 <code>UTIs</code> 数组是 <code>ImageI/O</code> 支持的图片来源</li>
-<li><code>CGImageDestinationCopyTypeIdentifiers</code>  返回一个 <code>UTIs</code> 数组是 <code>ImageI/O</code> 支持的图片目标</li>
-</ul>
-<p>Getting and printing supported UTIs：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CFArrayRef mySourceTypes = CGImageSourceCopyTypeIdentifiers();</div><div class="line">CFShow(mySourceTypes);</div><div class="line">CFArrayRef myDestinationTypes = CGImageDestinationCopyTypeIdentifiers();</div><div class="line">CFShow(myDestinationTypes);</div></pre></td></tr></table></figure></p>
-<p>UTLs 和 图片内容类型常量</p>
-<table>
-<thead>
-<tr>
-<th>Uniform type identifier</th>
-<th style="text-align:right">Image content type constant</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>public.image</td>
-<td style="text-align:right">kUTTypeImage</td>
-</tr>
-<tr>
-<td>public.png</td>
-<td style="text-align:right">kUTTypePNG</td>
-</tr>
-<tr>
-<td>public.jpeg</td>
-<td style="text-align:right">kUTTypeJPEG</td>
-</tr>
-<tr>
-<td>public.jpeg-2000 (OS X only)</td>
-<td style="text-align:right">kUTTypeJPEG2000</td>
-</tr>
-<tr>
-<td>public.tiff</td>
-<td style="text-align:right">kUTTypeTIFF</td>
-</tr>
-<tr>
-<td>com.apple.pict (OS X only)</td>
-<td style="text-align:right">kUTTypePICT</td>
-</tr>
-<tr>
-<td>com.compuserve.gif</td>
-<td style="text-align:right">kUTTypeGIF</td>
-</tr>
-</tbody>
-</table>
-<h2 id="实现图片渐进式"><a href="#实现图片渐进式" class="headerlink" title="实现图片渐进式"></a>实现图片渐进式</h2><p>总结步骤：</p>
-<ol>
-<li>获取图片 NSData 数据；</li>
-<li>调用 <code>CGImageSourceCreateIncremental</code> 方法创建增量图片源；</li>
-<li>根据获取到的 NSData 创建 CFData 对象；</li>
-<li>调用 <code>CGImageSourceUpdateData</code>  来更新图片。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad</div><div class="line">&#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    self.data = [NSMutableData data];</div><div class="line">    _loadFinished = NO;</div><div class="line">    _dataLength = 0;</div><div class="line"></div><div class="line">    _sourceRef = CGImageSourceCreateIncremental(NULL);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)loadImageWithUrl</div><div class="line">&#123;</div><div class="line">    NSURL *url = [NSURL URLWithString:imageURL];</div><div class="line">    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[[NSOperationQueue alloc]init]];</div><div class="line">    NSURLSessionDataTask *task = [session dataTaskWithURL:url];</div><div class="line">    [task resume];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data</div><div class="line">&#123;</div><div class="line">    [self.data appendData:data];</div><div class="line">    _loadFinished = NO;</div><div class="line">    if (_dataLength == dataTask.response.expectedContentLength) &#123;</div><div class="line">        _loadFinished = YES;</div><div class="line">    &#125;</div><div class="line">    _dataLength = dataTask.countOfBytesReceived;</div><div class="line">    [self showImage:self.data];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)showImage:(NSData *)data</div><div class="line">&#123;</div><div class="line">    CFDataRef dataRef = (__bridge CFDataRef)data;</div><div class="line">    CGImageSourceUpdateData(_sourceRef, dataRef, _loadFinished);</div><div class="line">    CGImageRef imageRef = CGImageSourceCreateImageAtIndex(_sourceRef, 0, NULL);</div><div class="line">    dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">        self.showImageView.image = [UIImage imageWithCGImage:imageRef];</div><div class="line">        CGImageRelease(imageRef);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>到此应该就可以看到效果。<br>注意点：</p>
-<ul>
-<li>使用<code>CGImageSourceCreateImageAtIndex</code> 创建  <code>CGImageRef</code> 对象，需要手动释放，否则内存会骤增；</li>
-<li>需要在主线程中更新UI。</li>
-</ul>
+          使用Image I/O 基础ImageI/O framework  提供从源图像 CGImageSourceRef 读取数据的不透明的数据类型并且写入图片数据到目的地 CGImageDestinationRef。它支持多种图像格式，包括标准的Web格式、高动态范围的图像和原始的摄像机数据。
 
-          
+一个U
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/08/Objective-C/Image/ImageI:O/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -789,6 +767,17 @@
 
           
           
+             <span id="/2018/01/02/Objective-C/Image/图片压缩/" class="leancloud_visitors" data-flag-title="图片压缩">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -811,36 +800,20 @@
       
         
           
-            <h2 id="PNG-和-JPEG（JPG）区别"><a href="#PNG-和-JPEG（JPG）区别" class="headerlink" title="PNG 和 JPEG（JPG）区别"></a>PNG 和 JPEG（JPG）区别</h2><ol>
-<li>PNG 图片是无损压缩，并且支持 alpha 通道，</li>
-<li>JPEG 图片是有损压缩，可以指定 0-100% 的压缩比；</li>
-<li>苹果提供了两个函数用来生成 PNG 和 JPEG 图片：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// return image as PNG. May return nil if image has no CGImageRef or invalid bitmap format</div><div class="line">UIKIT_EXTERN NSData * __nullable UIImagePNGRepresentation(UIImage * __nonnull image);</div><div class="line"></div><div class="line">// return image as JPEG. May return nil if image has no CGImageRef or invalid bitmap format. compression is 0(most)..1(least)</div><div class="line">UIKIT_EXTERN NSData * __nullable UIImageJPEGRepresentation(UIImage * __nonnull image, CGFloat compressionQuality);</div></pre></td></tr></table></figure>
-<h2 id="图片为什么需要解压图片"><a href="#图片为什么需要解压图片" class="headerlink" title="图片为什么需要解压图片"></a>图片为什么需要解压图片</h2><p>图片的解压缩需要消耗大量的 CPU 时间，为什么需要将图片解压后才能展示到屏幕上呢？这里引入一个概念<a href="https://developer.apple.com/library/content/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_images/dq_images.html#//apple_ref/doc/uid/TP30001066-CH212-SW3" target="_blank" rel="external">位图</a></p>
-<blockquote>
-<p>A bitmap image (or sampled image) is an array of pixels (or samples). Each pixel represents a single point in the image. JPEG, TIFF, and PNG graphics files are examples of bitmap images.<br> 位图就是一个数组，数组中每个元素代表图片中的一个点。</p>
-</blockquote>
-<h3 id="获取图片的原始数据"><a href="#获取图片的原始数据" class="headerlink" title="获取图片的原始数据"></a>获取图片的原始数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CFDataRef ref = CGDataProviderCopyData(CGImageGetDataProvider(_image.CGImage));</div></pre></td></tr></table></figure>
-<h3 id="计算图片所占内存"><a href="#计算图片所占内存" class="headerlink" title="计算图片所占内存"></a>计算图片所占内存</h3><h4 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">_image = [UIImage imageNamed:@&quot;320x480&quot;];</div><div class="line">CGFloat cgImageBytesPerRow = CGImageGetBytesPerRow(_image.CGImage); // 2560</div><div class="line">CGFloat cgImageHeight = CGImageGetHeight(_image.CGImage); // 960</div><div class="line">NSUInteger size  = cgImageHeight * cgImageBytesPerRow;</div><div class="line">NSLog(@&quot;size:%lu&quot;,(unsigned long)size); // 输出 2457600 bytes</div></pre></td></tr></table></figure>
-<h4 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CFDataRef ref = CGDataProviderCopyData(CGImageGetDataProvider(_image.CGImage));</div><div class="line">NSLog(@&quot;%@&quot;, ref); // 输出 2457600 bytes</div></pre></td></tr></table></figure>
-<p>打印可以看出一张320*480的图片加载并成功展示到页面所占用的内存达到 2457600 / 1024 / 1024 大约有2.34375M。如果有很多张这样的图片，内存完全不够用。</p>
-<p>这里位图和二进制不是一个概念。</p>
-<h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><h3 id="等比压缩-常用"><a href="#等比压缩-常用" class="headerlink" title="等比压缩 常用"></a>等比压缩 常用</h3><p>使用场景：后台返回固定图片尺寸用于支持iOS和android，比如返回1920x1080大小的图片，如不压缩在iPhone的所有尺寸展示：</p>
-<ol>
-<li>全屏展示：图片展示不全；</li>
-<li>指定其他大小尺寸展示：图片会失真</li>
-</ol>
-<p>此时需要按照等比压缩的方式来压缩图片：假定后台服务器返回图片的尺寸是固定的。<br>在程序中写定图片的宽和高：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define image_width 1080</div><div class="line">#define image_height 1920</div></pre></td></tr></table></figure></p>
-<p>按需求来设定图片展示大小，假设想要在width * height 大小的地方展示图片，如何计算压缩后图片的大小？</p>
-<ol>
-<li><p>定宽<br>图片宽：width<br>图片高：width * image_height / image_width</p>
-</li>
-<li><p>定高<br>图片宽：height * image_width / image_height<br>图片高：height<br>计算完成后在根据压缩后图片的大小来调整展示view的大小。<br>如果服务器返回的图片尺寸不是固定的也可以进行压缩，只是每次计算之前先要获取到图片，拿到图片的大小，过程一样。</p>
-</li>
-</ol>
+          PNG 和 JPEG（JPG）区别
+PNG 图片是无损压缩，并且支持 alpha 通道，
+JPEG 图片是有损压缩，可以指定 0-100% 的压缩比；
+苹果提供了两个函数用来生成 PNG 和 JPEG 图片：
 
-          
+12345// return image as PNG. May return nil 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/02/Objective-C/Image/图片压缩/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -976,6 +949,17 @@
 
           
           
+             <span id="/2018/01/01/Objective-C/Image/ImageType/" class="leancloud_visitors" data-flag-title="如何判断图片类型">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -998,12 +982,16 @@
       
         
           
-            <h2 id="直接获取扩展名"><a href="#直接获取扩展名" class="headerlink" title="直接获取扩展名"></a>直接获取扩展名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSString *image = @&quot;xxx.png&quot;;</div><div class="line">NSString *extension = image.pathExtension.lowercaseString;</div><div class="line">NSLog(@&quot;%@&quot;,extension);</div></pre></td></tr></table></figure>
-<p>只适用于可以获取到图片URL的时候</p>
-<h2 id="取出图片数据的第一个字节"><a href="#取出图片数据的第一个字节" class="headerlink" title="取出图片数据的第一个字节"></a>取出图片数据的第一个字节</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">NSString *path = [[NSBundle mainBundle]pathForResource:@&quot;414x736&quot; ofType:@&quot;png&quot;];</div><div class="line">NSData *data = [NSData dataWithContentsOfFile:path];</div><div class="line">uint8_t c;</div><div class="line">[data getBytes:&amp;c length: 1];</div><div class="line">switch (c) &#123;</div><div class="line">    case 0xFF:</div><div class="line">        return SDImageFormatJPEG;</div><div class="line">    case 0x89:</div><div class="line">        return SDImageFormatPNG;</div><div class="line">    case 0x47:</div><div class="line">        return SDImageFormatGIF;</div><div class="line">    case 0x49:</div><div class="line">    case 0x4D:</div><div class="line">        return SDImageFormatTIFF;</div><div class="line">    case 0x52: &#123;</div><div class="line">        if (data.length &gt;= 12) &#123;</div><div class="line">            //RIFF....WEBP</div><div class="line">            NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 12)] encoding:NSASCIIStringEncoding];</div><div class="line">            if ([testString hasPrefix:@&quot;RIFF&quot;] &amp;&amp; [testString hasSuffix:@&quot;WEBP&quot;]) &#123;</div><div class="line">                return SDImageFormatWebP;</div><div class="line">            &#125;</div><div class="line">            break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    case 0x00: &#123;</div><div class="line">        if (data.length &gt;= 12) &#123;</div><div class="line">            //....ftypheic ....ftypheix ....ftyphevc ....ftyphevx</div><div class="line">            NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(4, 8)] encoding:NSASCIIStringEncoding];</div><div class="line">            if ([testString isEqualToString:@&quot;ftypheic&quot;] ||</div><div class="line">                [testString isEqualToString:@&quot;ftypheix&quot;] ||</div><div class="line">                [testString isEqualToString:@&quot;ftyphevc&quot;] ||</div><div class="line">                [testString isEqualToString:@&quot;ftyphevx&quot;]) &#123;</div><div class="line">                return SDImageFormatHEIC;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        break;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>类型参考SDWebImage。</p>
-
-          
+          直接获取扩展名123NSString *image = @&quot;xxx.png&quot;;NSString *extension = image.pathExtension.lowercaseString;NSLog(@&quot;%@&quot;,extension);
+只适用于可以获取到
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/01/Objective-C/Image/ImageType/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1132,6 +1120,17 @@
 
           
           
+             <span id="/2017/09/04/Objective-C/CrashCollection/搜索不到解决方法/" class="leancloud_visitors" data-flag-title="pod搜索不到解决方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1154,14 +1153,15 @@
       
         
           
-            <h2 id="pod搜索不到"><a href="#pod搜索不到" class="headerlink" title="pod搜索不到"></a>pod搜索不到</h2><p>成功发布pod, 使用pod install可以成功添加自己发布的pod到工程,但是却用pod serach 搜索时报错: Unable to find a pod with name, author, summary, or description matching [podname]</p>
-<ol>
-<li>执行pod setup<br>终端输入：pod setup<br>会出现Setting up CocoaPods master repo，稍等几十秒，最底下会输出Setup completed。说明执行pod setup成功。</li>
-<li>如果pod search操作还是搜索失败，如下：<br>终端输入：pod search [podname]<br>输出：Unable to find a pod with name, author, summary, or descriptionmatching [podname] 这时就需要继续下面的步骤了。<br>删除~/Library/Caches/CocoaPods目录下的search_index.json文件<br>pod setup成功后，依然不能pod search，是因为之前你执行pod search生成了search_index.json，此时需要删掉。</li>
-<li>~/Library/Caches/CocoaPods/ 删除search_index.json再执行pod search<br>终端输入：pod search [podname] (不区分大小写)<br>输出：Creating search index for spec repo ‘master’.. Done!，稍等片刻······就会出现所有带有 [podname] 字段的类库。</li>
-</ol>
-
-          
+          pod搜索不到成功发布pod, 使用pod install可以成功添加自己发布的pod到工程,但是却用pod serach 搜索时报错: Unable to find a pod with name, author, summary, or description matching [podname
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/04/Objective-C/CrashCollection/搜索不到解决方法/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1290,6 +1290,17 @@
 
           
           
+             <span id="/2017/07/03/Objective-C/copy/" class="leancloud_visitors" data-flag-title="copy">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1312,25 +1323,15 @@
       
         
           
-            <h2 id="strong"><a href="#strong" class="headerlink" title="strong"></a><code>strong</code></h2><p><code>@property (nonatomic,strong)NSString *name;</code><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test1</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSMutableString</span> *str = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"iOS"</span>];</div><div class="line">    </div><div class="line">    <span class="comment">// str value: iOS , str address: 0x17026fb00</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"str value: %@ , str address: %p"</span>, str, str);</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.name = name;</div><div class="line">    <span class="comment">// self.name value: iOS , self.name address: 0x17026fb00</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"self.name value: %@ , self.name address: %p"</span>, <span class="keyword">self</span>.name, <span class="keyword">self</span>.name);</div><div class="line">    </div><div class="line">    [str appendString:<span class="string">@" Source Probe"</span>];</div><div class="line">    <span class="comment">// self.name value: iOS Source Probe , self.name address: 0x17026fb00</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"self.name value: %@ , self.name address: %p"</span>, <span class="keyword">self</span>.name, <span class="keyword">self</span>.name);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>对 <code>strong</code> 类型的变量进行赋值时，<code>name</code> 指向 <code>str</code> 的地址，<code>name</code> 的值会随着  <code>str</code> 的变化而变化。</p>
-<h2 id="copy"><a href="#copy" class="headerlink" title="copy"></a><code>copy</code></h2><p><code>@property (nonatomic,copy)NSString *cy_name;</code></p>
-<h3 id="指向不可变类型"><a href="#指向不可变类型" class="headerlink" title="指向不可变类型"></a>指向不可变类型</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test2</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSString</span> *str = <span class="string">@"iOS"</span>;</div><div class="line">    <span class="comment">// str value: iOS , str address: 0x17026fb80</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"str value: %@ , str address: %p"</span>, str, str);</div><div class="line"></div><div class="line">    <span class="keyword">self</span>.cy_name = str;</div><div class="line">    <span class="comment">// self.cy_name value: iOS , self.cy_name address: 0x17026fb80</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"self.cy_name value: %@ , self.cy_name address: %p"</span>, <span class="keyword">self</span>.cy_name, <span class="keyword">self</span>.cy_name);</div><div class="line"></div><div class="line">    str = <span class="string">@" Source Probe"</span>;</div><div class="line">    <span class="comment">// self.cy_name value: iOS , self.cy_name address: 0x17026fb80</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"self.cy_name value: %@ , self.cy_name address: %p"</span>, <span class="keyword">self</span>.cy_name, <span class="keyword">self</span>.cy_name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对 <code>copy</code> 类型的变量进行赋值时，<code>cy_name</code> 指向  <code>str</code>  的地址，<code>cy_name</code> 的值不会随着  <code>str</code> 的变化而变化。</p>
-<h3 id="指向可变类型"><a href="#指向可变类型" class="headerlink" title="指向可变类型"></a>指向可变类型</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test3</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSMutableString</span> *str = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"iOS"</span>];</div><div class="line">    <span class="comment">// str value: iOS , str address: 0x170270300</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"str value: %@ , str address: %p"</span>, str, str);</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.cy_name = str;</div><div class="line">    <span class="comment">// self.cy_name value: iOS , self.cy_name address: 0xa00000000534f693</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"self.cy_name value: %@ , self.cy_name address: %p"</span>, <span class="keyword">self</span>.cy_name, <span class="keyword">self</span>.cy_name);</div><div class="line"></div><div class="line">    [str appendString:<span class="string">@" Source Probe"</span>];</div><div class="line">    <span class="comment">// self.cy_name value: iOS , self.cy_name address: 0xa00000000534f693</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"self.cy_name value: %@ , self.cy_name address: %p"</span>, <span class="keyword">self</span>.cy_name, <span class="keyword">self</span>.cy_name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对 <code>copy</code> 类型的变量进行赋值时，<code>cy_name</code> 指向新的地址，<code>cy_name</code> 的值不会随着  <code>str</code> 的变化而变化。</p>
-<p><code>copy</code>  针对可变类型的变量时，地址会发生变化。</p>
-<h2 id="mutableCopy"><a href="#mutableCopy" class="headerlink" title="mutableCopy"></a><code>mutableCopy</code></h2><h3 id="指向不可变类型-1"><a href="#指向不可变类型-1" class="headerlink" title="指向不可变类型"></a>指向不可变类型</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) test7</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSString</span> *str = <span class="string">@"iOS"</span>;</div><div class="line">    <span class="comment">// str value: iOS , str address: 0x170263c00</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"str value: %@ , str address: %p"</span>, str, str);</div><div class="line"></div><div class="line">    <span class="built_in">NSString</span> *str_b = [str mutableCopy];</div><div class="line">    <span class="comment">// str_b value: iOS , str_b address: 0x1702638c0</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"str_b value: %@ , str_b address: %p"</span>, str_b, str_b);</div><div class="line"></div><div class="line">    str = <span class="string">@"Android"</span>;</div><div class="line">    <span class="comment">// str_b value: iOS , str_b address: 0x1702638c0</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"str_b value: %@ , str_b address: %p"</span>, str_b, str_b);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对一个不可变字符串进行深拷贝时，地址发生变化，值不会在改变。</p>
-<h3 id="指向可变类型-1"><a href="#指向可变类型-1" class="headerlink" title="指向可变类型"></a>指向可变类型</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) test6</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSMutableString</span> *str = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"iOS"</span>];</div><div class="line">    <span class="comment">// str value: iOS , str address: 0x170263c00</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"str value: %@ , str address: %p"</span>, str, str);</div><div class="line"></div><div class="line">    <span class="built_in">NSString</span> *str_b = [str mutableCopy];</div><div class="line">    <span class="comment">// str_b value: iOS , str_b address: 0x1702638c0</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"str_b value: %@ , str_b address: %p"</span>, str_b, str_b);</div><div class="line"></div><div class="line">    [str appendString:<span class="string">@" Source Probe"</span>];</div><div class="line">    <span class="comment">// str_b value: iOS , str_b address: 0x1702638c0</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"str_b value: %@ , str_b address: %p"</span>, str_b, str_b);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>对一个可变字符串进行深拷贝时，地址发生变化，值不会在改变。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>对于系统的非容器类对象，如果对一不可变对象 <code>NSString</code> 复制，<code>copy</code> 是指针复制(浅拷贝) ，<code>mutableCopy</code> 是对象复制(深拷贝)； 如果是对可变对象 <code>NSMutableString</code> 复制，<code>copy</code> 和 <code>mutableCopy</code> 都是深拷贝，但是 <code>copy</code>  返回的对象是不可变的；</li>
-<li>对于系统的容器类对象，对不可变对象 <code>NSArray</code> 进行复制，<code>copy</code> 是指针复制(浅拷贝)，<code>mutableCopy</code> 是对象复制(深拷贝)， 但是不管是 <code>copy</code> 还是 <code>mutableCopy</code>，返回的容器内对象都是指针复制(浅拷贝)；</li>
-<li>对于系统的容器类对象，对可变对象 <code>NSMutableArray</code> 进行复制时，<code>copy</code>  和 <code>mutableCopy</code> 都是对象复制(深拷贝)，但是不管是 <code>copy</code> 还是 <code>mutableCopy</code>，返回的容器内对象都是指针复制(浅拷贝)。</li>
-</ol>
-
-          
+          strong@property (nonatomic,strong)NSString *name;123456789101112131415- (void)test1&#123;    NSMutableString *str = [NSMutableString stringWithFormat:
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/03/Objective-C/copy/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1473,6 +1474,17 @@
 
           
           
+             <span id="/2017/06/30/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerController/" class="leancloud_visitors" data-flag-title="MPMoviePlayerController">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1495,30 +1507,16 @@
       
         
           
-            <p>首先贴上<a href="https://developer.apple.com/documentation/mediaplayer/mpmovieplayercontroller" target="_blank" rel="external">官方文档</a></p>
-<h2 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad</div><div class="line">&#123;</div><div class="line">    [super viewDidLoad];</div><div class="line"></div><div class="line">    [self.view addSubview:self.moviePlayerController.view];</div><div class="line">    [self.moviePlayerController.view makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.top.left.bottom.right.equalTo(self.view);</div><div class="line">    &#125;];</div><div class="line">    [self.moviePlayerController prepareToPlay];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (MPMoviePlayerController *)moviePlayerController</div><div class="line">&#123;</div><div class="line">    if (!_moviePlayerController) &#123;</div><div class="line">        _moviePlayerController = [[MPMoviePlayerController alloc]init];</div><div class="line">        _moviePlayerController.fullscreen = NO;</div><div class="line">        _moviePlayerController.controlStyle = MPMovieControlStyleEmbedded;</div><div class="line">        _moviePlayerController.scalingMode = MPMovieScalingModeAspectFit;</div><div class="line">        [_moviePlayerController.view setTranslatesAutoresizingMaskIntoConstraints:NO];</div><div class="line">    &#125;</div><div class="line">    return _moviePlayerController;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>_moviePlayerController.view 一定要添加到父视图上, 要不只有声音没有图片</li>
-<li>MPMoviePlayerController 继承 NSObject <mpmediaplayback></mpmediaplayback></li>
-<li><mpmediaplayback> 播放, 暂停, 停止, 准备播放的API</mpmediaplayback></li>
-<li>视图刚呈现时底部显示: 暂停 进度条 全屏按钮</li>
-<li>点击底部全屏按钮后会在顶部呈现: Done 进度条 退出全屏按钮</li>
-</ul>
-<h2 id="2-顶部-Done-和-退出全屏按钮的监测"><a href="#2-顶部-Done-和-退出全屏按钮的监测" class="headerlink" title="2. 顶部 Done 和 退出全屏按钮的监测"></a>2. 顶部 Done 和 退出全屏按钮的监测</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doneButtonClick:) name:MPMoviePlayerWillExitFullscreenNotification object:nil];</div><div class="line"></div><div class="line">- (void)doneButtonClick:(NSNotification *)center</div><div class="line">&#123;</div><div class="line">    if (self.moviePlayerController.playbackState == MPMoviePlaybackStateStopped) &#123;</div><div class="line">        //说明是点击Done按钮</div><div class="line">        [self dismissViewControllerAnimated:YES completion:nil];</div><div class="line">    &#125;</div><div class="line">    else if (self.moviePlayerController.playbackState == MPMoviePlaybackStatePlaying)&#123;</div><div class="line">        //说明点击了右上角退出全屏按钮</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>注册 <code>MPMoviePlayerWillExitFullscreenNotification</code> 这个通知, 不管是点击Done还是退出全屏按钮都会接受到通知, 在通知的回调方法中可以根据 <code>playbackState</code> 这个属性来判断是点击那个按钮.</li>
-<li>点击Done按钮时会暂停播放</li>
-<li>点击退出全屏按钮则不会暂停播放</li>
-</ul>
-<h2 id="3-监听视频播放结束"><a href="#3-监听视频播放结束" class="headerlink" title="3. 监听视频播放结束"></a>3. 监听视频播放结束</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoEndPlay:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];</div><div class="line"></div><div class="line">- (void)videoEndPlay:(NSNotification *)sender</div><div class="line">&#123;</div><div class="line">    NSLog(@&quot;播放结束&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>自动播放完成后会调用</li>
-<li>用户退出播放时会调用</li>
-</ul>
-<h2 id="4-监听当前视频播放状态"><a href="#4-监听当前视频播放状态" class="headerlink" title="4. 监听当前视频播放状态"></a>4. 监听当前视频播放状态</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoLoadStateDidChange:) name:MPMoviePlayerLoadStateDidChangeNotification object:nil];</div><div class="line">- (void)videoLoadStateDidChange:(NSNotification *)sender</div><div class="line">&#123;</div><div class="line">    // Returns the network load state of the movie player</div><div class="line">    switch (self.moviePlayerController.loadState) &#123;</div><div class="line">        case MPMovieLoadStatePlayable:</div><div class="line">            NSLog(@&quot;加载完成,可以播放&quot;);</div><div class="line">            break;</div><div class="line"></div><div class="line">        case MPMovieLoadStatePlaythroughOK:</div><div class="line">            NSLog(@&quot;缓冲完成，可以连续播放&quot;);</div><div class="line">            break;</div><div class="line"></div><div class="line">        case MPMovieLoadStateStalled:</div><div class="line">            NSLog(@&quot;缓冲中&quot;);</div><div class="line">            break;</div><div class="line"></div><div class="line">        case MPMovieLoadStateUnknown:</div><div class="line">            NSLog(@&quot;未知状态&quot;);</div><div class="line">            break;</div><div class="line"></div><div class="line">        default:</div><div class="line">            break;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="5-监听当前视频-Playback-拖动进度条-播放-暂停-开启全屏-退出全屏也需要注册这个通知"><a href="#5-监听当前视频-Playback-拖动进度条-播放-暂停-开启全屏-退出全屏也需要注册这个通知" class="headerlink" title="5. 监听当前视频 Playback 拖动进度条, 播放, 暂停, 开启全屏, 退出全屏也需要注册这个通知"></a>5. 监听当前视频 Playback 拖动进度条, 播放, 暂停, 开启全屏, 退出全屏也需要注册这个通知</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlaybackDidChange:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:nil];</div><div class="line"></div><div class="line">- (void)videoPlaybackDidChange:(NSNotification *)center</div><div class="line">&#123;</div><div class="line">    switch (self.moviePlayerController.playbackState) &#123;</div><div class="line">        case MPMoviePlaybackStateStopped:</div><div class="line">            NSLog(@&quot;停止播放&quot;);</div><div class="line">            break;</div><div class="line"></div><div class="line">        case MPMoviePlaybackStatePlaying:</div><div class="line">            NSLog(@&quot;正在播放&quot;);</div><div class="line">            break;</div><div class="line"></div><div class="line">        case MPMoviePlaybackStatePaused:</div><div class="line">            NSLog(@&quot;暂停播放&quot;);</div><div class="line">            break;</div><div class="line"></div><div class="line">        case MPMoviePlaybackStateInterrupted:</div><div class="line">            NSLog(@&quot;中断播放&quot;);</div><div class="line">            break;</div><div class="line"></div><div class="line">        case MPMoviePlaybackStateSeekingForward:</div><div class="line">            NSLog(@&quot;快进&quot;);</div><div class="line">            break;</div><div class="line"></div><div class="line">        case MPMoviePlaybackStateSeekingBackward:</div><div class="line">            NSLog(@&quot;快退&quot;);</div><div class="line">            break;</div><div class="line"></div><div class="line">        default:</div><div class="line">            break;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="7-上一首-下一首"><a href="#7-上一首-下一首" class="headerlink" title="7. 上一首, 下一首"></a>7. 上一首, 下一首</h2><h2 id="8"><a href="#8" class="headerlink" title="8."></a>8.</h2>
-          
+          首先贴上官方文档
+1. 初始化12345678910111213141516171819202122- (void)viewDidLoad&#123;    [super viewDidLoad];    [self.view addSubview:self.moviePlayerControlle
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/30/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerController/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1661,6 +1659,17 @@
 
           
           
+             <span id="/2017/06/22/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerViewController/" class="leancloud_visitors" data-flag-title="MPMoviePlayerViewController">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1683,18 +1692,16 @@
       
         
           
-            <p>首先贴上<a href="https://developer.apple.com/documentation/mediaplayer/mpmovieplayercontroller" target="_blank" rel="external">官方文档</a></p>
-<p>先看下头文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@interface MPMoviePlayerViewController : UIViewController</div><div class="line"></div><div class="line">- (instancetype)initWithContentURL:(NSURL *)contentURL NS_DESIGNATED_INITIALIZER;</div><div class="line"></div><div class="line">@property (nonatomic, readonly) MPMoviePlayerController *moviePlayer;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@interface UIViewController (MPMoviePlayerViewController)</div><div class="line"></div><div class="line">- (void)presentMoviePlayerViewControllerAnimated:(MPMoviePlayerViewController *)moviePlayerViewController;</div><div class="line">- (void)dismissMoviePlayerViewControllerAnimated;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
-<ul>
-<li>MPMoviePlayerViewController 继承 UIViewController;</li>
-<li>API很少, 主要是 moviePlayer 这个属性, 是对 MPMoviePlayerController 的一层封装;</li>
-<li>当然也拥有 MPMoviePlayerController 的所有功能;</li>
-<li>使用简单, 点击Done按钮会自动退出, 有进度条, 快进, 快退, 播放按钮.</li>
-<li>可以去自定义添加控件到播放页面, 不建议这么做, 可以直接使用 MPMoviePlayerController</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MPMoviePlayerViewController *mpMovieController = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL fileURLWithPath:videoPath]];</div><div class="line">[vc presentViewController:mpMovieController animated:YES completion:nil];</div></pre></td></tr></table></figure>
-
-          
+          首先贴上官方文档
+先看下头文件:1234567891011121314@interface MPMoviePlayerViewController : UIViewController- (instancetype)initWithContentURL:(NSURL *)contentURL NS_
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/22/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerViewController/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1823,6 +1830,17 @@
 
           
           
+             <span id="/2017/06/18/Objective-C/WKWebView/" class="leancloud_visitors" data-flag-title="WKWebView的坑">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -1845,12 +1863,18 @@
       
         
           
-            <h2 id="一-iOS-8-系统下遇到的问题"><a href="#一-iOS-8-系统下遇到的问题" class="headerlink" title="一: iOS 8 系统下遇到的问题"></a>一: iOS 8 系统下遇到的问题</h2><ol>
-<li>实例化WKWebView后如果不将其添加到父类上, 则其代理方法不回调; iOS 9及以上版本不存在此问题. 大坑~</li>
-</ol>
-<h2 id="二-webView-自适应宽度"><a href="#二-webView-自适应宽度" class="headerlink" title="二: webView 自适应宽度"></a>二: webView 自适应宽度</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (void)webViewDidFinishLoad:(UIWebView *)webView</div><div class="line">&#123;</div><div class="line">    // webView 自适应宽度</div><div class="line">    NSString *meta = [NSString stringWithFormat:@&quot;document.getElementsByName(\&quot;viewport\&quot;)[0].content = \&quot;width=%f,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\&quot;&quot;, webView.frame.size.width];</div><div class="line">    [webView stringByEvaluatingJavaScriptFromString:meta];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          一: iOS 8 系统下遇到的问题
+实例化WKWebView后如果不将其添加到父类上, 则其代理方法不回调; iOS 9及以上版本不存在此问题. 大坑~
 
-          
+二: webView 自适应宽度123456- (void)webViewDidFinishLoad:(UIWebView *)webView&
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/18/Objective-C/WKWebView/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1986,6 +2010,17 @@
 
           
           
+             <span id="/2017/06/10/Objective-C/KV_X/KVO/" class="leancloud_visitors" data-flag-title="KVO">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -2008,78 +2043,18 @@
       
         
           
-            <h1 id="什么是KVO"><a href="#什么是KVO" class="headerlink" title="什么是KVO?"></a>什么是KVO?</h1><blockquote>
-<p>Key-value observing is a mechanism that allows objects to be notified of changes to specified properties of other objects.</p>
-</blockquote>
-<p><strong> KVO是一种机制，被观察对象指定的属性发生变化时，观察者可以得到通知。</strong></p>
-<blockquote>
-<p>Important: In order to understand key-value observing, you must first understand key-value coding.</p>
-</blockquote>
-<h1 id="怎么用？"><a href="#怎么用？" class="headerlink" title="怎么用？"></a>怎么用？</h1><h2 id="注册观察者"><a href="#注册观察者" class="headerlink" title="注册观察者"></a>注册观察者</h2><ol>
-<li>addObserver ：注册观察者</li>
-<li>forKeyPath ：需要观察对象的属性</li>
-<li>NSKeyValueObservingOptions ：当观察对象的属性值发生变化时，会发送一个通知包含 <code>NSKeyValueChangeNewKey and NSKeyValueChangeOldKey</code></li>
-<li>content ：用于标识KVO，移除特定的KVO</li>
-</ol>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">AdHubKVOModel *testModel = [[AdHubKVOModel alloc]init];</div><div class="line">[testModel addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"keyPath"</span> options:<span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
-<h2 id="触发回调"><a href="#触发回调" class="headerlink" title="触发回调"></a>触发回调</h2><p>设置 testModel.keyPath = @”20”;时会触发回调通知<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary&lt;NSKeyValueChangeKey,id&gt; *)change context:(void *)context</div><div class="line">&#123;</div><div class="line">    // keyPath ：观察对象的属性</div><div class="line">    // object  ：被观察的对象</div><div class="line">    // change  ：包含 NSKeyValueChangeNewKey and NSKeyValueChangeOldKey</div><div class="line">                change[NSKeyValueChangeNewKey] / change[NSKeyValueChangeOldKey]</div><div class="line">    // context ：用于标识KVO，移除特定的KVO</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="自动通知"><a href="#自动通知" class="headerlink" title="自动通知"></a>自动通知</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Call the accessor method.</span></div><div class="line">[account setName:<span class="string">@"Savings"</span>];</div><div class="line"></div><div class="line"><span class="comment">// Use setValue:forKey:.</span></div><div class="line">[account setValue:<span class="string">@"Savings"</span> forKey:<span class="string">@"name"</span>];</div><div class="line"></div><div class="line"><span class="comment">// Use a key path, where 'account' is a kvc-compliant property of 'document'.</span></div><div class="line">[document setValue: <span class="string">@"Savings"</span> forKeyPath:<span class="string">@"account.name"</span>];</div><div class="line"></div><div class="line"><span class="comment">// Use mutableArrayValueForKey: to retrieve a relationship proxy object.</span></div><div class="line">Transaction *newTransaction = &lt;<span class="meta">#Create a new transaction for the account#&gt;;</span></div><div class="line"><span class="built_in">NSMutableArray</span> *transactions = [account mutableArrayValueForKey:<span class="string">@"transactions"</span>];</div><div class="line">[transactions addObject:newTransaction];</div></pre></td></tr></table></figure>
-<h2 id="手动通知"><a href="#手动通知" class="headerlink" title="手动通知"></a>手动通知</h2><p>需要重写<code>NSKeyValueObserving.h</code>中的方法, 判断当观察的 <code>key</code> 是 <code>balance</code> 时，就将自动通知关闭，其余的情况还是根据父类来进行判断<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">+ (<span class="built_in">BOOL</span>)automaticallyNotifiesObserversForKey:(<span class="built_in">NSString</span> *)theKey &#123;</div><div class="line">    <span class="built_in">BOOL</span> automatic = <span class="literal">NO</span>;</div><div class="line">    <span class="keyword">if</span> ([theKey isEqualToString:<span class="string">@"balance"</span>]) &#123;</div><div class="line">        automatic = <span class="literal">NO</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        automatic = [<span class="keyword">super</span> automaticallyNotifiesObserversForKey:theKey];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> automatic;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong> 返回YES时会自动调用 <code>-willChangeValueForKey:/-didChangeValueForKey:</code> 这两个方法；</strong><br><strong> 返回NO时需要手动设置 <code>-willChangeValueForKey:/-didChangeValueForKey:</code> 这两个方法。</strong></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setBalance:(<span class="keyword">double</span>)theBalance &#123;</div><div class="line">    <span class="keyword">if</span> (theBalance != _balance) &#123;</div><div class="line">        [<span class="keyword">self</span> willChangeValueForKey:<span class="string">@"balance"</span>];</div><div class="line">        _balance = theBalance;</div><div class="line">        [<span class="keyword">self</span> didChangeValueForKey:<span class="string">@"balance"</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="同时设置多个属性值"><a href="#同时设置多个属性值" class="headerlink" title="同时设置多个属性值"></a>同时设置多个属性值</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setBalance:(<span class="keyword">double</span>)theBalance &#123;</div><div class="line">    [<span class="keyword">self</span> willChangeValueForKey:<span class="string">@"balance"</span>];</div><div class="line">    [<span class="keyword">self</span> willChangeValueForKey:<span class="string">@"itemChanged"</span>];</div><div class="line">    _balance = theBalance;</div><div class="line">    _itemChanged = _itemChanged+<span class="number">1</span>;</div><div class="line">    [<span class="keyword">self</span> didChangeValueForKey:<span class="string">@"itemChanged"</span>];</div><div class="line">    [<span class="keyword">self</span> didChangeValueForKey:<span class="string">@"balance"</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="依赖关系"><a href="#依赖关系" class="headerlink" title="依赖关系"></a>依赖关系</h2><h2 id="移除KVO"><a href="#移除KVO" class="headerlink" title="移除KVO"></a>移除KVO</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[observeredObject removeObserver:observer forKeyPath:keyPath];</div></pre></td></tr></table></figure>
-<p>再次移除同一对象的同一属性会crash;</p>
-<blockquote>
-<p>Terminating app due to uncaught exception ‘NSRangeException’, reason: ‘Cannot remove an observer <xxxxx 0x7f9310e0bec0=""> for the key path “keyPath” from <xxxx 0x600000648c70=""> because it is not registered as an observer.</xxxx></xxxxx></p>
-</blockquote>
-<p><strong> 移除KVO时， 注意：<code>forKeyPath</code>  传入 </strong></p>
-<ul>
-<li>不能为空</li>
-<li>不能是观察对象中不存在的属性</li>
-<li>不能是未被注册观察的属性<br>以上会造成crash：<blockquote>
-<p><em>*</em> Terminating app due to uncaught exception ‘NSRangeException’, reason: ‘-[__NSCFConstantString characterAtIndex:]: Range or index out of bounds</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="原理是什么？"><a href="#原理是什么？" class="headerlink" title="原理是什么？"></a>原理是什么？</h1><blockquote>
-<p>Automatic key-value observing is implemented using a technique called isa-swizzling.</p>
-<p>The isa pointer, as the name suggests, points to the object’s class which maintains a dispatch table. This dispatch table essentially contains pointers to the methods the class implements, among other data.</p>
-<p>When an observer is registered for an attribute of an object the isa pointer of the observed object is modified, pointing to an intermediate class rather than at the true class. As a result the value of the isa pointer does not necessarily reflect the actual class of the instance.</p>
-<p>You should never rely on the isa pointer to determine class membership. Instead, you should use the class method to determine the class of an object instance.</p>
-</blockquote>
-<h2 id="创建一个实例"><a href="#创建一个实例" class="headerlink" title="创建一个实例"></a>创建一个实例</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AdHubKVOModel *testModel = [[AdHubKVOModel alloc]init];</div></pre></td></tr></table></figure>
-<p>打印 testModel 可以发现 :</p>
-<blockquote>
-<p>Printing description of testModel:<br><code>&lt;AdHubKVOModel: 0x60400044c390&gt;</code></p>
-<p>Printing description of testModel:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="built_in">NSObject</span>) <span class="built_in">NSObject</span> = &#123;</div><div class="line">    isa = AdHubKVOModel</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>testModel 是AdHubKVOModel 的实例，其isa指针指向AdHubKVOModel</p>
-</blockquote>
-<h2 id="执行注册观察者的方法"><a href="#执行注册观察者的方法" class="headerlink" title="执行注册观察者的方法:"></a>执行注册观察者的方法:</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[testModel addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"keyPath"</span> options:<span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
-<p>再次打印 testModel 可以发现：<br>Printing description of testModel:<br><code>&lt;AdHubKVOModel: 0x60400044c390&gt;</code></p>
-<p>Printing description of testModel:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="built_in">NSObject</span>) <span class="built_in">NSObject</span> = &#123;</div><div class="line">    isa = <span class="built_in">NSKVONotifying_AdHubKVOModel</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><code>NSKVONotifying_AdHubKVOModel</code> 是什么？苹果的文档中提起对对象的属性注册观察者时，会对所观察的对象的isa指针进行修改，此时isa指针指向一个中间类，而不是一个真实的类，创建一个以<code>NSKVONotifying_</code>开头的的类名。<br>在这个类中，系统为我们重写了被观察属性的 setter 方法。</p>
-<h2 id="KVO是如何寻找被观察属性的？"><a href="#KVO是如何寻找被观察属性的？" class="headerlink" title="KVO是如何寻找被观察属性的？"></a>KVO是如何寻找被观察属性的？</h2><ol>
-<li>属性对象第一次被观察时，系统会自动生成一个以<code>NSKVONotifying_</code>开头的派生类，并在这个派生类中重写被观察属性的 <code>setter</code> 方法，在 <code>setter</code> 方法内实现通知回调机制；</li>
-<li>每个对象都有一个isa指针指向对象所在类，当一个类对象被首次观察时，会将 <code>isa</code> 指针指向派生类，这点在上文中已经验证过，在派生类中的 <code>setter</code> 方法中真正的实现赋值；</li>
-<li>在派生类中会实现两个方法 <code>willChangeValueForKey:</code> 和 <code>didChangevlueForKey:</code> 其中<code>willChangeValueForKey:</code> 记录旧值；<code>didChangevlueForKey:</code> 记录新值；</li>
-<li>紧接着<code>observeValueForKey:ofObject:change:context:</code> 被调用，此时即可获取到被观察属性值的变化。</li>
-<li>如果在当前类中未找到要监测的属性，则会向当前类的父类中查找。。。一直找下去，找到执行第一步；没有找到，则不会触发通知回调。</li>
-</ol>
-<h2 id="限制条件是什么？"><a href="#限制条件是什么？" class="headerlink" title="限制条件是什么？"></a>限制条件是什么？</h2><h3 id="一：forKeyPath-为实例对象是否可以？"><a href="#一：forKeyPath-为实例对象是否可以？" class="headerlink" title="一：forKeyPath 为实例对象是否可以？"></a><em>一：<code>forKeyPath</code> 为实例对象是否可以？</em></h3><p>可以，但KVO不会触发回调通知。</p>
-<h3 id="二：forKeyPath-为不存在的实例对象是否可以？"><a href="#二：forKeyPath-为不存在的实例对象是否可以？" class="headerlink" title="二：forKeyPath 为不存在的实例对象是否可以？"></a><em>二：<code>forKeyPath</code> 为不存在的实例对象是否可以？</em></h3><p>可以，但KVO不会触发回调通知。</p>
-<h3 id="三：forKeyPath-为空-nil-时是否可以？"><a href="#三：forKeyPath-为空-nil-时是否可以？" class="headerlink" title="三：forKeyPath 为空 / nil 时是否可以？"></a><em>三：<code>forKeyPath</code> 为空 / nil 时是否可以？</em></h3><p>会造成crash：</p>
-<blockquote>
-<p><em>*</em> Terminating app due to uncaught exception ‘NSRangeException’, reason: ‘-[__NSCFConstantString characterAtIndex:]: Range or index out of bounds</p>
-</blockquote>
-<h3 id="四：-forKeyPath-为方法名是否可以？"><a href="#四：-forKeyPath-为方法名是否可以？" class="headerlink" title="四： forKeyPath 为方法名是否可以？"></a><em>四： <code>forKeyPath</code> 为方法名是否可以？</em></h3><p>可以，但KVO不会触发回调通知。</p>
-<h3 id="五：如果手动为实例对象创建一个setter方法是否可以？"><a href="#五：如果手动为实例对象创建一个setter方法是否可以？" class="headerlink" title="五：如果手动为实例对象创建一个setter方法是否可以？"></a><em>五：如果手动为实例对象创建一个<code>setter</code>方法是否可以？</em></h3><p>可以，因为KVO监测的是被监测对象属性的 <code>setter</code> 方法。</p>
-<h3 id="六：同一个类中注册多个KVO会怎么样？"><a href="#六：同一个类中注册多个KVO会怎么样？" class="headerlink" title="六：同一个类中注册多个KVO会怎么样？"></a><em>六：同一个类中注册多个KVO会怎么样？</em></h3><p>所有的回调都是走同一个回调方法，需要对触发回调函数的来源进行判断。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">id</span>)object change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSKeyValueChangeKey</span>,<span class="keyword">id</span>&gt; *)change context:(<span class="keyword">void</span> *)context</div><div class="line">&#123;</div><div class="line">    <span class="comment">// keyPath ：观察对象的属性, 可用于判断触发回调函数的来源</span></div><div class="line">    <span class="comment">// object  ：被观察的对象</span></div><div class="line">    <span class="comment">// change  ：包含 NSKeyValueChangeNewKey and NSKeyValueChangeOldKey</span></div><div class="line">    <span class="comment">// context ：用于标识KVO，移除特定的KVO</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="七：被观察类的父类中也实现了KVO会怎么样？"><a href="#七：被观察类的父类中也实现了KVO会怎么样？" class="headerlink" title="七：被观察类的父类中也实现了KVO会怎么样？"></a><em>七：被观察类的父类中也实现了KVO会怎么样？</em></h3><p>比如被观察类A，其父类为superA，superA中也实现了KVO，那么在C类中添加对A类的某个属性的观察，会怎么样？<br>被观察属性值都发生变化，先走C类中的回调方法，然后在走superA类中的回调方法。</p>
-<p>总结： <code>forKeyPath</code> 不能为空，或则会crash，找不到则不会出发通知。</p>
-<h2 id="模拟实现系统KVO"><a href="#模拟实现系统KVO" class="headerlink" title="模拟实现系统KVO"></a>模拟实现系统KVO</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (^HBKVOCallBack)(<span class="built_in">NSDictionary</span> *info);</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *<span class="keyword">const</span> HBKeyValueChangeKey = <span class="string">@"HBKeyValueChangeKey"</span>;</div><div class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *<span class="keyword">const</span> HBKeyValueChangeNewKey = <span class="string">@"HBKeyValueChangeNewKey"</span>;</div><div class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *<span class="keyword">const</span> HBKeyValueChangeOldKey = <span class="string">@"HBKeyValueChangeOldKey"</span>;</div><div class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *<span class="keyword">const</span> HBKeyValueObserver = <span class="string">@"HBKeyValueObserver"</span>;</div><div class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *<span class="keyword">const</span> HBKeyValueKeyPath = <span class="string">@"HBKeyValueKeyPath"</span>;</div><div class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *<span class="keyword">const</span> HBKeyValueContent = <span class="string">@"HBKeyValueContent"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">HBHookKVO</span>)</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)HB_addObserver:(<span class="built_in">NSObject</span> *)observer forKeyPath:(<span class="built_in">NSString</span> *)keyPath options:(<span class="built_in">NSKeyValueObservingOptions</span>)options context:(<span class="built_in">NSString</span> *)content KVOCallBackBlock:(HBKVOCallBack)block;</div><div class="line">- (<span class="keyword">void</span>)HB_removeObserverAllPath:(<span class="built_in">NSObject</span> *)observer;</div><div class="line">- (<span class="keyword">void</span>)HB_removeObserver:(<span class="built_in">NSObject</span> *)observer forKeyPath:(<span class="built_in">NSString</span> *)keyPath;</div><div class="line">- (<span class="keyword">void</span>)HB_removeObserver:(<span class="built_in">NSObject</span> *)observer forKeyPath:(<span class="built_in">NSString</span> *)keyPath context:(<span class="built_in">NSString</span> *)content;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">"NSObject+HBHookKVO.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;objc/message.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keyword">char</span> *<span class="keyword">const</span> kObserver = <span class="string">"kObserver"</span>;</div><div class="line"><span class="keyword">static</span> <span class="keyword">char</span> *<span class="keyword">const</span> kObserverKeyPath = <span class="string">"kObserverKeyPath"</span>;</div><div class="line"><span class="keyword">static</span> <span class="keyword">char</span> *<span class="keyword">const</span> kKVOCallBackBlock = <span class="string">"kKVOCallBackBlock"</span>;</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *<span class="keyword">const</span> HBKVOClassPrefix = <span class="string">@"NSKVONotifying_"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">HBHookKVO</span>)</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)HB_addObserver:(<span class="built_in">NSObject</span> *)observer forKeyPath:(<span class="built_in">NSString</span> *)keyPath options:(<span class="built_in">NSKeyValueObservingOptions</span>)options context:(<span class="built_in">NSString</span> *)content KVOCallBackBlock:(HBKVOCallBack)block</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 判断传入的keyPath是否存在</span></div><div class="line">    <span class="keyword">if</span> (!keyPath || !keyPath.length) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, kObserver, observer, OBJC_ASSOCIATION_ASSIGN);</div><div class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, kObserverKeyPath, keyPath, OBJC_ASSOCIATION_ASSIGN);</div><div class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, kKVOCallBackBlock, block, OBJC_ASSOCIATION_COPY_NONATOMIC);</div><div class="line"></div><div class="line">    <span class="comment">// 判断属性是否存在</span></div><div class="line">    SEL setterSel = [<span class="keyword">self</span> addNewSetterMethod:keyPath];</div><div class="line"></div><div class="line">    Class newClass = object_getClass(<span class="keyword">self</span>);</div><div class="line">    <span class="comment">// 判断当前类是否是KVO中间类</span></div><div class="line">    <span class="built_in">NSString</span> *className = <span class="built_in">NSStringFromClass</span>(newClass);</div><div class="line">    <span class="keyword">if</span> (![className containsString:HBKVOClassPrefix]) &#123;</div><div class="line">    <span class="comment">// 动态创建一个类</span></div><div class="line">        <span class="built_in">NSString</span> *newName = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@%@"</span>, HBKVOClassPrefix, <span class="built_in">NSStringFromClass</span>(<span class="keyword">self</span>.class)];</div><div class="line">        Class kvoClass = <span class="built_in">NSClassFromString</span>(newName);</div><div class="line">        <span class="keyword">if</span> (!kvoClass) &#123;</div><div class="line">            newClass = objc_allocateClassPair(<span class="keyword">self</span>.class, newName.UTF8String, <span class="number">0</span>);</div><div class="line">            <span class="comment">// 注册这个类</span></div><div class="line">            objc_registerClassPair(newClass);</div><div class="line">            <span class="comment">// 改变isa指针</span></div><div class="line">            object_setClass(<span class="keyword">self</span>, newClass);</div><div class="line">            newClass = [<span class="keyword">self</span> <span class="keyword">class</span>];</div><div class="line">        &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        object_setClass(<span class="keyword">self</span>, kvoClass);</div><div class="line">        newClass = kvoClass;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 判断对象的类是否重写过对象的setter方法</span></div><div class="line">    <span class="keyword">if</span> (![<span class="keyword">self</span> hasSelector:setterSel <span class="keyword">class</span>:<span class="keyword">self</span>.class]) &#123;</div><div class="line">        class_addMethod(newClass, setterSel, (IMP)kvo_setter, <span class="string">""</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)HB_removeObserverAllPath:(<span class="built_in">NSObject</span> *)observer</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">self</span> HB_removeObserver:observer forKeyPath:<span class="literal">nil</span> context:<span class="literal">nil</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)HB_removeObserver:(<span class="built_in">NSObject</span> *)observer forKeyPath:(<span class="built_in">NSString</span> *)keyPath</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">self</span> HB_removeObserver:observer forKeyPath:keyPath context:<span class="literal">nil</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)HB_removeObserver:(<span class="built_in">NSObject</span> *)observer forKeyPath:(<span class="built_in">NSString</span> *)keyPath context:(<span class="built_in">NSString</span> *)content</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (![<span class="built_in">NSStringFromClass</span>([<span class="keyword">self</span> <span class="keyword">class</span>]) hasPrefix:HBKVOClassPrefix]) <span class="keyword">return</span>;</div><div class="line">        object_setClass(<span class="keyword">self</span>, class_getSuperclass([<span class="keyword">self</span> <span class="keyword">class</span>]));</div><div class="line">        objc_removeAssociatedObjects(<span class="keyword">self</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (SEL)addNewSetterMethod:(<span class="built_in">NSString</span> *)keyPath</div><div class="line">&#123;</div><div class="line">    SEL setterSel = <span class="built_in">NSSelectorFromString</span>(setterForVar(keyPath));</div><div class="line">    <span class="keyword">return</span> setterSel;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)hasSetterMethodWithKeyPath:(<span class="built_in">NSString</span> *)keyPath</div><div class="line">&#123;</div><div class="line">    <span class="built_in">BOOL</span> result = <span class="literal">NO</span>;</div><div class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">    <span class="comment">// 遍历当前类和其父类中的所有属性</span></div><div class="line">    Class <span class="keyword">class</span> = <span class="keyword">self</span>.class;</div><div class="line">    <span class="keyword">while</span> (<span class="keyword">class</span>) &#123;</div><div class="line">        objc_property_t *property = class_copyPropertyList(<span class="keyword">class</span>, &amp;count);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</div><div class="line">            objc_property_t t = property[i];</div><div class="line">            <span class="keyword">const</span> <span class="keyword">char</span> *name = property_getName(t);</div><div class="line">            <span class="built_in">NSString</span> *key = [[<span class="built_in">NSString</span> alloc]initWithUTF8String:name];</div><div class="line">            <span class="keyword">if</span> ([key isEqualToString:keyPath]) &#123;</div><div class="line">                result = <span class="literal">YES</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">        <span class="keyword">if</span> (result)</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">   </div><div class="line">        <span class="keyword">class</span> = class_getSuperclass(<span class="keyword">class</span>);</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)hasSelector:(SEL)sel <span class="keyword">class</span>:(Class)sClass</div><div class="line">&#123;</div><div class="line">    <span class="built_in">BOOL</span> result = <span class="literal">NO</span>;</div><div class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> methodCount = <span class="number">0</span>;</div><div class="line">    Method *methodList = class_copyMethodList(sClass, &amp;methodCount);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; methodCount; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (sel == method_getName(methodList[i])) &#123;</div><div class="line">            result = <span class="literal">YES</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - Core method</span></div><div class="line"><span class="keyword">void</span> kvo_setter(<span class="keyword">id</span> <span class="keyword">self</span>, SEL _cmd, <span class="built_in">NSString</span> *key)&#123;</div><div class="line">    <span class="keyword">struct</span> objc_super superClass = &#123;</div><div class="line">        .receiver = <span class="keyword">self</span>,</div><div class="line">        .super_class = class_getSuperclass(object_getClass(<span class="keyword">self</span>))</div><div class="line">    &#125;;</div><div class="line">    ((<span class="keyword">void</span> (*)(<span class="keyword">void</span> *, SEL, <span class="keyword">id</span>))objc_msgSendSuper)(&amp;superClass, _cmd, key);</div><div class="line"></div><div class="line">    <span class="built_in">NSObject</span> *observer = objc_getAssociatedObject(<span class="keyword">self</span>, kObserver);</div><div class="line">    <span class="built_in">NSString</span> *keyPath = objc_getAssociatedObject(<span class="keyword">self</span>, kObserverKeyPath);</div><div class="line">    <span class="built_in">NSDictionary</span> *dict = @&#123;HBKeyValueKeyPath : keyPath, HBKeyValueObserver: observer, HBKeyValueChangeKey : @&#123;<span class="built_in">NSKeyValueChangeNewKey</span> : key&#125;, HBKeyValueContent : <span class="string">@""</span>&#125;;</div><div class="line">    HBKVOCallBack block = objc_getAssociatedObject(<span class="keyword">self</span>, kKVOCallBackBlock);</div><div class="line">    <span class="keyword">if</span> (block)</div><div class="line">        block(dict);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">NSString</span> *setterForVar(<span class="built_in">NSString</span> *keyPath)&#123;</div><div class="line">    <span class="built_in">NSString</span> *firstChar = [keyPath substringToIndex:<span class="number">1</span>];</div><div class="line">    <span class="keyword">if</span> ([firstChar isEqualToString:<span class="string">@"_"</span>]) &#123;</div><div class="line">        firstChar = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"set%@:"</span>, keyPath];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        firstChar = firstChar.uppercaseString;</div><div class="line">        keyPath = [keyPath stringByReplacingCharactersInRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">1</span>) withString:firstChar];</div><div class="line">        firstChar = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"set%@:"</span>, keyPath];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> firstChar;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+          什么是KVO?
+Key-value observing is a mechanism that allows objects to be notified of changes to specified properties of other objects.
 
-          
+ KVO是一种机制，被观察对象指定的
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/10/Objective-C/KV_X/KVO/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2154,183 +2129,6 @@
           </div>
 
           
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">49</span>
-                    <span class="site-state-item-name">posts</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">64</span>
-                    <span class="site-state-item-name">categories</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">tags</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
 
           
             <div class="feed-link motion-element">
@@ -2341,6 +2139,20 @@
             </div>
           
 
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/songMW" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="songshoubing7664@163.com" target="_blank" title="E-mail"><i class="fa fa-fw fa-envelope"></i>E-mail</a>
+                  
+                </span>
+              
+            </div>
           
 
           
@@ -2393,7 +2205,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.3</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -2440,6 +2252,8 @@
 
 
 
+  
+
 
 
 
@@ -2469,25 +2283,37 @@
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.0.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.0.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
 
 
 
   
-  
 
   
 
-  
 
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -2523,8 +2349,128 @@
 
 
 
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
 
   
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ig60R2zJJucsoSLJ600AaLnC-gzGzoHsz", "gw0oPYc06slpipLCNvl0fgzH");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
