@@ -379,6 +379,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -404,7 +409,7 @@
 <li>else 中必须有一个return或者break；</li>
 <li>个人理解为代码逻辑容错判断类似 assert。</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">func guardTest(say: String?)&#123;</div><div class="line">    guard let sayHi = say else &#123;</div><div class="line">        print(&quot;sayHi is nil&quot;)          ----------- 1</div><div class="line">        return                         ----------- 2</div><div class="line">    &#125;</div><div class="line">    print(sayHi)                       ----------- 3</div><div class="line">&#125;</div><div class="line">guardTest(say: nil)     // 此时会打印 &quot;sayHi is nil&quot;</div><div class="line">guardTest(say: &quot;hello&quot;) // 此时会直接走第三步</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">guardTest</span><span class="params">(say: String?)</span></span>&#123;</div><div class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> sayHi = say <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"sayHi is nil"</span>)          ----------- <span class="number">1</span></div><div class="line">        <span class="keyword">return</span>                         ----------- <span class="number">2</span></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">print</span>(sayHi)                       ----------- <span class="number">3</span></div><div class="line">&#125;</div><div class="line">guardTest(say: <span class="literal">nil</span>)     <span class="comment">// 此时会打印 "sayHi is nil"</span></div><div class="line">guardTest(say: <span class="string">"hello"</span>) <span class="comment">// 此时会直接走第三步</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -790,6 +795,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 

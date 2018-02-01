@@ -103,17 +103,17 @@
   <meta name="keywords" content="Objective-C," />
 
 
-<meta name="description" content="跳转到设置页面info.plist 中添加 URL types 并设置 URL Schemesstring 类型 prefs12345NSURL *url = [NSURL URLWithString:@&amp;quot;prefs:root=WIFI&amp;quot;];if ([[UIApplication sharedApplication] canOpenURL:url])&amp;#123;    [[UI">
+<meta name="description" content="跳转到设置页面info.plist 中添加 URL types 并设置 URL Schemesstring 类型 prefs12345NSURL *url = [NSURL URLWithString:@&quot;prefs:root=WIFI&quot;];if ([[UIApplication sharedApplication] canOpenURL:url])&amp;#123;    [[UIApplicatio">
 <meta name="keywords" content="Objective-C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WIFI热点开发">
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/01/28/Objective-C/WIFI热点开发/index.html">
 <meta property="og:site_name" content="stack.blog">
-<meta property="og:description" content="跳转到设置页面info.plist 中添加 URL types 并设置 URL Schemesstring 类型 prefs12345NSURL *url = [NSURL URLWithString:@&amp;quot;prefs:root=WIFI&amp;quot;];if ([[UIApplication sharedApplication] canOpenURL:url])&amp;#123;    [[UI">
+<meta property="og:description" content="跳转到设置页面info.plist 中添加 URL types 并设置 URL Schemesstring 类型 prefs12345NSURL *url = [NSURL URLWithString:@&quot;prefs:root=WIFI&quot;];if ([[UIApplication sharedApplication] canOpenURL:url])&amp;#123;    [[UIApplicatio">
 <meta property="og:updated_time" content="2018-01-16T10:40:35.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WIFI热点开发">
-<meta name="twitter:description" content="跳转到设置页面info.plist 中添加 URL types 并设置 URL Schemesstring 类型 prefs12345NSURL *url = [NSURL URLWithString:@&amp;quot;prefs:root=WIFI&amp;quot;];if ([[UIApplication sharedApplication] canOpenURL:url])&amp;#123;    [[UI">
+<meta name="twitter:description" content="跳转到设置页面info.plist 中添加 URL types 并设置 URL Schemesstring 类型 prefs12345NSURL *url = [NSURL URLWithString:@&quot;prefs:root=WIFI&quot;];if ([[UIApplication sharedApplication] canOpenURL:url])&amp;#123;    [[UIApplicatio">
 
 
 
@@ -379,6 +379,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -397,7 +402,7 @@
       
 
       
-        <h2 id="跳转到设置页面"><a href="#跳转到设置页面" class="headerlink" title="跳转到设置页面"></a>跳转到设置页面</h2><p>info.plist 中添加 URL types 并设置 URL Schemes<br>string 类型 prefs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">NSURL *url = [NSURL URLWithString:@&quot;prefs:root=WIFI&quot;];</div><div class="line">if ([[UIApplication sharedApplication] canOpenURL:url])</div><div class="line">&#123;</div><div class="line">    [[UIApplication sharedApplication] openURL:url];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h2 id="跳转到设置页面"><a href="#跳转到设置页面" class="headerlink" title="跳转到设置页面"></a>跳转到设置页面</h2><p>info.plist 中添加 URL types 并设置 URL Schemes<br>string 类型 prefs<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"prefs:root=WIFI"</span>];</div><div class="line"><span class="keyword">if</span> ([[<span class="built_in">UIApplication</span> sharedApplication] canOpenURL:url])</div><div class="line">&#123;</div><div class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] openURL:url];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="弹出WIFI提示框"><a href="#弹出WIFI提示框" class="headerlink" title="弹出WIFI提示框"></a>弹出WIFI提示框</h2><ol>
 <li>键名：Application uses Wi-Fi 值：YES；</li>
 <li>键名：SBUsesNetwork 值：3；</li>
@@ -796,6 +801,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 

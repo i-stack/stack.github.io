@@ -405,7 +405,10 @@
         
           
           NSKeyValueCoding简介
-A mechanism by which you can access the properties of an object indirectly by nam
+A mechanism by which you can access the properties of an object indirectly by name or key。
+
+
+KVC 是 Key-Value-Coding 的简称， 是一种间接访问对象属
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -567,7 +570,8 @@ A mechanism by which you can access the properties of an object indirectly by na
       
         
           
-          当我们想全局共用一些数据时, 可以用宏、变量、常量宏定义形式: #define THIS_IS_MACRO @”this is macro”在预处理器里进行文本替换, 没有类型, 不做任何类型检查, 
+          当我们想全局共用一些数据时, 可以用宏、变量、常量宏定义形式: #define THIS_IS_MACRO @”this is macro”在预处理器里进行文本替换, 没有类型, 不做任何类型检查, 编译器可以对相同的字符串进行优化, 大量宏会导致二进制包变大
+变量定义形式: NSString *t
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -729,7 +733,7 @@ A mechanism by which you can access the properties of an object indirectly by na
       
         
           
-          guard关键字是什么“A guard statement, like an if statement, executes statements depending on the Boolean va
+          guard关键字是什么“A guard statement, like an if statement, executes statements depending on the Boolean value of an expression. You use a guard statement to
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -892,7 +896,8 @@ A mechanism by which you can access the properties of an object indirectly by na
         
           
           
-option is similar to using nil with pointers in Objective-C, work for any type option (?) 和 nil 相似,
+option is similar to using nil with pointers in Objective-C, work for any type option (?) 和 nil 相似, 可以用于任何类型, 不仅仅是类,如果有值那么就是显示该值, 如果没有值则为nil;
+Swift i
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1055,7 +1060,7 @@ option is similar to using nil with pointers in Objective-C, work for any type o
         
           
           Clang是什么？Clang是一个C、C++、OC语言的轻量级编译器.
-Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的错误：1234main.m
+Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的错误：1234main.m:9:9: fatal error: 'UIKit/UIKit.h' file not found#
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1220,7 +1225,9 @@ Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的�
           1. load 是什么?
 定义在NSObject.h头文件中
 load方法在这个文件被程序装载时调用, 只要是在Compile Sources中出现的文件总是会被装载, 无论这个类是否被用到;
-loa
+load方法在main函数之前调用;
+
+12345+ (void)load; 3. +[class loa
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1382,7 +1389,7 @@ loa
       
         
           
-          @objc让 OC 能够调用该类，需要在类的定义前加入一个关键字 @objc。这是告诉编译器在幕后进行一些额外操作（命名，创建一个不可见的头文件等），让 Swift 的代码暴露给 OC。只有一个XXX
+          @objc让 OC 能够调用该类，需要在类的定义前加入一个关键字 @objc。这是告诉编译器在幕后进行一些额外操作（命名，创建一个不可见的头文件等），让 Swift 的代码暴露给 OC。只有一个XXX-Swift.h 头文件，所有通过 @objc 关键字暴露的 Swift 代码都会被放置这个 XXX
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1553,7 +1560,11 @@ iPhone3G
 iPod Touch(1, 2)
 
 
-armv7
+armv7 
+iPhone4
+iPhone4S
+iPod (3G, 4G, 5G)
+iPad(1, 2 , 3
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1716,7 +1727,7 @@ armv7
         
           
           苹果崩溃日志文档
-崩溃日志的实例123456789101112131415161718192021222324252627282930313233343536373839404142434445464
+崩溃日志的实例12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152// 1: 进程信息Incident Identifier: 30E46451
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1880,7 +1891,7 @@ armv7
           
           class-dump 是什么?使用classdump对原程序进行dum, 可以dump出所有源程序的函数所有信息：源程序所有函数类型，变量;这样就可以了解程序结构方便逆向工程反编译.
 下载安装包官网
-
+把 class-dump 放到 /usr/local/bin 目录下, 在终端输入class-dum
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2222,6 +2233,26 @@ armv7
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 

@@ -372,6 +372,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -395,7 +400,7 @@
 <li>可以使用位运算符</li>
 </ul>
 <h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><p><code>如果 a = 1 并且 b = 2, 返回3</code></p>
-<h2 id="解题思路分析"><a href="#解题思路分析" class="headerlink" title="解题思路分析"></a>解题思路分析</h2><p>根据题目要求可以知道这是一道求和问题, 很容易联想到数学运算符 <code>+</code>, 这样就比较简单, 题目中要求不能使用数学运算符, 只能想其他的方式来解决. 又知a,b是整数, 可以使用位运算符, 这就可以确定这道题考察的是位运算符操作.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public:</div><div class="line">    /*</div><div class="line">    * @param a: The first integer</div><div class="line">    * @param b: The second integer</div><div class="line">    * @return: The sum of a and b</div><div class="line">    */</div><div class="line">    int aplusb(int a, int b) &#123;</div><div class="line">        int ans = a;</div><div class="line">        while(b)&#123;</div><div class="line">            ans = a ^ b;</div><div class="line">            b = (a &amp; b) &lt;&lt; 1;</div><div class="line">            a = ans;</div><div class="line">        &#125;</div><div class="line">        return ans;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="解题思路分析"><a href="#解题思路分析" class="headerlink" title="解题思路分析"></a>解题思路分析</h2><p>根据题目要求可以知道这是一道求和问题, 很容易联想到数学运算符 <code>+</code>, 这样就比较简单, 题目中要求不能使用数学运算符, 只能想其他的方式来解决. 又知a,b是整数, 可以使用位运算符, 这就可以确定这道题考察的是位运算符操作.<br><figure class="highlight zephir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">    <span class="comment">/*</span></div><div class="line">    * <span class="doctag">@param</span> a: The first integer</div><div class="line">    * <span class="doctag">@param</span> b: The second integer</div><div class="line">    * <span class="doctag">@return</span>: The sum of a and b</div><div class="line">    */</div><div class="line">    <span class="keyword">int</span> aplusb(<span class="keyword">int</span> a, <span class="keyword">int</span> b) &#123;</div><div class="line">        <span class="keyword">int</span> ans = a;</div><div class="line">        <span class="keyword">while</span>(b)&#123;</div><div class="line">            ans = a ^ b;</div><div class="line">            b = (a &amp; b) &lt;&lt; <span class="number">1</span>;</div><div class="line">            a = ans;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <h2 id="温习知识点-位运算符"><a href="#温习知识点-位运算符" class="headerlink" title="温习知识点: 位运算符"></a>温习知识点: 位运算符</h2><h3 id="什么是位运算符"><a href="#什么是位运算符" class="headerlink" title="什么是位运算符?"></a>什么是位运算符?</h3><p>位操作是程序设计中对位模式按位或二进制数的一元和二元操作.</p>
 <h3 id="位运算符有哪些"><a href="#位运算符有哪些" class="headerlink" title="位运算符有哪些?"></a>位运算符有哪些?</h3><ul>
 <li><code>&amp;</code>   按位与</li>
@@ -414,20 +419,20 @@
 <h3 id="按位或运算"><a href="#按位或运算" class="headerlink" title="按位或运算"></a>按位或运算</h3><ol>
 <li>按位或运算符 <code>|</code> 是双目运算符;</li>
 <li>二进位有一个为1时，结果位就为1;</li>
-<li>参与运算的两个数均以 <code>补码</code> 出现.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    00001001</div><div class="line">|</div><div class="line">    00000101</div><div class="line"></div><div class="line">=   00001101</div></pre></td></tr></table></figure>
+<li>参与运算的两个数均以 <code>补码</code> 出现.<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="code">    00001001</span></div><div class="line">|</div><div class="line"><span class="code">    00000101</span></div><div class="line"></div><div class="line"><span class="section">=   00001101</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h3 id="按位异或运算"><a href="#按位异或运算" class="headerlink" title="按位异或运算"></a>按位异或运算</h3><ol>
 <li>按位异或运算符 <code>^</code> 是双目运算符;</li>
 <li>当两对应的二进位相异时, 结果为1;</li>
-<li>参与运算数仍以补码出现。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    00001001</div><div class="line">^</div><div class="line">    00000101</div><div class="line"></div><div class="line">=   00001100</div></pre></td></tr></table></figure>
+<li>参与运算数仍以补码出现。<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="code">    00001001</span></div><div class="line">^</div><div class="line"><span class="code">    00000101</span></div><div class="line"></div><div class="line"><span class="section">=   00001100</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h3 id="求反运算"><a href="#求反运算" class="headerlink" title="求反运算"></a>求反运算</h3><ol>
 <li>求反运算符 <code>～</code> 为单目运算符具有右结合性;</li>
 <li>对参与运算的数的各二进位按位求反.</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    ~(1001)</div><div class="line">=</div><div class="line">     0110</div></pre></td></tr></table></figure>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    ~(<span class="number">1001</span>)</div><div class="line">=</div><div class="line">     <span class="number">0110</span></div></pre></td></tr></table></figure>
 <h3 id="左移运算"><a href="#左移运算" class="headerlink" title="左移运算"></a>左移运算</h3><ol>
 <li>左移运算符 <code>&lt;&lt;</code> 是双目运算符;</li>
 <li>左移n位就是乘以2的n次方;</li>
@@ -436,14 +441,14 @@
 <li>总之左移就是: 丢弃最高位, 0补最低位;</li>
 <li>最高位 0 正 1 负.</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a&lt;&lt;4 指把a的各二进位向左移动4位; </div><div class="line">如 a = 00000011(十进制3), 左移4位后为00110000(十进制48).</div></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a&lt;&lt;<span class="number">4</span> 指把a的各二进位向左移动<span class="number">4</span>位; </div><div class="line">如 a = <span class="number">00000011</span>(十进制<span class="number">3</span>), 左移<span class="number">4</span>位后为<span class="number">00110000</span>(十进制<span class="number">48</span>).</div></pre></td></tr></table></figure>
 <h3 id="右移运算"><a href="#右移运算" class="headerlink" title="右移运算"></a>右移运算</h3><ol>
 <li>右移运算符 <code>&gt;&gt;</code> 是双目运算符;</li>
 <li>右移n位就是除以2的n次方</li>
 <li>其功能是把 <code>&gt;&gt;</code> 左边的运算数的各二进位全部右移若干位;</li>
 <li>最高位 0 正 1 负.</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a&gt;&gt;2 指把a的各二进位向右移动2位;</div><div class="line">如 a = 15, a&gt;&gt;2 表示把 00001111 右移为 00000011(十进制3).</div></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a&gt;&gt;<span class="number">2</span> 指把a的各二进位向右移动<span class="number">2</span>位;</div><div class="line">如 a = <span class="number">15</span>, a&gt;&gt;<span class="number">2</span> 表示把 <span class="number">00001111</span> 右移为 <span class="number">00000011</span>(十进制<span class="number">3</span>).</div></pre></td></tr></table></figure>
 <ul>
 <li>对于有符号数在右移时符号位将随同移动;</li>
 <li>当为正数时最高位补0;</li>
@@ -455,7 +460,7 @@
 <li>使特定位翻转 要使哪几位翻转就将与其进行∧运算的该几位置为1即可;</li>
 <li>与0相∧, 保留原值;</li>
 <li><p>交换两个值, 不用临时变量. 我们可以在不用引入其他变量就可以实现变量值的交换用异或操作可以实现:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a = a^b; //(1)</div><div class="line">b = a^b; //(2)</div><div class="line">a = a^b; //(3)</div></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">a</span> = <span class="keyword">a</span>^b;<span class="comment"> //(1)</span></div><div class="line">b = <span class="keyword">a</span>^b;<span class="comment"> //(2)</span></div><div class="line"><span class="keyword">a</span> = <span class="keyword">a</span>^b;<span class="comment"> //(3)</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>异或操作满足结合律和交换律, 且由异或操作的性质知道——对于任意一个整数 a^a = 0.</p>
 </li>
@@ -496,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/02/Arithmetic/尾部的零/" rel="next" title="尾部的零">
-                <i class="fa fa-chevron-left"></i> 尾部的零
+              <a href="/2017/01/02/Hexo/hexo Quick Start/" rel="next" title="Hexo Quick Start">
+                <i class="fa fa-chevron-left"></i> Hexo Quick Start
               </a>
             
           </div>
@@ -847,6 +852,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 

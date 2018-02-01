@@ -372,6 +372,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -390,8 +395,8 @@
       
 
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">计算在一个32位的整数的二进制表示中有多少个 1.</div><div class="line">样例</div><div class="line">给定32(100000)返回 1</div><div class="line">给定5(101)返回 2</div><div class="line">给定1023(111111111)返回 9</div></pre></td></tr></table></figure>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">int countOnes(int num) &#123;</div><div class="line">    // write your code here</div><div class="line">    int count = 0;</div><div class="line">    while(num!=0)&#123;</div><div class="line">        num = num &amp; (num-1);</div><div class="line">        count++;</div><div class="line">    &#125;</div><div class="line">    NSLog(@&quot;%d有%d个1&quot;, num, count);</div><div class="line">    return count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">计算在一个<span class="number">32</span>位的整数的二进制表示中有多少个 <span class="number">1.</span></div><div class="line">样例</div><div class="line">给定<span class="number">32</span>(<span class="number">100000</span>)返回 <span class="number">1</span></div><div class="line">给定<span class="number">5</span>(<span class="number">101</span>)返回 <span class="number">2</span></div><div class="line">给定<span class="number">1023</span>(<span class="number">111111111</span>)返回 <span class="number">9</span></div></pre></td></tr></table></figure>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">int</span> countOnes(<span class="built_in">int</span> <span class="built_in">num</span>) &#123;</div><div class="line">    <span class="comment">// write your code here</span></div><div class="line">    <span class="built_in">int</span> count = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">num</span>!=<span class="number">0</span>)&#123;</div><div class="line">        <span class="built_in">num</span> = <span class="built_in">num</span> &amp; (<span class="built_in">num</span><span class="number">-1</span>);</div><div class="line">        count++;</div><div class="line">    &#125;</div><div class="line">    NSLog(@<span class="string">"%d有%d个1"</span>, <span class="built_in">num</span>, count);</div><div class="line">    <span class="keyword">return</span> count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -422,8 +427,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/04/Arithmetic/统计数字/" rel="next" title="统计数字">
-                <i class="fa fa-chevron-left"></i> 统计数字
+              <a href="/2017/01/04/Hexo/hexo+github+域名绑定操作步骤/" rel="next" title="Hexo+gihub">
+                <i class="fa fa-chevron-left"></i> Hexo+gihub
               </a>
             
           </div>
@@ -777,6 +782,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 

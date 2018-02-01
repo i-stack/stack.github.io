@@ -386,6 +386,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -418,7 +423,7 @@
 <li>content ：用于标识KVO，移除特定的KVO</li>
 </ol>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">AdHubKVOModel *testModel = [[AdHubKVOModel alloc]init];</div><div class="line">[testModel addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"keyPath"</span> options:<span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
-<h2 id="触发回调"><a href="#触发回调" class="headerlink" title="触发回调"></a>触发回调</h2><p>设置 testModel.keyPath = @”20”;时会触发回调通知<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary&lt;NSKeyValueChangeKey,id&gt; *)change context:(void *)context</div><div class="line">&#123;</div><div class="line">    // keyPath ：观察对象的属性</div><div class="line">    // object  ：被观察的对象</div><div class="line">    // change  ：包含 NSKeyValueChangeNewKey and NSKeyValueChangeOldKey</div><div class="line">                change[NSKeyValueChangeNewKey] / change[NSKeyValueChangeOldKey]</div><div class="line">    // context ：用于标识KVO，移除特定的KVO</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="触发回调"><a href="#触发回调" class="headerlink" title="触发回调"></a>触发回调</h2><p>设置 testModel.keyPath = @”20”;时会触发回调通知<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">id</span>)object change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSKeyValueChangeKey</span>,<span class="keyword">id</span>&gt; *)change context:(<span class="keyword">void</span> *)context</div><div class="line">&#123;</div><div class="line">    <span class="comment">// keyPath ：观察对象的属性</span></div><div class="line">    <span class="comment">// object  ：被观察的对象</span></div><div class="line">    <span class="comment">// change  ：包含 NSKeyValueChangeNewKey and NSKeyValueChangeOldKey</span></div><div class="line">                change[<span class="built_in">NSKeyValueChangeNewKey</span>] / change[<span class="built_in">NSKeyValueChangeOldKey</span>]</div><div class="line">    <span class="comment">// context ：用于标识KVO，移除特定的KVO</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="自动通知"><a href="#自动通知" class="headerlink" title="自动通知"></a>自动通知</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Call the accessor method.</span></div><div class="line">[account setName:<span class="string">@"Savings"</span>];</div><div class="line"></div><div class="line"><span class="comment">// Use setValue:forKey:.</span></div><div class="line">[account setValue:<span class="string">@"Savings"</span> forKey:<span class="string">@"name"</span>];</div><div class="line"></div><div class="line"><span class="comment">// Use a key path, where 'account' is a kvc-compliant property of 'document'.</span></div><div class="line">[document setValue: <span class="string">@"Savings"</span> forKeyPath:<span class="string">@"account.name"</span>];</div><div class="line"></div><div class="line"><span class="comment">// Use mutableArrayValueForKey: to retrieve a relationship proxy object.</span></div><div class="line">Transaction *newTransaction = &lt;<span class="meta">#Create a new transaction for the account#&gt;;</span></div><div class="line"><span class="built_in">NSMutableArray</span> *transactions = [account mutableArrayValueForKey:<span class="string">@"transactions"</span>];</div><div class="line">[transactions addObject:newTransaction];</div></pre></td></tr></table></figure>
 <h2 id="手动通知"><a href="#手动通知" class="headerlink" title="手动通知"></a>手动通知</h2><p>需要重写<code>NSKeyValueObserving.h</code>中的方法, 判断当观察的 <code>key</code> 是 <code>balance</code> 时，就将自动通知关闭，其余的情况还是根据父类来进行判断<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">+ (<span class="built_in">BOOL</span>)automaticallyNotifiesObserversForKey:(<span class="built_in">NSString</span> *)theKey &#123;</div><div class="line">    <span class="built_in">BOOL</span> automatic = <span class="literal">NO</span>;</div><div class="line">    <span class="keyword">if</span> ([theKey isEqualToString:<span class="string">@"balance"</span>]) &#123;</div><div class="line">        automatic = <span class="literal">NO</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        automatic = [<span class="keyword">super</span> automaticallyNotifiesObserversForKey:theKey];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> automatic;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><strong> 返回YES时会自动调用 <code>-willChangeValueForKey:/-didChangeValueForKey:</code> 这两个方法；</strong><br><strong> 返回NO时需要手动设置 <code>-willChangeValueForKey:/-didChangeValueForKey:</code> 这两个方法。</strong></p>
@@ -859,6 +864,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 

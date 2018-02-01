@@ -393,6 +393,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -412,7 +417,7 @@
 
       
         <p>首先贴上<a href="https://developer.apple.com/documentation/mediaplayer/mpmovieplayercontroller" target="_blank" rel="external">官方文档</a></p>
-<p>先看下头文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@interface MPMoviePlayerViewController : UIViewController</div><div class="line"></div><div class="line">- (instancetype)initWithContentURL:(NSURL *)contentURL NS_DESIGNATED_INITIALIZER;</div><div class="line"></div><div class="line">@property (nonatomic, readonly) MPMoviePlayerController *moviePlayer;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@interface UIViewController (MPMoviePlayerViewController)</div><div class="line"></div><div class="line">- (void)presentMoviePlayerViewControllerAnimated:(MPMoviePlayerViewController *)moviePlayerViewController;</div><div class="line">- (void)dismissMoviePlayerViewControllerAnimated;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>先看下头文件:<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@interface</span> <span class="attribute">MPMoviePlayerViewController </span>: UIViewController</div><div class="line"></div><div class="line">- (instancetype)<span class="attribute">initWithContentURL</span>:(NSURL *)contentURL NS_DESIGNATED_INITIALIZER;</div><div class="line"></div><div class="line"><span class="variable">@property</span> (nonatomic, readonly) MPMoviePlayerController *moviePlayer;</div><div class="line"></div><div class="line"><span class="variable">@end</span></div><div class="line"></div><div class="line"><span class="variable">@interface</span> UIViewController (MPMoviePlayerViewController)</div><div class="line"></div><div class="line">- (void)<span class="attribute">presentMoviePlayerViewControllerAnimated</span>:(MPMoviePlayerViewController *)moviePlayerViewController;</div><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">dismissMoviePlayerViewControllerAnimated</span>;</div><div class="line"></div><div class="line">@<span class="selector-tag">end</span></div></pre></td></tr></table></figure></p>
 <ul>
 <li>MPMoviePlayerViewController 继承 UIViewController;</li>
 <li>API很少, 主要是 moviePlayer 这个属性, 是对 MPMoviePlayerController 的一层封装;</li>
@@ -420,7 +425,7 @@
 <li>使用简单, 点击Done按钮会自动退出, 有进度条, 快进, 快退, 播放按钮.</li>
 <li>可以去自定义添加控件到播放页面, 不建议这么做, 可以直接使用 MPMoviePlayerController</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MPMoviePlayerViewController *mpMovieController = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL fileURLWithPath:videoPath]];</div><div class="line">[vc presentViewController:mpMovieController animated:YES completion:nil];</div></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MPMoviePlayerViewController *mpMovieController = <span class="string">[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL fileURLWithPath:videoPath]]</span>;</div><div class="line">[vc presentViewController:mpMovieController animated:YES completion:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -781,6 +786,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 

@@ -379,6 +379,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -400,8 +405,8 @@
         <h2 id="objc"><a href="#objc" class="headerlink" title="@objc"></a>@objc</h2><p>让 OC 能够调用该类，需要在类的定义前加入一个关键字 @objc。这是告诉编译器在幕后进行一些额外操作（命名，创建一个不可见的头文件等），让 Swift 的代码暴露给 OC。<br>只有一个XXX-Swift.h 头文件，所有通过 @objc 关键字暴露的 Swift 代码都会被放置这个 XXX-Swift.h  文件中。</p>
 <h2 id="Generated-Interface-Header-Name"><a href="#Generated-Interface-Header-Name" class="headerlink" title="Generated Interface Header Name"></a><code>Generated Interface Header Name</code></h2><p>target -&gt; Build Setting 选项卡。在 Swift Compiler – Code Generation 里找到 Objective-C Generated Interface Header Name：”XXX-Swift.h”。这就是 OC 中需要引入的头文件。</p>
 <h2 id="XXX-Bridging-Header-h"><a href="#XXX-Bridging-Header-h" class="headerlink" title="XXX-Bridging-Header.h"></a><code>XXX-Bridging-Header.h</code></h2><p>是用来暴露 OC 的库给 Swift 的。</p>
-<h2 id="Swift里声明一个枚举类型，在OC里却不认识这个变量，如何使用呢？"><a href="#Swift里声明一个枚举类型，在OC里却不认识这个变量，如何使用呢？" class="headerlink" title="Swift里声明一个枚举类型，在OC里却不认识这个变量，如何使用呢？"></a>Swift里声明一个枚举类型，在OC里却不认识这个变量，如何使用呢？</h2><p>把 <code>enum</code> 定义为 <code>NSInteger</code> 类型，在OC里直接使用 <code>NSInteger</code> 值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@objc enum HBGuidePageAppearStyle: NSInteger&#123;</div><div class="line">    case HBGuidePageAppearStyle_push = 0, HBGuidePageAppearStyle_present, HBGuidePageAppearStyle_child</div><div class="line">&#125;</div><div class="line"></div><div class="line">var guidePageAppearStyle : HBGuidePageAppearStyle = .HBGuidePageAppearStyle_present</div></pre></td></tr></table></figure></p>
-<p>OC调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.guidePageAppearStyle = HBGuidePageAppearStyle_push;</div></pre></td></tr></table></figure></p>
+<h2 id="Swift里声明一个枚举类型，在OC里却不认识这个变量，如何使用呢？"><a href="#Swift里声明一个枚举类型，在OC里却不认识这个变量，如何使用呢？" class="headerlink" title="Swift里声明一个枚举类型，在OC里却不认识这个变量，如何使用呢？"></a>Swift里声明一个枚举类型，在OC里却不认识这个变量，如何使用呢？</h2><p>把 <code>enum</code> 定义为 <code>NSInteger</code> 类型，在OC里直接使用 <code>NSInteger</code> 值<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@objc <span class="class"><span class="keyword">enum</span> <span class="title">HBGuidePageAppearStyle</span>: <span class="title">NSInteger</span>&#123;</span></div><div class="line">    <span class="keyword">case</span> HBGuidePageAppearStyle_push = <span class="number">0</span>, HBGuidePageAppearStyle_present, HBGuidePageAppearStyle_child</div><div class="line">&#125;</div><div class="line"></div><div class="line">var guidePageAppearStyle : HBGuidePageAppearStyle = .HBGuidePageAppearStyle_present</div></pre></td></tr></table></figure></p>
+<p>OC调用<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.guidePageAppearStyle = HBGuidePageAppearStyle_push<span class="comment">;</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -787,6 +792,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 

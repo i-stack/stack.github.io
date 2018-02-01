@@ -379,6 +379,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -403,7 +408,7 @@
 <li>堆 —&gt;由 new 分配的操作块，一个 new 对应一个 delete</li>
 <li>自由存储区 —&gt;由 malloc 分配的内存块</li>
 <li>全局/静态存储区 —&gt;全局变量和静态变量被分配到同一块内存中</li>
-<li>常量存储区 —&gt;这时一块比较特殊的存储区，存放常量，不能修改<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void f() &#123;</div><div class="line">    int *p = new int[5]；</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>常量存储区 —&gt;这时一块比较特殊的存储区，存放常量，不能修改<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> *p = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>]；</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>看到 new 说明分配了一块堆内存，那么指针 p 是什么? p 分配的是一块栈内存，这句意思是在栈内存中存放一个指向一块堆内容的指针 p。程序先会确定在堆中分配内存的大小，然后调用 operator new 分配内存，让后返回这块内存的首地址，放入栈中。</p>
@@ -800,6 +805,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 

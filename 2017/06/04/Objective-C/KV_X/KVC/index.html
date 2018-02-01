@@ -386,6 +386,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -446,7 +451,7 @@
 <h4 id="valueForUndefinedKey：方法的实现"><a href="#valueForUndefinedKey：方法的实现" class="headerlink" title="valueForUndefinedKey：方法的实现"></a>valueForUndefinedKey：方法的实现</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">id</span>)valueForUndefinedKey:(<span class="built_in">NSString</span> *)key</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="literal">nil</span> == key &amp;&amp; [<span class="string">@"hello"</span> isEqualToString: key]) &#123;</div><div class="line">        <span class="keyword">return</span> 自定义值；</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 抛出异常</span></div><div class="line">    [<span class="built_in">NSException</span> raise: <span class="built_in">NSUndefinedKeyException</span> format: <span class="string">@"key %@ not defined"</span>, key];</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="setNilValueForKey-NSString-key"><a href="#setNilValueForKey-NSString-key" class="headerlink" title="setNilValueForKey:(NSString *)key"></a><code>setNilValueForKey:(NSString *)key</code></h4><p>如果设置的属性是基本数据类型时，不能<code>setValue:nil</code> ，会crash。需要重写这个方法。</p>
 <h4 id="validateValue-forKey-error"><a href="#validateValue-forKey-error" class="headerlink" title="validateValue:forKey:error:"></a><code>validateValue:forKey:error:</code></h4><p>它可以用来检查 set 的值是否正确、为不正确的值做一个替换值或者拒绝设置新值并返回错误原因。</p>
-<h4 id="validateValue-forKeyPath-error"><a href="#validateValue-forKeyPath-error" class="headerlink" title="validateValue:forKeyPath:error"></a><code>validateValue:forKeyPath:error</code></h4><h4 id="集合返回可变实例"><a href="#集合返回可变实例" class="headerlink" title="集合返回可变实例"></a>集合返回可变实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSMutableArray *items = [order mutaleArrayValueForKey:@&quot;items&quot;];</div></pre></td></tr></table></figure>
+<h4 id="validateValue-forKeyPath-error"><a href="#validateValue-forKeyPath-error" class="headerlink" title="validateValue:forKeyPath:error"></a><code>validateValue:forKeyPath:error</code></h4><h4 id="集合返回可变实例"><a href="#集合返回可变实例" class="headerlink" title="集合返回可变实例"></a>集合返回可变实例</h4><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSMutableArray *items = [<span class="keyword">order</span> <span class="title">mutaleArrayValueForKey</span>:@<span class="string">"items"</span>];</div></pre></td></tr></table></figure>
 <p>即使是只读集合，也可以返回可变集合实例。</p>
 <h3 id="键值搜索-setValue-forKey-调用顺序"><a href="#键值搜索-setValue-forKey-调用顺序" class="headerlink" title="键值搜索 setValue:forKey: 调用顺序"></a>键值搜索 <code>setValue:forKey:</code> 调用顺序</h3><ol>
 <li>搜索目标类寻找名称符合格式 <code>set&lt;Key&gt;:</code> ，<code>setIs&lt;Key&gt;:</code> 的访问方法，<code>key</code>是属性名称；比如：key = “name”，KVC在目标类中搜索名为<code>setName:</code>的访问方法；</li>
@@ -852,6 +857,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 

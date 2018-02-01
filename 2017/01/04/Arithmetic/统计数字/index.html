@@ -372,6 +372,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -390,8 +395,8 @@
       
 
       
-        <h2 id="计算数字k在0到n中的出现的次数-k可能是0-9的一个值"><a href="#计算数字k在0到n中的出现的次数-k可能是0-9的一个值" class="headerlink" title="计算数字k在0到n中的出现的次数, k可能是0~9的一个值"></a>计算数字k在0到n中的出现的次数, k可能是0~9的一个值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">样例</div><div class="line">例如n=12, k=1, 在 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], 我们发现1出现了5次 (1, 10, 11, 12)</div></pre></td></tr></table></figure>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>把输入的n看做一个数组, 从[0, n]遍历每个数, 发现当前数值中包含1, 记一次<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    int statisticsCount = 0;</div><div class="line">    /*</div><div class="line">    * param k : As description.</div><div class="line">    * param n : As description.</div><div class="line">    * return: How many k&apos;s between 0 and n.</div><div class="line">    */</div><div class="line">    int digitCounts(int k, int n) &#123;</div><div class="line">        int res = 0;  </div><div class="line">        int base = 1;  </div><div class="line">        if (n == 0 &amp;&amp; k == 0) return 1;  </div><div class="line">        while(n / base &gt; 0)&#123;  </div><div class="line">            int curBit = (n / base) % 10;  </div><div class="line">            int low = n - (n / base) * base;  </div><div class="line">            int high = n / (base * 10);  </div><div class="line">            if (curBit &lt; k) &#123;  </div><div class="line">                res += high * base;                         </div><div class="line">            &#125; </div><div class="line">            else if (curBit == k) &#123;  </div><div class="line">                res += high * base + low + 1;  </div><div class="line">            &#125;</div><div class="line">            else &#123;  </div><div class="line">                if(k == 0 &amp;&amp; high == 0)&#123;  </div><div class="line">                &#125;</div><div class="line">                else&#123;  </div><div class="line">                    res += (high + 1) * base;  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">            base *= 10;  </div><div class="line">        &#125;  </div><div class="line">        return res;  </div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+        <h2 id="计算数字k在0到n中的出现的次数-k可能是0-9的一个值"><a href="#计算数字k在0到n中的出现的次数-k可能是0-9的一个值" class="headerlink" title="计算数字k在0到n中的出现的次数, k可能是0~9的一个值"></a>计算数字k在0到n中的出现的次数, k可能是0~9的一个值</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">样例</div><div class="line">例如n=<span class="number">12</span>, k=<span class="number">1</span>, 在 [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>], 我们发现<span class="number">1</span>出现了<span class="number">5</span>次 (<span class="number">1</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>)</div></pre></td></tr></table></figure>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>把输入的n看做一个数组, 从[0, n]遍历每个数, 发现当前数值中包含1, 记一次<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">int</span> statisticsCount = <span class="number">0</span>;</div><div class="line">    <span class="comment">/*</span></div><div class="line">    * param k : As description.</div><div class="line">    * param n : As description.</div><div class="line">    * return: How many k's between 0 and n.</div><div class="line">    */</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">digitCounts</span>(<span class="params"><span class="keyword">int</span> k, <span class="keyword">int</span> n</span>) </span>&#123;</div><div class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;  </div><div class="line">        <span class="keyword">int</span> <span class="keyword">base</span> = <span class="number">1</span>;  </div><div class="line">        <span class="keyword">if</span> (n == <span class="number">0</span> &amp;&amp; k == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;  </div><div class="line">        <span class="keyword">while</span>(n / <span class="keyword">base</span> &gt; <span class="number">0</span>)&#123;  </div><div class="line">            <span class="keyword">int</span> curBit = (n / <span class="keyword">base</span>) % <span class="number">10</span>;  </div><div class="line">            <span class="keyword">int</span> low = n - (n / <span class="keyword">base</span>) * <span class="keyword">base</span>;  </div><div class="line">            <span class="keyword">int</span> high = n / (<span class="keyword">base</span> * <span class="number">10</span>);  </div><div class="line">            <span class="keyword">if</span> (curBit &lt; k) &#123;  </div><div class="line">                res += high * <span class="keyword">base</span>;                         </div><div class="line">            &#125; </div><div class="line">            <span class="function"><span class="keyword">else</span> <span class="title">if</span> (<span class="params">curBit == k</span>) </span>&#123;  </div><div class="line">                res += high * <span class="keyword">base</span> + low + <span class="number">1</span>;  </div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;  </div><div class="line">                <span class="keyword">if</span>(k == <span class="number">0</span> &amp;&amp; high == <span class="number">0</span>)&#123;  </div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span>&#123;  </div><div class="line">                    res += (high + <span class="number">1</span>) * <span class="keyword">base</span>;  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">            <span class="keyword">base</span> *= <span class="number">10</span>;  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">return</span> res;  </div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -432,8 +437,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/03/Arithmetic/统计二进制有多少个1/" rel="prev" title="统计二进制有多少个1">
-                统计二进制有多少个1 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/04/Hexo/hexo+github+域名绑定操作步骤/" rel="prev" title="Hexo+gihub">
+                Hexo+gihub <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -777,6 +782,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 

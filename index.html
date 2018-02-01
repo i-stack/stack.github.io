@@ -404,7 +404,7 @@
       
         
           
-          解码将已经编码后的图像数据格式转化为可以被渲染的数据。Image/IO的解码，支持了常见的图像格式，包括PNG、APNG、JPEG、GIF、BMP、TIFF CGImageSourceCopyType
+          解码将已经编码后的图像数据格式转化为可以被渲染的数据。Image/IO的解码，支持了常见的图像格式，包括PNG、APNG、JPEG、GIF、BMP、TIFF CGImageSourceCopyTypeIdentifiers 可以获取支持的图像格式。在iOS 11之后支持了HEIC（即使用了HEVC编
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -573,7 +573,9 @@
       
         
           
-          使用Image I/O 基础ImageI/O framework  提供从源图像 CGImageSourceRef 读取数据的不透明的数据类型并且写入图片数据到目的地 CGImageDestinati
+          使用Image I/O 基础ImageI/O framework  提供从源图像 CGImageSourceRef 读取数据的不透明的数据类型并且写入图片数据到目的地 CGImageDestinationRef。它支持多种图像格式，包括标准的Web格式、高动态范围的图像和原始的摄像机数据。
+
+一个U
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -745,7 +747,9 @@
           PNG 和 JPEG（JPG）区别
 PNG 图片是无损压缩，并且支持 alpha 通道，
 JPEG 图片是有损压缩，可以指定 0-100% 的压缩比；
-苹果提供了两个函数用来生成 PNG 和 JPEG
+苹果提供了两个函数用来生成 PNG 和 JPEG 图片：
+
+12345// return image as PNG. May return nil 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -821,7 +825,7 @@ JPEG 图片是有损压缩，可以指定 0-100% 的压缩比；
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/01/Objective-C/Image/ImageType/" itemprop="url">如何判断图片类型</a></h1>
+                <a class="post-title-link" href="/2018/01/01/Objective-C/Image/ImageType/" itemprop="url">图片类型</a></h1>
         
 
         <div class="post-meta">
@@ -913,9 +917,7 @@ JPEG 图片是有损压缩，可以指定 0-100% 的压缩比；
 
       
         
-          
-          直接获取扩展名123NSString *image = @&quot;xxx.png&quot;;NSString *extension = image.pathExtension.lowercase
-          ...
+          <h2 id="获取扩展名"><a href="#获取扩展名" class="headerlink" title="获取扩展名"></a>获取扩展名</h2>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/01/Objective-C/Image/ImageType/#more" rel="contents">
@@ -1076,7 +1078,7 @@ JPEG 图片是有损压缩，可以指定 0-100% 的压缩比；
       
         
           
-          pod搜索不到成功发布pod, 使用pod install可以成功添加自己发布的pod到工程,但是却用pod serach 搜索时报错: Unable to find a pod with name,
+          pod搜索不到成功发布pod, 使用pod install可以成功添加自己发布的pod到工程,但是却用pod serach 搜索时报错: Unable to find a pod with name, author, summary, or description matching [podname
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1238,7 +1240,7 @@ JPEG 图片是有损压缩，可以指定 0-100% 的压缩比；
       
         
           
-          strong@property (nonatomic,strong)NSString *name;123456789101112131415- (void)test1&#123;    NSMutab
+          strong@property (nonatomic,strong)NSString *name;123456789101112131415- (void)test1&#123;    NSMutableString *str = [NSMutableString stringWithFormat:
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1415,7 +1417,7 @@ JPEG 图片是有损压缩，可以指定 0-100% 的压缩比；
         
           
           首先贴上官方文档
-1. 初始化12345678910111213141516171819202122- (void)viewDidLoad&#123;    [super viewDidLoad]; 
+1. 初始化12345678910111213141516171819202122- (void)viewDidLoad&#123;    [super viewDidLoad];    [self.view addSubview:self.moviePlayerControlle
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1592,7 +1594,7 @@ JPEG 图片是有损压缩，可以指定 0-100% 的压缩比；
         
           
           首先贴上官方文档
-先看下头文件:1234567891011121314@interface MPMoviePlayerViewController : UIViewController- (insta
+先看下头文件:1234567891011121314@interface MPMoviePlayerViewController : UIViewController- (instancetype)initWithContentURL:(NSURL *)contentURL NS_
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1757,7 +1759,7 @@ JPEG 图片是有损压缩，可以指定 0-100% 的压缩比；
           一: iOS 8 系统下遇到的问题
 实例化WKWebView后如果不将其添加到父类上, 则其代理方法不回调; iOS 9及以上版本不存在此问题. 大坑~
 
-二: webView 自适应宽度123456
+二: webView 自适应宽度123456- (void)webViewDidFinishLoad:(UIWebView *)webView&
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1927,7 +1929,9 @@ JPEG 图片是有损压缩，可以指定 0-100% 的压缩比；
         
           
           什么是KVO?
-Key-value observing is a mechanism that allows objects to be notified of changes to specifie
+Key-value observing is a mechanism that allows objects to be notified of changes to specified properties of other objects.
+
+ KVO是一种机制，被观察对象指定的
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2269,6 +2273,26 @@ Key-value observing is a mechanism that allows objects to be notified of changes
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 
