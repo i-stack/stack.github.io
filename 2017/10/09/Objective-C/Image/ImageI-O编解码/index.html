@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.3" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.0.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'QONN7Z36EX',
+      apiKey: 'f54c85840d7d3cf49cd0dae9ea2b7fbc',
+      indexName: 'stack_NAME',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="Objective-C," />
+
+
+<meta name="description" content="解码将已经编码后的图像数据格式转化为可以被渲染的数据。Image/IO的解码，支持了常见的图像格式，包括PNG、APNG、JPEG、GIF、BMP、TIFF CGImageSourceCopyTypeIdentifiers 可以获取支持的图像格式。在iOS 11之后支持了HEIC（即使用了HEVC编码的HEIF格式）。 静态图静态图的解码步骤：  创建CGImageSource； 读取图像格式元数">
+<meta name="keywords" content="Objective-C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ImageI/O编解码">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/10/09/Objective-C/Image/ImageI-O编解码/index.html">
+<meta property="og:site_name" content="stack.blog">
+<meta property="og:description" content="解码将已经编码后的图像数据格式转化为可以被渲染的数据。Image/IO的解码，支持了常见的图像格式，包括PNG、APNG、JPEG、GIF、BMP、TIFF CGImageSourceCopyTypeIdentifiers 可以获取支持的图像格式。在iOS 11之后支持了HEIC（即使用了HEVC编码的HEIF格式）。 静态图静态图的解码步骤：  创建CGImageSource； 读取图像格式元数">
+<meta property="og:updated_time" content="2018-03-01T07:19:46.117Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ImageI/O编解码">
+<meta name="twitter:description" content="解码将已经编码后的图像数据格式转化为可以被渲染的数据。Image/IO的解码，支持了常见的图像格式，包括PNG、APNG、JPEG、GIF、BMP、TIFF CGImageSourceCopyTypeIdentifiers 可以获取支持的图像格式。在iOS 11之后支持了HEIC（即使用了HEVC编码的HEIF格式）。 静态图静态图的解码步骤：  创建CGImageSource； 读取图像格式元数">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="stack.blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://github.com/songMW/stack.github.io/2017/10/09/Objective-C/Image/ImageI-O编解码/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>ImageI/O编解码 | stack.blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">stack.blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />归档</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/songMW/stack.github.io/2017/10/09/Objective-C/Image/ImageI-O编解码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="stack">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="stack.blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ImageI/O编解码</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T18:56:07+08:00">2017-10-09</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/" itemprop="url" rel="index"><span itemprop="name">KnowledgeLists</span></a></span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/Image/" itemprop="url" rel="index"><span itemprop="name">Image</span></a></span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/KnowledgeLists/Image/ImageI-O编解码/" itemprop="url" rel="index"><span itemprop="name">ImageI/O编解码</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+			
+			
+			
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h1><p>将已经编码后的图像数据格式转化为可以被渲染的数据。<br>Image/IO的解码，支持了常见的图像格式，包括PNG、APNG、JPEG、GIF、BMP、TIFF <code>CGImageSourceCopyTypeIdentifiers</code> 可以获取支持的图像格式。<br>在iOS 11之后支持了HEIC（即使用了HEVC编码的HEIF格式）。</p>
+<h2 id="静态图"><a href="#静态图" class="headerlink" title="静态图"></a>静态图</h2><p>静态图的解码步骤：</p>
+<ol>
+<li>创建CGImageSource；</li>
+<li>读取图像格式元数据；</li>
+<li>解码得到CGImage；</li>
+<li>生成上层的UIImage，清理。<br>创建CGImageSource<br>CGImageSouce，表示的是一个待解码数据的输入。</li>
+</ol>
+<ul>
+<li>CGImageSourceCreateWithData： 二进制数据（CGData）中创建ImageSource；</li>
+<li>CGImageSourceCreateWithURL： 指定一个URL创建ImageSource；</li>
+<li>CGImageSourceCreateWithDataProvider：从DataProvide中创建ImageSource，DataProvider提供了很多种输入，包括内存，文件，网络，流等。<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle]pathForResource:<span class="string">@"14444473,2560,1600"</span> ofType:<span class="string">@"jpg"</span>];</div><div class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfFile:path];</div><div class="line"></div><div class="line"><span class="built_in">CFDataRef</span> dataRef = (__bridge <span class="built_in">CFDataRef</span>)data;</div><div class="line"><span class="comment">// 创建CGImageSource</span></div><div class="line"><span class="built_in">CGImageSourceRef</span> sourceRef = <span class="built_in">CGImageSourceCreateWithData</span>(dataRef, <span class="literal">NULL</span>);</div><div class="line"><span class="built_in">NSAssert</span>(sourceRef != <span class="literal">nil</span>, <span class="string">@"sourceRef is nil"</span>);</div><div class="line"></div><div class="line"><span class="comment">// 读取图像格式元数据</span></div><div class="line"><span class="built_in">NSDictionary</span> *imageProperties = (__bridge <span class="built_in">NSDictionary</span> *)<span class="built_in">CGImageSourceCopyPropertiesAtIndex</span>(sourceRef, <span class="number">0</span>, <span class="literal">NULL</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"获取属性列表：%@"</span>, imageProperties);</div><div class="line"><span class="built_in">NSUInteger</span> width = [imageProperties[(__bridge <span class="built_in">NSString</span> *)kCGImagePropertyPixelWidth] unsignedIntegerValue];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"图片宽：%@"</span>, @(width));</div><div class="line"><span class="built_in">NSUInteger</span> height = [imageProperties[(__bridge <span class="built_in">NSString</span> *)kCGImagePropertyPixelHeight] unsignedIntegerValue];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"图片高：%@"</span>, @(height));</div><div class="line"><span class="built_in">BOOL</span> hasAlpha = [imageProperties[(__bridge <span class="built_in">NSString</span> *)kCGImagePropertyHasAlpha] boolValue];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"是否含有Alpha通道：%@"</span>, @(hasAlpha));</div><div class="line"><span class="comment">//图像格式：CGImageSourceGetType</span></div><div class="line"><span class="built_in">CFStringRef</span> stringRef = <span class="built_in">CGImageSourceGetType</span>(sourceRef);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"图像格式：%@"</span>, (__bridge <span class="built_in">NSString</span> *)stringRef);</div><div class="line"><span class="comment">//图像数量（动图）：CGImageSourceGetCount</span></div><div class="line">size_t t = <span class="built_in">CGImageSourceGetCount</span>(sourceRef);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"图像数量：%zu"</span>, t);</div><div class="line"></div><div class="line"><span class="comment">// 解码得到CGImage</span></div><div class="line"><span class="built_in">CGImageRef</span> imageRef = <span class="built_in">CGImageSourceCreateImageAtIndex</span>(sourceRef, <span class="number">0</span>, <span class="literal">NULL</span>);</div><div class="line"></div><div class="line"><span class="comment">// 生成UIImage</span></div><div class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithCGImage:imageRef];</div><div class="line"><span class="keyword">self</span>.showImageView.image = image;</div><div class="line"><span class="built_in">CGImageRelease</span>(imageRef);</div><div class="line"><span class="built_in">CFRelease</span>(sourceRef);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意点：</p>
+<ol>
+<li><code>CGImageSourceCreateImageAtIndex</code> 对于静态图 index 传0；</li>
+<li><code>CGImageSourceCopyPropertiesAtIndex</code>  获取图片的元信息</li>
+<li>释放</li>
+</ol>
+<h2 id="动态图"><a href="#动态图" class="headerlink" title="动态图"></a>动态图</h2><ol>
+<li>创建CGImageSource ；</li>
+<li>使用<code>CGImageSourceGetCount</code>获取到图片的帧数；</li>
+<li>循环遍历每一帧，循环静态图2～4步骤<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:dynamicImageURL];</div><div class="line"><span class="built_in">CGImageSourceRef</span> sourcesRef = <span class="built_in">CGImageSourceCreateWithURL</span>((__bridge_retained <span class="built_in">CFURLRef</span>)url, <span class="literal">NULL</span>);</div><div class="line"></div><div class="line"><span class="comment">// 获取图片帧数</span></div><div class="line">size_t count = <span class="built_in">CGImageSourceGetCount</span>(sourcesRef);</div><div class="line"><span class="built_in">NSMutableArray</span>&lt;<span class="built_in">UIImage</span> *&gt; *images = [<span class="built_in">NSMutableArray</span> array];</div><div class="line"><span class="keyword">double</span> totalDuration = <span class="number">0</span>;</div><div class="line"><span class="keyword">for</span> (size_t i = <span class="number">0</span>; i &lt; count; i++) &#123;</div><div class="line"><span class="built_in">NSDictionary</span> *propertiesDict = (__bridge_transfer <span class="built_in">NSDictionary</span> *)<span class="built_in">CGImageSourceCopyPropertiesAtIndex</span>(sourcesRef, i, <span class="literal">NULL</span>);</div><div class="line"><span class="built_in">NSDictionary</span> *gitPropertiesDict = propertiesDict[(<span class="built_in">NSString</span> *)kCGImagePropertyGIFDictionary];</div><div class="line"><span class="keyword">double</span> duration = [gitPropertiesDict[(<span class="built_in">NSString</span> *)kCGImagePropertyGIFUnclampedDelayTime] doubleValue]; <span class="comment">// GIF原始的帧持续时长，秒数</span></div><div class="line">totalDuration += duration;</div><div class="line"><span class="built_in">CGImageRef</span> imageRef = <span class="built_in">CGImageSourceCreateImageAtIndex</span>(sourcesRef, i, <span class="literal">NULL</span>);</div><div class="line"><span class="built_in">UIImage</span> *image  = [<span class="built_in">UIImage</span> imageWithCGImage:imageRef];</div><div class="line">[images addObject:image];</div><div class="line"><span class="built_in">CGImageRelease</span>(imageRef);</div><div class="line">&#125;</div><div class="line"><span class="keyword">self</span>.showImageView.image = [<span class="built_in">UIImage</span> animatedImageWithImages:images duration:totalDuration];</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>UIImage这个animatedImages的接口，会根据传入的images的数量，平均分配传入的totalDuration的展示时长</p>
+<h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><p>指的就是将一个UIImage表示的图像，编码为对应图像格式的数据，输出NSData的过程。Image/IO提供的对应概念，叫做CGImageDestination，表示一个输出。之后的编码相关的操作与Destination对应。</p>
+<h2 id="静态图-1"><a href="#静态图-1" class="headerlink" title="静态图"></a>静态图</h2><p>静态图编码步骤：</p>
+<ol>
+<li>创建CGImageDestination；</li>
+<li>添加图像格式元数据（可选）和CGImage；</li>
+<li>编码得到NSData。</li>
+</ol>
+<p>创建 CGImageDestination：</p>
+<ol>
+<li><code>CGImageDestinationCreateWithURL</code></li>
+<li><code>CGImageDestinationCreateWithData</code></li>
+<li><code>CGImageDestinationCreateWithDataConsumer</code></li>
+</ol>
+<p>添加图片到CGImageDestination</p>
+<ol>
+<li><code>CGImageDestinationAddImage</code></li>
+<li><code>CGImageDestinationAddImageFromSource</code></li>
+</ol>
+<p>验证是否添加完成<br>使用<code>CGImageDestinationFinalize</code>验证图片是否添加完成，一旦完成后就不能向图片添加更多的数据。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h2 id="动态图-1"><a href="#动态图-1" class="headerlink" title="动态图"></a>动态图</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/10/Objective-C/Other/google人机验证/" rel="next" title="google人机验证">
+                <i class="fa fa-chevron-left"></i> google人机验证
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/02/Objective-C/Image/图片压缩/" rel="prev" title="图片压缩">
+                图片压缩 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">stack</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">53</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">67</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/songMW" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="songshoubing7664@163.com" target="_blank" title="E-mail"><i class="fa fa-fw fa-envelope"></i>E-mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#解码"><span class="nav-number">1.</span> <span class="nav-text">解码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#静态图"><span class="nav-number">1.1.</span> <span class="nav-text">静态图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态图"><span class="nav-number">1.2.</span> <span class="nav-text">动态图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编码"><span class="nav-number">2.</span> <span class="nav-text">编码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#静态图-1"><span class="nav-number">2.1.</span> <span class="nav-text">静态图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态图-1"><span class="nav-number">2.2.</span> <span class="nav-text">动态图</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">stack</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.3"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

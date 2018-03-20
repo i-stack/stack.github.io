@@ -110,7 +110,7 @@
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/06/10/Objective-C/KV_X/KVO/index.html">
 <meta property="og:site_name" content="stack.blog">
 <meta property="og:description" content="什么是KVO? Key-value observing is a mechanism that allows objects to be notified of changes to specified properties of other objects.   KVO是一种机制，被观察对象指定的属性发生变化时，观察者可以得到通知。  Important: In order to underst">
-<meta property="og:updated_time" content="2018-01-22T04:00:16.471Z">
+<meta property="og:updated_time" content="2018-03-07T06:17:08.729Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KVO">
 <meta name="twitter:description" content="什么是KVO? Key-value observing is a mechanism that allows objects to be notified of changes to specified properties of other objects.   KVO是一种机制，被观察对象指定的属性发生变化时，观察者可以得到通知。  Important: In order to underst">
@@ -429,7 +429,7 @@
 <p><strong> 返回YES时会自动调用 <code>-willChangeValueForKey:/-didChangeValueForKey:</code> 这两个方法；</strong><br><strong> 返回NO时需要手动设置 <code>-willChangeValueForKey:/-didChangeValueForKey:</code> 这两个方法。</strong></p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setBalance:(<span class="keyword">double</span>)theBalance &#123;</div><div class="line">    <span class="keyword">if</span> (theBalance != _balance) &#123;</div><div class="line">        [<span class="keyword">self</span> willChangeValueForKey:<span class="string">@"balance"</span>];</div><div class="line">        _balance = theBalance;</div><div class="line">        [<span class="keyword">self</span> didChangeValueForKey:<span class="string">@"balance"</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="同时设置多个属性值"><a href="#同时设置多个属性值" class="headerlink" title="同时设置多个属性值"></a>同时设置多个属性值</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setBalance:(<span class="keyword">double</span>)theBalance &#123;</div><div class="line">    [<span class="keyword">self</span> willChangeValueForKey:<span class="string">@"balance"</span>];</div><div class="line">    [<span class="keyword">self</span> willChangeValueForKey:<span class="string">@"itemChanged"</span>];</div><div class="line">    _balance = theBalance;</div><div class="line">    _itemChanged = _itemChanged+<span class="number">1</span>;</div><div class="line">    [<span class="keyword">self</span> didChangeValueForKey:<span class="string">@"itemChanged"</span>];</div><div class="line">    [<span class="keyword">self</span> didChangeValueForKey:<span class="string">@"balance"</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="依赖关系"><a href="#依赖关系" class="headerlink" title="依赖关系"></a>依赖关系</h2><h2 id="移除KVO"><a href="#移除KVO" class="headerlink" title="移除KVO"></a>移除KVO</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[observeredObject removeObserver:observer forKeyPath:keyPath];</div></pre></td></tr></table></figure>
+<h2 id="移除KVO"><a href="#移除KVO" class="headerlink" title="移除KVO"></a>移除KVO</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[observeredObject removeObserver:observer forKeyPath:keyPath];</div></pre></td></tr></table></figure>
 <p>再次移除同一对象的同一属性会crash;</p>
 <blockquote>
 <p>Terminating app due to uncaught exception ‘NSRangeException’, reason: ‘Cannot remove an observer <xxxxx 0x7f9310e0bec0=""> for the key path “keyPath” from <xxxx 0x600000648c70=""> because it is not registered as an observer.</xxxx></xxxxx></p>
@@ -519,8 +519,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/04/Objective-C/KV_X/KVC/" rel="prev" title="KVC">
-                KVC <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/04/Objective-C/CrashCollection/搜索不到解决方法/" rel="prev" title="pod搜索不到解决方法">
+                pod搜索不到解决方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -595,7 +595,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-count">53</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -736,7 +736,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">64</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">67</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -759,7 +765,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -816,7 +824,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是KVO"><span class="nav-number">1.</span> <span class="nav-text">什么是KVO?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#怎么用？"><span class="nav-number">2.</span> <span class="nav-text">怎么用？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册观察者"><span class="nav-number">2.1.</span> <span class="nav-text">注册观察者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发回调"><span class="nav-number">2.2.</span> <span class="nav-text">触发回调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动通知"><span class="nav-number">2.3.</span> <span class="nav-text">自动通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动通知"><span class="nav-number">2.4.</span> <span class="nav-text">手动通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同时设置多个属性值"><span class="nav-number">2.5.</span> <span class="nav-text">同时设置多个属性值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖关系"><span class="nav-number">2.6.</span> <span class="nav-text">依赖关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除KVO"><span class="nav-number">2.7.</span> <span class="nav-text">移除KVO</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原理是什么？"><span class="nav-number">3.</span> <span class="nav-text">原理是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个实例"><span class="nav-number">3.1.</span> <span class="nav-text">创建一个实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行注册观察者的方法"><span class="nav-number">3.2.</span> <span class="nav-text">执行注册观察者的方法:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KVO是如何寻找被观察属性的？"><span class="nav-number">3.3.</span> <span class="nav-text">KVO是如何寻找被观察属性的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#限制条件是什么？"><span class="nav-number">3.4.</span> <span class="nav-text">限制条件是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一：forKeyPath-为实例对象是否可以？"><span class="nav-number">3.4.1.</span> <span class="nav-text">一：forKeyPath 为实例对象是否可以？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二：forKeyPath-为不存在的实例对象是否可以？"><span class="nav-number">3.4.2.</span> <span class="nav-text">二：forKeyPath 为不存在的实例对象是否可以？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三：forKeyPath-为空-nil-时是否可以？"><span class="nav-number">3.4.3.</span> <span class="nav-text">三：forKeyPath 为空 / nil 时是否可以？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四：-forKeyPath-为方法名是否可以？"><span class="nav-number">3.4.4.</span> <span class="nav-text">四： forKeyPath 为方法名是否可以？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五：如果手动为实例对象创建一个setter方法是否可以？"><span class="nav-number">3.4.5.</span> <span class="nav-text">五：如果手动为实例对象创建一个setter方法是否可以？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六：同一个类中注册多个KVO会怎么样？"><span class="nav-number">3.4.6.</span> <span class="nav-text">六：同一个类中注册多个KVO会怎么样？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七：被观察类的父类中也实现了KVO会怎么样？"><span class="nav-number">3.4.7.</span> <span class="nav-text">七：被观察类的父类中也实现了KVO会怎么样？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模拟实现系统KVO"><span class="nav-number">3.5.</span> <span class="nav-text">模拟实现系统KVO</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是KVO"><span class="nav-number">1.</span> <span class="nav-text">什么是KVO?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#怎么用？"><span class="nav-number">2.</span> <span class="nav-text">怎么用？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册观察者"><span class="nav-number">2.1.</span> <span class="nav-text">注册观察者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发回调"><span class="nav-number">2.2.</span> <span class="nav-text">触发回调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动通知"><span class="nav-number">2.3.</span> <span class="nav-text">自动通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动通知"><span class="nav-number">2.4.</span> <span class="nav-text">手动通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同时设置多个属性值"><span class="nav-number">2.5.</span> <span class="nav-text">同时设置多个属性值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除KVO"><span class="nav-number">2.6.</span> <span class="nav-text">移除KVO</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原理是什么？"><span class="nav-number">3.</span> <span class="nav-text">原理是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个实例"><span class="nav-number">3.1.</span> <span class="nav-text">创建一个实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行注册观察者的方法"><span class="nav-number">3.2.</span> <span class="nav-text">执行注册观察者的方法:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KVO是如何寻找被观察属性的？"><span class="nav-number">3.3.</span> <span class="nav-text">KVO是如何寻找被观察属性的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#限制条件是什么？"><span class="nav-number">3.4.</span> <span class="nav-text">限制条件是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一：forKeyPath-为实例对象是否可以？"><span class="nav-number">3.4.1.</span> <span class="nav-text">一：forKeyPath 为实例对象是否可以？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二：forKeyPath-为不存在的实例对象是否可以？"><span class="nav-number">3.4.2.</span> <span class="nav-text">二：forKeyPath 为不存在的实例对象是否可以？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三：forKeyPath-为空-nil-时是否可以？"><span class="nav-number">3.4.3.</span> <span class="nav-text">三：forKeyPath 为空 / nil 时是否可以？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四：-forKeyPath-为方法名是否可以？"><span class="nav-number">3.4.4.</span> <span class="nav-text">四： forKeyPath 为方法名是否可以？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五：如果手动为实例对象创建一个setter方法是否可以？"><span class="nav-number">3.4.5.</span> <span class="nav-text">五：如果手动为实例对象创建一个setter方法是否可以？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六：同一个类中注册多个KVO会怎么样？"><span class="nav-number">3.4.6.</span> <span class="nav-text">六：同一个类中注册多个KVO会怎么样？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七：被观察类的父类中也实现了KVO会怎么样？"><span class="nav-number">3.4.7.</span> <span class="nav-text">七：被观察类的父类中也实现了KVO会怎么样？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模拟实现系统KVO"><span class="nav-number">3.5.</span> <span class="nav-text">模拟实现系统KVO</span></a></li></ol></li></ol></div>
             
 
           </div>
