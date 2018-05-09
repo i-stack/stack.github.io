@@ -107,10 +107,10 @@
 <meta name="keywords" content="hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop for mac">
-<meta property="og:url" content="https://github.com/songMW/stack.github.io/2018/03/19/hadoop/hadoopForMac/index.html">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2018/03/19/Hadoop/hadoopForMac/index.html">
 <meta property="og:site_name" content="stack.blog">
 <meta property="og:description" content="什么是Hadoop? 开源，可靠的，可扩展的分布式计算开发开源软件； 作者：Doug Cutting； 受Goole三篇论文启发（GFS，MapReduce，BigTabel）。  解释：  开源：说明是免费； 可靠： 数据由备份，可自动恢复 可扩展：灵活性高  HDFS基本概念 Java实现，分布式，可横向扩展的分布式文件系统 HDFS是Hadoop核心 基于unix，linix系统 容错性高，">
-<meta property="og:updated_time" content="2018-03-20T07:13:13.903Z">
+<meta property="og:updated_time" content="2018-03-23T07:53:26.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop for mac">
 <meta name="twitter:description" content="什么是Hadoop? 开源，可靠的，可扩展的分布式计算开发开源软件； 作者：Doug Cutting； 受Goole三篇论文启发（GFS，MapReduce，BigTabel）。  解释：  开源：说明是免费； 可靠： 数据由备份，可自动恢复 可扩展：灵活性高  HDFS基本概念 Java实现，分布式，可横向扩展的分布式文件系统 HDFS是Hadoop核心 基于unix，linix系统 容错性高，">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://github.com/songMW/stack.github.io/2018/03/19/hadoop/hadoopForMac/"/>
+  <link rel="canonical" href="https://github.com/songMW/stack.github.io/2018/03/19/Hadoop/hadoopForMac/"/>
 
 
 
@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/songMW/stack.github.io/2018/03/19/hadoop/hadoopForMac/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/songMW/stack.github.io/2018/03/19/Hadoop/hadoopForMac/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="stack">
@@ -484,43 +484,98 @@
 <h2 id="Hadoop核心"><a href="#Hadoop核心" class="headerlink" title="Hadoop核心"></a>Hadoop核心</h2><ol>
 <li>HDFS：Hadoop Distributed File System 分布式文件系统</li>
 <li>YARN：Yet Another Resource Negotiator 资源管理调度系统</li>
-<li>Common：公共模块，为其他Hadoop模块提供基础设施</li>
+<li>Common：公共模块，为其他 Hadoop 模块提供基础设施</li>
 <li>MapReduce：处理数据，一个分布式并行框架<ul>
-<li>读取输入文件内容，解析成key, value对</li>
-<li>重写map方法，编写业务逻辑输出新的key, value对</li>
-<li>对输出的key, value分区</li>
-<li>对数据按照key 排序，分组，相同key的value放到一个集合中</li>
+<li>读取输入文件内容，解析成 key, value 对</li>
+<li>重写 map 方法，编写业务逻辑输出新的 key, value 对</li>
+<li>对输出的 key, value 分区</li>
+<li>对数据按照 key 排序，分组，相同 key 的 value 放到一个集合中</li>
 </ul>
 </li>
 </ol>
-<h2 id="HDFS的架构"><a href="#HDFS的架构" class="headerlink" title="HDFS的架构"></a>HDFS的架构</h2><ol>
-<li>主从结构<ul>
-<li>主节点，只有一个：NameNode</li>
-<li>从节点，有很多个：DataNode</li>
+<h2 id="HDFS的架构"><a href="#HDFS的架构" class="headerlink" title="HDFS的架构"></a>HDFS的架构</h2><h3 id="NameNode-概述"><a href="#NameNode-概述" class="headerlink" title="NameNode 概述"></a>NameNode 概述</h3><ol>
+<li>NameNode（Master）是 HDFS 的核心。</li>
+<li>NameNode 仅存储 HDFS 的元数据：文件系统中所有的目录树，并跟踪整个集中的文件。</li>
+<li>NameNode 不存储实际数据或数据集，数据本身实际存储在 DataNodes 中。</li>
+<li>NameNode 知道HDFS 中任何给定文件的块列表及其位置。</li>
+<li>NameNode 并不持久化存储每个文件中各个块所在的 DataNode 的位置信息。</li>
+<li>NameNode 关闭时，HDFS / Hadoop 集群无法访问。</li>
+<li>NameNode 是 Hadoop 集群中的单点故障，NameNode 不可用时导致整个集群不可用。</li>
+<li>NameNode 所在机器通常会配置有大量内存。</li>
+<li>NameNode 是主节点。</li>
+<li>SecondaryNameNode 协助 NameNode 进行元数据的备份。</li>
+<li>响应客户端的所有请求。</li>
+<li>管理 DataNode。</li>
+</ol>
+<h3 id="DataNode概述"><a href="#DataNode概述" class="headerlink" title="DataNode概述"></a>DataNode概述</h3><ol>
+<li>DataNode（Slave）负责将实际数据存储在 HDFS 中。</li>
+<li>NameNode 和 DataNode 会保持不断通信。</li>
+<li>DataNode 启动时，将自己发布到 NameNode 并回报自己负责持有的块列表。</li>
+<li>当某个 DataNode 关闭时，不会影响数据或集群的可用性。NameNode安排由其他的 NameNode 管理的块进行副本复制。</li>
+<li>DataNode 所在机器配置有大量的硬盘空间，因为实际数据保存在 DataNode 中。</li>
+<li>DataNode 会定期（<code>dfs.hearbead.interval</code> 配置项配置，默认是3秒）给 NameNode 发送心跳，如果NameNode 长时间没有接收到 DataNode 发送的心跳， NameNode 就会认为该 DataNode 失效。</li>
+<li>block 汇报时间间隔参数 <code>dfs.blockreport.intervalMsec</code> 参数未配置的默认为6小时。</li>
+<li>DataNode 是从节点。</li>
+</ol>
+<h3 id="HDFS-的工作机制"><a href="#HDFS-的工作机制" class="headerlink" title="HDFS 的工作机制"></a>HDFS 的工作机制</h3><p>客户端请求访问 HDFS 都是通过向 NameNode 申请来进行。<br>Rack 机架，存放机器的设施。</p>
+<h4 id="HDFS-写入数据"><a href="#HDFS-写入数据" class="headerlink" title="HDFS 写入数据"></a>HDFS 写入数据</h4><blockquote>
+<p>详细步骤解析：<br>一个HDFS集群有一个 NameNode 多个 DataNode。<br><code>hadoop fs -put 本地文件路径 hadoop文件目录</code></p>
+<ol>
+<li>请求上传文件，文件名为a.text，上传到定义目录下。</li>
+<li>NameNode 接收到请求，先检测文件系统目录树，检测成功可正常上传，检测不成功，返回错误。</li>
+<li>客户端接收到可以上传的回应。</li>
+<li>HDFS 会将上传的文件进行分割，128M为一块。请求上传 a.txt blk-1 备份3份。</li>
+<li>NameNode 检测 DataName 信息池，返回可用的3台 DataNode ip (dn1, dn2, dn3)。分配策略：本地一份，同机架的不同节点上保存一份，不同的机架上保存一份。</li>
+<li>返回可用的 DataNode ip (dn1，dn2，dn3)；<ul>
+<li>返回的地址按照网络拓扑上的距离来排序</li>
+<li>离客户端最近的排在前面</li>
 </ul>
 </li>
-<li>NameNode负责：<ul>
-<li>接收用户操作请求</li>
-<li>维护文件系统的目录结构</li>
-<li>管理文件与block之间的关系，block与 DataNode 之间的关系</li>
+<li>客户端根据返回的 DataNode ip  建立连接请求数据传输，建立 <code>pipelin</code> 管道。<ul>
+<li>客户端首先与 dn1 建立管道</li>
+<li>dn1 与 dn2 建立管道</li>
+<li>dn2 与 dn3 建立管道</li>
 </ul>
 </li>
-<li>DataNode负责：<ul>
-<li>存储文件</li>
-<li>文件被分成block存储在磁盘上</li>
-<li>为保证数据安全，文件会有多个副本</li>
-<li>启动时遍历本地文件系统，产生一个hdfs数据块和本地文件关系列表</li>
+<li>dn3 建立管道完成后通知 dn2 ，dn2 通知 dn1，dn1通知客户端。</li>
+<li>客户端在管道中建立数据传输的 Stream，以 packet （64k）为单位发送数据 。</li>
+<li>dn1 保存传递过来的源源不断的数据包，包接着传递到 dn2，在传递到 dn3。。。</li>
+<li>数据校验，数据保存成功<ul>
+<li>dn3 -&gt; dn2 -&gt; dn1</li>
 </ul>
 </li>
-<li>SecondaryNameNode负责：辅助 NameNode<ul>
-<li>所在物理节点存储</li>
-<li>一次写入多次读取</li>
-<li>文件由数据块组成 64M，128M</li>
-<li>数据块尽量分布各节点</li>
+<li>数据校验后 dn1 返回结果到客户端。</li>
+</ol>
+</blockquote>
+<h4 id="HDFS-读取数据"><a href="#HDFS-读取数据" class="headerlink" title="HDFS 读取数据"></a>HDFS 读取数据</h4><blockquote>
+<p>详细步骤解析：<br>一个HDFS集群有一个 NameNode 多个 DataNode。<br><code>hadoop fs -get hadoop文件目录 本地文件路径</code></p>
+<ol>
+<li>请求下载文件 /a.txt</li>
+<li>NameNode 返回与请求相关的文件所有的元数据<ul>
+<li>就近原则：在网络拓扑结构上离客户端最近的机器排在前面。</li>
+</ul>
+</li>
+<li>客户端请求下载文件<ul>
+<li>建立线程请求下载文件 blk-1</li>
+<li>建立线程请求下载文件 blk-2</li>
+<li>建立线程请求下载文件 blk-3</li>
+</ul>
+</li>
+<li>客户端把改文件的所有块都下载进行合并成为文件的最终形式</li>
+</ol>
+</blockquote>
+<h2 id="JAVA-api-环境"><a href="#JAVA-api-环境" class="headerlink" title="JAVA api 环境"></a>JAVA api 环境</h2><h3 id="创建-Maven-工程，引入-pom-依赖"><a href="#创建-Maven-工程，引入-pom-依赖" class="headerlink" title="创建 Maven 工程，引入 pom 依赖"></a>创建 Maven 工程，引入 pom 依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hadoop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hadoop-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hadoop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hadoop-hdfs<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hadoop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hadoop-mapreduce-client-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="构造客户端对象"><a href="#构造客户端对象" class="headerlink" title="构造客户端对象"></a>构造客户端对象</h3><ol>
+<li><code>Configuration</code> ：该类的对象封装了客户端或者服务器的配置；</li>
+<li><code>FileSystem</code> ：该类的对象是一个文件系统对象，可以用该对象的一些方法来对文件进行操作，通过 <code>FileSystem</code> 的静态方法 get 获得该对象。<ul>
+<li><code>FileSystem fs = FileSystem.get(conf)</code></li>
+<li>如果代码中没有指定 <code>fs.defaultFS</code> 的配置值并且工程也没有给定相应的配置，conf 中的默认值来自Hadoop 的 jar 包中的 <code>core-default.xm</code>，默认值为：file:///，则获取的不是一个 <code>DistributedFileSystem</code> 的实例，而是本地文件系统的客户端对象。</li>
 </ul>
 </li>
 </ol>
-<h2 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h2><ol>
+<h3 id="实例代码"><a href="#实例代码" class="headerlink" title="实例代码"></a>实例代码</h3><h4 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Configuration conf = <span class="keyword">new</span> Configuration();</div><div class="line">conf.set(<span class="string">"fs.defaultFS"</span>, <span class="string">"hdfs://hadoophost:9000"</span>);</div><div class="line"><span class="xml"><span class="comment">&lt;!--"xxx" 设置当前客户端身份--&gt;</span></span></div><div class="line">FileSystem fs = FileSystem.get(new URI("hdfs://hadoophost:9000"), conf, "xxx");</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">&lt;!--System.setProperty("HADOOP_USER_NAME", "xxx");--&gt;</span></div><div class="line"><span class="comment">&lt;!--FileSystem fs = FileSystem.get(conf);--&gt;</span></div><div class="line"></div><div class="line">fs.create(new Path("/HelloByJava"));</div><div class="line">fs.close();</div></pre></td></tr></table></figure>
+<h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">downloadfile</span><span class="params">(FileSystem fs)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">    fs.copyToLocalFile(<span class="keyword">new</span> Path(<span class="string">"hdfs://hadoophost:9000/pdf"</span>), <span class="keyword">new</span> Path(<span class="string">"/Users/xxx/Downloads/"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Hadoop优点"><a href="#Hadoop优点" class="headerlink" title="Hadoop优点"></a>Hadoop优点</h2><ol>
 <li>扩容能力：<ul>
 <li>能可靠的存储和处理千兆（PB）字节数据</li>
 <li>动态新增及卸载机器</li>
@@ -569,19 +624,37 @@
 <li>网盘</li>
 <li>搜索引擎</li>
 </ol>
-<h2 id="Hadoop部署方式"><a href="#Hadoop部署方式" class="headerlink" title="Hadoop部署方式"></a>Hadoop部署方式</h2><ol>
-<li>本地模式</li>
-<li>伪分布模式<ul>
-<li>关闭防火墙</li>
-<li>修改IP</li>
-<li>修改hostname</li>
-<li>设置ssh自动登录</li>
-<li>安装jdk</li>
-<li>安装hadoop</li>
-</ul>
+<h2 id="安装Hadoop"><a href="#安装Hadoop" class="headerlink" title="安装Hadoop"></a>安装Hadoop</h2><!--1. 本地模式-->
+<!--2. 伪分布模式-->
+<!--    * 关闭防火墙-->
+<!--    * 修改IP-->
+<!--    * 修改hostname-->
+<!--    * 设置ssh自动登录-->
+<!--    * 安装jdk-->
+<!--    * 安装hadoop-->
+<!--3. 集群模式-->
+<p><code>brew install hadoop</code> 即可安装</p>
+<h3 id="hadoop配置"><a href="#hadoop配置" class="headerlink" title="hadoop配置"></a>hadoop配置</h3><ol>
+<li><p><code>hadoop-env.sh</code></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#第<span class="number">9</span>行：导入JAVA_HOME</div><div class="line">export JAVA_HOME=/usr/java/jdk1<span class="number">.6</span><span class="number">.0</span>_45</div><div class="line">mac系统可忽略</div></pre></td></tr></table></figure>
 </li>
-<li>集群模式</li>
+<li><p><code>core-site.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 配置HDFS的（namenode）的地址 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://itcast:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">    </div><div class="line">    <span class="comment">&lt;!-- 配置hadoop运行时产生的文件的目录 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/cloud/hadoop-1.1.2/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><code>hdfs-site.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 配置HDFS的副本数量为1 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><code>mapred-site.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 配置MR的(jobtracker）的通信地址 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapred.job.tracker<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>itcast:9001<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>将hadoop加入到环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vim /etc/profile</div><div class="line"></div><div class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/jdk1.6.0_45</div><div class="line"><span class="built_in">export</span> HADOOP_HOME=/cloud/hadoop-1.1.2</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$HADOOP_HOME</span>/bin</div></pre></td></tr></table></figure>
+</li>
+<li><p>去掉警告（在/etc/profile中添加）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> HADOOP_HOME_WARN_SUPPRESS=<span class="number">1</span></div></pre></td></tr></table></figure>
+</li>
 </ol>
+<h3 id="ssh免登录"><a href="#ssh免登录" class="headerlink" title="ssh免登录"></a>ssh免登录</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">生成ssh免登陆密钥</div><div class="line">ssh-keygen -t rsa</div><div class="line">执行完这个命令后，会生成两个文件id_rsa（私钥）、id_rsa.pub（公钥）</div><div class="line">将公钥拷贝到要免登陆的机器上</div><div class="line">cat ~<span class="regexp">/.ssh/id</span>_rsa.pub <span class="meta">&gt;&gt; </span>~<span class="regexp">/.ssh/authorized</span>_keys</div><div class="line">或</div><div class="line">ssh-copy-id -i localhost</div></pre></td></tr></table></figure>
 <h2 id="思考：如何解决海量数据的存储？"><a href="#思考：如何解决海量数据的存储？" class="headerlink" title="思考：如何解决海量数据的存储？"></a>思考：如何解决海量数据的存储？</h2><h2 id="初始化HDFS"><a href="#初始化HDFS" class="headerlink" title="初始化HDFS"></a>初始化HDFS</h2><h3 id="使用之前需要进行格式化分布式系统"><a href="#使用之前需要进行格式化分布式系统" class="headerlink" title="使用之前需要进行格式化分布式系统"></a>使用之前需要进行格式化分布式系统</h3><figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// hadoop namenode -<span class="built_in">format</span>  已被下面的命令代替，也可使用</div><div class="line">hdfs namenode -<span class="built_in">format</span></div></pre></td></tr></table></figure>
 <p>第一次需要格式化，以后不需要经常格式化，否则之前的数据就会丢失。</p>
 <h3 id="启动HDFS和YARN"><a href="#启动HDFS和YARN" class="headerlink" title="启动HDFS和YARN"></a>启动HDFS和YARN</h3><p>ls  sbin</p>
@@ -593,16 +666,16 @@
 <li><a href="http://localhost:8088" target="_blank" rel="external">http://localhost:8088</a> (yarn 管理界面)</li>
 </ol>
 <p>调用stop-xx.sh 关闭。<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xxx:sbin xxx&amp; <span class="keyword">stop</span>-<span class="keyword">all</span>.<span class="keyword">sh</span> 这个脚本现在已经不赞成使用，以后可能要分别关闭</div></pre></td></tr></table></figure></p>
-<h3 id="jps查看进程"><a href="#jps查看进程" class="headerlink" title="jps查看进程"></a>jps查看进程</h3><p>jps(Java Virtual Machine Process Status Tool)是JDK 1.5提供的一个显示当前所有java进程pid的命令。<br><figure class="highlight basic"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">34148 </span>NameNode</div><div class="line"><span class="symbol">22933 </span>Launcher</div><div class="line"><span class="symbol">34681 </span>NodeManager</div><div class="line"><span class="symbol">34585 </span>ResourceManager</div><div class="line"><span class="symbol">34394 </span>SecondaryNameNode</div><div class="line"><span class="symbol">34253 </span>DataNode</div><div class="line"><span class="symbol">34750 </span>Jps</div></pre></td></tr></table></figure></p>
+<h3 id="jps验证集群是否启动成功"><a href="#jps验证集群是否启动成功" class="headerlink" title="jps验证集群是否启动成功"></a>jps验证集群是否启动成功</h3><p>jps(Java Virtual Machine Process Status Tool)是JDK 1.5提供的一个显示当前所有java进程pid的命令。<br><figure class="highlight basic"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">34148 </span>NameNode</div><div class="line"><span class="symbol">22933 </span>Launcher</div><div class="line"><span class="symbol">34681 </span>NodeManager</div><div class="line"><span class="symbol">34585 </span>ResourceManager</div><div class="line"><span class="symbol">34394 </span>SecondaryNameNode</div><div class="line"><span class="symbol">34253 </span>DataNode</div><div class="line"><span class="symbol">34750 </span>Jps</div></pre></td></tr></table></figure></p>
 <ol>
 <li><code>ResourceManager</code> 是 <code>yarn</code> 的管理者，<code>yarn</code> 负责资源调度，<code>NodeManager</code> 可以有很多个，负责存储数据。</li>
-<li><code>NameNode</code> 是 <code>hdfs</code> 的管理者，<code>hdfs</code>，<code>DataNode</code> 负责存储数据 ，<code>SecondaryNameNode</code> 协助 <code>NameNode</code> 完成元数据同步。</li>
+<li><code>NameNode</code> 是 <code>hdfs</code> 的管理者，<code>DataNode</code> 负责存储数据 ，<code>SecondaryNameNode</code> 协助 <code>NameNode</code> 完成元数据同步。</li>
 </ol>
 <h2 id="测试HDFS"><a href="#测试HDFS" class="headerlink" title="测试HDFS"></a>测试HDFS</h2><h3 id="上传文件到HDFS"><a href="#上传文件到HDFS" class="headerlink" title="上传文件到HDFS"></a>上传文件到HDFS</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hadoop fs -<span class="built_in">put</span> 上传文件路径名 hdfs:<span class="comment">//本机地址:9000/上传文件夹名</span></div></pre></td></tr></table></figure>
 <p>什么都没有输出，说明上传文件成功。</p>
 <h3 id="从HDFS下载文件"><a href="#从HDFS下载文件" class="headerlink" title="从HDFS下载文件"></a>从HDFS下载文件</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hadoop fs -<span class="keyword">get</span> hdfs:<span class="comment">//本机地址:9000/上传文件夹名 下载到本地路径</span></div></pre></td></tr></table></figure>
 <p>什么都没有输出，说明下载文件成功。</p>
-<h2 id="配置ssh免登录"><a href="#配置ssh免登录" class="headerlink" title="配置ssh免登录"></a>配置ssh免登录</h2><h2 id="测试MR和YARN"><a href="#测试MR和YARN" class="headerlink" title="测试MR和YARN"></a>测试MR和YARN</h2><p>MR 架包</p>
+<h2 id="测试MR和YARN"><a href="#测试MR和YARN" class="headerlink" title="测试MR和YARN"></a>测试MR和YARN</h2><p>MR 架包</p>
 <blockquote>
 <p>cd hadoop路径/share/hadoop/mapreduce<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">hadoop-mapreduce-client-app-3</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.jar</span></div><div class="line"><span class="selector-tag">hadoop-mapreduce-client-common-3</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.jar</span></div><div class="line"><span class="selector-tag">hadoop-mapreduce-client-core-3</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.jar</span></div><div class="line"><span class="selector-tag">hadoop-mapreduce-client-hs-3</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.jar</span></div><div class="line"><span class="selector-tag">hadoop-mapreduce-client-hs-plugins-3</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.jar</span></div><div class="line"><span class="selector-tag">hadoop-mapreduce-client-jobclient-3</span><span class="selector-class">.0</span><span class="selector-class">.0-tests</span><span class="selector-class">.jar</span></div><div class="line"><span class="selector-tag">hadoop-mapreduce-client-jobclient-3</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.jar</span></div><div class="line"><span class="selector-tag">hadoop-mapreduce-client-nativetask-3</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.jar</span></div><div class="line"><span class="selector-tag">hadoop-mapreduce-client-shuffle-3</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.jar</span></div><div class="line"><span class="selector-tag">hadoop-mapreduce-examples-3</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.jar</span></div><div class="line"><span class="selector-tag">jdiff</span></div><div class="line"><span class="selector-tag">lib-examples</span></div><div class="line"><span class="selector-tag">sources</span></div></pre></td></tr></table></figure></p>
 </blockquote>
@@ -635,6 +708,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/07/Objective-C/category/" rel="next" title="category">
+                <i class="fa fa-chevron-left"></i> category
+              </a>
             
           </div>
 
@@ -718,7 +795,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">53</span>
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -865,7 +942,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">67</span>
+                      
+                    
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -947,7 +1026,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Hadoop"><span class="nav-number">1.</span> <span class="nav-text">什么是Hadoop?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HDFS基本概念"><span class="nav-number">2.</span> <span class="nav-text">HDFS基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop核心"><span class="nav-number">3.</span> <span class="nav-text">Hadoop核心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HDFS的架构"><span class="nav-number">4.</span> <span class="nav-text">HDFS的架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点："><span class="nav-number">5.</span> <span class="nav-text">特点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决问题及适用场景"><span class="nav-number">6.</span> <span class="nav-text">解决问题及适用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决问题"><span class="nav-number">6.1.</span> <span class="nav-text">解决问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">6.2.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop部署方式"><span class="nav-number">7.</span> <span class="nav-text">Hadoop部署方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考：如何解决海量数据的存储？"><span class="nav-number">8.</span> <span class="nav-text">思考：如何解决海量数据的存储？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化HDFS"><span class="nav-number">9.</span> <span class="nav-text">初始化HDFS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用之前需要进行格式化分布式系统"><span class="nav-number">9.1.</span> <span class="nav-text">使用之前需要进行格式化分布式系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动HDFS和YARN"><span class="nav-number">9.2.</span> <span class="nav-text">启动HDFS和YARN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jps查看进程"><span class="nav-number">9.3.</span> <span class="nav-text">jps查看进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试HDFS"><span class="nav-number">10.</span> <span class="nav-text">测试HDFS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#上传文件到HDFS"><span class="nav-number">10.1.</span> <span class="nav-text">上传文件到HDFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从HDFS下载文件"><span class="nav-number">10.2.</span> <span class="nav-text">从HDFS下载文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置ssh免登录"><span class="nav-number">11.</span> <span class="nav-text">配置ssh免登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试MR和YARN"><span class="nav-number">12.</span> <span class="nav-text">测试MR和YARN</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Hadoop"><span class="nav-number">1.</span> <span class="nav-text">什么是Hadoop?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HDFS基本概念"><span class="nav-number">2.</span> <span class="nav-text">HDFS基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop核心"><span class="nav-number">3.</span> <span class="nav-text">Hadoop核心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HDFS的架构"><span class="nav-number">4.</span> <span class="nav-text">HDFS的架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NameNode-概述"><span class="nav-number">4.1.</span> <span class="nav-text">NameNode 概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataNode概述"><span class="nav-number">4.2.</span> <span class="nav-text">DataNode概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDFS-的工作机制"><span class="nav-number">4.3.</span> <span class="nav-text">HDFS 的工作机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HDFS-写入数据"><span class="nav-number">4.3.1.</span> <span class="nav-text">HDFS 写入数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HDFS-读取数据"><span class="nav-number">4.3.2.</span> <span class="nav-text">HDFS 读取数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA-api-环境"><span class="nav-number">5.</span> <span class="nav-text">JAVA api 环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-Maven-工程，引入-pom-依赖"><span class="nav-number">5.1.</span> <span class="nav-text">创建 Maven 工程，引入 pom 依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造客户端对象"><span class="nav-number">5.2.</span> <span class="nav-text">构造客户端对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例代码"><span class="nav-number">5.3.</span> <span class="nav-text">实例代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建目录"><span class="nav-number">5.3.1.</span> <span class="nav-text">创建目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载文件"><span class="nav-number">5.3.2.</span> <span class="nav-text">下载文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop优点"><span class="nav-number">6.</span> <span class="nav-text">Hadoop优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决问题及适用场景"><span class="nav-number">7.</span> <span class="nav-text">解决问题及适用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决问题"><span class="nav-number">7.1.</span> <span class="nav-text">解决问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">7.2.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hadoop"><span class="nav-number">8.</span> <span class="nav-text">安装Hadoop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hadoop配置"><span class="nav-number">8.1.</span> <span class="nav-text">hadoop配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh免登录"><span class="nav-number">8.2.</span> <span class="nav-text">ssh免登录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考：如何解决海量数据的存储？"><span class="nav-number">9.</span> <span class="nav-text">思考：如何解决海量数据的存储？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化HDFS"><span class="nav-number">10.</span> <span class="nav-text">初始化HDFS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用之前需要进行格式化分布式系统"><span class="nav-number">10.1.</span> <span class="nav-text">使用之前需要进行格式化分布式系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动HDFS和YARN"><span class="nav-number">10.2.</span> <span class="nav-text">启动HDFS和YARN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jps验证集群是否启动成功"><span class="nav-number">10.3.</span> <span class="nav-text">jps验证集群是否启动成功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试HDFS"><span class="nav-number">11.</span> <span class="nav-text">测试HDFS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#上传文件到HDFS"><span class="nav-number">11.1.</span> <span class="nav-text">上传文件到HDFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从HDFS下载文件"><span class="nav-number">11.2.</span> <span class="nav-text">从HDFS下载文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试MR和YARN"><span class="nav-number">12.</span> <span class="nav-text">测试MR和YARN</span></a></li></ol></div>
             
 
           </div>
