@@ -1223,11 +1223,12 @@ Swift i
         
           
           load 是什么?
-定义在NSObject.h头文件中
+定义在NSObject.h头文件中；
 load方法在这个文件被程序装载时调用, 只要是在Compile Sources中出现的文件总是会被装载, 无论这个类是否被用到;
-load方法在main函数之前调用;
+load方法在main函数之前调用。
 
-12345+ (void)load; 3. +[class load]2
+调用栈信息：
+1233. +[class load]2. call_l
           ...
           <!--noindex-->
           <div class="post-button text-center">
