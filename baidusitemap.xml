@@ -4,31 +4,8 @@
 
     
   <url>
-    <loc>https://github.com/songMW/stack.github.io/2017/06/10/Objective-C/KV_X/KVO/</loc>
-    <lastmod>2018-05-22T07:29:16.287Z</lastmod>
-    <data>
-        <display>
-        <title>KVO</title>
-        <pubTime>2017-06-10T02:15:23.000Z</pubTime>
-        
-        <tag>Objective-C</tag>
-         
-         
-           
-             
-              <breadCrumb title="Objective-C" url="https://github.com/songMW/stack.github.io/categories/Objective-C/"/>
-          
-             
-              <breadCrumb title="KVO" url="https://github.com/songMW/stack.github.io/categories/Objective-C/KVO/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://github.com/songMW/stack.github.io/2018/05/07/Objective-C/Category/</loc>
-    <lastmod>2018-05-22T06:30:42.747Z</lastmod>
+    <lastmod>2018-05-22T07:35:01.172Z</lastmod>
     <data>
         <display>
         <title>Category</title>
@@ -43,6 +20,29 @@
           
              
               <breadCrumb title="Category" url="https://github.com/songMW/stack.github.io/categories/Objective-C/Category/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://github.com/songMW/stack.github.io/2017/06/10/Objective-C/KV_X/KVO/</loc>
+    <lastmod>2018-05-22T07:34:50.024Z</lastmod>
+    <data>
+        <display>
+        <title>KVO</title>
+        <pubTime>2017-06-10T02:15:23.000Z</pubTime>
+        
+        <tag>Objective-C</tag>
+         
+         
+           
+             
+              <breadCrumb title="Objective-C" url="https://github.com/songMW/stack.github.io/categories/Objective-C/"/>
+          
+             
+              <breadCrumb title="KVO" url="https://github.com/songMW/stack.github.io/categories/Objective-C/KVO/"/>
           
         </display>
     </data>
