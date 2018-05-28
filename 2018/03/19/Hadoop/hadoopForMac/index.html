@@ -107,7 +107,7 @@
 <meta name="keywords" content="hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop for mac">
-<meta property="og:url" content="https://github.com/songMW/stack.github.io/2018/03/19/Hadoop/hadoopForMac/index.html">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2018/03/19/Hadoop/HadoopForMac/index.html">
 <meta property="og:site_name" content="stack.blog">
 <meta property="og:description" content="什么是Hadoop? 开源，可靠的，可扩展的分布式计算开发开源软件； 作者：Doug Cutting； 受Goole三篇论文启发（GFS，MapReduce，BigTabel）。  解释：  开源：说明是免费； 可靠： 数据由备份，可自动恢复 可扩展：灵活性高  HDFS基本概念 Java实现，分布式，可横向扩展的分布式文件系统 HDFS是Hadoop核心 基于unix，linix系统 容错性高，">
 <meta property="og:updated_time" content="2018-03-23T07:53:26.264Z">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://github.com/songMW/stack.github.io/2018/03/19/Hadoop/hadoopForMac/"/>
+  <link rel="canonical" href="https://github.com/songMW/stack.github.io/2018/03/19/Hadoop/HadoopForMac/"/>
 
 
 
@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/songMW/stack.github.io/2018/03/19/Hadoop/hadoopForMac/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/songMW/stack.github.io/2018/03/19/Hadoop/HadoopForMac/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="stack">
@@ -651,7 +651,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vim /etc/profile</div><div class="line"></div><div class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/jdk1.6.0_45</div><div class="line"><span class="built_in">export</span> HADOOP_HOME=/cloud/hadoop-1.1.2</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$HADOOP_HOME</span>/bin</div></pre></td></tr></table></figure>
 </li>
 <li><p>去掉警告（在/etc/profile中添加）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> HADOOP_HOME_WARN_SUPPRESS=1</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> HADOOP_HOME_WARN_SUPPRESS=<span class="number">1</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h3 id="ssh免登录"><a href="#ssh免登录" class="headerlink" title="ssh免登录"></a>ssh免登录</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">生成ssh免登陆密钥</div><div class="line">ssh-keygen -t rsa</div><div class="line">执行完这个命令后，会生成两个文件id_rsa（私钥）、id_rsa.pub（公钥）</div><div class="line">将公钥拷贝到要免登陆的机器上</div><div class="line">cat ~<span class="regexp">/.ssh/id</span>_rsa.pub <span class="meta">&gt;&gt; </span>~<span class="regexp">/.ssh/authorized</span>_keys</div><div class="line">或</div><div class="line">ssh-copy-id -i localhost</div></pre></td></tr></table></figure>
@@ -795,7 +795,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -924,11 +924,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">60</span>
+                    <span class="site-state-item-count">58</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -949,9 +945,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
