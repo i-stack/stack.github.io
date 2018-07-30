@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     version: '6.0.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -103,17 +103,17 @@
   <meta name="keywords" content="Hai, Stack, Never give up, torrent bravely" />
 
 
-<meta name="description" content="静态库包含第三方静态库 制作好自己的静态库； 将第三方静态库的头文件添加到制作好的静态库中；.a不要添加进来，否则会编译不成功。 将自己制作好的.a和第三方.a文件同时添加到工程即可。 如果有资源文件也一并添加到工程中。  静态库包含第三方动态库 制作好自己的静态库； 将第三方动态库添加进来即可。  动态库包含第三方动态库 制作好自己的动态库； 将第三方动态库添加进来即可。  动态库包含第三方静态">
+<meta name="description" content="目录  静态库包含第三方静态库  静态库包含第三方动态库   动态库包含第三方动态库  动态库包含第三方静态库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="StaticLibraryAndFramework">
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2018/02/28/Objective-C/StaticLibraryAndFramework/index.html">
 <meta property="og:site_name" content="stack.blog">
-<meta property="og:description" content="静态库包含第三方静态库 制作好自己的静态库； 将第三方静态库的头文件添加到制作好的静态库中；.a不要添加进来，否则会编译不成功。 将自己制作好的.a和第三方.a文件同时添加到工程即可。 如果有资源文件也一并添加到工程中。  静态库包含第三方动态库 制作好自己的静态库； 将第三方动态库添加进来即可。  动态库包含第三方动态库 制作好自己的动态库； 将第三方动态库添加进来即可。  动态库包含第三方静态">
+<meta property="og:description" content="目录  静态库包含第三方静态库  静态库包含第三方动态库   动态库包含第三方动态库  动态库包含第三方静态库">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-09T06:07:17.949Z">
+<meta property="og:updated_time" content="2018-07-30T11:16:13.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="StaticLibraryAndFramework">
-<meta name="twitter:description" content="静态库包含第三方静态库 制作好自己的静态库； 将第三方静态库的头文件添加到制作好的静态库中；.a不要添加进来，否则会编译不成功。 将自己制作好的.a和第三方.a文件同时添加到工程即可。 如果有资源文件也一并添加到工程中。  静态库包含第三方动态库 制作好自己的静态库； 将第三方动态库添加进来即可。  动态库包含第三方动态库 制作好自己的动态库； 将第三方动态库添加进来即可。  动态库包含第三方静态">
+<meta name="twitter:description" content="目录  静态库包含第三方静态库  静态库包含第三方动态库   动态库包含第三方动态库  动态库包含第三方静态库">
 
 
 
@@ -415,7 +415,14 @@
       
 
       
-        <h2 id="静态库包含第三方静态库"><a href="#静态库包含第三方静态库" class="headerlink" title="静态库包含第三方静态库"></a>静态库包含第三方静态库</h2><ol>
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li><a href="#静态库包含第三方静态库"> <font color="#0099ff" size="4px">静态库包含第三方静态库</font></a> </li>
+<li><a href="#静态库包含第三方动态库"><font color="#0099ff" size="4px">静态库包含第三方动态库</font></a> </li>
+<li><a href="#动态库包含第三方动态库"> <font color="#0099ff" size="4px">动态库包含第三方动态库</font></a> </li>
+<li><a href="#动态库包含第三方静态库"><font color="#0099ff" size="4px">动态库包含第三方静态库</font></a></li>
+</ul>
+<a id="more"></a>
+<h2 id="静态库包含第三方静态库"><a href="#静态库包含第三方静态库" class="headerlink" title="静态库包含第三方静态库"></a>静态库包含第三方静态库</h2><ol>
 <li>制作好自己的静态库；</li>
 <li>将第三方静态库的头文件添加到制作好的静态库中；.a不要添加进来，否则会编译不成功。</li>
 <li>将自己制作好的.a和第三方.a文件同时添加到工程即可。</li>
@@ -457,8 +464,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/04/Objective-C/CrashCollection/搜索不到解决方法/" rel="next" title="pod搜索不到解决方法">
-                <i class="fa fa-chevron-left"></i> pod搜索不到解决方法
+              <a href="/2018/01/04/Objective-C/CocoaPods/Pod搜索不到解决方法/" rel="next" title="Pod搜索不到解决方法">
+                <i class="fa fa-chevron-left"></i> Pod搜索不到解决方法
               </a>
             
           </div>
@@ -467,8 +474,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/05/Objective-C/Socket/" rel="prev" title="socket">
-                socket <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/19/Hadoop/HadoopForMac/" rel="prev" title="Hadoop for mac">
+                Hadoop for mac <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -548,7 +555,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -657,27 +664,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">58</span>
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -755,7 +742,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#静态库包含第三方静态库"><span class="nav-number">1.</span> <span class="nav-text">静态库包含第三方静态库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态库包含第三方动态库"><span class="nav-number">2.</span> <span class="nav-text">静态库包含第三方动态库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态库包含第三方动态库"><span class="nav-number">3.</span> <span class="nav-text">动态库包含第三方动态库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态库包含第三方静态库"><span class="nav-number">4.</span> <span class="nav-text">动态库包含第三方静态库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态库包含第三方静态库"><span class="nav-number"></span> <span class="nav-text">静态库包含第三方静态库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态库包含第三方动态库"><span class="nav-number"></span> <span class="nav-text">静态库包含第三方动态库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态库包含第三方动态库"><span class="nav-number"></span> <span class="nav-text">动态库包含第三方动态库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态库包含第三方静态库"><span class="nav-number"></span> <span class="nav-text">动态库包含第三方静态库</span></a></div>
             
 
           </div>
@@ -797,7 +784,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.0.3</div>
 
 
 
@@ -905,13 +892,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.0.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.3"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.3"></script>

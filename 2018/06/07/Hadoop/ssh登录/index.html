@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     version: '6.0.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -103,18 +103,18 @@
   <meta name="keywords" content="Hadoop," />
 
 
-<meta name="description" content="什么是SSHSecure Shell（缩写为SSH），由IETF的网络工作小组（Network Working Group）所制定；SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。 ssh中，有两个钥匙：公钥、私钥 , 公钥主要是用于对一些敏感信息进行加密，私钥是用于对解密 。ssh的文件都存在于机器的~/.ssh中。 客户机端：id_rs">
+<meta name="description" content="目录   什么是SSH  linux 无密login">
 <meta name="keywords" content="Hadoop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ssh登录">
+<meta property="og:title" content="SSH登录">
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2018/06/07/Hadoop/ssh登录/index.html">
 <meta property="og:site_name" content="stack.blog">
-<meta property="og:description" content="什么是SSHSecure Shell（缩写为SSH），由IETF的网络工作小组（Network Working Group）所制定；SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。 ssh中，有两个钥匙：公钥、私钥 , 公钥主要是用于对一些敏感信息进行加密，私钥是用于对解密 。ssh的文件都存在于机器的~/.ssh中。 客户机端：id_rs">
+<meta property="og:description" content="目录   什么是SSH  linux 无密login">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-07T08:07:31.442Z">
+<meta property="og:updated_time" content="2018-07-30T11:07:08.491Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ssh登录">
-<meta name="twitter:description" content="什么是SSHSecure Shell（缩写为SSH），由IETF的网络工作小组（Network Working Group）所制定；SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。 ssh中，有两个钥匙：公钥、私钥 , 公钥主要是用于对一些敏感信息进行加密，私钥是用于对解密 。ssh的文件都存在于机器的~/.ssh中。 客户机端：id_rs">
+<meta name="twitter:title" content="SSH登录">
+<meta name="twitter:description" content="目录   什么是SSH  linux 无密login">
 
 
 
@@ -132,7 +132,7 @@
     sidebar: "",
   };
 </script>
-  <title>ssh登录 | stack.blog</title>
+  <title>SSH登录 | stack.blog</title>
   
 
 
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ssh登录</h1>
+          <h1 class="post-title" itemprop="name headline">SSH登录</h1>
         
 
         <div class="post-meta">
@@ -434,10 +434,15 @@
       
 
       
-        <h2 id="什么是SSH"><a href="#什么是SSH" class="headerlink" title="什么是SSH"></a>什么是SSH</h2><p><code>Secure Shell（缩写为SSH），由IETF的网络工作小组（Network Working Group）所制定；SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。</code></p>
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li><a href="#什么是SSH"> <font color="#0099ff" size="4px"> 什么是SSH</font></a> </li>
+<li><a href="#linux无密login"><font color="#0099ff" size="4px">linux 无密login</font></a> </li>
+</ul>
+<a id="more"></a>
+<h3 id="什么是SSH"><a href="#什么是SSH" class="headerlink" title="什么是SSH"></a>什么是SSH</h3><p><code>Secure Shell（缩写为SSH），由IETF的网络工作小组（Network Working Group）所制定；SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。</code></p>
 <p>ssh中，有两个钥匙：公钥、私钥 , 公钥主要是用于对一些敏感信息进行加密，私钥是用于对解密 。<br>ssh的文件都存在于机器的<code>~/.ssh</code>中。</p>
 <p>客户机端：id_rsa(私钥) 、 id_rsa.pub(公钥) 、 known_hosts(已知远程主机)<br>服务器端：authorized_keys(验证过的公钥列表) 、 sshd_config(ssh配置文件)</p>
-<h2 id="linux-无密login"><a href="#linux-无密login" class="headerlink" title="linux 无密login"></a>linux 无密login</h2><p>linux的远程登录默认是需要密码的，但是我们可以通过ssh通道，进行无密登录，也就是说每次登录只需要 <code>ssh username@host</code> 就能成功登录远程机器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ vi /etc/ssh/sshd_config</span><br><span class="line">RSAAuthentication yes　　</span><br><span class="line">PubkeyAuthentication yes　　</span><br><span class="line">AuthorizedKeysFile .ssh/authorized_keys</span><br><span class="line">把以上的最前面的＃去掉 。</span><br><span class="line">$ service ssh restart</span><br><span class="line">$ exit</span><br></pre></td></tr></table></figure></p>
+<h3 id="linux无密login"><a href="#linux无密login" class="headerlink" title="linux无密login"></a>linux无密login</h3><p>linux的远程登录默认是需要密码的，但是我们可以通过ssh通道，进行无密登录，也就是说每次登录只需要 <code>ssh username@host</code> 就能成功登录远程机器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ vi /etc/ssh/sshd_config</span><br><span class="line">RSAAuthentication yes　　</span><br><span class="line">PubkeyAuthentication yes　　</span><br><span class="line">AuthorizedKeysFile .ssh/authorized_keys</span><br><span class="line">把以上的最前面的＃去掉 。</span><br><span class="line">$ service ssh restart</span><br><span class="line">$ exit</span><br></pre></td></tr></table></figure></p>
 <p>每次登陆都需要输入IP地址？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br><span class="line">为要登陆的IP地址设置一个别名</span><br><span class="line">192.168.1.1  newName</span><br></pre></td></tr></table></figure></p>
 <p>接下来配置登陆名，端口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ssh/ssh_config</span><br><span class="line"></span><br><span class="line">Host            新的用于ssh登录的名称 -&gt; (loginName)</span><br><span class="line">HostName        newName  </span><br><span class="line">Port            2222</span><br><span class="line">User            userName</span><br><span class="line">IdentityFile    ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
 <p>完成之后就可以直接使用<code>ssh loginName</code> 登陆。第一次登陆可能会出现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ssh loginName</span><br><span class="line">The authenticity of host &apos;192.168.1.1 (192.168.1.1)&apos; can&apos;t be established.</span><br><span class="line">ECDSA key fingerprint is SHA256:8bZUeFxyoxL9oYhc5aAZjgSZ5CT1oGYEYoehN/OLEYY.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure></p>
@@ -559,7 +564,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -668,27 +673,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">58</span>
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -766,7 +751,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是SSH"><span class="nav-number">1.</span> <span class="nav-text">什么是SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-无密login"><span class="nav-number">2.</span> <span class="nav-text">linux 无密login</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是SSH"><span class="nav-number">2.</span> <span class="nav-text">什么是SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux无密login"><span class="nav-number">3.</span> <span class="nav-text">linux无密login</span></a></li></ol></div>
             
 
           </div>
@@ -808,7 +793,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.0.3</div>
 
 
 
@@ -916,13 +901,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.0.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.3"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.3"></script>

@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     version: '6.0.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -103,18 +103,18 @@
   <meta name="keywords" content="Objective-C," />
 
 
-<meta name="description" content="获取扩展名">
+<meta name="description" content="目录  获取扩展名  取出图片数据的第一个字节">
 <meta name="keywords" content="Objective-C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图片类型">
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/11/21/Objective-C/Image/ImageType/index.html">
 <meta property="og:site_name" content="stack.blog">
-<meta property="og:description" content="获取扩展名">
+<meta property="og:description" content="目录  获取扩展名  取出图片数据的第一个字节">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-10T07:21:16.881Z">
+<meta property="og:updated_time" content="2018-07-30T11:29:01.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图片类型">
-<meta name="twitter:description" content="获取扩展名">
+<meta name="twitter:description" content="目录  获取扩展名  取出图片数据的第一个字节">
 
 
 
@@ -403,13 +403,6 @@
 
                 
                 
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Image/imageType/" itemprop="url" rel="index"><span itemprop="name">imageType</span></a></span>
-
-                
-                
               
             </span>
           
@@ -448,7 +441,12 @@
       
 
       
-        <h2 id="获取扩展名"><a href="#获取扩展名" class="headerlink" title="获取扩展名"></a>获取扩展名</h2><a id="more"></a>
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li><a href="#获取扩展名"> <font color="#0099ff" size="4px">获取扩展名</font></a> </li>
+<li><a href="#取出图片数据的第一个字节"><font color="#0099ff" size="4px">取出图片数据的第一个字节</font></a> </li>
+</ul>
+<a id="more"></a>
+<h2 id="获取扩展名"><a href="#获取扩展名" class="headerlink" title="获取扩展名"></a>获取扩展名</h2><!--more-->
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *image = <span class="string">@"xxx.png"</span>;</span><br><span class="line"><span class="built_in">NSString</span> *extension = image.pathExtension.lowercaseString;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,extension);</span><br></pre></td></tr></table></figure>
 <p>只适用于可以获取到图片URL的时候</p>
 <h2 id="取出图片数据的第一个字节"><a href="#取出图片数据的第一个字节" class="headerlink" title="取出图片数据的第一个字节"></a>取出图片数据的第一个字节</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle]pathForResource:<span class="string">@"414x736"</span> ofType:<span class="string">@"png"</span>];</span><br><span class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfFile:path];</span><br><span class="line">uint8_t c;</span><br><span class="line">[data getBytes:&amp;c length: <span class="number">1</span>];</span><br><span class="line"><span class="keyword">switch</span> (c) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0xFF</span>:</span><br><span class="line">        <span class="keyword">return</span> SDImageFormatJPEG;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0x89</span>:</span><br><span class="line">        <span class="keyword">return</span> SDImageFormatPNG;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0x47</span>:</span><br><span class="line">        <span class="keyword">return</span> SDImageFormatGIF;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0x49</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0x4D</span>:</span><br><span class="line">        <span class="keyword">return</span> SDImageFormatTIFF;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0x52</span>: &#123;</span><br><span class="line">        <span class="keyword">if</span> (data.length &gt;= <span class="number">12</span>) &#123;</span><br><span class="line">            <span class="comment">//RIFF....WEBP</span></span><br><span class="line">            <span class="built_in">NSString</span> *testString = [[<span class="built_in">NSString</span> alloc] initWithData:[data subdataWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">12</span>)] encoding:<span class="built_in">NSASCIIStringEncoding</span>];</span><br><span class="line">            <span class="keyword">if</span> ([testString hasPrefix:<span class="string">@"RIFF"</span>] &amp;&amp; [testString hasSuffix:<span class="string">@"WEBP"</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> SDImageFormatWebP;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0x00</span>: &#123;</span><br><span class="line">        <span class="keyword">if</span> (data.length &gt;= <span class="number">12</span>) &#123;</span><br><span class="line">            <span class="comment">//....ftypheic ....ftypheix ....ftyphevc ....ftyphevx</span></span><br><span class="line">            <span class="built_in">NSString</span> *testString = [[<span class="built_in">NSString</span> alloc] initWithData:[data subdataWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">4</span>, <span class="number">8</span>)] encoding:<span class="built_in">NSASCIIStringEncoding</span>];</span><br><span class="line">            <span class="keyword">if</span> ([testString isEqualToString:<span class="string">@"ftypheic"</span>] ||</span><br><span class="line">                [testString isEqualToString:<span class="string">@"ftypheix"</span>] ||</span><br><span class="line">                [testString isEqualToString:<span class="string">@"ftyphevc"</span>] ||</span><br><span class="line">                [testString isEqualToString:<span class="string">@"ftyphevx"</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> SDImageFormatHEIC;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -574,7 +572,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -683,27 +681,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">58</span>
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -781,7 +759,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取扩展名"><span class="nav-number">1.</span> <span class="nav-text">获取扩展名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取出图片数据的第一个字节"><span class="nav-number">2.</span> <span class="nav-text">取出图片数据的第一个字节</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取扩展名"><span class="nav-number"></span> <span class="nav-text">获取扩展名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取出图片数据的第一个字节"><span class="nav-number"></span> <span class="nav-text">取出图片数据的第一个字节</span></a></div>
             
 
           </div>
@@ -823,7 +801,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.0.3</div>
 
 
 
@@ -931,13 +909,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.0.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.3"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.3"></script>

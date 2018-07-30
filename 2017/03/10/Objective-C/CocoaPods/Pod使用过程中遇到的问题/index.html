@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.3" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.0.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'NITKE1RYFO',
+      apiKey: '401d80d3ffc9a9319e8e2ed7008604ba',
+      indexName: 'hexo_stack',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  
+  <meta name="keywords" content="Objective-C," />
+
+
+<meta name="description" content="目录  CocoaPods简介  CocoaPods安装  CocoaPods使用  使用CocoaPod打包  使用CocoaPod常见问题">
+<meta name="keywords" content="Objective-C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pod使用过程中遇到的问题">
+<meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/03/10/Objective-C/CocoaPods/Pod使用过程中遇到的问题/index.html">
+<meta property="og:site_name" content="stack.blog">
+<meta property="og:description" content="目录  CocoaPods简介  CocoaPods安装  CocoaPods使用  使用CocoaPod打包  使用CocoaPod常见问题">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-30T11:22:29.131Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pod使用过程中遇到的问题">
+<meta name="twitter:description" content="目录  CocoaPods简介  CocoaPods安装  CocoaPods使用  使用CocoaPod打包  使用CocoaPod常见问题">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="stack.blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://github.com/songMW/stack.github.io/2017/03/10/Objective-C/CocoaPods/Pod使用过程中遇到的问题/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+  <title>Pod使用过程中遇到的问题 | stack.blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7cf84221aa205d0f1adebf0935c012a6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">stack.blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />归档</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/songMW/stack.github.io/2017/03/10/Objective-C/CocoaPods/Pod使用过程中遇到的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="stack">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="stack.blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Pod使用过程中遇到的问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-10T14:33:29+08:00">2017-03-10</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/" itemprop="url" rel="index"><span itemprop="name">Objective-C</span></a></span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/CocoaPods/" itemprop="url" rel="index"><span itemprop="name">CocoaPods</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+			
+			
+			
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li><a href="#CocoaPods简介"> <font color="#0099ff" size="4px">CocoaPods简介</font></a> </li>
+<li><a href="#CocoaPods安装"><font color="#0099ff" size="4px">CocoaPods安装</font></a> </li>
+<li><a href="#CocoaPods使用"><font color="#0099ff" size="4px">CocoaPods使用</font></a> </li>
+<li><a href="#使用CocoaPod打包"><font color="#0099ff" size="4px">使用CocoaPod打包</font></a> </li>
+<li><a href="#常见问题"><font color="#0099ff" size="4px">使用CocoaPod常见问题</font></a></li>
+</ul>
+<a id="more"></a>
+<h2 id="CocoaPods简介"><a href="#CocoaPods简介" class="headerlink" title="CocoaPods简介"></a>CocoaPods简介</h2><p>CocoaPods是iOS的包管理工具.</p>
+<h2 id="CocoaPods安装"><a href="#CocoaPods安装" class="headerlink" title="CocoaPods安装"></a>CocoaPods安装</h2><h3 id="1-安装Ruby"><a href="#1-安装Ruby" class="headerlink" title="1. 安装Ruby"></a>1. 安装Ruby</h3><p>CocoaPods基于Ruby语言开发而成, Mac系统默认自带Ruby环境, 检测是否安装Ruby:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem -v</span><br><span class="line">2.6.7</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-安装-gem"><a href="#2-安装-gem" class="headerlink" title="2. 安装 gem"></a>2. 安装 gem</h3><p><a href="https://rubygems.org/" target="_blank" rel="noopener">gem 是一个管理 Ruby 库和程序的标准包, 它通过Ruby Gem 源来查找、安装、升级和卸载软件包</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gem source -l</span><br><span class="line">*** CURRENT SOURCES ***</span><br><span class="line"></span><br><span class="line">https://gems.ruby-china.org/</span><br></pre></td></tr></table></figure></p>
+<p>使用 <code>gem source -l</code> 命令可以查看当前gem源, 并用 <code>https://gems.ruby-china.org/</code> 替换掉原有的gem源, 由于国内网络问题你懂得…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//移除源</span><br><span class="line">gem sources --remove https://rubygems.org/ </span><br><span class="line"></span><br><span class="line">//添加源</span><br><span class="line">gem sources -a https://gems.ruby-china.org/</span><br></pre></td></tr></table></figure>
+<p>完成上面两步之后再次执行 <code>gem source -l</code> 查下看是否 gem 安装成功</p>
+<h3 id="3-安装CocoaPods"><a href="#3-安装CocoaPods" class="headerlink" title="3. 安装CocoaPods"></a>3. 安装CocoaPods</h3><p><a href="https://guides.cocoapods.org/" target="_blank" rel="noopener">CocoaPods官网</a></p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a><font color="#FF0000">Installation</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install cocoapods</span><br></pre></td></tr></table></figure>
+<p>安装中….<br>检测pod是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pod --version</span><br><span class="line">1.2.1</span><br></pre></td></tr></table></figure></p>
+<p>出现上面的信息说明安装成功, 一次就成了, 不知道安装失败的情形….</p>
+<h2 id="CocoaPods使用"><a href="#CocoaPods使用" class="headerlink" title="CocoaPods使用"></a>CocoaPods使用</h2><h3 id="1-为工程创建pod"><a href="#1-为工程创建pod" class="headerlink" title="1. 为工程创建pod"></a>1. 为工程创建pod</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd 工程目录</span><br><span class="line">pod init</span><br></pre></td></tr></table></figure>
+<p>会在工程目录下出现 <code>Podfile</code> 文件</p>
+<h3 id="2-编辑Podfile"><a href="#2-编辑Podfile" class="headerlink" title="2. 编辑Podfile"></a>2. 编辑Podfile</h3><p>Podfile文件中写入我们需要的第三方库, 比如添加 AFNetworking Podfile内容如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//当前类库支持的iOS最低版本是iOS 7.0</span><br><span class="line">platform :ios, &apos;7.0&apos;</span><br><span class="line"></span><br><span class="line">//类库名称和版本</span><br><span class="line">pod &apos;AFNetworking&apos;, &apos;~&gt; 3.0&apos;</span><br></pre></td></tr></table></figure></p>
+<p>使用 <code>pod search AFNetworking</code> 即可得到 <code>AFNetworking</code> 的相关信息.</p>
+<h3 id="3-pod-install-导入第三方库"><a href="#3-pod-install-导入第三方库" class="headerlink" title="3. pod install 导入第三方库"></a>3. pod install 导入第三方库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod install</span><br></pre></td></tr></table></figure>
+<p>使用 <code>pod install</code> 导入第三方库, 导入成功后, 工程中会出现 <code>AdHubSDK.xcworkspace</code> 这个文件, 以后只需打开它就可以了.</p>
+<h2 id="使用CocoaPod打包"><a href="#使用CocoaPod打包" class="headerlink" title="使用CocoaPod打包"></a>使用CocoaPod打包</h2><h3 id="1-基于pod命令创建SDK"><a href="#1-基于pod命令创建SDK" class="headerlink" title="1. 基于pod命令创建SDK"></a>1. 基于pod命令创建SDK</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod lib create MyCustomLib</span><br></pre></td></tr></table></figure>
+<p>调用以后terminal中会需要填写以下问题, 一般选择创建Demo, 其他选项根据需求填写:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">What language do you want to use?? [ Swift / ObjC ]</span><br><span class="line">&gt; ObjC</span><br><span class="line"></span><br><span class="line">Would you like to include a demo application with your library? [ Yes / No ]</span><br><span class="line">&gt; YES</span><br><span class="line"></span><br><span class="line">Which testing frameworks will you use? [ Specta / Kiwi / None ]</span><br><span class="line">&gt; None</span><br><span class="line"></span><br><span class="line">Would you like to do view based testing? [ Yes / No ]</span><br><span class="line">&gt; Yes</span><br><span class="line"></span><br><span class="line">What is your class prefix?</span><br><span class="line">&gt; QC</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-podspec-文件的内容结构"><a href="#2-podspec-文件的内容结构" class="headerlink" title="2. podspec 文件的内容结构"></a>2. podspec 文件的内容结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line"># Be sure to run `pod lib lint AdHubAdNetwork.podspec&apos; to ensure this is a</span><br><span class="line"># valid spec before submitting.</span><br><span class="line">#</span><br><span class="line"># Any lines starting with a # are optional, but their use is encouraged</span><br><span class="line"># To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">Pod::Spec.new do |s|</span><br><span class="line">s.name             = &apos;AdHubAdNetwork&apos;</span><br><span class="line">s.version          = &apos;0.1.0&apos;</span><br><span class="line">s.summary          = &apos;BaiduSDK, AFPSDK, GDTSDK 广告SDK .&apos;</span><br><span class="line"></span><br><span class="line"># This description is used to generate tags and improve search results.</span><br><span class="line">#   * Think: What does it do? Why did you write it? What is the focus?</span><br><span class="line">#   * Try to keep it short, snappy and to the point.</span><br><span class="line">#   * Write the description between the DESC delimiters below.</span><br><span class="line">#   * Finally, don&apos;t worry about the indent, CocoaPods strips it!</span><br><span class="line"></span><br><span class="line">s.description      = &lt;&lt;-DESC</span><br><span class="line">收集BaiduSDK, AFPSDK, GDTSDK三家广告SDK综合在一起, 方便开发者下载使用.</span><br><span class="line">DESC</span><br><span class="line"></span><br><span class="line">s.homepage         = &apos;https://github.com/songMW/AdHubAdNetwork&apos;</span><br><span class="line"># s.screenshots     = &apos;www.example.com/screenshots_1&apos;, &apos;www.example.com/screenshots_2&apos;</span><br><span class="line">s.license          = &#123; :type =&gt; &apos;MIT&apos;, :file =&gt; &apos;LICENSE&apos; &#125;</span><br><span class="line">s.author           = &#123; &apos;songMW&apos; =&gt; &apos;songshoubing7664@163.com&apos; &#125;</span><br><span class="line">s.source           = &#123; :git =&gt; &apos;https://github.com/songMW/AdHubAdNetwork.git&apos;, :tag =&gt; s.version.to_s &#125;</span><br><span class="line"># s.social_media_url = &apos;https://twitter.com/&lt;TWITTER_USERNAME&gt;&apos;</span><br><span class="line"></span><br><span class="line">s.ios.deployment_target = &apos;7.0&apos;</span><br><span class="line"></span><br><span class="line">#s.source_files = &apos;AdHubAdNetwork/Classes/*&apos;</span><br><span class="line"></span><br><span class="line">#s.resource_bundles = &#123;</span><br><span class="line">#&apos;AdHubAdNetwork&apos; =&gt; [&apos;AdHubAdNetwork/Classes/**/*.bundle&apos;]</span><br><span class="line">#&#125;</span><br><span class="line"></span><br><span class="line">#s.vendored_libraries  = [&apos;AdHubAdNetwork/Classes/AFP/*.a&apos;, &apos;AdHubAdNetwork/Classes/GDT/*.a&apos;]</span><br><span class="line">#s.vendored_frameworks = [&apos;AdHubAdNetwork/Classes/AFP/*.framework&apos;, &apos;AdHubAdNetwork/Classes/Baidu/*.framework&apos;]</span><br><span class="line"></span><br><span class="line">s.frameworks = &apos;SystemConfiguration&apos;, &apos;CoreGraphics&apos;, &apos;CoreTelephony&apos;, &apos;Security&apos;, &apos;CoreLocation&apos;, &apos;JavaScriptCore&apos;, &apos;UIKit&apos;, &apos;StoreKit&apos;</span><br><span class="line">s.libraries  = &apos;iconv&apos;, &apos;sqlite3&apos;, &apos;stdc++&apos;, &apos;z&apos;</span><br><span class="line"></span><br><span class="line">s.subspec &apos;GDT&apos; do |gdt|</span><br><span class="line">gdt.source_files = &apos;AdHubAdNetwork/Classes/GDT/*&apos;</span><br><span class="line">gdt.vendored_libraries = &apos;AdHubAdNetwork/Classes/GDT/*.a&apos;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">s.subspec &apos;Baidu&apos; do |baidu|</span><br><span class="line">baidu.resources = &apos;AdHubAdNetwork/Classes/Baidu/*.bundle&apos;</span><br><span class="line">baidu.vendored_libraries = &apos;AdHubAdNetwork/Classes/Baidu/*.a&apos;</span><br><span class="line">baidu.source_files = &apos;AdHubAdNetwork/Classes/Baidu/*&apos;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">s.subspec &apos;AFP&apos; do |afp|</span><br><span class="line">afp.source_files = &apos;AdHubAdNetwork/Classes/AFP/*&apos;</span><br><span class="line">afp.vendored_frameworks = &apos;AdHubAdNetwork/Classes/AFP/*.framework&apos;</span><br><span class="line">afp.vendored_libraries  = &apos;AdHubAdNetwork/Classes/AFP/*.a&apos;</span><br><span class="line">afp.resources = &apos;AdHubAdNetwork/Classes/AFP/*.bundle&apos;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"># s.public_header_files = &apos;AdHubAdNetwork/Classes/**/*.h&apos;</span><br><span class="line"># s.dependency &apos;AFNetworking&apos;, &apos;~&gt; 2.3&apos;</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>后面会以这个实例来说遇到的问题.<br>podspec中重要参数:</p>
+<ul>
+<li><code>s.source</code> 在 github 或者其他平台上创建的仓库地址.</li>
+<li><code>s.source_files</code> 表示具体的源码的路径, 这里注意源码一般放到 Classes 文件夹目录下, 而且实体文件中不要有非源码内容放到Classes 文件夹. Classes 文件夹的所有内容都要 Add Targets To: MyCustomLib. 不要 Classes 文件夹或子文件夹中部分内容被 remove referrence.</li>
+<li><code>s.resource_bundles</code> 中的资源. 系统会自动将 MyCustomLib/Assets 文件夹下的内容, cocoapod 会将我们把 Assets 中的内容自动打包成 MyCustomLib.bundle.</li>
+<li><code>s.public_header_files</code> 用来指定需要对外部暴露的头文件的位置.</li>
+<li><code>s.frameworks</code> 和 <code>s.libraries</code>, 表示当前sdk依赖的系统的 framework 和类库.</li>
+<li><code>s.dependency</code> 表示当前 podspec 类库对外部第三方库的依赖. 如果使用 pod package 打包sdk时候, 这里的 dependency 会被自动添加前缀, 防止重复引用冲突. 而且这里的依赖只能是pod库(公有或者私有)的内容.</li>
+<li><code>s.subspec</code> 用来引入我们sdk依赖的自己的 framework 或者 .a 等静态库.</li>
+</ul>
+<h3 id="3-验证pod库"><a href="#3-验证pod库" class="headerlink" title="3. 验证pod库"></a>3. 验证pod库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod lib lint</span><br></pre></td></tr></table></figure>
+<ul>
+<li>–allow-warnings 忽略警告</li>
+<li>–verbose, –no-clean 查看详情</li>
+</ul>
+<h3 id="4-上传git"><a href="#4-上传git" class="headerlink" title="4. 上传git"></a>4. 上传git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//上传代码到仓库</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;需要填写&quot;</span><br><span class="line">git remote add origin http://github/xxx.git</span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line">//添加 tag</span><br><span class="line">git tag -a 0.1.0 -m &quot;v0.1.0&quot;</span><br><span class="line">git push origin --tags</span><br><span class="line"></span><br><span class="line">//删除 tag</span><br><span class="line">git tag -d [tagVersion]</span><br><span class="line">git push origin --delete tag [tagVersion]</span><br></pre></td></tr></table></figure>
+<h3 id="5-上传podspec到cocoa-pods官网的仓库"><a href="#5-上传podspec到cocoa-pods官网的仓库" class="headerlink" title="5. 上传podspec到cocoa pods官网的仓库"></a>5. 上传podspec到cocoa pods官网的仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk push MyExtension.podspec</span><br></pre></td></tr></table></figure>
+<p>[注册trunk] (<a href="https://guides.cocoapods.org/terminal/commands.html#pod_trunk_register" target="_blank" rel="noopener">https://guides.cocoapods.org/terminal/commands.html#pod_trunk_register</a>)</p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p><a href="http://www.jianshu.com/p/c28fc53cdad1" target="_blank" rel="noopener">网上总结的帖子</a></p>
+<h3 id="问题1-install，update速度慢"><a href="#问题1-install，update速度慢" class="headerlink" title="问题1. install，update速度慢"></a>问题1. install，update速度慢</h3><p>出现原因: 你本地的repo库太长时间没有更新了<br>解决办法: pod repo update</p>
+<p>原因在于当执行以上两个命令的时候会升级CocoaPods的specs仓库, 如果不想在install, update的时候升级specs库, 可以使用参数忽略掉<br>pod install –no-repo-update<br>pod update –no-repo-update</p>
+<h3 id="问题2-Swift类库"><a href="#问题2-Swift类库" class="headerlink" title="问题2. Swift类库"></a>问题2. Swift类库</h3><p>导入Swift语言编写的类库时需要加use_frameworks!</p>
+<h3 id="问题3-Error-installing-ProtoCompiler"><a href="#问题3-Error-installing-ProtoCompiler" class="headerlink" title="问题3. [!] Error installing !ProtoCompiler"></a>问题3. [!] Error installing !ProtoCompiler</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[!] Error installing !ProtoCompiler</span><br><span class="line">[!] /usr/bin/curl -f -L -o /var/folders/nc/t1y4crs914bdytqxx1q_97lr0000gn/T/d20170521-1306-120ndjz/file.zip https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-osx-x86_64.zip --create-dirs --netrc-optional</span><br><span class="line"></span><br><span class="line">% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">100   604    0   604    0     0    407      0 --:--:--  0:00:01 --:--:--   407</span><br><span class="line">0     0    0     0    0     0      0      0 --:--:--  0:01:16 --:--:--     0curl: (7) Failed to connect to github-cloud.s3.amazonaws.com port 443: Operation timed out</span><br></pre></td></tr></table></figure>
+<p>解决方法：执行sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer (-switch 后面加上你的Xcode.app包内容里的Developer的文件夹路径即可)</p>
+<h3 id="问题4-iOS-file-patterns-The-source-files-pattern-did-not-match-any-file"><a href="#问题4-iOS-file-patterns-The-source-files-pattern-did-not-match-any-file" class="headerlink" title="问题4. [iOS] file patterns: The source_files pattern did not match any file."></a>问题4. [iOS] file patterns: The <code>source_files</code> pattern did not match any file.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- ERROR | [iOS] file patterns: The `source_files` pattern did not match any file.</span><br></pre></td></tr></table></figure>
+<p>指定共享的类库时设置 s.source_files 发生了错误, 这里的路径是相对于 xx.podspec 文件的, 如果是与 xx.podspec 同级的文件夹, 直接写文件夹名称即可, 如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.source_files = &quot;xx&quot;</span><br><span class="line">s.source_files = &quot;xx/*.&#123;h,m&#125;&quot;</span><br></pre></td></tr></table></figure></p>
+<p>如果有多级目录, 一定要逐级添加.<br>或者 进入 <code>/Users/user/Library/Caches/CocoaPods/Pods/External</code> 中找到正在编译的文件, 看是否存在库文件</p>
+<h3 id="问题-pod-升级出现下面的错误"><a href="#问题-pod-升级出现下面的错误" class="headerlink" title="问题. pod 升级出现下面的错误"></a>问题. pod 升级出现下面的错误</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Fetching: claide-1.0.2.gem (100%)</span><br><span class="line">Successfully installed claide-1.0.2</span><br><span class="line">Fetching: xcodeproj-1.5.0.gem (100%)</span><br><span class="line">ERROR:  While executing gem ... (Errno::EPERM)</span><br><span class="line">Operation not permitted - /usr/bin/xcodeproj</span><br></pre></td></tr></table></figure>
+<p>在 <code>stackoverflow</code> 搜到的解释是这样的, <code>This is happening because Apple has enabled rootless on the new install</code>, 在10.11系统上苹果已经启用无根的安装. 在这种情况下, 需使用如下的命令: sudo gem install -n /usr/local/bin cocoapods –pre 升级到 <code>1.3.0.beta.1</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Successfully installed xcodeproj-1.5.0</span><br><span class="line">Fetching: cocoapods-core-1.3.0.beta.1.gem (100%)</span><br><span class="line">Successfully installed cocoapods-core-1.3.0.beta.1</span><br><span class="line">Fetching: cocoapods-1.3.0.beta.1.gem (100%)</span><br><span class="line">Successfully installed cocoapods-1.3.0.beta.1</span><br><span class="line">Parsing documentation for xcodeproj-1.5.0</span><br><span class="line">Installing ri documentation for xcodeproj-1.5.0</span><br><span class="line">Parsing documentation for cocoapods-core-1.3.0.beta.1</span><br><span class="line">Installing ri documentation for cocoapods-core-1.3.0.beta.1</span><br><span class="line">Parsing documentation for cocoapods-1.3.0.beta.1</span><br><span class="line">Installing ri documentation for cocoapods-1.3.0.beta.1</span><br><span class="line">3 gems installed</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/04/Objective-C/Other/开发者账号申请流程/" rel="next" title="开发者账号申请流程">
+                <i class="fa fa-chevron-left"></i> 开发者账号申请流程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/15/Objective-C/Other/iOS经验总结/" rel="prev" title="iOS经验总结 + 转载">
+                iOS经验总结 + 转载 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODQ3Mi8xNTAwMA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">stack</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/songMW" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="songshoubing7664@163.com" target="_blank" title="E-mail"><i class="fa fa-fw fa-envelope"></i>E-mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CocoaPods简介"><span class="nav-number"></span> <span class="nav-text">CocoaPods简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CocoaPods安装"><span class="nav-number"></span> <span class="nav-text">CocoaPods安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装Ruby"><span class="nav-number">1.</span> <span class="nav-text">1. 安装Ruby</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装-gem"><span class="nav-number">2.</span> <span class="nav-text">2. 安装 gem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装CocoaPods"><span class="nav-number">3.</span> <span class="nav-text">3. 安装CocoaPods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Installation"><span class="nav-number">4.</span> <span class="nav-text">Installation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CocoaPods使用"><span class="nav-number"></span> <span class="nav-text">CocoaPods使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-为工程创建pod"><span class="nav-number">1.</span> <span class="nav-text">1. 为工程创建pod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-编辑Podfile"><span class="nav-number">2.</span> <span class="nav-text">2. 编辑Podfile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-pod-install-导入第三方库"><span class="nav-number">3.</span> <span class="nav-text">3. pod install 导入第三方库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用CocoaPod打包"><span class="nav-number"></span> <span class="nav-text">使用CocoaPod打包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基于pod命令创建SDK"><span class="nav-number">1.</span> <span class="nav-text">1. 基于pod命令创建SDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-podspec-文件的内容结构"><span class="nav-number">2.</span> <span class="nav-text">2. podspec 文件的内容结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-验证pod库"><span class="nav-number">3.</span> <span class="nav-text">3. 验证pod库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-上传git"><span class="nav-number">4.</span> <span class="nav-text">4. 上传git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-上传podspec到cocoa-pods官网的仓库"><span class="nav-number">5.</span> <span class="nav-text">5. 上传podspec到cocoa pods官网的仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number"></span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1-install，update速度慢"><span class="nav-number">1.</span> <span class="nav-text">问题1. install，update速度慢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2-Swift类库"><span class="nav-number">2.</span> <span class="nav-text">问题2. Swift类库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3-Error-installing-ProtoCompiler"><span class="nav-number">3.</span> <span class="nav-text">问题3. [!] Error installing !ProtoCompiler</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题4-iOS-file-patterns-The-source-files-pattern-did-not-match-any-file"><span class="nav-number">4.</span> <span class="nav-text">问题4. [iOS] file patterns: The source_files pattern did not match any file.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-pod-升级出现下面的错误"><span class="nav-number">5.</span> <span class="nav-text">问题. pod 升级出现下面的错误</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">stack</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.0.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.3"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.0.3"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

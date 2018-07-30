@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     version: '6.0.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -103,18 +103,18 @@
   <meta name="keywords" content="Objective-C," />
 
 
-<meta name="description" content="使用Image I/O 基础ImageI/O framework  提供从源图像 CGImageSourceRef 读取数据的不透明的数据类型并且写入图片数据到目的地 CGImageDestinationRef。它支持多种图像格式，包括标准的Web格式、高动态范围的图像和原始的摄像机数据。  一个URL被认为是 Core Foundation 的数据类型 CFURLRef : A referenc">
+<meta name="description" content="目录  使用Image I/O 基础  工程中使用Image I/O   实现图片渐进式  linux 无密login">
 <meta name="keywords" content="Objective-C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ImageI&#x2F;O">
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/11/08/Objective-C/Image/ImageI:O/index.html">
 <meta property="og:site_name" content="stack.blog">
-<meta property="og:description" content="使用Image I/O 基础ImageI/O framework  提供从源图像 CGImageSourceRef 读取数据的不透明的数据类型并且写入图片数据到目的地 CGImageDestinationRef。它支持多种图像格式，包括标准的Web格式、高动态范围的图像和原始的摄像机数据。  一个URL被认为是 Core Foundation 的数据类型 CFURLRef : A referenc">
+<meta property="og:description" content="目录  使用Image I/O 基础  工程中使用Image I/O   实现图片渐进式  linux 无密login">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-10T07:21:21.502Z">
+<meta property="og:updated_time" content="2018-07-30T11:30:22.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ImageI&#x2F;O">
-<meta name="twitter:description" content="使用Image I/O 基础ImageI/O framework  提供从源图像 CGImageSourceRef 读取数据的不透明的数据类型并且写入图片数据到目的地 CGImageDestinationRef。它支持多种图像格式，包括标准的Web格式、高动态范围的图像和原始的摄像机数据。  一个URL被认为是 Core Foundation 的数据类型 CFURLRef : A referenc">
+<meta name="twitter:description" content="目录  使用Image I/O 基础  工程中使用Image I/O   实现图片渐进式  linux 无密login">
 
 
 
@@ -403,13 +403,6 @@
 
                 
                 
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Objective-C/Image/ImageI-O/" itemprop="url" rel="index"><span itemprop="name">ImageI/O</span></a></span>
-
-                
-                
               
             </span>
           
@@ -448,7 +441,14 @@
       
 
       
-        <h2 id="使用Image-I-O-基础"><a href="#使用Image-I-O-基础" class="headerlink" title="使用Image I/O 基础"></a>使用Image I/O 基础</h2><p><code>ImageI/O framework</code>  提供从源图像 <code>CGImageSourceRef</code> 读取数据的不透明的数据类型并且写入图片数据到目的地 <code>CGImageDestinationRef</code>。它支持多种图像格式，包括标准的Web格式、高动态范围的图像和原始的摄像机数据。</p>
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+<li><a href="#使用ImageI/O基础"> <font color="#0099ff" size="4px">使用Image I/O 基础</font></a> </li>
+<li><a href="#工程中使用ImageI/O"><font color="#0099ff" size="4px">工程中使用Image I/O</font></a> </li>
+<li><a href="#实现图片渐进式"> <font color="#0099ff" size="4px">实现图片渐进式</font></a> </li>
+<li><a href="#linux无密login"><font color="#0099ff" size="4px">linux 无密login</font></a> </li>
+</ul>
+<a id="more"></a>
+<h2 id="使用ImageI-O基础"><a href="#使用ImageI-O基础" class="headerlink" title="使用ImageI/O基础"></a>使用ImageI/O基础</h2><p><code>ImageI/O framework</code>  提供从源图像 <code>CGImageSourceRef</code> 读取数据的不透明的数据类型并且写入图片数据到目的地 <code>CGImageDestinationRef</code>。它支持多种图像格式，包括标准的Web格式、高动态范围的图像和原始的摄像机数据。</p>
 <ul>
 <li>一个URL被认为是 <code>Core Foundation</code> 的数据类型 <code>CFURLRef : A reference to a CFURL object.</code>;</li>
 <li><code>Core Foundation</code> 的对象 <code>CFDataRef</code> 和 <code>CFMutableDataRef</code>;</li>
@@ -462,7 +462,7 @@
 <blockquote>
 <p>/<em> Base “type” of all “CF objects”, and polymorphic functions on them </em>/<br>typedef const CF_BRIDGED_TYPE(id) void * CFTypeRef;</p>
 </blockquote>
-<h2 id="工程中使用Image-I-O"><a href="#工程中使用Image-I-O" class="headerlink" title="工程中使用Image I/O"></a>工程中使用Image I/O</h2><blockquote>
+<h2 id="工程中使用ImageI-O"><a href="#工程中使用ImageI-O" class="headerlink" title="工程中使用ImageI/O"></a>工程中使用ImageI/O</h2><blockquote>
 <p> #import &lt;ImageIO/ImageIO.h&gt;</p>
 </blockquote>
 <h2 id="支持的图片类型"><a href="#支持的图片类型" class="headerlink" title="支持的图片类型"></a>支持的图片类型</h2><p><code>ImageI/O framework</code>  支持大多数常见的图片文件格式，比如： JPEG, JPEG2000, RAW, TIFF, BMP, and PNG</p>
@@ -553,8 +553,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/10/Objective-C/Other/Google人机验证/" rel="next" title="google人机验证">
-                <i class="fa fa-chevron-left"></i> google人机验证
+              <a href="/2017/10/09/Objective-C/Image/ImageI-O编解码/" rel="next" title="ImageI/O编解码">
+                <i class="fa fa-chevron-left"></i> ImageI/O编解码
               </a>
             
           </div>
@@ -644,7 +644,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -753,27 +753,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">58</span>
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -851,7 +831,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Image-I-O-基础"><span class="nav-number">1.</span> <span class="nav-text">使用Image I/O 基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工程中使用Image-I-O"><span class="nav-number">2.</span> <span class="nav-text">工程中使用Image I/O</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持的图片类型"><span class="nav-number">3.</span> <span class="nav-text">支持的图片类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取最新的I-O支持的图片列表"><span class="nav-number">3.1.</span> <span class="nav-text">获取最新的I/O支持的图片列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现图片渐进式"><span class="nav-number">4.</span> <span class="nav-text">实现图片渐进式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用ImageI-O基础"><span class="nav-number"></span> <span class="nav-text">使用ImageI/O基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工程中使用ImageI-O"><span class="nav-number"></span> <span class="nav-text">工程中使用ImageI/O</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持的图片类型"><span class="nav-number"></span> <span class="nav-text">支持的图片类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取最新的I-O支持的图片列表"><span class="nav-number">1.</span> <span class="nav-text">获取最新的I/O支持的图片列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现图片渐进式"><span class="nav-number"></span> <span class="nav-text">实现图片渐进式</span></a></div>
             
 
           </div>
@@ -893,7 +873,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.0.3</div>
 
 
 
@@ -1001,13 +981,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.0.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.3"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.3"></script>
