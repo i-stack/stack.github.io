@@ -110,6 +110,7 @@
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/06/18/Objective-C/WKWebView/index.html">
 <meta property="og:site_name" content="stack.blog">
 <meta property="og:description" content="一: iOS 8 系统下遇到的问题 实例化WKWebView后如果不将其添加到父类上, 则其代理方法不回调; iOS 9及以上版本不存在此问题. 大坑~  二: webView 自适应宽度123456- (void)webViewDidFinishLoad:(UIWebView *)webView&amp;#123;    // webView 自适应宽度    NSString *meta = [NSS">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-05-10T07:23:05.584Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WKWebView的坑">
@@ -443,7 +444,7 @@
         <h2 id="一-iOS-8-系统下遇到的问题"><a href="#一-iOS-8-系统下遇到的问题" class="headerlink" title="一: iOS 8 系统下遇到的问题"></a>一: iOS 8 系统下遇到的问题</h2><ol>
 <li>实例化WKWebView后如果不将其添加到父类上, 则其代理方法不回调; iOS 9及以上版本不存在此问题. 大坑~</li>
 </ol>
-<h2 id="二-webView-自适应宽度"><a href="#二-webView-自适应宽度" class="headerlink" title="二: webView 自适应宽度"></a>二: webView 自适应宽度</h2><figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (void)webViewDidFinishLoad:(UIWebView *)webView</div><div class="line">&#123;</div><div class="line">    // webView 自适应宽度</div><div class="line">    NSString *<span class="attr">meta</span> = [NSString stringWithFormat:@<span class="string">"document.getElementsByName(\"</span>viewport\<span class="string">")[0].content = \"</span><span class="attr">width=%f,initial-scale=1.0,</span> <span class="attr">minimum-scale=1.0,</span> <span class="attr">maximum-scale=1.0,</span> <span class="attr">user-scalable=no\"",</span> webView.frame.size.width];</div><div class="line">    [webView stringByEvaluatingJavaScriptFromString:meta];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="二-webView-自适应宽度"><a href="#二-webView-自适应宽度" class="headerlink" title="二: webView 自适应宽度"></a>二: webView 自适应宽度</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)webViewDidFinishLoad:(UIWebView *)webView</span><br><span class="line">&#123;</span><br><span class="line">    // webView 自适应宽度</span><br><span class="line">    NSString *meta = [NSString stringWithFormat:@&quot;document.getElementsByName(\&quot;viewport\&quot;)[0].content = \&quot;width=%f,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\&quot;&quot;, webView.frame.size.width];</span><br><span class="line">    [webView stringByEvaluatingJavaScriptFromString:meta];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -474,8 +475,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/03/Objective-C/Copy/" rel="next" title="copy">
-                <i class="fa fa-chevron-left"></i> copy
+              <a href="/2017/06/10/Objective-C/KV_X/KVO/" rel="next" title="KVO">
+                <i class="fa fa-chevron-left"></i> KVO
               </a>
             
           </div>
@@ -484,8 +485,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/10/Objective-C/KV_X/KVO/" rel="prev" title="KVO">
-                KVO <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/03/Objective-C/Copy/" rel="prev" title="copy">
+                copy <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

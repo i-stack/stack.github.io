@@ -110,6 +110,7 @@
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/04/30/Objective-C/CrashCollection/ARM指令集/index.html">
 <meta property="og:site_name" content="stack.blog">
 <meta property="og:description" content="iOS的指令集有 armv6、armv7、armv7s、arm64 Arm是向下兼容的  armv6  iPhone iPhone2 iPhone3G iPod Touch(1, 2)   armv7  iPhone4 iPhone4S iPod (3G, 4G, 5G) iPad(1, 2 , 3 , Mini)   armv7s iPhone5 iPhone5C iPad 4   arm64">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-01-22T02:52:52.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="arm指令集错误收集">
@@ -492,8 +493,8 @@
 </ul>
 </li>
 </ol>
-<h1 id="arm报错问题"><a href="#arm报错问题" class="headerlink" title="arm报错问题"></a>arm报错问题</h1><h2 id="1-error-No-architectures-to-compile-for-ONLY-ACTIVE-ARCH-YES-active-arch-x86-64-VALID-ARCHS-i386"><a href="#1-error-No-architectures-to-compile-for-ONLY-ACTIVE-ARCH-YES-active-arch-x86-64-VALID-ARCHS-i386" class="headerlink" title="1. error: No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=x86_64, VALID_ARCHS=i386)"></a>1. error: No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=x86_64, VALID_ARCHS=i386)</h2><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>. 在 `Project target` 里 `Architectures` 设置为 `Standard （armv7,armv7s）`</div><div class="line"><span class="number">2</span>. 修改在 `Project target` 里 `Build Settings` 的 `Valid Architectures` 添加 `i386` 和 `armv7` (Xcode4.<span class="number">6</span> 以上版本不再支持armv6，请去掉)<span class="comment">;</span></div><div class="line"><span class="number">3</span>. 设置 `Build Active Architecture Only` 为 `NO`。</div></pre></td></tr></table></figure>
-<h2 id="2-Undefined-symbols-for-architecture-arm64"><a href="#2-Undefined-symbols-for-architecture-arm64" class="headerlink" title="2. Undefined symbols for architecture arm64"></a>2. Undefined symbols for architecture arm64</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Undefined symbols <span class="keyword">for</span> architecture <span class="string">arm64:</span></div><div class="line"><span class="string">"_OBJC_CLASS_$_XXX"</span>, referenced <span class="string">from:</span> someFile</div><div class="line"><span class="string">ld:</span> symbol(s) not found <span class="keyword">for</span> architecture arm64</div></pre></td></tr></table></figure>
+<h1 id="arm报错问题"><a href="#arm报错问题" class="headerlink" title="arm报错问题"></a>arm报错问题</h1><h2 id="1-error-No-architectures-to-compile-for-ONLY-ACTIVE-ARCH-YES-active-arch-x86-64-VALID-ARCHS-i386"><a href="#1-error-No-architectures-to-compile-for-ONLY-ACTIVE-ARCH-YES-active-arch-x86-64-VALID-ARCHS-i386" class="headerlink" title="1. error: No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=x86_64, VALID_ARCHS=i386)"></a>1. error: No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=x86_64, VALID_ARCHS=i386)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 在 `Project target` 里 `Architectures` 设置为 `Standard （armv7,armv7s）`</span><br><span class="line">2. 修改在 `Project target` 里 `Build Settings` 的 `Valid Architectures` 添加 `i386` 和 `armv7` (Xcode4.6 以上版本不再支持armv6，请去掉);</span><br><span class="line">3. 设置 `Build Active Architecture Only` 为 `NO`。</span><br></pre></td></tr></table></figure>
+<h2 id="2-Undefined-symbols-for-architecture-arm64"><a href="#2-Undefined-symbols-for-architecture-arm64" class="headerlink" title="2. Undefined symbols for architecture arm64"></a>2. Undefined symbols for architecture arm64</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Undefined symbols for architecture arm64:</span><br><span class="line">&quot;_OBJC_CLASS_$_XXX&quot;, referenced from: someFile</span><br><span class="line">ld: symbol(s) not found for architecture arm64</span><br></pre></td></tr></table></figure>
 <h3 id="reason-工程内某些地方不支持arm64指令集"><a href="#reason-工程内某些地方不支持arm64指令集" class="headerlink" title="reason: 工程内某些地方不支持arm64指令集 "></a><font color="#FF0000">reason: 工程内某些地方不支持arm64指令集 </font></h3><h3 id="resolve"><a href="#resolve" class="headerlink" title=" resolve: "></a><font color="#FF0000"> resolve: </font></h3><pre><code>1. 设置 Architectures armv7 armv7s, Build Active Architecture Only NO; Valid Architectures armv6 armv7 armv7s arm64;
 2. 如果设置 Architectures, Valid Architectures 设置正确还是不行的话, 在 Other Linker Flags 中添加$(inherited);
 3. 前面2步设置完还是不行的话试试:将 /User/yourname/Library/Developer/XCode/DerivedData 清空.
@@ -527,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/04/Objective-C/Load/" rel="next" title="load">
-                <i class="fa fa-chevron-left"></i> load
+              <a href="/2017/04/21/Objective-C/Decompilation/Class-dump/" rel="next" title="Objective-C Class-dump">
+                <i class="fa fa-chevron-left"></i> Objective-C Class-dump
               </a>
             
           </div>
@@ -537,8 +538,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/21/Objective-C/Decompilation/Class-dump/" rel="prev" title="Objective-C Class-dump">
-                Objective-C Class-dump <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/04/Objective-C/Load/" rel="prev" title="load">
+                load <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

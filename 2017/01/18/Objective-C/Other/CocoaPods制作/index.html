@@ -110,6 +110,7 @@
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/01/18/Objective-C/Other/CocoaPods制作/index.html">
 <meta property="og:site_name" content="stack.blog">
 <meta property="og:description" content="创建自己的 github 仓库 登录 gitHub, start a project； create a new repository；   Repository name 仓库名称,必填 Description 仓库的描述信息,可选 仓库的公开性 Public 免费, Private 收费 是否创建一个默认的 README文件, 一个完整的仓库都需要 是否添加.gitignore 文件, 文件记">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-01-16T10:07:51.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CocoaPods制作">
@@ -459,7 +460,7 @@
 <li>是否添加.gitignore 文件, 文件记录了若干种文件类型</li>
 <li>license 类型 必须 这里使用 MIT, 用于验证 pod 是否可用</li>
 </ul>
-<ol>
+<ol start="3">
 <li>填写完成后 点击 Create repository 创建仓库结束。</li>
 </ol>
 <h2 id="clone-仓库到本地"><a href="#clone-仓库到本地" class="headerlink" title="clone 仓库到本地"></a>clone 仓库到本地</h2><p>方便向仓库中删减内容,需要先将仓库 clone 到本地</p>
@@ -467,7 +468,7 @@
 <li>git clone <a href="https://github.com/&quot;username&quot;/&quot;repository">https://github.com/&quot;username&quot;/&quot;repository</a> name”；</li>
 <li>GitHub Desktop。<br>操作完成后, GitHub 上对应的文件都会拷贝到本地。</li>
 </ol>
-<h2 id="向本地-git-仓库添加创建-Pods-依赖库所需文件"><a href="#向本地-git-仓库添加创建-Pods-依赖库所需文件" class="headerlink" title="向本地 git 仓库添加创建 Pods 依赖库所需文件"></a>向本地 git 仓库添加创建 Pods 依赖库所需文件</h2><h3 id="后缀为-podspec-文件-pod-依赖库描述文件-每个-pod-都会有一个"><a href="#后缀为-podspec-文件-pod-依赖库描述文件-每个-pod-都会有一个" class="headerlink" title="后缀为.podspec 文件 pod 依赖库描述文件,每个 pod 都会有一个"></a>后缀为.podspec 文件 pod 依赖库描述文件,每个 pod 都会有一个</h3><figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">podspec 文件内容</div><div class="line"></div><div class="line">Pod::Spec.new do |s|</div><div class="line"></div><div class="line">s.<span class="attr">name</span>        = <span class="string">"QCMobileAdLibs"</span></div><div class="line">s.<span class="attr">version</span>      = <span class="string">"1.0.0"</span></div><div class="line">s.<span class="attr">summary</span>      = <span class="string">"A mobile advertisement SDK used on iOS."</span></div><div class="line">s.<span class="attr">description</span>  = &lt;&lt;-DESC</div><div class="line">It is a SDK used on iOS, which implement by Objective-C.</div><div class="line">DESC</div><div class="line"></div><div class="line">s.<span class="attr">homepage</span>    = <span class="string">"https://github.com/songMW/QCMobileAdLibs"</span></div><div class="line">s.<span class="attr">license</span>      = <span class="string">"MIT"</span></div><div class="line">s.<span class="attr">author</span>       = &#123; <span class="string">"songs"</span> =&gt; <span class="string">"songshoubing7664@163.com"</span> &#125;</div><div class="line">s.<span class="attr">platform</span>    = :iOS, <span class="string">"8.0"</span></div><div class="line">s.<span class="attr">source</span>      = &#123; :<span class="attr">git</span> =&gt; <span class="string">"https://github.com/songMW/QCMobileAdLibs.git"</span>, :<span class="attr">tag</span> =&gt; <span class="string">"#&#123;s.version&#125;"</span> &#125;</div><div class="line">s.<span class="attr">source_files</span>  = <span class="string">"QCMobileAdLibs/**/*.&#123;h,m&#125;"</span></div><div class="line">s.<span class="attr">framework</span>  = <span class="string">"UIKit"</span></div><div class="line">s.<span class="attr">requires_arc</span> = <span class="literal">true</span></div><div class="line">s.<span class="attr">module_name</span> = 'QCMobileAdLibs'</div><div class="line">end</div></pre></td></tr></table></figure>
+<h2 id="向本地-git-仓库添加创建-Pods-依赖库所需文件"><a href="#向本地-git-仓库添加创建-Pods-依赖库所需文件" class="headerlink" title="向本地 git 仓库添加创建 Pods 依赖库所需文件"></a>向本地 git 仓库添加创建 Pods 依赖库所需文件</h2><h3 id="后缀为-podspec-文件-pod-依赖库描述文件-每个-pod-都会有一个"><a href="#后缀为-podspec-文件-pod-依赖库描述文件-每个-pod-都会有一个" class="headerlink" title="后缀为.podspec 文件 pod 依赖库描述文件,每个 pod 都会有一个"></a>后缀为.podspec 文件 pod 依赖库描述文件,每个 pod 都会有一个</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">podspec 文件内容</span><br><span class="line"></span><br><span class="line">Pod::Spec.new do |s|</span><br><span class="line"></span><br><span class="line">s.name        = &quot;QCMobileAdLibs&quot;</span><br><span class="line">s.version      = &quot;1.0.0&quot;</span><br><span class="line">s.summary      = &quot;A mobile advertisement SDK used on iOS.&quot;</span><br><span class="line">s.description  = &lt;&lt;-DESC</span><br><span class="line">It is a SDK used on iOS, which implement by Objective-C.</span><br><span class="line">DESC</span><br><span class="line"></span><br><span class="line">s.homepage    = &quot;https://github.com/songMW/QCMobileAdLibs&quot;</span><br><span class="line">s.license      = &quot;MIT&quot;</span><br><span class="line">s.author       = &#123; &quot;songs&quot; =&gt; &quot;songshoubing7664@163.com&quot; &#125;</span><br><span class="line">s.platform    = :iOS, &quot;8.0&quot;</span><br><span class="line">s.source      = &#123; :git =&gt; &quot;https://github.com/songMW/QCMobileAdLibs.git&quot;, :tag =&gt; &quot;#&#123;s.version&#125;&quot; &#125;</span><br><span class="line">s.source_files  = &quot;QCMobileAdLibs/**/*.&#123;h,m&#125;&quot;</span><br><span class="line">s.framework  = &quot;UIKit&quot;</span><br><span class="line">s.requires_arc = true</span><br><span class="line">s.module_name = &apos;QCMobileAdLibs&apos;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <h3 id="如何创建-pod-spec"><a href="#如何创建-pod-spec" class="headerlink" title="如何创建 pod spec"></a>如何创建 pod spec</h3><p>pod spec create QCMobileAdLibs</p>
 <h3 id="提交文件到-github"><a href="#提交文件到-github" class="headerlink" title="提交文件到 github"></a>提交文件到 github</h3><ol>
 <li>set the new version to 1.0.0</li>
@@ -476,7 +477,7 @@
 </ol>
 <p>-&gt;QCMobileAdLibs(1.0.0)</p>
 <p>QCMobileAdLibs passed validation</p>
-<ol>
+<ol start="4">
 <li>本地 git 仓库修改内容上传到 GitHub 仓库</li>
 </ol>
 <ul>
@@ -487,10 +488,10 @@
 <h3 id="注册-trunk"><a href="#注册-trunk" class="headerlink" title="注册 trunk"></a>注册 trunk</h3><p>pod trunk register ‘git 邮箱’ ‘用户名’；<br>pod trunk me 输出下面信息表示注册成功。</p>
 <h3 id="配置-PodSpec"><a href="#配置-PodSpec" class="headerlink" title="配置 PodSpec"></a>配置 PodSpec</h3><ol>
 <li>添加 podspec 描述文件；</li>
-<li>通过 trunk 推送 pod spec 文件。<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">tag</span> <span class="title">'1</span>.<span class="number">0.0</span>'</div><div class="line">git push --tags</div><div class="line">git add -A</div><div class="line">git commit -m <span class="string">"提交信息"</span></div><div class="line">git push origin <span class="literal">master</span></div></pre></td></tr></table></figure>
+<li>通过 trunk 推送 pod spec 文件。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git tag &apos;1.0.0&apos;</span><br><span class="line">git push --tags</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;提交信息&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>cd 到podSpec所在目录。<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">pod</span> trunk <span class="keyword">push </span>QCMobileAdLibs.podspec</div></pre></td></tr></table></figure></p>
+<p>cd 到podSpec所在目录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk push QCMobileAdLibs.podspec</span><br></pre></td></tr></table></figure></p>
 <p>执行完成后提交 git 团队审核, 一般2日。</p>
 <h3 id="更新本地-pod-依赖"><a href="#更新本地-pod-依赖" class="headerlink" title="更新本地 pod 依赖"></a>更新本地 pod 依赖</h3><p>在 trunk push 后, 先用”pod search”搜索下,若没有则执行”pod setup”进行本地依赖库更新；<br>cd到~/.cocoapods目录，用du -sh *来查看下载进度。</p>
 <h3 id="更新仓库"><a href="#更新仓库" class="headerlink" title="更新仓库"></a>更新仓库</h3><ol>
@@ -500,7 +501,7 @@
 <li>pod lib lint<br>-&gt; QCMobileAdLibs (1.0.1)<br>QCMobileAdLibs passed validation.</li>
 </ol>
 <p>出现上面的内容表示成功,此时 git 上的版本也已更新；</p>
-<ol>
+<ol start="5">
 <li>修改.podspec 中版本号；</li>
 <li>pod trunk push .podspec。</li>
 </ol>
@@ -534,8 +535,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/25/Objective-C/CrashCollection/崩溃日志/" rel="next" title="崩溃日志">
-                <i class="fa fa-chevron-left"></i> 崩溃日志
+              <a href="/2017/01/04/Hexo/hexo+github+域名绑定操作步骤/" rel="next" title="Hexo+gihub">
+                <i class="fa fa-chevron-left"></i> Hexo+gihub
               </a>
             
           </div>
@@ -544,8 +545,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/04/Hexo/hexo+github+域名绑定操作步骤/" rel="prev" title="Hexo+gihub">
-                Hexo+gihub <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/25/Objective-C/CrashCollection/崩溃日志/" rel="prev" title="崩溃日志">
+                崩溃日志 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

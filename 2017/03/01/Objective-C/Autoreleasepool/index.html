@@ -110,6 +110,7 @@
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/03/01/Objective-C/Autoreleasepool/index.html">
 <meta property="og:site_name" content="stack.blog">
 <meta property="og:description" content="main 函数main 函数是程序的入口, main 函数显示的内容:12345int main(int argc, char * argv[]) &amp;#123;    @autoreleasepool &amp;#123;        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-05-10T07:23:49.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Autoreleasepool">
@@ -440,13 +441,13 @@
       
 
       
-        <h2 id="main-函数"><a href="#main-函数" class="headerlink" title="main 函数"></a>main 函数</h2><p>main 函数是程序的入口, main 函数显示的内容:<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[]) &#123;</div><div class="line">    <span class="keyword">@autoreleasepool</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">UIApplicationMain</span>(argc, argv, <span class="literal">nil</span>, <span class="built_in">NSStringFromClass</span>([AppDelegate <span class="keyword">class</span>]));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h2 id="main-函数"><a href="#main-函数" class="headerlink" title="main 函数"></a>main 函数</h2><p>main 函数是程序的入口, main 函数显示的内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char * argv[]) &#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这里 <code>@autoreleasepool</code> block 中只包含了一行代, 这行代码将所有的事件、消息全部交给了 UIApplicationMain 来处理.</p>
 <font color="#FF0000">整个 iOS 的应用都是在这个自动释放池 block 中.</font>
 
-<h2 id="autoreleasepool"><a href="#autoreleasepool" class="headerlink" title="@autoreleasepool"></a>@autoreleasepool</h2><p><code>@autoreleasepool</code>是什么?<br><figure class="highlight coq"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clang -<span class="built_in">rewrite</span>-objc main.m</div></pre></td></tr></table></figure></p>
-<p>在生成的.mm源码中可以看到:<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[]) &#123;</div><div class="line">    <span class="comment">/* @autoreleasepool */</span> &#123; __AtAutoreleasePool __autoreleasepool; </div><div class="line">        <span class="keyword">return</span> <span class="built_in">UIApplicationMain</span>(argc, argv, __null, <span class="built_in">NSStringFromClass</span>(((Class (*)(<span class="keyword">id</span>, SEL))(<span class="keyword">void</span> *)objc_msgSend)((<span class="keyword">id</span>)objc_getClass(<span class="string">"AppDelegate"</span>), sel_registerName(<span class="string">"class"</span>))));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这里 <code>@autoreleasepool</code> 被注释掉, 取而代之的是 <code>__AtAutoreleasePool</code> , <code>__AtAutoreleasePool</code> 又是什么?<br>在.mm 中搜索发现踪迹:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> __declspec(dllimport) <span class="function"><span class="keyword">void</span> * <span class="title">objc_autoreleasePoolPush</span><span class="params">(<span class="keyword">void</span>)</span></span>;</div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> __declspec(dllimport) <span class="function"><span class="keyword">void</span> <span class="title">objc_autoreleasePoolPop</span><span class="params">(<span class="keyword">void</span> *)</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> __AtAutoreleasePool &#123;</div><div class="line">    __AtAutoreleasePool() &#123;atautoreleasepoolobj = objc_autoreleasePoolPush();&#125;</div><div class="line">    ~__AtAutoreleasePool() &#123;objc_autoreleasePoolPop(atautoreleasepoolobj);&#125;</div><div class="line">    <span class="keyword">void</span> * atautoreleasepoolobj;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="autoreleasepool"><a href="#autoreleasepool" class="headerlink" title="@autoreleasepool"></a>@autoreleasepool</h2><p><code>@autoreleasepool</code>是什么?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -rewrite-objc main.m</span><br></pre></td></tr></table></figure></p>
+<p>在生成的.mm源码中可以看到:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char * argv[]) &#123;</span><br><span class="line">    /* @autoreleasepool */ &#123; __AtAutoreleasePool __autoreleasepool; </span><br><span class="line">        return UIApplicationMain(argc, argv, __null, NSStringFromClass(((Class (*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass(&quot;AppDelegate&quot;), sel_registerName(&quot;class&quot;))));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里 <code>@autoreleasepool</code> 被注释掉, 取而代之的是 <code>__AtAutoreleasePool</code> , <code>__AtAutoreleasePool</code> 又是什么?<br>在.mm 中搜索发现踪迹:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">extern &quot;C&quot; __declspec(dllimport) void * objc_autoreleasePoolPush(void);</span><br><span class="line">extern &quot;C&quot; __declspec(dllimport) void objc_autoreleasePoolPop(void *);</span><br><span class="line"></span><br><span class="line">struct __AtAutoreleasePool &#123;</span><br><span class="line">    __AtAutoreleasePool() &#123;atautoreleasepoolobj = objc_autoreleasePoolPush();&#125;</span><br><span class="line">    ~__AtAutoreleasePool() &#123;objc_autoreleasePoolPop(atautoreleasepoolobj);&#125;</span><br><span class="line">    void * atautoreleasepoolobj;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p><code>__AtAutoreleasePool</code> 是一个结构体, </p>
 
       
@@ -478,8 +479,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/02/Objective-C/NSRun_X/NSRunloop/" rel="next" title="NSRunloop">
-                <i class="fa fa-chevron-left"></i> NSRunloop
+              <a href="/2017/02/16/Objective-C/Other/HttpRange/" rel="next" title="httpRange">
+                <i class="fa fa-chevron-left"></i> httpRange
               </a>
             
           </div>
@@ -488,8 +489,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/16/Objective-C/Other/HttpRange/" rel="prev" title="httpRange">
-                httpRange <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/02/Objective-C/NSRun_X/NSRunloop/" rel="prev" title="NSRunloop">
+                NSRunloop <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

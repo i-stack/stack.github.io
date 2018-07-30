@@ -110,6 +110,7 @@
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/08/22/Objective-C/AVFoundation/MoviePlayer/MPMoviePlayerViewController/index.html">
 <meta property="og:site_name" content="stack.blog">
 <meta property="og:description" content="首先贴上官方文档 先看下头文件:1234567891011121314@interface MPMoviePlayerViewController : UIViewController- (instancetype)initWithContentURL:(NSURL *)contentURL NS_DESIGNATED_INITIALIZER;@property (nonatomic, reado">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-05-10T07:20:56.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MPMoviePlayerViewController">
@@ -454,8 +455,8 @@
       
 
       
-        <p>首先贴上<a href="https://developer.apple.com/documentation/mediaplayer/mpmovieplayercontroller" target="_blank" rel="external">官方文档</a></p>
-<p>先看下头文件:<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@interface</span> <span class="attribute">MPMoviePlayerViewController </span>: UIViewController</div><div class="line"></div><div class="line">- (instancetype)<span class="attribute">initWithContentURL</span>:(NSURL *)contentURL NS_DESIGNATED_INITIALIZER;</div><div class="line"></div><div class="line"><span class="variable">@property</span> (nonatomic, readonly) MPMoviePlayerController *moviePlayer;</div><div class="line"></div><div class="line"><span class="variable">@end</span></div><div class="line"></div><div class="line"><span class="variable">@interface</span> UIViewController (MPMoviePlayerViewController)</div><div class="line"></div><div class="line">- (void)<span class="attribute">presentMoviePlayerViewControllerAnimated</span>:(MPMoviePlayerViewController *)moviePlayerViewController;</div><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">dismissMoviePlayerViewControllerAnimated</span>;</div><div class="line"></div><div class="line">@<span class="selector-tag">end</span></div></pre></td></tr></table></figure></p>
+        <p>首先贴上<a href="https://developer.apple.com/documentation/mediaplayer/mpmovieplayercontroller" target="_blank" rel="noopener">官方文档</a></p>
+<p>先看下头文件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@interface MPMoviePlayerViewController : UIViewController</span><br><span class="line"></span><br><span class="line">- (instancetype)initWithContentURL:(NSURL *)contentURL NS_DESIGNATED_INITIALIZER;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, readonly) MPMoviePlayerController *moviePlayer;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@interface UIViewController (MPMoviePlayerViewController)</span><br><span class="line"></span><br><span class="line">- (void)presentMoviePlayerViewControllerAnimated:(MPMoviePlayerViewController *)moviePlayerViewController;</span><br><span class="line">- (void)dismissMoviePlayerViewControllerAnimated;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>MPMoviePlayerViewController 继承 UIViewController;</li>
 <li>API很少, 主要是 moviePlayer 这个属性, 是对 MPMoviePlayerController 的一层封装;</li>
@@ -463,7 +464,7 @@
 <li>使用简单, 点击Done按钮会自动退出, 有进度条, 快进, 快退, 播放按钮.</li>
 <li>可以去自定义添加控件到播放页面, 不建议这么做, 可以直接使用 MPMoviePlayerController</li>
 </ul>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MPMoviePlayerViewController *mpMovieController = <span class="string">[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL fileURLWithPath:videoPath]]</span>;</div><div class="line">[vc presentViewController:mpMovieController animated:YES completion:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MPMoviePlayerViewController *mpMovieController = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL fileURLWithPath:videoPath]];</span><br><span class="line">[vc presentViewController:mpMovieController animated:YES completion:nil];</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -494,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/15/Objective-C/Other/堆和栈/" rel="next" title="堆和栈">
-                <i class="fa fa-chevron-left"></i> 堆和栈
+              <a href="/2017/08/16/Objective-C/Other/DS-Store/" rel="next" title="DS_Store">
+                <i class="fa fa-chevron-left"></i> DS_Store
               </a>
             
           </div>
@@ -504,8 +505,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/16/Objective-C/Other/DS-Store/" rel="prev" title="DS_Store">
-                DS_Store <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/15/Objective-C/Other/堆和栈/" rel="prev" title="堆和栈">
+                堆和栈 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

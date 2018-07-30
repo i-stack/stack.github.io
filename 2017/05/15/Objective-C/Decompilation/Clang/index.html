@@ -103,17 +103,18 @@
   <meta name="keywords" content="Objective-C," />
 
 
-<meta name="description" content="Clang是什么？Clang是一个C、C++、OC语言的轻量级编译器. Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的错误：1234main.m:9:9: fatal error: &apos;UIKit/UIKit.h&apos; file not found#import &amp;lt;UIKit/UIKit.h&amp;gt;^1 error generated. 解决">
+<meta name="description" content="Clang是什么？Clang是一个C、C++、OC语言的轻量级编译器. Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的错误：1234main.m:9:9: fatal error: &amp;apos;UIKit/UIKit.h&amp;apos; file not found#import &amp;lt;UIKit/UIKit.h&amp;gt;^1 error gen">
 <meta name="keywords" content="Objective-C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Clang">
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/05/15/Objective-C/Decompilation/Clang/index.html">
 <meta property="og:site_name" content="stack.blog">
-<meta property="og:description" content="Clang是什么？Clang是一个C、C++、OC语言的轻量级编译器. Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的错误：1234main.m:9:9: fatal error: &apos;UIKit/UIKit.h&apos; file not found#import &amp;lt;UIKit/UIKit.h&amp;gt;^1 error generated. 解决">
+<meta property="og:description" content="Clang是什么？Clang是一个C、C++、OC语言的轻量级编译器. Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的错误：1234main.m:9:9: fatal error: &amp;apos;UIKit/UIKit.h&amp;apos; file not found#import &amp;lt;UIKit/UIKit.h&amp;gt;^1 error gen">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-01-02T08:55:30.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Clang">
-<meta name="twitter:description" content="Clang是什么？Clang是一个C、C++、OC语言的轻量级编译器. Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的错误：1234main.m:9:9: fatal error: &apos;UIKit/UIKit.h&apos; file not found#import &amp;lt;UIKit/UIKit.h&amp;gt;^1 error generated. 解决">
+<meta name="twitter:description" content="Clang是什么？Clang是一个C、C++、OC语言的轻量级编译器. Clang的用途 重写OC源码转为C++clang -rewrite-objc xxx.m 遇到如下的错误：1234main.m:9:9: fatal error: &amp;apos;UIKit/UIKit.h&amp;apos; file not found#import &amp;lt;UIKit/UIKit.h&amp;gt;^1 error gen">
 
 
 
@@ -448,8 +449,8 @@
 
       
         <h2 id="Clang是什么？"><a href="#Clang是什么？" class="headerlink" title="Clang是什么？"></a>Clang是什么？</h2><p><code>Clang是一个C、C++、OC语言的轻量级编译器.</code></p>
-<h2 id="Clang的用途-重写OC源码转为C"><a href="#Clang的用途-重写OC源码转为C" class="headerlink" title="Clang的用途 重写OC源码转为C++"></a>Clang的用途 重写OC源码转为C++</h2><p><code>clang -rewrite-objc xxx.m</code> 遇到如下的错误：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">main.m:<span class="number">9</span>:<span class="number">9</span>: fatal <span class="keyword">error</span>: 'UIKit/UIKit.h' <span class="built_in">file</span> <span class="keyword">not</span> found</div><div class="line"><span class="comment">#import &lt;UIKit/UIKit.h&gt;</span></div><div class="line">^</div><div class="line"><span class="number">1</span> <span class="keyword">error</span> generated.</div></pre></td></tr></table></figure></p>
-<p>解决方法如下:<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clang -x objective-c -rewrite-objc -isysroot <span class="regexp">/Applications/</span>Xcode.app<span class="regexp">/Contents/</span>Developer<span class="regexp">/Platforms/i</span>PhoneSimulator.platform<span class="regexp">/Developer/</span>SDKs<span class="regexp">/iPhoneSimulator.sdk xxx.m</span></div></pre></td></tr></table></figure></p>
+<h2 id="Clang的用途-重写OC源码转为C"><a href="#Clang的用途-重写OC源码转为C" class="headerlink" title="Clang的用途 重写OC源码转为C++"></a>Clang的用途 重写OC源码转为C++</h2><p><code>clang -rewrite-objc xxx.m</code> 遇到如下的错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">main.m:9:9: fatal error: &apos;UIKit/UIKit.h&apos; file not found</span><br><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line">^</span><br><span class="line">1 error generated.</span><br></pre></td></tr></table></figure></p>
+<p>解决方法如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clang -x objective-c -rewrite-objc -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk xxx.m</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -480,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/30/Objective-C/Define_Const/" rel="next" title="宏(define)与常量(const)">
-                <i class="fa fa-chevron-left"></i> 宏(define)与常量(const)
+              <a href="/2017/05/10/Swift/Swift-TheBasic/" rel="next" title="TheBasic">
+                <i class="fa fa-chevron-left"></i> TheBasic
               </a>
             
           </div>
@@ -490,8 +491,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/10/Swift/Swift-TheBasic/" rel="prev" title="TheBasic">
-                TheBasic <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/30/Objective-C/Define_Const/" rel="prev" title="宏(define)与常量(const)">
+                宏(define)与常量(const) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

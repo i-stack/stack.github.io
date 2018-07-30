@@ -103,17 +103,18 @@
   <meta name="keywords" content="Objective-C," />
 
 
-<meta name="description" content="跳转到设置页面info.plist 中添加 URL types 并设置 URL Schemesstring 类型 prefs12345NSURL *url = [NSURL URLWithString:@&quot;prefs:root=WIFI&quot;];if ([[UIApplication sharedApplication] canOpenURL:url])&amp;#123;    [[UIApplicatio">
+<meta name="description" content="跳转到设置页面info.plist 中添加 URL types 并设置 URL Schemesstring 类型 prefs12345NSURL *url = [NSURL URLWithString:@&amp;quot;prefs:root=WIFI&amp;quot;];if ([[UIApplication sharedApplication] canOpenURL:url])&amp;#123;    [[UI">
 <meta name="keywords" content="Objective-C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WIFI热点开发">
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/12/08/Objective-C/WIFI热点开发/index.html">
 <meta property="og:site_name" content="stack.blog">
-<meta property="og:description" content="跳转到设置页面info.plist 中添加 URL types 并设置 URL Schemesstring 类型 prefs12345NSURL *url = [NSURL URLWithString:@&quot;prefs:root=WIFI&quot;];if ([[UIApplication sharedApplication] canOpenURL:url])&amp;#123;    [[UIApplicatio">
+<meta property="og:description" content="跳转到设置页面info.plist 中添加 URL types 并设置 URL Schemesstring 类型 prefs12345NSURL *url = [NSURL URLWithString:@&amp;quot;prefs:root=WIFI&amp;quot;];if ([[UIApplication sharedApplication] canOpenURL:url])&amp;#123;    [[UI">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-05-10T07:22:52.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WIFI热点开发">
-<meta name="twitter:description" content="跳转到设置页面info.plist 中添加 URL types 并设置 URL Schemesstring 类型 prefs12345NSURL *url = [NSURL URLWithString:@&quot;prefs:root=WIFI&quot;];if ([[UIApplication sharedApplication] canOpenURL:url])&amp;#123;    [[UIApplicatio">
+<meta name="twitter:description" content="跳转到设置页面info.plist 中添加 URL types 并设置 URL Schemesstring 类型 prefs12345NSURL *url = [NSURL URLWithString:@&amp;quot;prefs:root=WIFI&amp;quot;];if ([[UIApplication sharedApplication] canOpenURL:url])&amp;#123;    [[UI">
 
 
 
@@ -440,11 +441,11 @@
       
 
       
-        <h2 id="跳转到设置页面"><a href="#跳转到设置页面" class="headerlink" title="跳转到设置页面"></a>跳转到设置页面</h2><p>info.plist 中添加 URL types 并设置 URL Schemes<br>string 类型 prefs<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"prefs:root=WIFI"</span>];</div><div class="line"><span class="keyword">if</span> ([[<span class="built_in">UIApplication</span> sharedApplication] canOpenURL:url])</div><div class="line">&#123;</div><div class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] openURL:url];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h2 id="跳转到设置页面"><a href="#跳转到设置页面" class="headerlink" title="跳转到设置页面"></a>跳转到设置页面</h2><p>info.plist 中添加 URL types 并设置 URL Schemes<br>string 类型 prefs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSURL *url = [NSURL URLWithString:@&quot;prefs:root=WIFI&quot;];</span><br><span class="line">if ([[UIApplication sharedApplication] canOpenURL:url])</span><br><span class="line">&#123;</span><br><span class="line">    [[UIApplication sharedApplication] openURL:url];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="弹出WIFI提示框"><a href="#弹出WIFI提示框" class="headerlink" title="弹出WIFI提示框"></a>弹出WIFI提示框</h2><ol>
 <li>键名：Application uses Wi-Fi 值：YES；</li>
 <li>键名：SBUsesNetwork 值：3；</li>
-<li>iOS9需要向苹果申请授权 <a href="https://developer.apple.com//contact/network-extension" target="_blank" rel="external">苹果授权地址</a>；</li>
+<li>iOS9需要向苹果申请授权 <a href="https://developer.apple.com//contact/network-extension" target="_blank" rel="noopener">苹果授权地址</a>；</li>
 <li>iOS9以下由于受苹果系统限制，不能获取到和设置列表中那样的 WIFI 列表，采用上传当前地理位置从服务器获取开放热点。</li>
 </ol>
 <h2 id="iOS9以下安装描述文件实现："><a href="#iOS9以下安装描述文件实现：" class="headerlink" title="iOS9以下安装描述文件实现："></a>iOS9以下安装描述文件实现：</h2><ol>
@@ -484,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/04/Objective-C/CrashCollection/搜索不到解决方法/" rel="next" title="pod搜索不到解决方法">
-                <i class="fa fa-chevron-left"></i> pod搜索不到解决方法
+              <a href="/2017/11/26/Objective-C/Other/URL到页面加载/" rel="next" title="URL到页面加载">
+                <i class="fa fa-chevron-left"></i> URL到页面加载
               </a>
             
           </div>
@@ -494,8 +495,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/26/Objective-C/Other/URL到页面加载/" rel="prev" title="URL到页面加载">
-                URL到页面加载 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/04/Objective-C/CrashCollection/搜索不到解决方法/" rel="prev" title="pod搜索不到解决方法">
+                pod搜索不到解决方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

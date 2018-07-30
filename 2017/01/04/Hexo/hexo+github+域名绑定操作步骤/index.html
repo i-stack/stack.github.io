@@ -110,6 +110,7 @@
 <meta property="og:url" content="https://github.com/songMW/stack.github.io/2017/01/04/Hexo/hexo+github+域名绑定操作步骤/index.html">
 <meta property="og:site_name" content="stack.blog">
 <meta property="og:description" content="环境配置安装Node.js点击进入 Node.js官网 下载安装包, Mac也可以使用Homebrew直接构建环境;这里使用的是直接从官网下载安装, 有兴趣的童鞋可以试着尝试使用Homebrew;  打开终端使用node –version 查看是否安装成功  123IDFA:~ stack$ node --versionv6.10.2IDFA:~ stack$ 安装Git点击进入 Git官网 配置">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-02-01T06:25:44.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+gihub">
@@ -440,22 +441,22 @@
       
 
       
-        <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>点击进入 <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js官网</a> 下载安装包, Mac也可以使用Homebrew直接构建环境;<br>这里使用的是直接从官网下载安装, 有兴趣的童鞋可以试着尝试使用Homebrew;</p>
+        <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>点击进入 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js官网</a> 下载安装包, Mac也可以使用Homebrew直接构建环境;<br>这里使用的是直接从官网下载安装, 有兴趣的童鞋可以试着尝试使用Homebrew;</p>
 <ul>
 <li>打开终端使用node –version 查看是否安装成功</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IDFA:~ stack$ node --version</div><div class="line">v6<span class="number">.10</span><span class="number">.2</span></div><div class="line">IDFA:~ stack$</div></pre></td></tr></table></figure>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>点击进入 <a href="https://git-scm.com/downloads" target="_blank" rel="external">Git官网</a> 配置git环境, 网上教程很多</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IDFA:~ stack$ node --version</span><br><span class="line">v6<span class="number">.10</span><span class="number">.2</span></span><br><span class="line">IDFA:~ stack$</span><br></pre></td></tr></table></figure>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>点击进入 <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git官网</a> 配置git环境, 网上教程很多</p>
 <ul>
 <li>同样使用 git –version 查看是否安装成功</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IDFA:~ stack$ git --version</div><div class="line">git version <span class="number">2.11</span><span class="number">.0</span> (Apple Git<span class="number">-81</span>)</div><div class="line">IDFA:~ stack$</div></pre></td></tr></table></figure>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>点击进入 <a href="https://hexo.io/" target="_blank" rel="external">Hexo官网</a>, 由于已经安装Node, 可以在终端直接使用</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IDFA:~ stack$ git --version</span><br><span class="line">git version <span class="number">2.11</span><span class="number">.0</span> (Apple Git<span class="number">-81</span>)</span><br><span class="line">IDFA:~ stack$</span><br></pre></td></tr></table></figure>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>点击进入 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo官网</a>, 由于已经安装Node, 可以在终端直接使用</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <ul>
 <li>同样使用 hexo –version 查看是否安装成功</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">IDFA:~ stack$ hexo --version</div><div class="line">hexo-cli: <span class="number">1.0</span><span class="number">.2</span></div><div class="line">os: Darwin <span class="number">16.5</span><span class="number">.0</span> darwin x64</div><div class="line">http_parser: <span class="number">2.7</span><span class="number">.0</span></div><div class="line">node: <span class="number">6.10</span><span class="number">.2</span></div><div class="line">v8: <span class="number">5.1</span><span class="number">.281</span><span class="number">.98</span></div><div class="line">uv: <span class="number">1.9</span><span class="number">.1</span></div><div class="line">zlib: <span class="number">1.2</span><span class="number">.11</span></div><div class="line">ares: <span class="number">1.10</span><span class="number">.1</span>-DEV</div><div class="line">icu: <span class="number">58.2</span></div><div class="line">modules: <span class="number">48</span></div><div class="line">openssl: <span class="number">1.0</span><span class="number">.2</span>k</div><div class="line">IDFA:~ stack$</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">IDFA:~ stack$ hexo --version</span><br><span class="line">hexo-cli: <span class="number">1.0</span><span class="number">.2</span></span><br><span class="line">os: Darwin <span class="number">16.5</span><span class="number">.0</span> darwin x64</span><br><span class="line">http_parser: <span class="number">2.7</span><span class="number">.0</span></span><br><span class="line">node: <span class="number">6.10</span><span class="number">.2</span></span><br><span class="line">v8: <span class="number">5.1</span><span class="number">.281</span><span class="number">.98</span></span><br><span class="line">uv: <span class="number">1.9</span><span class="number">.1</span></span><br><span class="line">zlib: <span class="number">1.2</span><span class="number">.11</span></span><br><span class="line">ares: <span class="number">1.10</span><span class="number">.1</span>-DEV</span><br><span class="line">icu: <span class="number">58.2</span></span><br><span class="line">modules: <span class="number">48</span></span><br><span class="line">openssl: <span class="number">1.0</span><span class="number">.2</span>k</span><br><span class="line">IDFA:~ stack$</span><br></pre></td></tr></table></figure>
 <h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><h3 id="新建github项目"><a href="#新建github项目" class="headerlink" title="新建github项目"></a>新建github项目</h3><ol>
 <li>项目命名为youname.github.io即可(youname自定义)</li>
 <li>clone项目到本地 —&gt; 别名blog</li>
@@ -465,34 +466,34 @@
 <li>初始化</li>
 <li>install <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a></li>
 </ol>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>创建完成之后, 文件是这样的<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>创建完成之后, 文件是这样的<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure></p>
 <p><strong> 开始配置 </strong></p>
 <ul>
-<li>_config.yml <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="external">网页配置文件</a> 可以配置更多的设置 </li>
+<li>_config.yml <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="noopener">网页配置文件</a> 可以配置更多的设置 </li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># URL</span></div><div class="line"><span class="meta">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></div><div class="line">url: https:<span class="comment">//github.com/songMW/stack.github.io</span></div><div class="line"><span class="meta"># root: </span></div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure>
-<h4 id="注-若CSS样式不起作用-可以注释掉root"><a href="#注-若CSS样式不起作用-可以注释掉root" class="headerlink" title="注: 若CSS样式不起作用, 可以注释掉root:"></a>注: 若CSS样式不起作用, 可以注释掉root:</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># Deployment</span></div><div class="line"><span class="meta">## Docs: https://hexo.io/docs/deployment.html</span></div><div class="line">deploy:</div><div class="line">type: git</div><div class="line">repo: https:<span class="comment">//github.com/songMW/stack.github.io.git</span></div><div class="line">branch: master</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># URL</span></span><br><span class="line"><span class="meta">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line">url: https:<span class="comment">//github.com/songMW/stack.github.io</span></span><br><span class="line"><span class="meta"># root: </span></span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
+<h4 id="注-若CSS样式不起作用-可以注释掉root"><a href="#注-若CSS样式不起作用-可以注释掉root" class="headerlink" title="注: 若CSS样式不起作用, 可以注释掉root:"></a>注: 若CSS样式不起作用, 可以注释掉root:</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Deployment</span></span><br><span class="line"><span class="meta">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: https:<span class="comment">//github.com/songMW/stack.github.io.git</span></span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
 <p>配置完成之后 hexo server 测试一下效果</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">IDFA:stack.github.io stack$ hexo server --config _config.yml</div><div class="line">INFO  Start processing</div><div class="line">INFO  Hexo is running at http:<span class="comment">//localhost:4000/stack.github.io/. Press Ctrl+C to stop.</span></div><div class="line">^<span class="built_in">CINFO</span>  Have a nice day</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IDFA:stack.github.io stack$ hexo server --config _config.yml</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:<span class="comment">//localhost:4000/stack.github.io/. Press Ctrl+C to stop.</span></span><br><span class="line">^<span class="built_in">CINFO</span>  Have a nice day</span><br></pre></td></tr></table></figure>
 <p>打开本地网页就是终端上得地址即可看到效果</p>
 <p>##到这里Hexo就配置好了,下面就是如何用Hexo写博客了<br>当打开地址时会有自动生成的Hello World博客, 可以参考.</p>
-<h3 id="创建一个新页面-博客内容-帖子-无所谓了随便叫"><a href="#创建一个新页面-博客内容-帖子-无所谓了随便叫" class="headerlink" title="创建一个新页面/博客内容/帖子/无所谓了随便叫"></a>创建一个新页面/博客内容/帖子/无所谓了随便叫</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
+<h3 id="创建一个新页面-博客内容-帖子-无所谓了随便叫"><a href="#创建一个新页面-博客内容-帖子-无所谓了随便叫" class="headerlink" title="创建一个新页面/博客内容/帖子/无所谓了随便叫"></a>创建一个新页面/博客内容/帖子/无所谓了随便叫</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>layout 默认是 post, 在 _config.yml 中默认的 layout 是 defalut_layout</li>
 <li><code>&lt;title&gt;</code> 是标题名, 注意:不要带&lt;&gt;, 否则会语法报错 -bash: syntax error near unexpected token newline</li>
 </ul>
-<p>这里是 <a href="http://www.tuicool.com/articles/I36zYr" target="_blank" rel="external">hexo命令及Markdown语法</a> 可以参考!</p>
-<h3 id="页面写完之后-需要生成一个静态网页"><a href="#页面写完之后-需要生成一个静态网页" class="headerlink" title="页面写完之后 需要生成一个静态网页"></a>页面写完之后 需要生成一个静态网页</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>这里是 <a href="http://www.tuicool.com/articles/I36zYr" target="_blank" rel="noopener">hexo命令及Markdown语法</a> 可以参考!</p>
+<h3 id="页面写完之后-需要生成一个静态网页"><a href="#页面写完之后-需要生成一个静态网页" class="headerlink" title="页面写完之后 需要生成一个静态网页"></a>页面写完之后 需要生成一个静态网页</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>使用 –watch 命令可以查看改变的内容</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate --watch</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate --watch</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>最后一步就是部署到 Github 上</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo generate --deploy</div><div class="line">$ hexo deploy --generate</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate --deploy</span><br><span class="line">$ hexo deploy --generate</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>上面两个命令是一样的<br>接下来是输入Github的用户名和密码<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INFO  Deploy done: git</div></pre></td></tr></table></figure></p>
+<p>上面两个命令是一样的<br>接下来是输入Github的用户名和密码<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Deploy done: git</span><br></pre></td></tr></table></figure></p>
 <p>说明部署完成</p>
 <h2 id="就先写到这-第一次记录-还会遇到很多问题-到时在补充"><a href="#就先写到这-第一次记录-还会遇到很多问题-到时在补充" class="headerlink" title="就先写到这, 第一次记录, 还会遇到很多问题, 到时在补充!"></a>就先写到这, 第一次记录, 还会遇到很多问题, 到时在补充!</h2>
       
@@ -524,8 +525,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/18/Objective-C/Other/CocoaPods制作/" rel="next" title="CocoaPods制作">
-                <i class="fa fa-chevron-left"></i> CocoaPods制作
+              <a href="/2017/01/02/Hexo/hexo Quick Start/" rel="next" title="Hexo Quick Start">
+                <i class="fa fa-chevron-left"></i> Hexo Quick Start
               </a>
             
           </div>
@@ -534,8 +535,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/02/Hexo/hexo Quick Start/" rel="prev" title="Hexo Quick Start">
-                Hexo Quick Start <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/18/Objective-C/Other/CocoaPods制作/" rel="prev" title="CocoaPods制作">
+                CocoaPods制作 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
